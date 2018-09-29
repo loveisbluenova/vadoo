@@ -8,7 +8,7 @@ class SimplePie_Feed_Image_URL_Test_RSS_091_Userland_URL extends SimplePie_Feed_
 '<rss version="0.91">
 	<channel>
 		<image>
-			<url>http://example.com/</url>
+			<url>https://example.com/</url>
 		</image>
 	</channel>
 </rss>';
@@ -16,7 +16,7 @@ class SimplePie_Feed_Image_URL_Test_RSS_091_Userland_URL extends SimplePie_Feed_
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

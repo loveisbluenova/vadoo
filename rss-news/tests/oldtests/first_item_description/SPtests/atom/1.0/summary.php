@@ -5,7 +5,7 @@ class SimplePie_First_Item_Description_Test_Atom_10_Summary extends SimplePie_Fi
 	function data()
 	{
 		$this->data = 
-'<feed xmlns="http://www.w3.org/2005/Atom">
+'<feed xmlns="https://www.w3.org/2005/Atom">
 	<entry>
 		<summary>Item Description</summary>
 	</entry>

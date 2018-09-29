@@ -5,7 +5,7 @@ class SimplePie_First_Item_Contributor_Name_Test_RSS_20_Atom_03_Name extends Sim
 	function data()
 	{
 		$this->data = 
-'<rss version="2.0" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="2.0" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<item>
 			<a:contributor>

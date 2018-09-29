@@ -8,5 +8,5 @@ In this folder you'll find a few Flash 8 files.  The only one of you might want 
   * Change the font
 
 More information about sIFR 3 can be found here:
-  * http://dev.novemberborn.net/sifr3/
-  * http://wiki.novemberborn.net/sifr3/
+  * https://dev.novemberborn.net/sifr3/
+  * https://wiki.novemberborn.net/sifr3/

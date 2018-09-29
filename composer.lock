@@ -59,7 +59,7 @@
                 }
             ],
             "description": "The PHP micro-framework for Command line tools based on the Symfony2 Components",
-            "homepage": "http://cilex.github.com",
+            "homepage": "https://cilex.github.com",
             "keywords": [
                 "cli",
                 "microframework"
@@ -108,7 +108,7 @@
                 {
                     "name": "Beau Simensen",
                     "email": "beau@dflydev.com",
-                    "homepage": "http://beausimensen.com"
+                    "homepage": "https://beausimensen.com"
                 },
                 {
                     "name": "Mike van Riel",
@@ -185,7 +185,7 @@
                 }
             ],
             "description": "Docblock Annotations Parser",
-            "homepage": "http://www.doctrine-project.org",
+            "homepage": "https://www.doctrine-project.org",
             "keywords": [
                 "annotations",
                 "docblock",
@@ -236,7 +236,7 @@
                 {
                     "name": "Marco Pivetta",
                     "email": "ocramius@gmail.com",
-                    "homepage": "http://ocramius.github.com/"
+                    "homepage": "https://ocramius.github.com/"
                 }
             ],
             "description": "A small, lightweight utility to instantiate objects in PHP without invoking their constructors",
@@ -294,7 +294,7 @@
                 }
             ],
             "description": "Base library for a lexer that can be used in Top-Down, Recursive Descent Parsers.",
-            "homepage": "http://www.doctrine-project.org",
+            "homepage": "https://www.doctrine-project.org",
             "keywords": [
                 "lexer",
                 "parser"
@@ -332,11 +332,11 @@
                 {
                     "name": "Emanuil Rusev",
                     "email": "hello@erusev.com",
-                    "homepage": "http://erusev.com"
+                    "homepage": "https://erusev.com"
                 }
             ],
             "description": "Parser for Markdown.",
-            "homepage": "http://parsedown.org",
+            "homepage": "https://parsedown.org",
             "keywords": [
                 "markdown",
                 "parser"
@@ -390,12 +390,12 @@
                 {
                     "name": "Kevin Herrera",
                     "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io/",
+                    "homepage": "https://kevin.herrera.io/",
                     "role": "Developer"
                 }
             ],
             "description": "A library for simplifying JSON linting and validation.",
-            "homepage": "http://herrera-io.github.com/php-json",
+            "homepage": "https://herrera-io.github.com/php-json",
             "keywords": [
                 "json",
                 "lint",
@@ -451,12 +451,12 @@
                 {
                     "name": "Kevin Herrera",
                     "email": "kevin@herrera.io",
-                    "homepage": "http://kevin.herrera.io/",
+                    "homepage": "https://kevin.herrera.io/",
                     "role": "Developer"
                 }
             ],
             "description": "A library for self-updating Phars.",
-            "homepage": "http://herrera-io.github.com/php-phar-update",
+            "homepage": "https://herrera-io.github.com/php-phar-update",
             "keywords": [
                 "phar",
                 "update"
@@ -610,7 +610,7 @@
                 }
             ],
             "description": "Library for (de-)serializing data of any complexity; supports XML, JSON, and YAML.",
-            "homepage": "http://jmsyst.com/libs/serializer",
+            "homepage": "https://jmsyst.com/libs/serializer",
             "keywords": [
                 "deserialization",
                 "jaxb",
@@ -722,11 +722,11 @@
                 {
                     "name": "Kevin Herrera",
                     "email": "me@kevingh.com",
-                    "homepage": "http://www.kevingh.com/"
+                    "homepage": "https://www.kevingh.com/"
                 }
             ],
             "description": "A parsing and comparison library for semantic versioning.",
-            "homepage": "http://github.com/kherge/Version",
+            "homepage": "https://github.com/kherge/Version",
             "abandoned": true,
             "time": "2012-08-16T17:13:03+00:00"
         },
@@ -796,11 +796,11 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
-            "homepage": "http://github.com/Seldaek/monolog",
+            "homepage": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
                 "logging",
@@ -936,7 +936,7 @@
                 "MIT"
             ],
             "description": "Fileset component for collecting a set of files given directories and file paths",
-            "homepage": "http://www.phpdoc.org",
+            "homepage": "https://www.phpdoc.org",
             "keywords": [
                 "files",
                 "fileset",
@@ -1064,7 +1064,7 @@
                 "MIT"
             ],
             "description": "Documentation Generator for PHP",
-            "homepage": "http://www.phpdoc.org",
+            "homepage": "https://www.phpdoc.org",
             "keywords": [
                 "api",
                 "application",
@@ -1119,7 +1119,7 @@
                 "MIT"
             ],
             "description": "Reflection library to do Static Analysis for PHP Projects",
-            "homepage": "http://www.phpdoc.org",
+            "homepage": "https://www.phpdoc.org",
             "keywords": [
                 "phpDocumentor",
                 "phpdoc",
@@ -1271,7 +1271,7 @@
                 {
                     "name": "Konstantin Kudryashov",
                     "email": "ever.zet@gmail.com",
-                    "homepage": "http://everzet.com"
+                    "homepage": "https://everzet.com"
                 },
                 {
                     "name": "Marcello Duarte",
@@ -1702,12 +1702,12 @@
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
+                    "homepage": "https://fabien.potencier.org",
                     "role": "Lead Developer"
                 }
             ],
             "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
-            "homepage": "http://pimple.sensiolabs.org",
+            "homepage": "https://pimple.sensiolabs.org",
             "keywords": [
                 "container",
                 "dependency injection"
@@ -1749,7 +1749,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
-                    "homepage": "http://www.php-fig.org/"
+                    "homepage": "https://www.php-fig.org/"
                 }
             ],
             "description": "Common interface for logging libraries",
@@ -1817,7 +1817,7 @@
                 }
             ],
             "description": "Provides the functionality to compare PHP values for equality",
-            "homepage": "http://www.github.com/sebastianbergmann/comparator",
+            "homepage": "https://www.github.com/sebastianbergmann/comparator",
             "keywords": [
                 "comparator",
                 "compare",
@@ -1919,7 +1919,7 @@
                 }
             ],
             "description": "Provides functionality to handle HHVM/PHP environments",
-            "homepage": "http://www.github.com/sebastianbergmann/environment",
+            "homepage": "https://www.github.com/sebastianbergmann/environment",
             "keywords": [
                 "Xdebug",
                 "environment",
@@ -1987,7 +1987,7 @@
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
-            "homepage": "http://www.github.com/sebastianbergmann/exporter",
+            "homepage": "https://www.github.com/sebastianbergmann/exporter",
             "keywords": [
                 "export",
                 "exporter"
@@ -2039,7 +2039,7 @@
                 }
             ],
             "description": "Snapshotting of global state",
-            "homepage": "http://www.github.com/sebastianbergmann/global-state",
+            "homepage": "https://www.github.com/sebastianbergmann/global-state",
             "keywords": [
                 "global state"
             ],
@@ -2095,7 +2095,7 @@
                 }
             ],
             "description": "Provides functionality to recursively process PHP variables",
-            "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
+            "homepage": "https://www.github.com/sebastianbergmann/recursion-context",
             "time": "2016-10-03T07:41:43+00:00"
         },
         {
@@ -2170,7 +2170,7 @@
                 {
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
-                    "homepage": "http://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "JSON Linter",
@@ -2898,7 +2898,7 @@
                 {
                     "name": "Fabien Potencier",
                     "email": "fabien@symfony.com",
-                    "homepage": "http://fabien.potencier.org",
+                    "homepage": "https://fabien.potencier.org",
                     "role": "Lead Developer"
                 },
                 {
@@ -2908,12 +2908,12 @@
                 },
                 {
                     "name": "Twig Team",
-                    "homepage": "http://twig.sensiolabs.org/contributors",
+                    "homepage": "https://twig.sensiolabs.org/contributors",
                     "role": "Contributors"
                 }
             ],
             "description": "Twig, the flexible, fast, and secure template language for PHP",
-            "homepage": "http://twig.sensiolabs.org",
+            "homepage": "https://twig.sensiolabs.org",
             "keywords": [
                 "templating"
             ],

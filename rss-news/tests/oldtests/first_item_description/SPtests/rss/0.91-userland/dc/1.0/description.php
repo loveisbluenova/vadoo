@@ -5,7 +5,7 @@ class SimplePie_First_Item_Description_Test_RSS_091_Userland_DC_10_Description e
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:dc="http://purl.org/dc/elements/1.0/">
+'<rss version="0.91" xmlns:dc="https://purl.org/dc/elements/1.0/">
 	<channel>
 		<item>
 			<dc:description>Item Description</dc:description>

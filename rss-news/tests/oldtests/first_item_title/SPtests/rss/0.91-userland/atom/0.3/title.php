@@ -5,7 +5,7 @@ class SimplePie_First_Item_Title_Test_RSS_091_Userland_Atom_03_Title extends Sim
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="0.91" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<item>
 			<a:title>Item Title</a:title>

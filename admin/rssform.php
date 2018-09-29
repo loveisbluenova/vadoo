@@ -8,5 +8,5 @@ $connwrite = dbConnect('write', 'pdo');
 include 'PHP/logincode.php';
 include 'PHP/basic.php';
     //include 'PHP/visits.php';
-$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$actual_link = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 include 'PHP/addrssnewscode.php';

@@ -9,7 +9,7 @@ $connwrite = dbConnect('write', 'pdo');
 include '../PHP/basic.php';
 include '../PHP/registeruser.php';
 include '../PHP/loginuser.php';
-$base_url='http://gagogirls.com/';
+$base_url='https://gagogirls.com/';
 ?>
 <?php
 include('tpl/head.php');

@@ -16,7 +16,7 @@ class Config
     /**
      * Decode JSON Response as associative Array
      *
-     * @see http://php.net/manual/en/function.json-decode.php
+     * @see https://php.net/manual/en/function.json-decode.php
      *
      * @var bool
      */

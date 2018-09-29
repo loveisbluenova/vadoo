@@ -5,7 +5,7 @@ class SimplePie_First_Item_Title_Test_Bug_179_Post_10_Test_2 extends SimplePie_F
 	function data()
 	{
 		$this->data = 
-'<feed xmlns="http://www.w3.org/2005/Atom">
+'<feed xmlns="https://www.w3.org/2005/Atom">
 	<entry>
 		<title>Title 2</title>
 		<updated>2003-12-14T18:30:02Z</updated>

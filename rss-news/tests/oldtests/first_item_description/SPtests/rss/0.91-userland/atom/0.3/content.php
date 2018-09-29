@@ -5,7 +5,7 @@ class SimplePie_First_Item_Description_Test_RSS_091_Userland_Atom_03_Content ext
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="0.91" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<item>
 			<a:content>Item Description</a:content>

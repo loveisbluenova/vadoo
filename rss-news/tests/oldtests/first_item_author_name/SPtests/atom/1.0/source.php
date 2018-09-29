@@ -5,7 +5,7 @@ class SimplePie_First_Item_Author_Name_Atom_10_Inheritance_Source_Name extends S
 	function data()
 	{
 		$this->data = 
-'<feed xmlns="http://www.w3.org/2005/Atom">
+'<feed xmlns="https://www.w3.org/2005/Atom">
 	<entry>
 		<source>
 			<author>

@@ -5,11 +5,11 @@ class SimplePie_First_Item_ID_Test_RSS_091_Netscape_DC_11_Identifier extends Sim
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
-<rss version="0.91" xmlns:dc="http://purl.org/dc/elements/1.1/">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91" xmlns:dc="https://purl.org/dc/elements/1.1/">
 	<channel>
 		<item>
-			<dc:identifier>http://example.com/</dc:identifier>
+			<dc:identifier>https://example.com/</dc:identifier>
 		</item>
 	</channel>
 </rss>';
@@ -17,7 +17,7 @@ class SimplePie_First_Item_ID_Test_RSS_091_Netscape_DC_11_Identifier extends Sim
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

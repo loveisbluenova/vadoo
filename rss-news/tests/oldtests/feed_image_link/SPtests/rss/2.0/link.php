@@ -8,7 +8,7 @@ class SimplePie_Feed_Image_Link_Test_RSS_20_Link extends SimplePie_Feed_Image_Li
 '<rss version="2.0">
 	<channel>
 		<image>
-			<link>http://example.com/</link>
+			<link>https://example.com/</link>
 		</image>
 	</channel>
 </rss>';
@@ -16,7 +16,7 @@ class SimplePie_Feed_Image_Link_Test_RSS_20_Link extends SimplePie_Feed_Image_Li
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

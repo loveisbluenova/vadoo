@@ -3,7 +3,7 @@
 
 <!DOCTYPE html>
 <html lang="en" class="">
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
+  <head prefix="og: https://ogp.me/ns# fb: https://ogp.me/ns/fb# object: https://ogp.me/ns/object# article: https://ogp.me/ns/article# profile: https://ogp.me/ns/profile#">
     <meta charset='utf-8'>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="Content-Language" content="en">
@@ -121,7 +121,7 @@
 
 
       <div id="start-of-content" class="accessibility-aid"></div>
-          <div class="site" itemscope itemtype="http://schema.org/WebPage">
+          <div class="site" itemscope itemtype="https://schema.org/WebPage">
     <div id="js-flash-container">
       
     </div>
@@ -170,7 +170,7 @@
     </li>
 </ul>
 
-        <h1 itemscope itemtype="http://data-vocabulary.org/Breadcrumb" class="entry-title public">
+        <h1 itemscope itemtype="https://data-vocabulary.org/Breadcrumb" class="entry-title public">
           <span class="mega-octicon octicon-repo"></span>
           <span class="author"><a href="/googleanalytics" class="url fn" itemprop="url" rel="author"><span itemprop="title">googleanalytics</span></a></span><!--
        --><span class="path-divider">/</span><!--
@@ -377,7 +377,7 @@
   </div>
 
   <div class="breadcrumb js-zeroclipboard-target">
-    <span class='repo-root js-repo-root'><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">ga-dev-tools</span></a></span></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools/tree/master/assets" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">assets</span></a></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools/tree/master/assets/javascript" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">javascript</span></a></span><span class="separator">/</span><span itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools/tree/master/assets/javascript/embed-api" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">embed-api</span></a></span><span class="separator">/</span><strong class="final-path">active-users.js</strong>
+    <span class='repo-root js-repo-root'><span itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">ga-dev-tools</span></a></span></span><span class="separator">/</span><span itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools/tree/master/assets" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">assets</span></a></span><span class="separator">/</span><span itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools/tree/master/assets/javascript" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">javascript</span></a></span><span class="separator">/</span><span itemscope="" itemtype="https://data-vocabulary.org/Breadcrumb"><a href="/googleanalytics/ga-dev-tools/tree/master/assets/javascript/embed-api" class="" data-branch="master" data-direction="back" data-pjax="true" itemscope="url"><span itemprop="title">embed-api</span></a></span><span class="separator">/</span><strong class="final-path">active-users.js</strong>
   </div>
 </div>
 
@@ -472,7 +472,7 @@
       </tr>
       <tr>
         <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code js-file-line"><span class="pl-c">//     http://www.apache.org/licenses/LICENSE-2.0</span></td>
+        <td id="LC7" class="blob-code js-file-line"><span class="pl-c">//     https://www.apache.org/licenses/LICENSE-2.0</span></td>
       </tr>
       <tr>
         <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>

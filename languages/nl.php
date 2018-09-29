@@ -426,7 +426,7 @@ $title_tag_here='titel tag hier (eerste sleutelwoord - tweede trefwoord | derde 
 $add_title_tag_here='Voeg de markering van de titel van uw nieuws hier';
 $news_source_name='De naam van de bron van het nieuws (Ex: BBC)';
 $add_news_source='Uw nieuwsbron hier toevoegen';
-$news_source_url='Nieuws bron url (Ex: http://www.bbc.com/some-news)';
+$news_source_url='Nieuws bron url (Ex: https://www.bbc.com/some-news)';
 $add_news_source_url='Uw nieuws bron url hier toevoegen';
 $write_your_news_here='Schrijf uw nieuws hier...';
  

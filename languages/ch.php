@@ -404,7 +404,7 @@ $title_tag_here='标题 标签在这里 (第一个关键字-第二关键字 | �
 $add_title_tag_here='添加你的新闻标题标签';
 $news_source_name=' 新闻源名称 (Ex: BBC)';
 $add_news_source='添加您的新闻源在这里';
-$news_source_url=' 新闻源 url (Ex: http://www.bbc.com/some-news)';
+$news_source_url=' 新闻源 url (Ex: https://www.bbc.com/some-news)';
 
 $add_news_source_url='添加您的新闻源 url';
 $write_your_news_here='写你的消息在这里......';

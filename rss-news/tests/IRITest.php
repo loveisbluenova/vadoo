@@ -35,8 +35,8 @@
  * @package IRI
  * @author Geoffrey Sneddon
  * @copyright 2008-2012 Geoffrey Sneddon
- * @license http://www.opensource.org/licenses/bsd-license.php
- * @link http://hg.gsnedders.com/iri/
+ * @license https://www.opensource.org/licenses/bsd-license.php
+ * @link https://hg.gsnedders.com/iri/
  *
  */
 
@@ -49,47 +49,47 @@ class IRITest extends PHPUnit_Framework_TestCase
 		return array(
 			// Normal
 			array('g:h', 'g:h'),
-			array('g', 'http://a/b/c/g'),
-			array('./g', 'http://a/b/c/g'),
-			array('g/', 'http://a/b/c/g/'),
-			array('/g', 'http://a/g'),
-			array('//g', 'http://g/'),
-			array('?y', 'http://a/b/c/d;p?y'),
-			array('g?y', 'http://a/b/c/g?y'),
-			array('#s', 'http://a/b/c/d;p?q#s'),
-			array('g#s', 'http://a/b/c/g#s'),
-			array('g?y#s', 'http://a/b/c/g?y#s'),
-			array(';x', 'http://a/b/c/;x'),
-			array('g;x', 'http://a/b/c/g;x'),
-			array('g;x?y#s', 'http://a/b/c/g;x?y#s'),
-			array('', 'http://a/b/c/d;p?q'),
-			array('.', 'http://a/b/c/'),
-			array('./', 'http://a/b/c/'),
-			array('..', 'http://a/b/'),
-			array('../', 'http://a/b/'),
-			array('../g', 'http://a/b/g'),
-			array('../..', 'http://a/'),
-			array('../../', 'http://a/'),
-			array('../../g', 'http://a/g'),
+			array('g', 'https://a/b/c/g'),
+			array('./g', 'https://a/b/c/g'),
+			array('g/', 'https://a/b/c/g/'),
+			array('/g', 'https://a/g'),
+			array('//g', 'https://g/'),
+			array('?y', 'https://a/b/c/d;p?y'),
+			array('g?y', 'https://a/b/c/g?y'),
+			array('#s', 'https://a/b/c/d;p?q#s'),
+			array('g#s', 'https://a/b/c/g#s'),
+			array('g?y#s', 'https://a/b/c/g?y#s'),
+			array(';x', 'https://a/b/c/;x'),
+			array('g;x', 'https://a/b/c/g;x'),
+			array('g;x?y#s', 'https://a/b/c/g;x?y#s'),
+			array('', 'https://a/b/c/d;p?q'),
+			array('.', 'https://a/b/c/'),
+			array('./', 'https://a/b/c/'),
+			array('..', 'https://a/b/'),
+			array('../', 'https://a/b/'),
+			array('../g', 'https://a/b/g'),
+			array('../..', 'https://a/'),
+			array('../../', 'https://a/'),
+			array('../../g', 'https://a/g'),
 			// Abnormal
-			array('../../../g', 'http://a/g'),
-			array('../../../../g', 'http://a/g'),
-			array('/./g', 'http://a/g'),
-			array('/../g', 'http://a/g'),
-			array('g.', 'http://a/b/c/g.'),
-			array('.g', 'http://a/b/c/.g'),
-			array('g..', 'http://a/b/c/g..'),
-			array('..g', 'http://a/b/c/..g'),
-			array('./../g', 'http://a/b/g'),
-			array('./g/.', 'http://a/b/c/g/'),
-			array('g/./h', 'http://a/b/c/g/h'),
-			array('g/../h', 'http://a/b/c/h'),
-			array('g;x=1/./y', 'http://a/b/c/g;x=1/y'),
-			array('g;x=1/../y', 'http://a/b/c/y'),
-			array('g?y/./x', 'http://a/b/c/g?y/./x'),
-			array('g?y/../x', 'http://a/b/c/g?y/../x'),
-			array('g#s/./x', 'http://a/b/c/g#s/./x'),
-			array('g#s/../x', 'http://a/b/c/g#s/../x'),
+			array('../../../g', 'https://a/g'),
+			array('../../../../g', 'https://a/g'),
+			array('/./g', 'https://a/g'),
+			array('/../g', 'https://a/g'),
+			array('g.', 'https://a/b/c/g.'),
+			array('.g', 'https://a/b/c/.g'),
+			array('g..', 'https://a/b/c/g..'),
+			array('..g', 'https://a/b/c/..g'),
+			array('./../g', 'https://a/b/g'),
+			array('./g/.', 'https://a/b/c/g/'),
+			array('g/./h', 'https://a/b/c/g/h'),
+			array('g/../h', 'https://a/b/c/h'),
+			array('g;x=1/./y', 'https://a/b/c/g;x=1/y'),
+			array('g;x=1/../y', 'https://a/b/c/y'),
+			array('g?y/./x', 'https://a/b/c/g?y/./x'),
+			array('g?y/../x', 'https://a/b/c/g?y/../x'),
+			array('g#s/./x', 'https://a/b/c/g#s/./x'),
+			array('g#s/../x', 'https://a/b/c/g#s/../x'),
 			array('http:g', 'http:g'),
 		);
 	}
@@ -99,7 +99,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	 */
 	public function testStringRFC3986($relative, $expected)
 	{
-		$base = new SimplePie_IRI('http://a/b/c/d;p?q');
+		$base = new SimplePie_IRI('https://a/b/c/d;p?q');
 		$this->assertEquals($expected, SimplePie_IRI::absolutize($base, $relative)->get_iri());
 	}
  
@@ -108,7 +108,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	 */
 	public function testObjectRFC3986($relative, $expected)
 	{
-		$base = new SimplePie_IRI('http://a/b/c/d;p?q');
+		$base = new SimplePie_IRI('https://a/b/c/d;p?q');
 		$expected = new SimplePie_IRI($expected);
 		$this->assertEquals($expected, SimplePie_IRI::absolutize($base, $relative));
 	}
@@ -118,7 +118,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	 */
 	public function testBothStringRFC3986($relative, $expected)
 	{
-		$base = 'http://a/b/c/d;p?q';
+		$base = 'https://a/b/c/d;p?q';
 		$this->assertEquals($expected, SimplePie_IRI::absolutize($base, $relative)->get_iri());
 		$this->assertEquals($expected, (string) SimplePie_IRI::absolutize($base, $relative));
 	}
@@ -126,21 +126,21 @@ class IRITest extends PHPUnit_Framework_TestCase
 	public static function sp_tests()
 	{
 		return array(
-			array('http://a/b/c/d', 'f%0o', 'http://a/b/c/f%250o'),
-			array('http://a/b/', 'c', 'http://a/b/c'),
-			array('http://a/', 'b', 'http://a/b'),
-			array('http://a/', '/b', 'http://a/b'),
-			array('http://a/b', 'c', 'http://a/c'),
-			array('http://a/b/', "c\x0Ad", 'http://a/b/c%0Ad'),
-			array('http://a/b/', "c\x0A\x0B", 'http://a/b/c%0A%0B'),
-			array('http://a/b/c', '//0', 'http://0/'),
-			array('http://a/b/c', '0', 'http://a/b/0'),
-			array('http://a/b/c', '?0', 'http://a/b/c?0'),
-			array('http://a/b/c', '#0', 'http://a/b/c#0'),
-			array('http://0/b/c', 'd', 'http://0/b/d'),
-			array('http://a/b/c?0', 'd', 'http://a/b/d'),
-			array('http://a/b/c#0', 'd', 'http://a/b/d'),
-			array('http://example.com', '//example.net', 'http://example.net/'),
+			array('https://a/b/c/d', 'f%0o', 'https://a/b/c/f%250o'),
+			array('https://a/b/', 'c', 'https://a/b/c'),
+			array('https://a/', 'b', 'https://a/b'),
+			array('https://a/', '/b', 'https://a/b'),
+			array('https://a/b', 'c', 'https://a/c'),
+			array('https://a/b/', "c\x0Ad", 'https://a/b/c%0Ad'),
+			array('https://a/b/', "c\x0A\x0B", 'https://a/b/c%0A%0B'),
+			array('https://a/b/c', '//0', 'https://0/'),
+			array('https://a/b/c', '0', 'https://a/b/0'),
+			array('https://a/b/c', '?0', 'https://a/b/c?0'),
+			array('https://a/b/c', '#0', 'https://a/b/c#0'),
+			array('https://0/b/c', 'd', 'https://0/b/d'),
+			array('https://a/b/c?0', 'd', 'https://a/b/d'),
+			array('https://a/b/c#0', 'd', 'https://a/b/d'),
+			array('https://example.com', '//example.net', 'https://example.net/'),
 			array('http:g', 'a', 'http:a'),
 		);
 	}
@@ -167,10 +167,10 @@ class IRITest extends PHPUnit_Framework_TestCase
 	public static function query_tests()
 	{
 		return array(
-			array('a=b&c=d', 'http://example.com/?a=b&c=d'),
-			array('a=b%26c=d', 'http://example.com/?a=b%26c=d'),
-			array('url=http%3A%2F%2Fexample.com%3Fa%3Db', 'http://example.com/?url=http%3A%2F%2Fexample.com%3Fa%3Db'),
-			array('url=http%3A%2F%2Fexample.com%3Fa%3Db%26c%3Dd', 'http://example.com/?url=http%3A%2F%2Fexample.com%3Fa%3Db%26c%3Dd'),
+			array('a=b&c=d', 'https://example.com/?a=b&c=d'),
+			array('a=b%26c=d', 'https://example.com/?a=b%26c=d'),
+			array('url=http%3A%2F%2Fexample.com%3Fa%3Db', 'https://example.com/?url=http%3A%2F%2Fexample.com%3Fa%3Db'),
+			array('url=http%3A%2F%2Fexample.com%3Fa%3Db%26c%3Dd', 'https://example.com/?url=http%3A%2F%2Fexample.com%3Fa%3Db%26c%3Dd'),
 		);
 	}
 
@@ -179,7 +179,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	 */
 	public function testStringQuery($query, $expected)
 	{
-		$base = new SimplePie_IRI('http://example.com/');
+		$base = new SimplePie_IRI('https://example.com/');
 		$base->set_query($query);
 		$this->assertEquals($expected, $base->get_iri());
 	}
@@ -189,7 +189,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	 */
 	public function testObjectQuery($query, $expected)
 	{
-		$base = new SimplePie_IRI('http://example.com/');
+		$base = new SimplePie_IRI('https://example.com/');
 		$base->set_query($query);
 		$expected = new SimplePie_IRI($expected);
 		$this->assertEquals($expected, $base);
@@ -198,8 +198,8 @@ class IRITest extends PHPUnit_Framework_TestCase
 	public static function absolutize_tests()
 	{
 		return array(
-			array('http://example.com/', 'foo/111:bar', 'http://example.com/foo/111:bar'),
-			array('http://example.com/#foo', '', 'http://example.com/'),
+			array('https://example.com/', 'foo/111:bar', 'https://example.com/foo/111:bar'),
+			array('https://example.com/#foo', '', 'https://example.com/'),
 		);
 	}
  
@@ -232,75 +232,75 @@ class IRITest extends PHPUnit_Framework_TestCase
 			array('example://A/', 'example://a/'),
 			array('example://a/', 'example://a/'),
 			array('example://%25A/', 'example://%25a/'),
-			array('HTTP://EXAMPLE.com/', 'http://example.com/'),
-			array('http://example.com/', 'http://example.com/'),
-			array('http://example.com:', 'http://example.com/'),
-			array('http://example.com:80', 'http://example.com/'),
-			array('http://@example.com', 'http://@example.com/'),
-			array('http://', 'http://'),
-			array('http://example.com?', 'http://example.com/?'),
-			array('http://example.com#', 'http://example.com/#'),
+			array('https://EXAMPLE.com/', 'https://example.com/'),
+			array('https://example.com/', 'https://example.com/'),
+			array('https://example.com:', 'https://example.com/'),
+			array('https://example.com:80', 'https://example.com/'),
+			array('https://@example.com', 'https://@example.com/'),
+			array('https://', 'https://'),
+			array('https://example.com?', 'https://example.com/?'),
+			array('https://example.com#', 'https://example.com/#'),
 			array('https://example.com/', 'https://example.com/'),
 			array('https://example.com:', 'https://example.com/'),
 			array('https://@example.com', 'https://@example.com/'),
 			array('https://example.com?', 'https://example.com/?'),
 			array('https://example.com#', 'https://example.com/#'),
 			array('file://localhost/foobar', 'file:/foobar'),
-			array('http://[0:0:0:0:0:0:0:1]', 'http://[::1]/'),
-			array('http://[2001:db8:85a3:0000:0000:8a2e:370:7334]', 'http://[2001:db8:85a3::8a2e:370:7334]/'),
-			array('http://[0:0:0:0:0:ffff:c0a8:a01]', 'http://[::ffff:c0a8:a01]/'),
-			array('http://[ffff:0:0:0:0:0:0:0]', 'http://[ffff::]/'),
-			array('http://[::ffff:192.0.2.128]', 'http://[::ffff:192.0.2.128]/'),
-			array('http://[invalid]', 'http:'),
-			array('http://[0:0:0:0:0:0:0:1]:', 'http://[::1]/'),
-			array('http://[0:0:0:0:0:0:0:1]:80', 'http://[::1]/'),
-			array('http://[0:0:0:0:0:0:0:1]:1234', 'http://[::1]:1234/'),
+			array('https://[0:0:0:0:0:0:0:1]', 'https://[::1]/'),
+			array('https://[2001:db8:85a3:0000:0000:8a2e:370:7334]', 'https://[2001:db8:85a3::8a2e:370:7334]/'),
+			array('https://[0:0:0:0:0:ffff:c0a8:a01]', 'https://[::ffff:c0a8:a01]/'),
+			array('https://[ffff:0:0:0:0:0:0:0]', 'https://[ffff::]/'),
+			array('https://[::ffff:192.0.2.128]', 'https://[::ffff:192.0.2.128]/'),
+			array('https://[invalid]', 'http:'),
+			array('https://[0:0:0:0:0:0:0:1]:', 'https://[::1]/'),
+			array('https://[0:0:0:0:0:0:0:1]:80', 'https://[::1]/'),
+			array('https://[0:0:0:0:0:0:0:1]:1234', 'https://[::1]:1234/'),
 			// Punycode decoding helps with normalisation of IRIs, but is not
 			// needed for URIs, so we don't really care about it here
-			//array('http://xn--tdali-d8a8w.lv', 'http://tūdaliņ.lv'),
-			//array('http://t%C5%ABdali%C5%86.lv', 'http://tūdaliņ.lv'),
-			array('http://Aa@example.com', 'http://Aa@example.com/'),
-			array('http://example.com?Aa', 'http://example.com/?Aa'),
-			array('http://example.com/Aa', 'http://example.com/Aa'),
-			array('http://example.com#Aa', 'http://example.com/#Aa'),
-			array('http://[0:0:0:0:0:0:0:0]', 'http://[::]/'),
+			//array('https://xn--tdali-d8a8w.lv', 'https://tūdaliņ.lv'),
+			//array('https://t%C5%ABdali%C5%86.lv', 'https://tūdaliņ.lv'),
+			array('https://Aa@example.com', 'https://Aa@example.com/'),
+			array('https://example.com?Aa', 'https://example.com/?Aa'),
+			array('https://example.com/Aa', 'https://example.com/Aa'),
+			array('https://example.com#Aa', 'https://example.com/#Aa'),
+			array('https://[0:0:0:0:0:0:0:0]', 'https://[::]/'),
 			array('http:.', 'http:'),
 			array('http:..', 'http:'),
 			array('http:./', 'http:'),
 			array('http:../', 'http:'),
-			array('http://example.com/%3A', 'http://example.com/%3A'),
-			array('http://example.com/:', 'http://example.com/:'),
-			array('http://example.com/%C2', 'http://example.com/%C2'),
-			array('http://example.com/%C2a', 'http://example.com/%C2a'),
-			array('http://example.com/%C2%00', 'http://example.com/%C2%00'),
-			array('http://example.com/%C3%A9', 'http://example.com/é'),
-			array('http://example.com/%C3%A9%00', 'http://example.com/é%00'),
-			array('http://example.com/%C3%A9cole', 'http://example.com/école'),
-			array('http://example.com/%FF', 'http://example.com/%FF'),
-			array("http://example.com/\xF3\xB0\x80\x80", 'http://example.com/%F3%B0%80%80'),
-			array("http://example.com/\xF3\xB0\x80\x80%00", 'http://example.com/%F3%B0%80%80%00'),
-			array("http://example.com/\xF3\xB0\x80\x80a", 'http://example.com/%F3%B0%80%80a'),
-			array("http://example.com?\xF3\xB0\x80\x80", "http://example.com/?\xF3\xB0\x80\x80"),
-			array("http://example.com?\xF3\xB0\x80\x80%00", "http://example.com/?\xF3\xB0\x80\x80%00"),
-			array("http://example.com?\xF3\xB0\x80\x80a", "http://example.com/?\xF3\xB0\x80\x80a"),
-			array("http://example.com/\xEE\x80\x80", 'http://example.com/%EE%80%80'),
-			array("http://example.com/\xEE\x80\x80%00", 'http://example.com/%EE%80%80%00'),
-			array("http://example.com/\xEE\x80\x80a", 'http://example.com/%EE%80%80a'),
-			array("http://example.com?\xEE\x80\x80", "http://example.com/?\xEE\x80\x80"),
-			array("http://example.com?\xEE\x80\x80%00", "http://example.com/?\xEE\x80\x80%00"),
-			array("http://example.com?\xEE\x80\x80a", "http://example.com/?\xEE\x80\x80a"),
-			array("http://example.com/\xC2", 'http://example.com/%C2'),
-			array("http://example.com/\xC2a", 'http://example.com/%C2a'),
-			array("http://example.com/\xC2\x00", 'http://example.com/%C2%00'),
-			array("http://example.com/\xC3\xA9", 'http://example.com/é'),
-			array("http://example.com/\xC3\xA9\x00", 'http://example.com/é%00'),
-			array("http://example.com/\xC3\xA9cole", 'http://example.com/école'),
-			array("http://example.com/\xFF", 'http://example.com/%FF'),
-			array("http://example.com/\xFF%00", 'http://example.com/%FF%00'),
-			array("http://example.com/\xFFa", 'http://example.com/%FFa'),
-			array('http://example.com/%61', 'http://example.com/a'),
-			array('http://example.com?%26', 'http://example.com/?%26'),
-			array('http://example.com?%61', 'http://example.com/?a'),
+			array('https://example.com/%3A', 'https://example.com/%3A'),
+			array('https://example.com/:', 'https://example.com/:'),
+			array('https://example.com/%C2', 'https://example.com/%C2'),
+			array('https://example.com/%C2a', 'https://example.com/%C2a'),
+			array('https://example.com/%C2%00', 'https://example.com/%C2%00'),
+			array('https://example.com/%C3%A9', 'https://example.com/é'),
+			array('https://example.com/%C3%A9%00', 'https://example.com/é%00'),
+			array('https://example.com/%C3%A9cole', 'https://example.com/école'),
+			array('https://example.com/%FF', 'https://example.com/%FF'),
+			array("https://example.com/\xF3\xB0\x80\x80", 'https://example.com/%F3%B0%80%80'),
+			array("https://example.com/\xF3\xB0\x80\x80%00", 'https://example.com/%F3%B0%80%80%00'),
+			array("https://example.com/\xF3\xB0\x80\x80a", 'https://example.com/%F3%B0%80%80a'),
+			array("https://example.com?\xF3\xB0\x80\x80", "https://example.com/?\xF3\xB0\x80\x80"),
+			array("https://example.com?\xF3\xB0\x80\x80%00", "https://example.com/?\xF3\xB0\x80\x80%00"),
+			array("https://example.com?\xF3\xB0\x80\x80a", "https://example.com/?\xF3\xB0\x80\x80a"),
+			array("https://example.com/\xEE\x80\x80", 'https://example.com/%EE%80%80'),
+			array("https://example.com/\xEE\x80\x80%00", 'https://example.com/%EE%80%80%00'),
+			array("https://example.com/\xEE\x80\x80a", 'https://example.com/%EE%80%80a'),
+			array("https://example.com?\xEE\x80\x80", "https://example.com/?\xEE\x80\x80"),
+			array("https://example.com?\xEE\x80\x80%00", "https://example.com/?\xEE\x80\x80%00"),
+			array("https://example.com?\xEE\x80\x80a", "https://example.com/?\xEE\x80\x80a"),
+			array("https://example.com/\xC2", 'https://example.com/%C2'),
+			array("https://example.com/\xC2a", 'https://example.com/%C2a'),
+			array("https://example.com/\xC2\x00", 'https://example.com/%C2%00'),
+			array("https://example.com/\xC3\xA9", 'https://example.com/é'),
+			array("https://example.com/\xC3\xA9\x00", 'https://example.com/é%00'),
+			array("https://example.com/\xC3\xA9cole", 'https://example.com/école'),
+			array("https://example.com/\xFF", 'https://example.com/%FF'),
+			array("https://example.com/\xFF%00", 'https://example.com/%FF%00'),
+			array("https://example.com/\xFFa", 'https://example.com/%FFa'),
+			array('https://example.com/%61', 'https://example.com/a'),
+			array('https://example.com?%26', 'https://example.com/?%26'),
+			array('https://example.com?%61', 'https://example.com/?a'),
 			array('///', '///'),
 		);
 	}
@@ -326,9 +326,9 @@ class IRITest extends PHPUnit_Framework_TestCase
 
 	public static function uri_tests() {
 		return array(
-			array('http://example.com/%C3%A9cole', 'http://example.com/%C3%A9cole'),
-			array('http://example.com/école', 'http://example.com/%C3%A9cole'),
-			array("http://example.com/\xC3\xA9cole", 'http://example.com/%C3%A9cole'),
+			array('https://example.com/%C3%A9cole', 'https://example.com/%C3%A9cole'),
+			array('https://example.com/école', 'https://example.com/%C3%A9cole'),
+			array("https://example.com/\xC3\xA9cole", 'https://example.com/%C3%A9cole'),
 		);
 	}
 
@@ -344,7 +344,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	public static function equivalence_tests()
 	{
 		return array(
-			array('http://É.com', 'http://%C3%89.com'),
+			array('https://É.com', 'https://%C3%89.com'),
 		);
 	}
  
@@ -361,7 +361,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 	public static function not_equivalence_tests()
 	{
 		return array(
-			array('http://example.com/foo/bar', 'http://example.com/foo%2Fbar'),
+			array('https://example.com/foo/bar', 'https://example.com/foo%2Fbar'),
 		);
 	}
  
@@ -382,7 +382,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 
 	public function testInvalidAbsolutizeRelative()
 	{
-		$this->assertFalse(SimplePie_IRI::absolutize('http://example.com/', 'http://example.com//not a URL'));
+		$this->assertFalse(SimplePie_IRI::absolutize('https://example.com/', 'https://example.com//not a URL'));
 	}
 
 	public function testFullGamut()
@@ -448,7 +448,7 @@ class IRITest extends PHPUnit_Framework_TestCase
 
 	public function testBlankHost()
 	{
-		$iri = new SimplePie_IRI('http://example.com/a/?b=c#d');
+		$iri = new SimplePie_IRI('https://example.com/a/?b=c#d');
 		$iri->host = null;
 
 		$this->assertEquals(null, $iri->host);

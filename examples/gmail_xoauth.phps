@@ -54,7 +54,7 @@ $mail->oauthClientSecret = "RANDOMCHARS-----lGyjPcRtvP";
 
 //Obtained By running get_oauth_token.php after setting up APP in Google Developer Console.
 //Set Redirect URI in Developer Console as [https/http]://<yourdomain>/<folder>/get_oauth_token.php
-// eg: http://localhost/phpmail/get_oauth_token.php
+// eg: https://localhost/phpmail/get_oauth_token.php
 $mail->oauthRefreshToken = "RANDOMCHARS-----DWxgOvPT003r-yFUV49TQYag7_Aod7y0";
 
 //Set who the message is to be sent from

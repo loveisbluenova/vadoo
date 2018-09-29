@@ -1,6 +1,6 @@
 <?php
 $now=time();
-$url= "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url= "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 	// if the user is logged in from Social -->
 	//echo $url. die();
    if (isset($_POST['login'])) {

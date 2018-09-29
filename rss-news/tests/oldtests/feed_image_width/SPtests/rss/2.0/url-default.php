@@ -8,7 +8,7 @@ class SimplePie_Feed_Image_Width_Test_RSS_20 extends SimplePie_Feed_Image_Width_
 '<rss version="2.0">
 	<channel>
 		<image>
-			<url>http://example.com/</url>
+			<url>https://example.com/</url>
 		</image>
 	</channel>
 </rss>';

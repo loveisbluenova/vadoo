@@ -5,7 +5,7 @@ class SimplePie_First_Item_Contributor_Name_Test_Atom_10_Name extends SimplePie_
 	function data()
 	{
 		$this->data = 
-'<feed xmlns="http://www.w3.org/2005/Atom">
+'<feed xmlns="https://www.w3.org/2005/Atom">
 	<entry>
 		<contributor>
 			<name>Item Contributor</name>

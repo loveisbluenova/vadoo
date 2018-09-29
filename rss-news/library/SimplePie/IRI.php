@@ -38,8 +38,8 @@
  * @author Ryan Parman
  * @author Geoffrey Sneddon
  * @author Ryan McCue
- * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link https://simplepie.org/ SimplePie
+ * @license https://www.opensource.org/licenses/bsd-license.php BSD License
  */
 
 /**
@@ -51,7 +51,7 @@
  * @author Steve Minutillo
  * @author Ryan McCue
  * @copyright 2007-2012 Geoffrey Sneddon, Steve Minutillo, Ryan McCue
- * @license http://www.opensource.org/licenses/bsd-license.php
+ * @license https://www.opensource.org/licenses/bsd-license.php
  */
 class SimplePie_IRI
 {

@@ -5,7 +5,7 @@ class SimplePie_First_Item_Title_Test_RSS_091_Netscape_Title_3 extends SimplePie
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
 <rss version="0.91">
 	<channel>
 		<item>

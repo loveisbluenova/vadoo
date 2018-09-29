@@ -9,7 +9,7 @@ function normalize_character_set($charset)
 
 function build_character_set_list()
 {
-	$file = new SimplePie_File('http://www.iana.org/assignments/character-sets');
+	$file = new SimplePie_File('https://www.iana.org/assignments/character-sets');
 	if (!$file->success && !($file->method & SIMPLEPIE_FILE_SOURCE_REMOTE === 0 || ($file->status_code === 200 || $file->status_code > 206 && $file->status_code < 300)))
 	{
 		return false;
@@ -53,7 +53,7 @@ function build_character_set_list()
 		}
 		
 		// Compatibility replacements
-		// From http://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#misinterpreted-for-compatibility
+		// From https://www.whatwg.org/specs/web-apps/current-work/multipage/parsing.html#misinterpreted-for-compatibility
 		$compat = array(
 			'EUC-KR' => 'windows-949',
 			'GB2312' => 'GBK',

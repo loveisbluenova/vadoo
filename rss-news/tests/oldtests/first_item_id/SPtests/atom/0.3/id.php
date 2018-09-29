@@ -5,16 +5,16 @@ class SimplePie_First_Item_ID_Test_Atom_03_ID extends SimplePie_First_Item_ID_Te
 	function data()
 	{
 		$this->data = 
-'<feed version="0.3" xmlns="http://purl.org/atom/ns#">
+'<feed version="0.3" xmlns="https://purl.org/atom/ns#">
 	<entry>
-		<id>http://example.com/</id>
+		<id>https://example.com/</id>
 	</entry>
 </feed>';
 	}
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

@@ -5,7 +5,7 @@ class SimplePie_First_Item_Description_Test_RSS_090_Atom_03_Summary extends Simp
 	function data()
 	{
 		$this->data = 
-'<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://my.netscape.com/rdf/simple/0.9/" xmlns:a="http://purl.org/atom/ns#">
+'<rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="https://my.netscape.com/rdf/simple/0.9/" xmlns:a="https://purl.org/atom/ns#">
 	<item>
 		<a:summary>Item Description</a:summary>
 	</item>

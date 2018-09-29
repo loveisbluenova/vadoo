@@ -180,7 +180,7 @@ FB.api(
   'me/objects/article',
   'post',
   {
-    og:url: http://samples.ogp.me/434264856596891,
+    og:url: https://samples.ogp.me/434264856596891,
     og:title: Sample Article,
     og:type: article,
     og:image: https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png,
@@ -352,7 +352,7 @@ if(isset($_GET["location"])){
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -364,7 +364,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name

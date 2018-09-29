@@ -38,8 +38,8 @@
  * @author Ryan Parman
  * @author Geoffrey Sneddon
  * @author Ryan McCue
- * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link https://simplepie.org/ SimplePie
+ * @license https://www.opensource.org/licenses/bsd-license.php BSD License
  */
 
 
@@ -137,7 +137,7 @@ class SimplePie_Item
 	 * See {@see SimplePie::get_feed_tags()} for a description of the return value
 	 *
 	 * @since 1.0
-	 * @see http://simplepie.org/wiki/faq/supported_xml_namespaces
+	 * @see https://simplepie.org/wiki/faq/supported_xml_namespaces
 	 * @param string $namespace The URL of the XML namespace of the elements you're trying to access
 	 * @param string $tag Tag name
 	 * @return array
@@ -187,7 +187,7 @@ class SimplePie_Item
 	 *
 	 * Note: this may not work as you think for multifeeds!
 	 *
-	 * @link http://simplepie.org/faq/typical_multifeed_gotchas#missing_data_from_feed
+	 * @link https://simplepie.org/faq/typical_multifeed_gotchas#missing_data_from_feed
 	 * @since 1.0
 	 * @return SimplePie
 	 */
@@ -727,7 +727,7 @@ class SimplePie_Item
 	 *
 	 * @since Beta 2 (previously called `get_item_date` since 0.8)
 	 *
-	 * @param string $date_format Supports any PHP date format from {@see http://php.net/date} (empty for the raw data)
+	 * @param string $date_format Supports any PHP date format from {@see https://php.net/date} (empty for the raw data)
 	 * @return int|string|null
 	 */
 	public function get_date($date_format = 'j F Y, g:i a')
@@ -806,7 +806,7 @@ class SimplePie_Item
 	 * Note: obeys PHP's timezone setting. To get a UTC date/time, use
 	 * {@see get_gmdate}
 	 *
-	 * @param string $date_format Supports any PHP date format from {@see http://php.net/date} (empty for the raw data)
+	 * @param string $date_format Supports any PHP date format from {@see https://php.net/date} (empty for the raw data)
 	 * @return int|string|null
 	 */
 	public function get_updated_date($date_format = 'j F Y, g:i a')
@@ -854,12 +854,12 @@ class SimplePie_Item
 	 *
 	 * Returns the date formatted in the localized language. To display in
 	 * languages other than the server's default, you need to change the locale
-	 * with {@link http://php.net/setlocale setlocale()}. The available
+	 * with {@link https://php.net/setlocale setlocale()}. The available
 	 * localizations depend on which ones are installed on your web server.
 	 *
 	 * @since 1.0
 	 *
-	 * @param string $date_format Supports any PHP date format from {@see http://php.net/strftime} (empty for the raw data)
+	 * @param string $date_format Supports any PHP date format from {@see https://php.net/strftime} (empty for the raw data)
 	 * @return int|string|null
 	 */
 	public function get_local_date($date_format = '%c')
@@ -882,7 +882,7 @@ class SimplePie_Item
 	 * Get the posting date/time for the item (UTC time)
 	 *
 	 * @see get_date
-	 * @param string $date_format Supports any PHP date format from {@see http://php.net/date}
+	 * @param string $date_format Supports any PHP date format from {@see https://php.net/date}
 	 * @return int|string|null
 	 */
 	public function get_gmdate($date_format = 'j F Y, g:i a')
@@ -900,7 +900,7 @@ class SimplePie_Item
 	 * Get the update date/time for the item (UTC time)
 	 *
 	 * @see get_updated_date
-	 * @param string $date_format Supports any PHP date format from {@see http://php.net/date}
+	 * @param string $date_format Supports any PHP date format from {@see https://php.net/date}
 	 * @return int|string|null
 	 */
 	public function get_updated_gmdate($date_format = 'j F Y, g:i a')
@@ -1193,7 +1193,7 @@ class SimplePie_Item
 				}
 				else
 				{
-					$scheme = 'http://search.yahoo.com/mrss/category_schema';
+					$scheme = 'https://search.yahoo.com/mrss/category_schema';
 				}
 				if (isset($category['attribs']['']['label']))
 				{
@@ -1216,7 +1216,7 @@ class SimplePie_Item
 				}
 				else
 				{
-					$scheme = 'http://search.yahoo.com/mrss/category_schema';
+					$scheme = 'https://search.yahoo.com/mrss/category_schema';
 				}
 				if (isset($category['attribs']['']['label']))
 				{
@@ -1227,7 +1227,7 @@ class SimplePie_Item
 			foreach ((array) $parent->get_channel_tags(SIMPLEPIE_NAMESPACE_ITUNES, 'category') as $category)
 			{
 				$term = null;
-				$scheme = 'http://www.itunes.com/dtds/podcast-1.0.dtd';
+				$scheme = 'https://www.itunes.com/dtds/podcast-1.0.dtd';
 				$label = null;
 				if (isset($category['attribs']['']['text']))
 				{
@@ -1922,7 +1922,7 @@ class SimplePie_Item
 									}
 									else
 									{
-										$scheme = 'http://search.yahoo.com/mrss/category_schema';
+										$scheme = 'https://search.yahoo.com/mrss/category_schema';
 									}
 									if (isset($category['attribs']['']['label']))
 									{
@@ -1948,7 +1948,7 @@ class SimplePie_Item
 									}
 									else
 									{
-										$scheme = 'http://search.yahoo.com/mrss/category_schema';
+										$scheme = 'https://search.yahoo.com/mrss/category_schema';
 									}
 									if (isset($category['attribs']['']['label']))
 									{
@@ -2510,7 +2510,7 @@ class SimplePie_Item
 								}
 								else
 								{
-									$scheme = 'http://search.yahoo.com/mrss/category_schema';
+									$scheme = 'https://search.yahoo.com/mrss/category_schema';
 								}
 								if (isset($category['attribs']['']['label']))
 								{
@@ -2891,8 +2891,8 @@ class SimplePie_Item
 	 * Uses `<geo:lat>` or `<georss:point>`
 	 *
 	 * @since 1.0
-	 * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
-	 * @link http://www.georss.org/ GeoRSS
+	 * @link https://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
+	 * @link https://www.georss.org/ GeoRSS
 	 * @return string|null
 	 */
 	public function get_latitude()
@@ -2919,8 +2919,8 @@ class SimplePie_Item
 	 * Uses `<geo:long>`, `<geo:lon>` or `<georss:point>`
 	 *
 	 * @since 1.0
-	 * @link http://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
-	 * @link http://www.georss.org/ GeoRSS
+	 * @link https://www.w3.org/2003/01/geo/ W3C WGS84 Basic Geo
+	 * @link https://www.georss.org/ GeoRSS
 	 * @return string|null
 	 */
 	public function get_longitude()

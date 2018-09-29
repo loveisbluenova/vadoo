@@ -54,7 +54,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -66,7 +66,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -173,7 +173,7 @@ $ch = curl_init();
  $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -281,7 +281,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -293,7 +293,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -402,7 +402,7 @@ $mail->FromName = 'Activate your profile';
  $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -509,7 +509,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -521,7 +521,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -631,7 +631,7 @@ $mail->FromName = 'Activate your profile';
   $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -743,7 +743,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -755,7 +755,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -865,7 +865,7 @@ $mail->FromName = 'Activate your profile';
  $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -972,7 +972,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -984,7 +984,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -1094,7 +1094,7 @@ $mail->FromName = 'Activate your profile';
    $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -1201,7 +1201,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -1213,7 +1213,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -1322,7 +1322,7 @@ $mail->FromName = 'Activate your profile';
   $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -1429,7 +1429,7 @@ if($check_email==0 AND $check_username==0) {
 $ip_address = $_SERVER['REMOTE_ADDR'];
 $buzzyuser_location=$_POST['buzzyuser_location'];
  $buzzyuser_location1 = urlencode($buzzyuser_location);
-  $request_url = "http://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
+  $request_url = "https://maps.googleapis.com/maps/api/geocode/xml?address=".$buzzyuser_location1."&sensor=true";
   $xml = simplexml_load_file($request_url) or die("url not loading");
   $status = $xml->status;
   if ($status=="OK") {
@@ -1441,7 +1441,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -1550,7 +1550,7 @@ $ch = curl_init();
  $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;

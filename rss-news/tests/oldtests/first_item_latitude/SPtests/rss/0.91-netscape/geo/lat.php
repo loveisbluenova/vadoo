@@ -5,8 +5,8 @@ class SimplePie_First_Item_Latitude_Test_RSS_091_Netscape_Geo_Lat extends Simple
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
-<rss version="0.91" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91" xmlns:geo="https://www.w3.org/2003/01/geo/wgs84_pos#">
 	<channel>
 		<item>
 			<geo:lat>55.701</geo:lat>

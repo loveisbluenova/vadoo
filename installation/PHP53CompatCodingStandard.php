@@ -8,7 +8,7 @@
  * @package   PHP53Compat
  * @author    Wim Godden <wim.godden@cu.be>
  * @copyright 2010 Cu.be Solutions bvba
- * @license   http://www.linfo.org/bsdlicense.html BSD Licence
+ * @license   https://www.linfo.org/bsdlicense.html BSD Licence
  * @version   1.0
  */
 
@@ -27,9 +27,9 @@ if (version_compare(PHP_VERSION, '5.3.0', '<')) {
  * @package   PHP53Compat
  * @author    Wim Godden <wim.godden@cu.be>
  * @copyright 2010 Cu.be Solutions bvba
- * @license   http://www.linfo.org/bsdlicense.html BSD Licence
+ * @license   https://www.linfo.org/bsdlicense.html BSD Licence
  * @version   1.0
- * @link      http://pear.php.net/package/PHP_CodeSniffer
+ * @link      https://pear.php.net/package/PHP_CodeSniffer
  */
 class PHP_CodeSniffer_Standards_PHP53Compat_PHP53CompatCodingStandard extends PHP_CodeSniffer_Standards_CodingStandard
 {

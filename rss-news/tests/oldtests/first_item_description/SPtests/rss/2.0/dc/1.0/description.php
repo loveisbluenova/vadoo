@@ -5,7 +5,7 @@ class SimplePie_First_Item_Description_Test_RSS_20_DC_10_Description extends Sim
 	function data()
 	{
 		$this->data = 
-'<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.0/">
+'<rss version="2.0" xmlns:dc="https://purl.org/dc/elements/1.0/">
 	<channel>
 		<item>
 			<dc:description>Item Description</dc:description>

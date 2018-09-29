@@ -96,7 +96,7 @@
 	100% { -webkit-transform: translateZ(0px) translateY(0px) rotateX(0deg); transform: translateZ(0px) translateY(0px) rotateX(0deg); opacity: 1; }
 }
 
-/* Effect 5: fly (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+/* Effect 5: fly (based on https://lab.hakim.se/scroll-effects/ by @hakimel) */
 .grid.effect-5 {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
@@ -123,7 +123,7 @@
 	100% { -webkit-transform: rotateX(0deg); transform: rotateX(0deg); opacity: 1; }
 }
 
-/* Effect 6: flip (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+/* Effect 6: flip (based on https://lab.hakim.se/scroll-effects/ by @hakimel) */
 .grid.effect-6 {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;
@@ -150,7 +150,7 @@
 	100% { -webkit-transform: rotateX(0deg); transform: rotateX(0deg); opacity: 1; }
 }
 
-/* Effect 7: helix (based on http://lab.hakim.se/scroll-effects/ by @hakimel) */
+/* Effect 7: helix (based on https://lab.hakim.se/scroll-effects/ by @hakimel) */
 .grid.effect-7 {
 	-webkit-perspective: 1300px;
 	perspective: 1300px;

@@ -5,7 +5,7 @@ class SimplePie_First_Item_Title_Test_Atom_03_DC_11_Title extends SimplePie_Firs
 	function data()
 	{
 		$this->data = 
-'<feed version="0.3" xmlns="http://purl.org/atom/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/">
+'<feed version="0.3" xmlns="https://purl.org/atom/ns#" xmlns:dc="https://purl.org/dc/elements/1.1/">
 	<entry>
 		<dc:title>Item Title</dc:title>
 	</entry>

@@ -5,10 +5,10 @@ class SimplePie_First_Item_Permalink_Test_RSS_20_Atom_03_Link extends SimplePie_
 	function data()
 	{
 		$this->data = 
-'<rss version="2.0" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="2.0" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<item>
-			<a:link href="http://example.com/"/>
+			<a:link href="https://example.com/"/>
 		</item>
 	</channel>
 </rss>';
@@ -16,7 +16,7 @@ class SimplePie_First_Item_Permalink_Test_RSS_20_Atom_03_Link extends SimplePie_
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

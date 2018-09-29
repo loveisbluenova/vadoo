@@ -4,7 +4,7 @@
  * AMAZON API CLASS BY SEEGATESITE.COM
  *---------------------------------------------------------------
  * Author : sigit prasetya nugroho
- * Website : http://seegatesite.com
+ * Website : https://seegatesite.com
  *
  */
 class amazon_api{
@@ -44,7 +44,7 @@ class amazon_api{
 	  	$string_to_sign = $method."\n".$host."\n".$uri."\n".$canonicalized_query;		
 	  	$signature = base64_encode(hash_hmac("sha256", $string_to_sign, $this->private_key, True));
 	  	$signature = rawurlencode($signature);
-	  	$request = "http://".$host.$uri."?".$canonicalized_query."&Signature=".$signature;
+	  	$request = "https://".$host.$uri."?".$canonicalized_query."&Signature=".$signature;
 	  	return $request;
 	}
 	function grab_content($url)

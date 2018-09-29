@@ -7,7 +7,7 @@ export TEST_CONSUMER_SECRET=
 export TEST_ACCESS_TOKEN=
 export TEST_ACCESS_TOKEN_SECRET=
 export TEST_OAUTH_CALLBACK=
-# You can find proxies for testing at http://proxylist.hidemyass.com/.
+# You can find proxies for testing at https://proxylist.hidemyass.com/.
 export TEST_CURLOPT_PROXY=
 export TEST_CURLOPT_PROXYUSERPWD=
 export TEST_CURLOPT_PROXYPORT=

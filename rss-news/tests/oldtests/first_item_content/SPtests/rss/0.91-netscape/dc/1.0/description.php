@@ -5,8 +5,8 @@ class SimplePie_First_Item_Content_Test_RSS_091_Netscape_DC_10_Description exten
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
-<rss version="0.91" xmlns:dc="http://purl.org/dc/elements/1.0/">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91" xmlns:dc="https://purl.org/dc/elements/1.0/">
 	<channel>
 		<item>
 			<dc:description>Item Description</dc:description>

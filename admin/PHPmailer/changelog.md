@@ -309,7 +309,7 @@ All new documentation
 * fixed phpunit.php for compliance with PHP5
 * changed $this->AltBody = $textMsg; to $this->AltBody = html_entity_decode($textMsg);
 * We have removed the /phpdoc from the downloads. All documentation is now on
-  the http://phpmailer.codeworxtech.com website.
+  the https://phpmailer.codeworxtech.com website.
 
 ## Version 2.2.1 () July 19 2008
 * fixed line 1092 in class.smtp.php (my apologies, error on my part)
@@ -397,9 +397,9 @@ Please note, this is BETA software
 NOTE: will NOT work with PHP5 in E_STRICT error mode
 
 ## Version 1.73 (Sun, Jun 10 2005)
-* Fixed denial of service bug: http://www.cybsec.com/vuln/PHPMailer-DOS.pdf
+* Fixed denial of service bug: https://www.cybsec.com/vuln/PHPMailer-DOS.pdf
 * Now has a total of 20 translations
-* Fixed alt attachments bug: http://tinyurl.com/98u9k
+* Fixed alt attachments bug: https://tinyurl.com/98u9k
 
 ## Version 1.72 (Wed, May 25 2004)
 * Added Dutch, Swedish, Czech, Norwegian, and Turkish translations.
@@ -516,7 +516,7 @@ NOTE: will NOT work with PHP5 in E_STRICT error mode
 ## Version 1.19 (Thu, Jun 21 2001)
 * Fixed MS Mail header bug
 * Added fix for Bcc problem with mail(). *Does not work on Win32*
-  (See PHP bug report: http://www.php.net/bugs.php?id=11616)
+  (See PHP bug report: https://www.php.net/bugs.php?id=11616)
 * mail() no longer passes a fifth parameter when not needed
 
 ## Version 1.15 (Fri, Jun 15 2001)

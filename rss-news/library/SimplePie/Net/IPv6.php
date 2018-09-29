@@ -38,8 +38,8 @@
  * @author Ryan Parman
  * @author Geoffrey Sneddon
  * @author Ryan McCue
- * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link https://simplepie.org/ SimplePie
+ * @license https://www.opensource.org/licenses/bsd-license.php BSD License
  */
 
 
@@ -49,8 +49,8 @@
  * @package SimplePie
  * @subpackage HTTP
  * @copyright 2003-2005 The PHP Group
- * @license http://www.opensource.org/licenses/bsd-license.php
- * @link http://pear.php.net/package/Net_IPv6
+ * @license https://www.opensource.org/licenses/bsd-license.php
+ * @link https://pear.php.net/package/Net_IPv6
  * @author Alexander Merz <alexander.merz@web.de>
  * @author elfrink at introweb dot nl
  * @author Josh Peck <jmp at joshpeck dot org>
@@ -72,7 +72,7 @@ class SimplePie_Net_IPv6
 	 * @author elfrink at introweb dot nl
 	 * @author Josh Peck <jmp at joshpeck dot org>
 	 * @copyright 2003-2005 The PHP Group
-	 * @license http://www.opensource.org/licenses/bsd-license.php
+	 * @license https://www.opensource.org/licenses/bsd-license.php
 	 * @param string $ip An IPv6 address
 	 * @return string The uncompressed IPv6 address
 	 */

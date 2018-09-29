@@ -5,9 +5,9 @@ class SimplePie_First_Item_Title_Test_Bug_270_Test_0 extends SimplePie_First_Ite
 	function data()
 	{
 		$this->data = 
-'<feed xmlns="http://www.w3.org/2005/Atom">
+'<feed xmlns="https://www.w3.org/2005/Atom">
 	<entry>
-		<content type="xhtml"><div xmlns="http://www.w3.org/1999/xhtml"><![CDATA[<title>]]></div></content>
+		<content type="xhtml"><div xmlns="https://www.w3.org/1999/xhtml"><![CDATA[<title>]]></div></content>
 		<title>The title</title>
 	</entry>
 </feed>';

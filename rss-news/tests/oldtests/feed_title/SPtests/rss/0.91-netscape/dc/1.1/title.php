@@ -5,8 +5,8 @@ class SimplePie_Feed_Title_Test_RSS_091_Netscape_DC_11_Title extends SimplePie_F
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
-<rss version="0.91" xmlns:dc="http://purl.org/dc/elements/1.1/">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91" xmlns:dc="https://purl.org/dc/elements/1.1/">
 	<channel>
 		<dc:title>Feed Title</dc:title>
 	</channel>

@@ -905,10 +905,10 @@ if (strpos($f_buzzyuser_image,'facebook') !== false) {
 			else if (strpos($f_buzzyuser_image,'fbcdn') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($f_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($f_buzzyuser_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($f_buzzyuser_image,'http://') !== false) {
+		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
 			$final_image_prefix='';		  
 		    }	
 		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
@@ -975,10 +975,10 @@ if (strpos($f_buzzyuser_image,'facebook') !== false) {
 			else if (strpos($f_buzzyuser_image,'fbcdn') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($f_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($f_buzzyuser_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($f_buzzyuser_image,'http://') !== false) {
+		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
 			$final_image_prefix='';		  
 		    }	
 		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
@@ -1049,10 +1049,10 @@ if (strpos($msg_image,'facebook') !== false) {
 			else if (strpos($msg_image,'fbcdn') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($msg_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($msg_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($msg_image,'http://') !== false) {
+		    else if (strpos($msg_image,'https://') !== false) {
 			$final_image_prefix='';		  
 		    }	
 		    else if (strpos($msg_image,'https://') !== false) {

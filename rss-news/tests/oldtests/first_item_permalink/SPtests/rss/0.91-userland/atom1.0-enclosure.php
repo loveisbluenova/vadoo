@@ -5,10 +5,10 @@ class SimplePie_First_Item_Permalink_Test_RSS_091_Userland_Atom_10_Link_Enclosur
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:a="http://www.w3.org/2005/Atom">
+'<rss version="0.91" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
 		<item>
-			<a:link href="http://example.com/" rel="enclosure"/>
+			<a:link href="https://example.com/" rel="enclosure"/>
 		</item>
 	</channel>
 </rss>';
@@ -16,7 +16,7 @@ class SimplePie_First_Item_Permalink_Test_RSS_091_Userland_Atom_10_Link_Enclosur
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

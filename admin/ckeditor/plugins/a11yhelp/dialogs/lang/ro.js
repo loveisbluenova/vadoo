@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.md or http://ckeditor.com/license
+ For licensing, see LICENSE.md or https://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang("a11yhelp","ro",{title:"Instrucțiuni de accesibilitate",contents:"Cuprins. Pentru a închide acest dialog, apăsați tasta ESC.",legend:[{name:"General",items:[{name:"Editează bara instrumente.",legend:"Apasă ${toolbarFocus} pentru a naviga prin bara de instrumente. Pentru a te mișca prin grupurile de instrumente folosește tastele TAB și SHIFT-TAB. Pentru a te mișca intre diverse instrumente folosește tastele SĂGEATĂ DREAPTA sau SĂGEATĂ STÂNGA. Apasă butonul SPAȚIU sau ENTER pentru activarea instrumentului."},
 {name:"Dialog editor",legend:"Într-un dialog, apasă TAB pentru a naviga spre câmpul următor de dialog, apasă SHIFT + TAB pentru a te duce la câmpul anterior, apasă ENTER pentru a trimite dialogul, apasă ESC pentru a anula dialogul. Pentru dialoguri care au mai multe subferestre, apasă ALT + F10 pentr a naviga în lista de subferestre. Treci la subferestrea următoare cu TAB sau SĂGEATĂ DREAPTA. Treci la subfereastra anterioară cu SHIFT + TAB sau SĂGEATĂ STÂNGA. Apasă SPAȚIU sau ENTER pentru a selecta subfereastra."},

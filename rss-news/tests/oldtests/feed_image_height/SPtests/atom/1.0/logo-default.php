@@ -5,8 +5,8 @@ class SimplePie_Feed_Image_Height_Test_Atom_10_Logo_Default extends SimplePie_Fe
 	function data()
 	{
 		$this->data = 
-'<feed xmlns="http://www.w3.org/2005/Atom">
-	<logo>http://example.com/</logo>
+'<feed xmlns="https://www.w3.org/2005/Atom">
+	<logo>https://example.com/</logo>
 </feed>';
 	}
 	

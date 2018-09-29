@@ -3,7 +3,7 @@
 
   =:file
     Copyright: 2006 Mark Wubben.
-    Author: Mark Wubben, <http://novemberborn.net/>
+    Author: Mark Wubben, <https://novemberborn.net/>
 
   =:history
     * IFR: Shaun Inman
@@ -12,7 +12,7 @@
 
   =:license
     This software is licensed and provided under the CC-GNU LGPL.
-    See <http://creativecommons.org/licenses/LGPL/2.1/>    
+    See <https://creativecommons.org/licenses/LGPL/2.1/>    
 */
 
 import TextField.StyleSheet;
@@ -41,7 +41,7 @@ class SifrStyleSheet extends TextField.StyleSheet {
     return true;
   }
   
-  // Apply leading to the textFormat. Much thanks to <http://www.blog.lessrain.com/?p=98>.
+  // Apply leading to the textFormat. Much thanks to <https://www.blog.lessrain.com/?p=98>.
   private function applyLeading(format, leading) {
     this.latestLeading = leading;
     

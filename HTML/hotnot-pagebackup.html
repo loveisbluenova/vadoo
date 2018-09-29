@@ -115,7 +115,7 @@ header('Location:'.$link_prefix.'page.php?no-criteria=true');
 			else if (strpos($buzzyuser_image,'fbcdn') !== false) {
 			$finala_image_prefix='';		  
 		    }
-		    else if (strpos($buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($buzzyuser_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$finala_image_prefix='';		  
 		    }			
 			else {
@@ -210,7 +210,7 @@ $age =  $from->diff($to)->y;
 
   if (strpos($buzzyuserimage,'facebook') !== false 
   OR strpos($buzzyuserimage,'fbcdn') !== false OR strpos($buzzyuserimage,'http') !== false 
-  OR strpos($buzzyuserimage,'http://brankomatovic.net/safetoupload/') !== false) {
+  OR strpos($buzzyuserimage,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
 			else {
@@ -226,7 +226,7 @@ $age =  $from->diff($to)->y;
   $buzzyuserimage=$row['buzzyuserimage'];
     if (strpos($buzzyuserimage,'facebook') !== false 
   OR strpos($buzzyuserimage,'fbcdn') !== false OR strpos($buzzyuserimage,'http') !== false
-  OR strpos($buzzyuserimage,'http://brankomatovic.net/safetoupload/') !== false) {
+  OR strpos($buzzyuserimage,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
 			else {
@@ -236,7 +236,7 @@ $age =  $from->diff($to)->y;
             <a href="<?php echo $final_image_prefix;?><?php echo $buzzyuserimage;?>">
                 <img 
                     src="<?php echo $final_image_prefix;?><?php echo $buzzyuserimage;?>",
-                    data-big="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
+                    data-big="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
                     data-title="Biandintz eta zaldiak"
                     data-description="Horses on Bianditz mountain, in Navarre, Spain."
                 >
@@ -245,7 +245,7 @@ $age =  $from->diff($to)->y;
             <a href="<?php echo $finala_image_prefix;?><?php echo $buzzyuser_image;?>">
                 <img 
                     src="<?php echo $finala_image_prefix;?><?php echo $buzzyuser_image;?>",
-                    data-big="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
+                    data-big="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
                     data-title="Biandintz eta zaldiak"
                     data-description="Horses on Bianditz mountain, in Navarre, Spain."
                 >

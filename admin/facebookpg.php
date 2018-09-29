@@ -149,10 +149,10 @@ session_start();
   else {
   $final_buzzynews_image='../img/addimage.jpg';
   }
-  if (substr($final_buzzynews_image, 0, 7) == 'http://' OR substr($final_buzzynews_image, 0, 8) == 'https://') {
+  if (substr($final_buzzynews_image, 0, 7) == 'https://' OR substr($final_buzzynews_image, 0, 8) == 'https://') {
   $image_prefix='';
   }
-  else  if (substr($final_buzzynews_image, 0, 7) != 'http://') {
+  else  if (substr($final_buzzynews_image, 0, 7) != 'https://') {
   $image_prefix='../img/';
   }
   

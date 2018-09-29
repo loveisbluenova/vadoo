@@ -8,7 +8,7 @@ class SimplePie_First_Item_Permalink_Test_RSS_092_Link extends SimplePie_First_I
 '<rss version="0.92">
 	<channel>
 		<item>
-			<link>http://example.com/</link>
+			<link>https://example.com/</link>
 		</item>
 	</channel>
 </rss>';
@@ -16,7 +16,7 @@ class SimplePie_First_Item_Permalink_Test_RSS_092_Link extends SimplePie_First_I
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

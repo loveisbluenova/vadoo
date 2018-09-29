@@ -18,7 +18,7 @@ class SimplePie_Absolutize_Test_RFC3986 extends SimplePie_Absolutize_Test
 	
 	function init()
 	{
-		$this->data['base'] = 'http://a/b/c/d;p?q';
+		$this->data['base'] = 'https://a/b/c/d;p?q';
 	}
 }
 

@@ -48,7 +48,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -100,12 +100,12 @@ $ch = curl_init();
 					$values = array(
 						// You can no longer pre-fill the user message
 						'message'=>'',
-						'link'=>'http://www.phpclasses.org/package/7700-PHP-Authorize-and-access-APIs-using-OAuth.html',
+						'link'=>'https://www.phpclasses.org/package/7700-PHP-Authorize-and-access-APIs-using-OAuth.html',
 						// The name of the post can be retrieved from the page title
 						//'name' => 'This is the title',
 						// the description of the post can be retrieved from the page meta description
 						'description'=>'This post was submitted using this PHP OAuth API client class.',
-						'picture' => 'http://files.phpclasses.org/files/blog/package/7700/file/PHP%2BOAuth.png'
+						'picture' => 'https://files.phpclasses.org/files/blog/package/7700/file/PHP%2BOAuth.png'
 					);
 					$success = $client->CallAPI(
 						'https://graph.facebook.com/v2.8/me/feed', 
@@ -120,7 +120,7 @@ $ch = curl_init();
 					$success = $client->CallAPI(
 						"https://graph.facebook.com/me/photos",
 						'POST', array(
-							'message'=>'This is a test to post photos in Facebook time line using this the PHP OAuth API class: http://www.phpclasses.org/oauth-api',
+							'message'=>'This is a test to post photos in Facebook time line using this the PHP OAuth API class: https://www.phpclasses.org/oauth-api',
 							'source'=>'picture.jpg'
 						),
 						array(
@@ -155,7 +155,7 @@ $ch = curl_init();
 				
 		//if the result is NULL then the user is new and has to be inserted, else it is not new user and we have the details in db
 		if ( $row === NULL) {
-	    $user_image='http://graph.facebook.com/'. $user->{'id'} . '/picture?type=large';		
+	    $user_image='https://graph.facebook.com/'. $user->{'id'} . '/picture?type=large';		
 			// insert the user tokens in the respective tables
 			// Create a user 
 			$query = 'INSERT INTO buzzy_oauth_fb_users VALUES ("'. $user->{'id'} . '","'. $user->{'email'} . '","'. $user->{'first_name'} . '","'. $user->{'last_name'}  . '","'. $user->{'gender'}. '","'. $user->{'link'}. '","'. $user->{'locale'}.  '","'. $user->{'name'}.  '","'. $user->{'timezone'}.  '","'. $user->{'updated_time'}.  '","'. $user->{'verified'}. '");';

@@ -5,7 +5,7 @@ class SimplePie_Feed_Category_Label_Test_RSS_20_DC_11_Subject extends SimplePie_
 	function data()
 	{
 		$this->data = 
-'<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+'<rss version="2.0" xmlns:dc="https://purl.org/dc/elements/1.1/">
 	<channel>
 		<dc:subject>Feed Category</dc:subject>
 	</channel>

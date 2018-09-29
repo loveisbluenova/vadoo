@@ -582,7 +582,7 @@ var fadeOut = function fadeOut(elem, interval) {
 };
 
 var fireClick = function fireClick(node) {
-  // Taken from http://www.nonobtrusive.com/2011/11/29/programatically-fire-crossbrowser-click-event-with-javascript/
+  // Taken from https://www.nonobtrusive.com/2011/11/29/programatically-fire-crossbrowser-click-event-with-javascript/
   // Then fixed for today's Chrome browser.
   if (typeof MouseEvent === 'function') {
     // Up-to-date approach
@@ -1181,7 +1181,7 @@ var logStr = function logStr(string) {
 
 /*
  * Set hover, active and focus-states for buttons 
- * (source: http://www.sitepoint.com/javascript-generate-lighter-darker-color)
+ * (source: https://www.sitepoint.com/javascript-generate-lighter-darker-color)
  */
 var colorLuminance = function colorLuminance(hex, lum) {
   // Validate hex string

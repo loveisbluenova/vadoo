@@ -62,13 +62,13 @@ body {
     
 	<div class="masthead">
 	    <h1>Buzzybuzz Documentation</h1>
-	    <p class="marketing-byline">Documentation Template created by <a href="http://codecanyon.net/user/Branko83">Branko 83</a></p>
+	    <p class="marketing-byline">Documentation Template created by <a href="https://codecanyon.net/user/Branko83">Branko 83</a></p>
 	    <p class="download-info"> <a href="#" class="btn btn-primary btn-large">Item Support</a> <a href="#" class="btn btn-large">My Facebook profile</a> </p>
 	</div> <!-- masthead -->
 	
    <div id="intro">
     <p class="highlight hero-unit">Thank you for purchasing my theme. If you have any questions that are beyond the scope of this help file, please feel free to email via my user page contact form 
-	<a href="http://codecanyon.net/user/Branko83">here</a>. 
+	<a href="https://codecanyon.net/user/Branko83">here</a>. 
 	Thanks so much!</p>
   </div> <!-- intro -->
       
@@ -162,7 +162,7 @@ body {
 &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;&lt;br&gt;                        
 &#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   &lt;?php echo $buzzynews_text; ?&gt;
                                                       &lt;br&gt;
-&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   &#x9;&lt;div class=&quot;fb-comments&quot; style=&quot;width:100%!important;&quot; data-href=&quot;http://&lt;?php echo $buzzysiteurl; ?&gt;/news.php?news-url=&lt;?php echo $buzzynews_url;?&gt;&quot; data-numposts=&quot;5&quot; data-mobile=&quot;Auto-detected&quot; data-colorscheme=&quot;light&quot;&gt;&lt;/div&gt;
+&#x9;&#x9;&#x9;&#x9;&#x9;&#x9;   &#x9;&lt;div class=&quot;fb-comments&quot; style=&quot;width:100%!important;&quot; data-href=&quot;https://&lt;?php echo $buzzysiteurl; ?&gt;/news.php?news-url=&lt;?php echo $buzzynews_url;?&gt;&quot; data-numposts=&quot;5&quot; data-mobile=&quot;Auto-detected&quot; data-colorscheme=&quot;light&quot;&gt;&lt;/div&gt;
                         &lt;?php } ?&gt;
                     &lt;?php } ?&gt;
                 &lt;/div&gt;
@@ -478,7 +478,7 @@ $website_language_query = &#x22;SELECT * FROM buzzylanguages WHERE buzzylanguage
 	            <div class="accordion-inner"> First, paste your buzzybuzz folder in root folder of your host(www under localhost or online host). In MYSQL folder there is sql.sql file that should be imported in your database. 
 				Create database and name it buzzybuzz or whatever you like and import sql file. In your script find folder buzzybuzz/includes and in file connection.inc.php set up your host, database name,
 				database user and database password. Also find folder buzzybuzz/messages/includes and in connection.php set up host, database name,
-				database user, database password and website url,path to your index.php file. (default is localhost/buzzybuzz/ and if you host your script in http://www.example.com/ you should write it here...)
+				database user, database password and website url,path to your index.php file. (default is localhost/buzzybuzz/ and if you host your script in https://www.example.com/ you should write it here...)
 				For facebook login find buzzybuzz/oauth/db/dbconfig.php and set up your settings to be same as in previous files.
 				</div>
 	          </div>
@@ -560,7 +560,7 @@ function dbConnect($usertype, $connectionType = &#x27;mysqli&#x27;)
 &#x9;define(&#x27;DB_PASSWORD&#x27;, &#x27;admin&#x27;); // Database password here
 &#x9;define(&#x27;DATABASE&#x27;, &#x27;buzzybuzz&#x27;);// Database name here
 &#x9;// Global Vars
-&#x9;$base_url = &#x27;http://localhost/buzzybuzz/&#x27;; // Your absolute url here
+&#x9;$base_url = &#x27;https://localhost/buzzybuzz/&#x27;; // Your absolute url here
 &#x9;$base_root = &#x27;&#x27;;
 &#x9;$perpage = 6;
 &#x9;$contacts_per_page = 8;
@@ -582,7 +582,7 @@ function dbConnect($usertype, $connectionType = &#x27;mysqli&#x27;)
  */
 
 &#x9;/*
-&#x9; *  Get the http.php file from http://www.phpclasses.org/httpclient
+&#x9; *  Get the http.php file from https://www.phpclasses.org/httpclient
 &#x9; */
 &#x9;require(&#x27;http.php&#x27;);
 &#x9;require(&#x27;oauth_client.php&#x27;);
@@ -592,7 +592,7 @@ function dbConnect($usertype, $connectionType = &#x27;mysqli&#x27;)
 &#x9;$client-&#x3E;debug = false;
 &#x9;$client-&#x3E;debug_http = true;
 &#x9;$client-&#x3E;server = &#x27;Facebook&#x27;;
-&#x9;$client-&#x3E;redirect_uri = &#x27;http://&#x27;.$_SERVER[&#x27;HTTP_HOST&#x27;].
+&#x9;$client-&#x3E;redirect_uri = &#x27;https://&#x27;.$_SERVER[&#x27;HTTP_HOST&#x27;].
 &#x9;&#x9;dirname(strtok($_SERVER[&#x27;REQUEST_URI&#x27;],&#x27;?&#x27;)).&#x27;/login_with_facebook.php&#x27;;
 
 &#x9;$client-&#x3E;client_id = &#x27;946998632024562&#x27;; //important!!! here  you write your application id. 

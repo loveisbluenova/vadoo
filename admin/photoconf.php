@@ -129,10 +129,10 @@ $current43='current';
   $final_buzzyuser_image='profile-icon.jpg';
   }
   
-  if (substr($final_buzzyuser_image, 0, 7) == 'http://' OR substr($final_buzzyuser_image, 0, 8) == 'https://') {
+  if (substr($final_buzzyuser_image, 0, 7) == 'https://' OR substr($final_buzzyuser_image, 0, 8) == 'https://') {
   $image_prefix='';
   }
-  else  if (substr($final_buzzyuser_image, 0, 7) != 'http://') {
+  else  if (substr($final_buzzyuser_image, 0, 7) != 'https://') {
   $image_prefix='../img/';
   }
   ?>

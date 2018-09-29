@@ -1,7 +1,7 @@
 /**********************************************************
 Sleight
 (c) 2001, Aaron Boodman
-http://www.youngpup.net
+https://www.youngpup.net
 **********************************************************/
 
 if (navigator.platform == "Win32" && navigator.appName == "Microsoft Internet Explorer" && window.attachEvent)

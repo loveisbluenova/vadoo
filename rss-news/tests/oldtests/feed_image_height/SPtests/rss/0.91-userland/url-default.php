@@ -8,7 +8,7 @@ class SimplePie_Feed_Image_Height_Test_RSS_091_Userland_URL_Default extends Simp
 '<rss version="0.91">
 	<channel>
 		<image>
-			<url>http://example.com/</url>
+			<url>https://example.com/</url>
 		</image>
 	</channel>
 </rss>';

@@ -5,7 +5,7 @@ class SimplePie_First_Item_Content_Test_RSS_091_Userland_Atom_10_Content extends
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:a="http://www.w3.org/2005/Atom">
+'<rss version="0.91" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
 		<item>
 			<a:content>Item Description</a:content>

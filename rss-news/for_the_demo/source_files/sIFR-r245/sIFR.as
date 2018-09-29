@@ -3,7 +3,7 @@
 
   =:file
     Copyright: 2006 Mark Wubben.
-    Author: Mark Wubben, <http://novemberborn.net/>
+    Author: Mark Wubben, <https://novemberborn.net/>
 
   =:history
     * IFR: Shaun Inman
@@ -12,7 +12,7 @@
 
   =:license
     This software is licensed and provided under the CC-GNU LGPL.
-    See <http://creativecommons.org/licenses/LGPL/2.1/>    
+    See <https://creativecommons.org/licenses/LGPL/2.1/>    
 */
 
 import SifrStyleSheet;
@@ -39,22 +39,22 @@ class sIFR {
   //  hotlinking. Use `*` to allow all domains.
   public static var domains:Array                = [];
   //= Whether kerning is enabled by default. This can be overriden from the client side.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002811.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002811.html>.
   public static var defaultKerning:Boolean       = true;
   //= Default value which can be overriden from the client side.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002788.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002788.html>.
   public static var defaultSharpness:Number      = 0;
   //= Default value which can be overriden from the client side.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002787.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002787.html>.
   public static var defaultThickness:Number      = 0;
   //= Default value which can be overriden from the client side.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002732.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002732.html>.
   public static var defaultOpacity:Number        = -1; // Use client settings
   //= Default value which can be overriden from the client side.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002788.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002788.html>.
   public static var defaultBlendMode:Number      = -1; // Use cliest settings
   //= Overrides the grid fit type as defined on the client side.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002444.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002444.html>.
   public static var enforcedGridFitType:String   = null;
   //= If `true` sIFR won't override the anti aliasing set in the Flash IDE when exporting.
   //  Thickness and sharpness won't be affected either.
@@ -63,7 +63,7 @@ class sIFR {
   //  This setting is *independent* from `preserveAntiAlias`.
   public static var conditionalAntiAlias:Boolean = true;
   //= Sets the anti alias type. By default it's `DEFAULT_ANTI_ALIAS_TYPE`.
-  //  See also <http://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002733.html>.
+  //  See also <https://livedocs.macromedia.com/flash/8/main/wwhelp/wwhimpl/common/html/wwhelp.htm?context=LiveDocs_Parts&file=00002733.html>.
   public static var antiAliasType:String         = null;
   //= Flash filters can be added to this array and will be applied to the text field.
   public static var filters:Array                = [];

@@ -24,13 +24,13 @@ If you use different markup or need to apply highlighting dynamically, read
 
 - You can download your own customized version of "highlight.pack.js" or
   use the hosted one as described on the download page:
-  <http://highlightjs.org/download/>
+  <https://highlightjs.org/download/>
 
 - Style themes are available in the download package or as hosted files.
   To create a custom style for your site see the class reference in the file
   [CSS classes reference][cr] from the downloaded package.
 
-[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+[cr]: https://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js
@@ -161,7 +161,7 @@ on a site.
 ## Meta
 
 - Version: 8.0
-- URL:     http://highlightjs.org/
+- URL:     https://highlightjs.org/
 
 For the license terms see LICENSE files.
 For authors and contributors see AUTHORS.en.txt file.

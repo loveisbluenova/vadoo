@@ -9,7 +9,7 @@ class SimplePie_Absolutize_Test_RFC3986_Normal_13 extends SimplePie_Absolutize_T
 	
 	function expected()
 	{
-		$this->expected = 'http://a/b/c/g;x';
+		$this->expected = 'https://a/b/c/g;x';
 	}
 }
 

@@ -419,7 +419,7 @@ $title_tag_here='Marca aqui do título (primeira palavra-chave - palavra-chave s
 $add_title_tag_here='Adicionar seu tag do título notícias aqui';
 $news_source_name='Nome de fonte de notícias (Ex: BBC)';
 $add_news_source='Adicionar sua fonte de notícias aqui';
-$news_source_url='Url da fonte de notícias (Ex: http://www.bbc.com/some-news)';
+$news_source_url='Url da fonte de notícias (Ex: https://www.bbc.com/some-news)';
 
 $add_news_source_url='Adicionar seu url da fonte notícias aqui';
 $write_your_news_here='Escreva sua notícia aqui...';

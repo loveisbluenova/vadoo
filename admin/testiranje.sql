@@ -1,6 +1,6 @@
 -- phpMyAdmin SQL Dump
 -- version 2.8.0.1
--- http://www.phpmyadmin.net
+-- https://www.phpmyadmin.net
 -- 
 -- Host: custsql-ipg21.eigbox.net
 -- Generation Time: Dec 22, 2016 at 04:24 PM

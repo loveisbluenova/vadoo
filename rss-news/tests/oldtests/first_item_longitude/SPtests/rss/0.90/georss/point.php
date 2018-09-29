@@ -5,7 +5,7 @@ class SimplePie_First_Item_Longitude_Test_RSS_090_Georss_Point extends SimplePie
 	function data()
 	{
 		$this->data = 
-'<rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://my.netscape.com/rdf/simple/0.9/" xmlns:georss="http://www.georss.org/georss">
+'<rdf:RDF xmlns:rdf="https://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="https://my.netscape.com/rdf/simple/0.9/" xmlns:georss="https://www.georss.org/georss">
 	<item>
 		<georss:point>55.701 12.552</georss:point>
 	</item>

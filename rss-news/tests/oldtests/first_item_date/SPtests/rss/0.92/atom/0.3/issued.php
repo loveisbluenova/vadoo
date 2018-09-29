@@ -5,7 +5,7 @@ class SimplePie_First_Item_Date_Test_RSS_092_Atom_03_Issued extends SimplePie_Fi
 	function data()
 	{
 		$this->data = 
-'<rss version="0.92" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="0.92" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<item>
 			<a:issued>2007-01-11T16:00:00Z</a:issued>

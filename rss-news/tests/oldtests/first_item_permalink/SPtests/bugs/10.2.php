@@ -8,7 +8,7 @@ class SimplePie_First_Item_Permalink_Test_Bug_10_Test_2 extends SimplePie_First_
 '<rss version="2.0">
 	<channel>
 		<item>
-			<guid isPermaLink="meep">http://example.com/</guid>
+			<guid isPermaLink="meep">https://example.com/</guid>
 		</item>
 	</channel>
 </rss>';

@@ -5,7 +5,7 @@ class SimplePie_First_Item_Author_Name_Test_Atom_03_Name extends SimplePie_First
 	function data()
 	{
 		$this->data = 
-'<feed version="0.3" xmlns="http://purl.org/atom/ns#">
+'<feed version="0.3" xmlns="https://purl.org/atom/ns#">
 	<entry>
 		<author>
 			<name>Item Author</name>

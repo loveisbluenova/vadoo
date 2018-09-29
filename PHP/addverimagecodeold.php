@@ -2,7 +2,7 @@
 if ($buzzywebsite_status==0){
 if ($buzzysite_safeupload==1) { 
 $safe_path='../safetoupload/';
-$safe_db_path='http://brankomatovic.net/safetoupload/';
+$safe_db_path='https://brankomatovic.net/safetoupload/';
 }
 else if ($buzzysite_safeupload==0) { 
 $safe_path='img/';

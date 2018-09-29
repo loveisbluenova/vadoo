@@ -5,11 +5,11 @@ class SimplePie_First_Item_Permalink_Test_RSS_091_Netscape_Link extends SimplePi
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
 <rss version="0.91">
 	<channel>
 		<item>
-			<link>http://example.com/</link>
+			<link>https://example.com/</link>
 		</item>
 	</channel>
 </rss>';
@@ -17,7 +17,7 @@ class SimplePie_First_Item_Permalink_Test_RSS_091_Netscape_Link extends SimplePi
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

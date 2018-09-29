@@ -38,7 +38,7 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
         "SA" => "South America"
     );
     if (filter_var($ip, FILTER_VALIDATE_IP) && in_array($purpose, $support)) {
-        $ipdat = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $user_ipreal));
+        $ipdat = @json_decode(file_get_contents("https://www.geoplugin.net/json.gp?ip=" . $user_ipreal));
         if (@strlen(trim($ipdat->geoplugin_countryCode)) == 2) {
             switch ($purpose) {
                 case "location":

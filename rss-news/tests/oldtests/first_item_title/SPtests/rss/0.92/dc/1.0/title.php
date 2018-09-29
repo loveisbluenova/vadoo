@@ -5,7 +5,7 @@ class SimplePie_First_Item_Title_Test_RSS_092_DC_10_Title extends SimplePie_Firs
 	function data()
 	{
 		$this->data = 
-'<rss version="0.92" xmlns:dc="http://purl.org/dc/elements/1.0/">
+'<rss version="0.92" xmlns:dc="https://purl.org/dc/elements/1.0/">
 	<channel>
 		<item>
 			<dc:title>Item Title</dc:title>

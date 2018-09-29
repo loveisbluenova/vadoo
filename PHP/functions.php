@@ -207,7 +207,7 @@ $("#<?php echo $fclick;?>").click(function(){
 <?php
 function resize_and_crop($original_image_url, $thumb_image_url, $thumb_w, $thumb_h, $quality=75)
 {
-    // ACQUIRE THE ORIGINAL IMAGE: http://php.net/manual/en/function.imagecreatefromjpeg.php
+    // ACQUIRE THE ORIGINAL IMAGE: https://php.net/manual/en/function.imagecreatefromjpeg.php
     $original = imagecreatefromjpeg($original_image_url);
     if (!$original) return FALSE;
 

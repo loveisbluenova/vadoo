@@ -5,11 +5,11 @@ class SimplePie_iTunesRSS_Channel_Block_Reverse_Test_RSS_20 extends SimplePie_iT
 	function data()
 	{
 		$this->data = 
-'<rss xmlns:itunes="http://www.itunes.com/DTDs/Podcast-1.0.dtd">
+'<rss xmlns:itunes="https://www.itunes.com/DTDs/Podcast-1.0.dtd">
 	<channel>
 		<itunes:block>no</itunes:block>
 		<item>
-			<enclosure url="http://test.com/test.mp3" />
+			<enclosure url="https://test.com/test.mp3" />
 		</item>
 	</channel>
 </rss>';

@@ -31,7 +31,7 @@ The PHP mail() function usually sends via a local mail server, typically fronted
 
 ## License
 
-This software is licenced under the [LGPL 2.1](http://www.gnu.org/licenses/lgpl-2.1.html). Please read LICENSE for information on the
+This software is licenced under the [LGPL 2.1](https://www.gnu.org/licenses/lgpl-2.1.html). Please read LICENSE for information on the
 software availability and distribution.
 
 ## Installation & loading
@@ -93,7 +93,7 @@ You'll find plenty more to play with in the [examples](examples/) folder.
 That's it. You should now be ready to use PHPMailer!
 
 ## Localization
-PHPMailer defaults to English, but in the [language](language/) folder you'll find numerous (45 at the time of writing!) translations for PHPMailer error messages that you may encounter. Their filenames contain [ISO 639-1](http://en.wikipedia.org/wiki/ISO_639-1) language code for the translations, for example `fr` for French. To specify a language, you need to tell PHPMailer which one to use, like this:
+PHPMailer defaults to English, but in the [language](language/) folder you'll find numerous (45 at the time of writing!) translations for PHPMailer error messages that you may encounter. Their filenames contain [ISO 639-1](https://en.wikipedia.org/wiki/ISO_639-1) language code for the translations, for example `fr` for French. To specify a language, you need to tell PHPMailer which one to use, like this:
 
 ```php
 // To load the French version
@@ -108,11 +108,11 @@ Examples of how to use PHPMailer for common scenarios can be found in the [examp
 
 There are tips and a troubleshooting guide in the [GitHub wiki](https://github.com/PHPMailer/PHPMailer/wiki). If you're having trouble, this should be the first place you look as it's the most frequently updated.
 
-Complete generated API documentation is [available online](http://phpmailer.github.io/PHPMailer/).
+Complete generated API documentation is [available online](https://phpmailer.github.io/PHPMailer/).
 
-You'll find some basic user-level docs in the [docs](docs/) folder, and you can generate complete API-level documentation using the [generatedocs.sh](docs/generatedocs.sh) shell script in the docs folder, though you'll need to install [PHPDocumentor](http://www.phpdoc.org) first. You may find [the unit tests](test/phpmailerTest.php) a good source of how to do various operations such as encryption.
+You'll find some basic user-level docs in the [docs](docs/) folder, and you can generate complete API-level documentation using the [generatedocs.sh](docs/generatedocs.sh) shell script in the docs folder, though you'll need to install [PHPDocumentor](https://www.phpdoc.org) first. You may find [the unit tests](test/phpmailerTest.php) a good source of how to do various operations such as encryption.
 
-If the documentation doesn't cover what you need, search the [many questions on StackOverflow](http://stackoverflow.com/questions/tagged/phpmailer), and before you ask a question about "SMTP Error: Could not connect to SMTP host.", [read the troubleshooting guide](https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting).
+If the documentation doesn't cover what you need, search the [many questions on StackOverflow](https://stackoverflow.com/questions/tagged/phpmailer), and before you ask a question about "SMTP Error: Could not connect to SMTP host.", [read the troubleshooting guide](https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting).
 
 ## Tests
 
@@ -138,7 +138,7 @@ Please *don't* use the SourceForge or Google Code projects any more.
 
 Development time and resources for PHPMailer are provided by [Smartmessages.net](https://info.smartmessages.net/), a powerful email marketing system.
 
-<a href="https://info.smartmessages.net/"><img src="http://www.smartmessages.net/images/smartmessages-logo.svg" width="250" height="28" alt="Smartmessages email marketing"></a>
+<a href="https://info.smartmessages.net/"><img src="https://www.smartmessages.net/images/smartmessages-logo.svg" width="250" height="28" alt="Smartmessages email marketing"></a>
 
 Other contributions are gladly received, whether in beer 🍺, T-shirts 👕, Amazon wishlist raids, or cold, hard cash 💰.
 
@@ -147,7 +147,7 @@ Other contributions are gladly received, whether in beer 🍺, T-shirts 👕, Am
 See [changelog](changelog.md).
 
 ## History
-- PHPMailer was originally written in 2001 by Brent R. Matzelle as a [SourceForge project](http://sourceforge.net/projects/phpmailer/).
+- PHPMailer was originally written in 2001 by Brent R. Matzelle as a [SourceForge project](https://sourceforge.net/projects/phpmailer/).
 - Marcus Bointon (coolbru on SF) and Andy Prevost (codeworxtech) took over the project in 2004.
 - Became an Apache incubator project on Google Code in 2010, managed by Jim Jagielski.
 - Marcus created his fork on [GitHub](https://github.com/Synchro/PHPMailer).

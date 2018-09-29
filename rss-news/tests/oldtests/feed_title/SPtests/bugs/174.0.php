@@ -6,7 +6,7 @@ class SimplePie_Feed_Title_Test_Bug_174_Test_0 extends SimplePie_Feed_Title_Test
 	{
 		$this->data = 
 '<?xml version = "1.0" encoding = "UTF-8" ?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="https://www.w3.org/2005/Atom">
 	<title>Spaces in prolog</title>
 </feed>';
 	}

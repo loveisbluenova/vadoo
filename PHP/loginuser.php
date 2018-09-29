@@ -1,6 +1,6 @@
 <?php
 $now=time();
-$url= "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$url= "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 	
 	// if the user is logged in from Social -->
@@ -260,10 +260,10 @@ if (strpos($session_buzzyuser_image,'facebook') !== false) {
 			else if (strpos($session_buzzyuser_image,'fbcdn') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($session_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($session_buzzyuser_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($session_buzzyuser_image,'http://') !== false) {
+		    else if (strpos($session_buzzyuser_image,'https://') !== false) {
 			$final_image_prefix='';		  
 		    }	
 		    else if (strpos($session_buzzyuser_image,'https://') !== false) {
@@ -373,7 +373,7 @@ $mail->FromName = $you_hav_new_msg;
     $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;
@@ -419,7 +419,7 @@ $mail->FromName = $you_hav_new_msg;
   $mail->Body   = '<div style="background:#eee!important; width:100%!important;">
   <div style="background:#'.$buzzycss_color_css.'!important; width:100%!important; height:130px!important;" >
   <br>
-  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="http://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
+  <p style="text-align:center; padding-top:20px!important;  color:#fff!important; font-size:28px!important; font-family:Comfortaa;" ><img src="https://icons.iconarchive.com/icons/designbolts/free-valentine-heart/48/Heart-icon.png"
   style="margin-right:10px!important; width:32px!important;">'.$buzzysitename.'</p> 
   </div> 
  <div style="width:480px!important; margin:0 auto; height:280px!important; margin-top:20px; position:absolute!important; background:#fff!important;  border-radius:3px 3px 3px 3px;

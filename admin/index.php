@@ -443,7 +443,7 @@ $current18='';
 			  
 				<input type="text" class="form-control" name="buzzyfacebookid" required value="<?php echo $buzzyfacebookid;?>" data-toggle="tooltip" data-placement="right"
 				title="You type your facebook aplication group id here.. 
-				It is important to create it in facebook developer Tutorial is http://www.hyperarts.com/blog/how-to-create-facebook-application-to-get-an-app-id-for-your-website/..">				
+				It is important to create it in facebook developer Tutorial is https://www.hyperarts.com/blog/how-to-create-facebook-application-to-get-an-app-id-for-your-website/..">				
 				<div class="checkbox">
                 <label>
                 <input type="checkbox" name="buzzyoptimizedstatus" value="1" <?php echo $checkedseo; ?> data-toggle="tooltip" data-placement="top" title="Make your urls SEO friendly... Beware, you must check your .httacces file

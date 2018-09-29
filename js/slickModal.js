@@ -2,7 +2,7 @@
 
 - document:  Slick Modals - HTML5 and CSS3 powered modal popups
 - author:    Capelle @ Codecanyon
-- profile:   http://codecanyon.net/user/Capelle
+- profile:   https://codecanyon.net/user/Capelle
 - version:   4.2
 
 ---------------------------------------------------------- */

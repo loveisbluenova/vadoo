@@ -8,7 +8,7 @@ class SimplePie_Feed_Image_Width_Test_RSS_091_Userland extends SimplePie_Feed_Im
 '<rss version="0.91">
 	<channel>
 		<image>
-			<url>http://example.com/</url>
+			<url>https://example.com/</url>
 		</image>
 	</channel>
 </rss>';

@@ -3,7 +3,7 @@ session_start();
 require_once "twitter/twitteroauth/autoload.php";
 
 use Abraham\TwitterOAuth\TwitterOAuth;
-$actual_link = "http://$_SERVER[HTTP_HOST]";
+$actual_link = "https://$_SERVER[HTTP_HOST]";
 define('CONSUMER_KEY', 'cG39lzSkU5xCtcHp4zUkwcB1l');
 define('CONSUMER_SECRET', 'aPbMmfWwyBzXMzTtwllQkDr5sg4iwXGHp2uiZxWwtyp1EfUpD9');
 define('OAUTH_CALLBACK', $actual_link.'/oauth/redirect.php');

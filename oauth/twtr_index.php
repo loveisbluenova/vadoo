@@ -6,7 +6,7 @@ use Abraham\TwitterOAuth\TwitterOAuth;
 
 define('CONSUMER_KEY', 'iqeEM62zY9e81CjbrOG64Ttw3');
 define('CONSUMER_SECRET', 'YwpNWHQnbi5MHzNwRwlGPlU9LYh1OYGZ51saubN9QAlEAwE0lm');
-define('OAUTH_CALLBACK','http://vadoodemo.site/oauth/redirect.php');
+define('OAUTH_CALLBACK','https://vadoodemo.site/oauth/redirect.php');
 
 $connection = new TwitterOAuth(CONSUMER_KEY, CONSUMER_SECRET);
 

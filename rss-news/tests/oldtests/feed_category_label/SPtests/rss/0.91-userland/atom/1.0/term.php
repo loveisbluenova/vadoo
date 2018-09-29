@@ -5,7 +5,7 @@ class SimplePie_Feed_Category_Label_Test_RSS_091_Userland_Atom_10_Category_Term 
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:a="http://www.w3.org/2005/Atom">
+'<rss version="0.91" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
 		<a:category term="Feed Category"/>
 	</channel>

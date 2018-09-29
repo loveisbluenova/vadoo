@@ -1,6 +1,6 @@
 https://www.specificfeeds.com/#category_id=all&subcategory_id=0&country=All&stateCityFilter=State+or+City&keywordsFilter=Keyword(s)&tagFilter=Tag(s)&authorFilter=Author(s)&filterRadio=feed_popularity&feed_type_sorting=feed_popularity
 
 8,76km
-http://www.cnbc.com/rss-feeds/
+https://www.cnbc.com/rss-feeds/
 
-http://www.10best.com/rss/
+https://www.10best.com/rss/

@@ -2,7 +2,7 @@ CREATE DKIM KEYS and DNS Resource Record:
 =========================================
 
 To create DomainKeys Identified Mail keys, visit:
-http://dkim.worxware.com/
+https://dkim.worxware.com/
 ... read the information, fill in the form, and download the ZIP file 
 containing the public key, private key, DNS Resource Record and instructions
 to add to your DNS Zone Record, and the PHPMailer code to enable DKIM
@@ -26,7 +26,7 @@ accessed. Add protection to your .htaccess file as in this example:
 </Files>
 
 (the actual .htaccess additions are in the ZIP file sent back to you from 
-http://dkim.worxware.com/ 
+https://dkim.worxware.com/ 
 
 A few notes on using DomainKey Identified Mail (DKIM):
 
@@ -52,4 +52,4 @@ Enjoy!
 Andy
 
 PS. if you need additional information about DKIM, please see:
-http://www.dkim.org/info/dkim-faq.html
+https://www.dkim.org/info/dkim-faq.html

@@ -5,7 +5,7 @@ class SimplePie_Feed_Description_Test_RSS_092_Atom_03_Tagline extends SimplePie_
 	function data()
 	{
 		$this->data = 
-'<rss version="0.92" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="0.92" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<a:tagline>Feed Description</a:tagline>
 	</channel>

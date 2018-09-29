@@ -178,7 +178,7 @@ FB.api(
   'me/objects/article',
   'post',
   {
-    og:url: http://samples.ogp.me/434264856596891,
+    og:url: https://samples.ogp.me/434264856596891,
     og:title: Sample Article,
     og:type: article,
     og:image: https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png,

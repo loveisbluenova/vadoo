@@ -2,7 +2,7 @@
 /*
 	Uploadify
 	Copyright (c) 2012 Reactive Apps, Ronnie Garcia
-	Released under the MIT License <http://www.opensource.org/licenses/mit-license.php> 
+	Released under the MIT License <https://www.opensource.org/licenses/mit-license.php> 
 	
 	Re-write by Paulo Regina
 	Version 1.0

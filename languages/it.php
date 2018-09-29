@@ -413,7 +413,7 @@ $add_title_tag_here='i messaggi di tag titolo Aggiungi qui';
 $news_source_name='nome di origine del messaggio (ex: BBC)';
 $add_news_source='Aggiungi newsfeed qui';
 
-$news_source_url='URL di origine del messaggio (ex: http://www.bbc.com/some-news)';
+$news_source_url='URL di origine del messaggio (ex: https://www.bbc.com/some-news)';
 $add_news_source_url='Aggiungi il tuo URL newsfeed qui';
 $write_your_news_here='Scrivere tue storie qui...';
 $submit_news='inviare messaggi';

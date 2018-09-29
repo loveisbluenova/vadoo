@@ -39,20 +39,20 @@
 		private $rules = array(
 		
 			// video 
-			'dailymotion.com/video/' => '<iframe frameborder="0" width="100%" height="270" src="http://www.dailymotion.com/embed/video/%embed_code%" allowfullscreen></iframe>',
+			'dailymotion.com/video/' => '<iframe frameborder="0" width="100%" height="270" src="https://www.dailymotion.com/embed/video/%embed_code%" allowfullscreen></iframe>',
 			'youtube.com/watch' => '<iframe width="100%" height="315" src="//www.youtube.com/embed/%embed_code%" frameborder="0" allowfullscreen></iframe>',
 			'youtu.be' => '<iframe width="100%" height="315" src="//www.youtube.com/embed/%embed_code%" frameborder="0" allowfullscreen></iframe>',
 			'blip.tv' => '%embed_code%',
 			'vimeo.com' => '<iframe src="//player.vimeo.com/video/%embed_code%" width="100%" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>',
-			'break.com/video/' => '<iframe src="http://www.break.com/embed/%embed_code%?embed=1" width="100%" height="280" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"></iframe>',
-			'metacafe.com/watch/' => '<iframe src="http://www.metacafe.com/embed/%embed_code%/" width="100%" height="248" allowFullScreen frameborder=0></iframe>',
-			'funnyordie.com/videos/' => '<iframe src="http://www.funnyordie.com/embed/%embed_code%" width="100%" height="400" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>',
-			'collegehumor.com/video/' => '<iframe src="http://www.collegehumor.com/e/%embed_code%" width="100%" height="369" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>',
-			'youku.com/v_show/' => '<iframe width="100%" height="498" src="http://player.youku.com/embed/%embed_code%" frameborder="0" allowfullscreen></iframe>',
+			'break.com/video/' => '<iframe src="https://www.break.com/embed/%embed_code%?embed=1" width="100%" height="280" webkitallowfullscreen mozallowfullscreen allowfullscreen frameborder="0"></iframe>',
+			'metacafe.com/watch/' => '<iframe src="https://www.metacafe.com/embed/%embed_code%/" width="100%" height="248" allowFullScreen frameborder=0></iframe>',
+			'funnyordie.com/videos/' => '<iframe src="https://www.funnyordie.com/embed/%embed_code%" width="100%" height="400" frameborder="0" allowfullscreen webkitallowfullscreen mozallowfullscreen></iframe>',
+			'collegehumor.com/video/' => '<iframe src="https://www.collegehumor.com/e/%embed_code%" width="100%" height="369" frameborder="0" webkitAllowFullScreen allowFullScreen></iframe>',
+			'youku.com/v_show/' => '<iframe width="100%" height="498" src="https://player.youku.com/embed/%embed_code%" frameborder="0" allowfullscreen></iframe>',
 			
 			// Audio
 			"soundcloud.com/" => '%embed_code%',
-			"official.fm/" => '<iframe width="100%" height="400" frameborder="no" src="http://www.official.fm/player?width=auto&height=400&aspect=flat&feed=http%3A%2F%2Fwww.official.fm%2Ffeed%2Ftracks%2F%embed_code%.json"></iframe>',
+			"official.fm/" => '<iframe width="100%" height="400" frameborder="no" src="https://www.official.fm/player?width=auto&height=400&aspect=flat&feed=http%3A%2F%2Fwww.official.fm%2Ffeed%2Ftracks%2F%embed_code%.json"></iframe>',
 			
 			// Rich
 			"slideshare.net" => '<iframe src="//www.slideshare.net/slideshow/embed_code/%embed_code%" width="100%" height="356" frameborder="0" marginwidth="0" marginheight="0" scrolling="no" style="border:1px solid #CCC; border-width:1px 1px 0; margin-bottom:5px; max-width: 100%;" allowfullscreen></iframe>',
@@ -66,7 +66,7 @@
 			// According to Providers API (Navigate to their API instead of website)
 			if($this->find_rule($url) == 'soundcloud.com/')
 			{
-				$url = 'http://soundcloud.com/oembed?format=xml&url='.$url.'&iframe=true';	
+				$url = 'https://soundcloud.com/oembed?format=xml&url='.$url.'&iframe=true';	
 			}
 
 			$ch = curl_init();
@@ -110,7 +110,7 @@
 		{
 			if(stripos($text, '/') == true)
 			{
-				// from: http://css-tricks.com/snippets/php/find-urls-in-text-make-links/
+				// from: https://css-tricks.com/snippets/php/find-urls-in-text-make-links/
 				$reg_exUrl = '$\b(https?)://[-A-Z0-9+&@#/%?=~_|!:,.;]*[-A-Z0-9+&@#/%=~_|]$i';
 				preg_match_all($reg_exUrl, $text, $matches);
 				
@@ -164,7 +164,7 @@
 		}
 		
 		// How to debug?
-		// $embed->extract_embed_code('http://www.official.fm/tracks/track-code-here', $embed->providers_regex['official.fm/']);
+		// $embed->extract_embed_code('https://www.official.fm/tracks/track-code-here', $embed->providers_regex['official.fm/']);
 		// $embed->oembed('check out this song: https://www.soundcloud.com/url-here');
 	}
 	

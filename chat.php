@@ -814,7 +814,7 @@ FB.api(
   'me/objects/article',
   'post',
   {
-    og:url: http://samples.ogp.me/434264856596891,
+    og:url: https://samples.ogp.me/434264856596891,
     og:title: Sample Article,
     og:type: article,
     og:image: https://s-static.ak.fbcdn.net/images/devsite/attachment_blank.png,
@@ -971,10 +971,10 @@ if (strpos($ran_buzzyuser_image,'facebook') !== false) {
 			else if (strpos($ran_buzzyuser_image,'fbcdn') !== false) {
 			$ranfinala_image_prefix='';		  
 		    }
-		    else if (strpos($ran_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($ran_buzzyuser_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$ranfinala_image_prefix='';		  
 		    }
-		    else if (strpos($ran_buzzyuser_image,'http://') !== false) {
+		    else if (strpos($ran_buzzyuser_image,'https://') !== false) {
 			$ranfinala_image_prefix='';		  
 		    }	
 		    else if (strpos($ran_buzzyuser_image,'https://') !== false) {
@@ -1043,10 +1043,10 @@ if (strpos($fa_buzzyuser_image,'facebook') !== false) {
 			else if (strpos($fa_buzzyuser_image,'fbcdn') !== false) {
 			$finala_image_prefix='';		  
 		    }
-		    else if (strpos($fa_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($fa_buzzyuser_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$finala_image_prefix='';		  
 		    }
-		    else if (strpos($fa_buzzyuser_image,'http://') !== false) {
+		    else if (strpos($fa_buzzyuser_image,'https://') !== false) {
 			$finala_image_prefix='';		  
 		    }	
 		    else if (strpos($fa_buzzyuser_image,'https://') !== false) {
@@ -1138,10 +1138,10 @@ if (strpos($msg_image,'facebook') !== false) {
 			else if (strpos($msg_image,'fbcdn') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($msg_image,'http://brankomatovic.net/safetoupload/') !== false) {
+		    else if (strpos($msg_image,'https://brankomatovic.net/safetoupload/') !== false) {
 			$final_image_prefix='';		  
 		    }
-		    else if (strpos($msg_image,'http://') !== false) {
+		    else if (strpos($msg_image,'https://') !== false) {
 			$final_image_prefix='';		  
 		    }	
 		    else if (strpos($msg_image,'https://') !== false) {

@@ -429,7 +429,7 @@ $add_title_tag_here='Burada haber başlık etiketi ekle';
 $news_source_name='Haber kaynak adını (Ex: BBC)';
 $add_news_source='Senin haber kaynağı Ekle'; 
  
-$news_source_url='Haber kaynak url (örn: http://www.bbc.com/some-news)';
+$news_source_url='Haber kaynak url (örn: https://www.bbc.com/some-news)';
 $add_news_source_url='Burada haber kaynak url Ekle';
 $write_your_news_here='Haberlerini burada yazma...'; 
 $submit_news='Haber gönder';

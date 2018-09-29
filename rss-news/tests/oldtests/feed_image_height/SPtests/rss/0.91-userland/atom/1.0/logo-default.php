@@ -5,9 +5,9 @@ class SimplePie_Feed_Image_Height_Test_RSS_091_Userland_Atom_10_Logo_Default ext
 	function data()
 	{
 		$this->data = 
-'<rss version="0.91" xmlns:a="http://www.w3.org/2005/Atom">
+'<rss version="0.91" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
-		<a:logo>http://example.com/</a:logo>
+		<a:logo>https://example.com/</a:logo>
 	</channel>
 </rss>';
 	}

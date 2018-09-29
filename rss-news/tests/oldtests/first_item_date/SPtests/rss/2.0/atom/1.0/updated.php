@@ -5,7 +5,7 @@ class SimplePie_First_Item_Date_Test_RSS_20_Atom_10_Updated extends SimplePie_Fi
 	function data()
 	{
 		$this->data = 
-'<rss version="2.0" xmlns:a="http://www.w3.org/2005/Atom">
+'<rss version="2.0" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
 		<item>
 			<a:updated>2007-01-11T16:00:00Z</a:updated>

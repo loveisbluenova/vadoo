@@ -5,7 +5,7 @@ class SimplePie_First_Item_Latitude_Test_RSS_092_Geo_Lat extends SimplePie_First
 	function data()
 	{
 		$this->data = 
-'<rss version="0.92" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+'<rss version="0.92" xmlns:geo="https://www.w3.org/2003/01/geo/wgs84_pos#">
 	<channel>
 		<item>
 			<geo:lat>55.701</geo:lat>

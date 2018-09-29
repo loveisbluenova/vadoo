@@ -5,7 +5,7 @@ class SimplePie_Feed_Title_Test_RSS_092_Atom_03_Title extends SimplePie_Feed_Tit
 	function data()
 	{
 		$this->data = 
-'<rss version="0.92" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="0.92" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<a:title>Feed Title</a:title>
 	</channel>

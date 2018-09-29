@@ -1,6 +1,6 @@
 /**
  * Galleria Classic Theme 2012-08-08
- * http://galleria.io
+ * https://galleria.io
  *
  * Licensed under the MIT license
  * https://raw.github.com/aino/galleria/master/LICENSE

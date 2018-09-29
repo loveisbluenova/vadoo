@@ -26,13 +26,13 @@ Highlight.js нужен для подсветки синтаксиса в при
 
 - Вы можете скачать собственную версию "highlight.pack.js" или сослаться
   на захостенный файл, как описано на странице загрузки:
-  <http://highlightjs.org/download/>
+  <https://highlightjs.org/download/>
 
 - Стилевые темы можно найти в загруженном архиве или также использовать
   захостенные. Чтобы сделать собственный стиль для своего сайта, вам
   будет полезен [CSS classes reference][cr], который тоже есть в архиве.
 
-[cr]: http://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
+[cr]: https://highlightjs.readthedocs.org/en/latest/css-classes-reference.html
 
 
 ## node.js
@@ -165,7 +165,7 @@ highlight.js.
 ## Координаты
 
 - Версия: 8.0
-- URL:    http://highlightjs.org/
+- URL:    https://highlightjs.org/
 
 Лицензионное соглашение читайте в файле LICENSE.
 Список авторов и соавторов читайте в файле AUTHORS.ru.txt

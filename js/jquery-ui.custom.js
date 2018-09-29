@@ -1,5 +1,5 @@
 /*! jQuery UI - v1.10.0 - 2013-01-30
-* http://jqueryui.com
+* https://jqueryui.com
 * Includes: jquery.ui.core.js, jquery.ui.widget.js, jquery.ui.mouse.js, jquery.ui.position.js, jquery.ui.datepicker.js
 * Copyright (c) 2013 jQuery Foundation and other contributors Licensed MIT */
 
@@ -231,7 +231,7 @@ if ( !$.fn.addBack ) {
 	};
 }
 
-// support: jQuery 1.6.1, 1.6.2 (http://bugs.jquery.com/ticket/9413)
+// support: jQuery 1.6.1, 1.6.2 (https://bugs.jquery.com/ticket/9413)
 if ( $( "<a>" ).data( "a-b", "a" ).removeData( "a-b" ).data( "a-b" ) ) {
 	$.fn.removeData = (function( removeData ) {
 		return function( key ) {
@@ -326,7 +326,7 @@ $.cleanData = function( elems ) {
 	for ( var i = 0, elem; (elem = elems[i]) != null; i++ ) {
 		try {
 			$( elem ).triggerHandler( "remove" );
-		// http://bugs.jquery.com/ticket/8235
+		// https://bugs.jquery.com/ticket/8235
 		} catch( e ) {}
 	}
 	_cleanData( elems );
@@ -581,7 +581,7 @@ $.Widget.prototype = {
 			.removeData( this.widgetName )
 			.removeData( this.widgetFullName )
 			// support: jquery <1.6.3
-			// http://bugs.jquery.com/ticket/9413
+			// https://bugs.jquery.com/ticket/9413
 			.removeData( $.camelCase( this.widgetFullName ) );
 		this.widget()
 			.unbind( this.eventNamespace )
@@ -1736,7 +1736,7 @@ $.extend(Datepicker.prototype, {
 			this._disableDatepicker( target );
 		}
 		// Set display:block in place of inst.dpDiv.show() which won't work on disconnected elements
-		// http://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
+		// https://bugs.jqueryui.com/ticket/7552 - A Datepicker created on a detached div has zero height
 		inst.dpDiv.css( "display", "block" );
 	},
 

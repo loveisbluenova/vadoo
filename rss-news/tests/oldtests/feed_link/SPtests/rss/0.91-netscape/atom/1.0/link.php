@@ -5,17 +5,17 @@ class SimplePie_Feed_Link_Test_RSS_091_Netscape_Atom_10_Link extends SimplePie_F
 	function data()
 	{
 		$this->data = 
-'<!DOCTYPE rss SYSTEM "http://my.netscape.com/publish/formats/rss-0.91.dtd">
-<rss version="0.91" xmlns:a="http://www.w3.org/2005/Atom">
+'<!DOCTYPE rss SYSTEM "https://my.netscape.com/publish/formats/rss-0.91.dtd">
+<rss version="0.91" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
-		<a:link href="http://example.com/"/>
+		<a:link href="https://example.com/"/>
 	</channel>
 </rss>';
 	}
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

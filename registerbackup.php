@@ -66,7 +66,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name

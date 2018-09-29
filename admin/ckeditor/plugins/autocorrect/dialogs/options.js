@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2014, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.md or http://ckeditor.com/license
+ For licensing, see LICENSE.md or https://ckeditor.com/license
 */
 (function(){function b(){this.setValue(f.getOption(this.option))}function c(){f.setOption(this.option,this.getValue())}var f=CKEDITOR.plugins.autocorrect;CKEDITOR.dialog.add("autocorrectOptions",function(a){a=a.lang.autocorrect;return{title:a.autocorrect,resizable:CKEDITOR.DIALOG_RESIZE_NONE,minWidth:350,minHeight:170,onOk:function(){this.commitContent()},contents:[{id:"autocorrect",label:a.autocorrect,title:a.autocorrect,accessKey:"",elements:[{type:"vbox",padding:0,children:[{type:"checkbox",id:"useReplacementTableCheckbox",
 option:"useReplacementTable",setup:b,commit:c,isChanged:!1,label:a.replaceTextAsYouType},{type:"html",html:'<div style="height: 150px;overflow-y: scroll;border: 1px solid #afafaf"></div>',setup:function(){this.getElement().setHtml("");var a=f.getOption("replacementTable"),b=document.createElement("table");b.style.width="100%";b.style.tableLayout="fixed";var c=b.appendChild(document.createElement("tbody")),g;for(g in a){var h=document.createElement("tr"),d=document.createElement("td");d.appendChild(document.createTextNode(g));

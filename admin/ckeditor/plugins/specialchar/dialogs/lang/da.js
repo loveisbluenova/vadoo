@@ -1,6 +1,6 @@
-﻿/*
+/*
  Copyright (c) 2003-2015, CKSource - Frederico Knabben. All rights reserved.
- For licensing, see LICENSE.md or http://ckeditor.com/license
+ For licensing, see LICENSE.md or https://ckeditor.com/license
 */
 CKEDITOR.plugins.setLang("specialchar","da",{euro:"Euro-tegn",lsquo:"Left single quotation mark",rsquo:"Right single quotation mark",ldquo:"Left double quotation mark",rdquo:"Right double quotation mark",ndash:"Bindestreg",mdash:"Tankestreg",iexcl:"Inverted exclamation mark",cent:"Cent-tegn",pound:"Pund-tegn",curren:"Kurs-tegn",yen:"Yen-tegn",brvbar:"Brudt streg",sect:"Paragraftegn",uml:"Diaeresis",copy:"Copyright-tegn",ordf:"Feminine ordinal indicator",laquo:"Left-pointing double angle quotation mark",
 not:"Not sign",reg:"Registreret varemærke tegn",macr:"Macron",deg:"Grad-tegn",sup2:"Superscript to",sup3:"Superscript tre",acute:"Acute accent",micro:"Mikro-tegn",para:"Pilcrow sign",middot:"Middle dot",cedil:"Cedilla",sup1:"Superscript et",ordm:"Masculine ordinal indicator",raquo:"Right-pointing double angle quotation mark",frac14:"Vulgar fraction one quarter",frac12:"Vulgar fraction one half",frac34:"Vulgar fraction three quarters",iquest:"Inverted question mark",Agrave:"Latin capital letter A with grave accent",

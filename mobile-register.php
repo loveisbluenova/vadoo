@@ -72,7 +72,7 @@ $ch = curl_init();
             $headr = array();
             $headr[] = 'Content-length: 0';
             $headr[] = 'Content-type: application/json';
-            curl_setopt($ch, CURLOPT_URL, 'http://ip-api.com/json/'.$user_ipreal.'');
+            curl_setopt($ch, CURLOPT_URL, 'https://ip-api.com/json/'.$user_ipreal.'');
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_HTTPHEADER,$headr);
             curl_setopt($ch, CURLOPT_USERAGENT,'Mozilla/5.0 (compatible; xxxxx)'); // my product name
@@ -94,7 +94,7 @@ $countries_online_query = "SELECT COUNT(*) FROM buzzyusers WHERE (buzzyuser_loca
 foreach ($connread->query($countries_online_query) as $row) {
 $count_countries=$row['COUNT(*)'];
 }
-$actual_linktwo = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+$actual_linktwo = "https://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 ?>
 <!DOCTYPE html>
 <html lang="en" class="no-js">

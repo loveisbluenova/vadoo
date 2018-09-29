@@ -51,8 +51,8 @@ $buzzycss_headings_font_family_link=preg_replace("/ /","+",$buzzycss_headings_fo
 $buzzycss_body_font_family=$row['buzzycss_body_font_family'];
 $buzzycss_body_font_family_link=preg_replace("/ /","+",$buzzycss_body_font_family);
 }
-if (strpos($myUrl,'http://') !== false) {
-$htttp='http://';	
+if (strpos($myUrl,'https://') !== false) {
+$htttp='https://';	
 }
 else if (strpos($myUrl,'https://') !== false) {
 $htttp='https://';		
@@ -103,7 +103,7 @@ function ip_info($ip = NULL, $purpose = "location", $deep_detect = TRUE) {
         "SA" => "South America"
     );
     if (filter_var($ip, FILTER_VALIDATE_IP) && in_array($purpose, $support)) {
-        $ipdat = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=" . $user_ipreal));
+        $ipdat = @json_decode(file_get_contents("https://www.geoplugin.net/json.gp?ip=" . $user_ipreal));
         if (@strlen(trim($ipdat->geoplugin_countryCode)) == 2) {
             switch ($purpose) {
                 case "location":

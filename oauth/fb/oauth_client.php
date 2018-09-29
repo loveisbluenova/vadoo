@@ -1002,7 +1002,7 @@ class oauth_client_class
 				API URLs.<paragraphbreak />
 				Check the documentation of the <link>
 					<data>HTTP client class</data>
-					<url>http://www.phpclasses.org/httpclient</url>
+					<url>https://www.phpclasses.org/httpclient</url>
 				</link> for more
 				information on the available arguments that can be configured
 				using this option.</usage>
@@ -1011,7 +1011,7 @@ class oauth_client_class
 {/metadocument}
 */
 	var $http_arguments = array();
-	var $oauth_user_agent = 'PHP-OAuth-API (http://www.phpclasses.org/oauth-api $Revision: 1.138 $)';
+	var $oauth_user_agent = 'PHP-OAuth-API (https://www.phpclasses.org/oauth-api $Revision: 1.138 $)';
 
 	var $response_time = 0;
 
@@ -1121,7 +1121,7 @@ class oauth_client_class
 		if(strlen($this->redirect_uri))
 			$redirect_uri = $this->redirect_uri;
 		else
-			$redirect_uri = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
+			$redirect_uri = 'https://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
 		return true;
 	}
 
@@ -2299,7 +2299,7 @@ class oauth_client_class
 				|| GetType($oauth_server->servers) !== 'object')
 					return $this->SetError('It was not possible to decode the OAuth server configuration file '.$this->configuration_file.' because it does not correctly define a JSON object for servers');
 				if(!IsSet($oauth_server->servers->{$this->server}))
-					return($this->SetError($this->server.' is not yet a supported type of OAuth server. Please send a request in this class support forum (preferred) http://www.phpclasses.org/oauth-api , or if it is a security or private matter, contact the author Manuel Lemos mlemos@acm.org to request adding built-in support to this type of OAuth server.'));
+					return($this->SetError($this->server.' is not yet a supported type of OAuth server. Please send a request in this class support forum (preferred) https://www.phpclasses.org/oauth-api , or if it is a security or private matter, contact the author Manuel Lemos mlemos@acm.org to request adding built-in support to this type of OAuth server.'));
 				$properties = $oauth_server->servers->{$this->server};
 				if(GetType($properties) !== 'object')
 					return $this->SetError('The OAuth server configuration file '.$this->configuration_file.' for the "'.$this->server.'" server does not correctly define a JSON object');

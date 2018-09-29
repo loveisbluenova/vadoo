@@ -5,7 +5,7 @@ class SimplePie_Feed_Description_Test_RSS_20_DC_11_Description extends SimplePie
 	function data()
 	{
 		$this->data = 
-'<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+'<rss version="2.0" xmlns:dc="https://purl.org/dc/elements/1.1/">
 	<channel>
 		<dc:description>Feed Description</dc:description>
 	</channel>

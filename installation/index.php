@@ -44,7 +44,7 @@ $message = '<html><body>
 $dbstra=file_get_contents('../includes/connection.php');
 $dbstra1 = htmlspecialchars($dbstra, ENT_QUOTES);
 $oldonetxt = array("FULL-URL-OF-YOUR-WEBSITE-HERE");
-$newonetxt   = array("http://$buzzysiteurl/");
+$newonetxt   = array("https://$buzzysiteurl/");
 $newphrase = str_replace($oldonetxt , $newonetxt, $dbstra);
 file_put_contents("../includes/connection.php",$newphrase);				
 header('Location: index.php?step=success');	

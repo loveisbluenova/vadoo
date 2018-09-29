@@ -8,7 +8,7 @@ class SimplePie_First_Item_Permalink_Test_Bug_156_Test_0 extends SimplePie_First
 '<rss version="2.0">
 	<channel>
 		<item>
-			<enclosure url="http://example.com/" length="1" type="audio/mpeg"/>
+			<enclosure url="https://example.com/" length="1" type="audio/mpeg"/>
 		</item>
 	</channel>
 </rss>';
@@ -16,7 +16,7 @@ class SimplePie_First_Item_Permalink_Test_Bug_156_Test_0 extends SimplePie_First
 	
 	function expected()
 	{
-		$this->expected = 'http://example.com/';
+		$this->expected = 'https://example.com/';
 	}
 }
 

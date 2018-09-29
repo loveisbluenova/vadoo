@@ -8,7 +8,7 @@ class SimplePie_Feed_Image_Height_Test_RSS_20_URL_Default extends SimplePie_Feed
 '<rss version="2.0">
 	<channel>
 		<image>
-			<url>http://example.com/</url>
+			<url>https://example.com/</url>
 		</image>
 	</channel>
 </rss>';

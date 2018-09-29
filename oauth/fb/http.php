@@ -27,7 +27,7 @@ class http_class
 
 	var $protocol="http";
 	var $request_method="GET";
-	var $user_agent='httpclient (http://www.phpclasses.org/httpclient $Revision: 1.92 $)';
+	var $user_agent='httpclient (https://www.phpclasses.org/httpclient $Revision: 1.92 $)';
 	var $accept='';
 	var $authentication_mechanism="";
 	var $user;

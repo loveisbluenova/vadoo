@@ -40,8 +40,8 @@
  * @author Ryan Parman
  * @author Geoffrey Sneddon
  * @author Ryan McCue
- * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link https://simplepie.org/ SimplePie
+ * @license https://www.opensource.org/licenses/bsd-license.php BSD License
  */
 
 require_once dirname(__FILE__) . '/bootstrap.php';
@@ -114,7 +114,7 @@ class ItemTest extends PHPUnit_Framework_TestCase
 	public function testTitleRSS20WithDC10($title, $expected)
 	{
 		$data =
-'<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.0/">
+'<rss version="2.0" xmlns:dc="https://purl.org/dc/elements/1.0/">
 	<channel>
 		<dc:title>%s</dc:title>
 	</channel>
@@ -129,7 +129,7 @@ class ItemTest extends PHPUnit_Framework_TestCase
 	public function testTitleRSS20WithDC11($title, $expected)
 	{
 		$data =
-'<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/">
+'<rss version="2.0" xmlns:dc="https://purl.org/dc/elements/1.1/">
 	<channel>
 		<dc:title>%s</dc:title>
 	</channel>
@@ -144,7 +144,7 @@ class ItemTest extends PHPUnit_Framework_TestCase
 	public function testTitleRSS20WithAtom03($title, $expected)
 	{
 		$data =
-'<rss version="2.0" xmlns:a="http://purl.org/atom/ns#">
+'<rss version="2.0" xmlns:a="https://purl.org/atom/ns#">
 	<channel>
 		<a:title>%s</a:title>
 	</channel>
@@ -159,7 +159,7 @@ class ItemTest extends PHPUnit_Framework_TestCase
 	public function testTitleRSS20WithAtom10($title, $expected)
 	{
 		$data =
-'<rss version="2.0" xmlns:a="http://www.w3.org/2005/Atom">
+'<rss version="2.0" xmlns:a="https://www.w3.org/2005/Atom">
 	<channel>
 		<a:title>%s</a:title>
 	</channel>

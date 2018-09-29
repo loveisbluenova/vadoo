@@ -10,7 +10,7 @@
  * @author Marcus Bointon <phpmailer@synchromedia.co.uk>
  * @copyright 2004 - 2009 Andy Prevost
  * @copyright 2010 Marcus Bointon
- * @license http://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
+ * @license https://www.gnu.org/copyleft/lesser.html GNU Lesser General Public License
  */
 
 require_once '../PHPMailerAutoload.php';
@@ -327,7 +327,7 @@ class PHPMailerTest extends PHPUnit_Framework_TestCase
 
     /**
      * Test email address validation.
-     * Test addresses obtained from http://isemail.info
+     * Test addresses obtained from https://isemail.info
      * Some failing cases commented out that are apparently up for debate!
      */
     public function testValidate()
@@ -1116,7 +1116,7 @@ EOT;
 
     /**
      * Tests this denial of service attack:
-     *    http://www.cybsec.com/vuln/PHPMailer-DOS.pdf
+     *    https://www.cybsec.com/vuln/PHPMailer-DOS.pdf
      */
     public function testDenialOfServiceAttack()
     {

@@ -1,7 +1,7 @@
 // XRegExp 1.5.1
 // (c) 2007-2012 Steven Levithan
 // MIT License
-// <http://xregexp.com>
+// <https://xregexp.com>
 // Provides an augmented, extensible, cross-browser implementation of regular expressions,
 // including support for additional syntax, flags, and methods
 
@@ -221,7 +221,7 @@ if (XRegExp) {
     // var xregexpImgFileNames = XRegExp.matchChain(html, [
     //     {regex: /<img\b([^>]+)>/i, backref: 1}, // <img> tag attributes
     //     {regex: XRegExp('(?ix) \\s src=" (?<src> [^"]+ )'), backref: "src"}, // src attribute values
-    //     {regex: XRegExp("^http://xregexp\\.com(/[^#?]+)", "i"), backref: 1}, // xregexp.com paths
+    //     {regex: XRegExp("^https://xregexp\\.com(/[^#?]+)", "i"), backref: 1}, // xregexp.com paths
     //     /[^\/]+$/ // filenames (strip directory paths)
     // ]);
     XRegExp.matchChain = function (str, chain) {

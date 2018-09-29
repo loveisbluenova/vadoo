@@ -111,7 +111,7 @@ if($account > 0)
 	$session_buzzyuser_status = $row['buzzyuser_status']; 
    }
    if($session_buzzyuser_image!=''){
-        if (strpos($session_buzzyuser_image,'http://') !== false) {
+        if (strpos($session_buzzyuser_image,'https://') !== false) {
 		$img_prefix='';
 		}
 		else{

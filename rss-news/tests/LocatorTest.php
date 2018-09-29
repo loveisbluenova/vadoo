@@ -40,8 +40,8 @@
  * @author Ryan Parman
  * @author Geoffrey Sneddon
  * @author Ryan McCue
- * @link http://simplepie.org/ SimplePie
- * @license http://www.opensource.org/licenses/bsd-license.php BSD License
+ * @link https://simplepie.org/ SimplePie
+ * @license https://www.opensource.org/licenses/bsd-license.php BSD License
  */
 
 require_once dirname(__FILE__) . '/bootstrap.php';
@@ -64,7 +64,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testAutodiscoverOnFeed($mime)
 	{
-		$data = new MockSimplePie_File('http://example.com/feed.xml');
+		$data = new MockSimplePie_File('https://example.com/feed.xml');
 		$data->headers['content-type'] = $mime;
 
 		$locator = new SimplePie_Locator($data, 0, null, false);
@@ -79,7 +79,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 
 	public function testInvalidMIMEType()
 	{
-		$data = new MockSimplePie_File('http://example.com/feed.xml');
+		$data = new MockSimplePie_File('https://example.com/feed.xml');
 		$data->headers['content-type'] = 'application/pdf';
 
 		$locator = new SimplePie_Locator($data, 0, null, false);
@@ -94,7 +94,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 
 	public function testDirectNoDOM()
 	{
-		$data = new MockSimplePie_File('http://example.com/feed.xml');
+		$data = new MockSimplePie_File('https://example.com/feed.xml');
 
 		$registry = new SimplePie_Registry();
 		$locator = new SimplePie_Locator($data, 0, null, false);
@@ -110,7 +110,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 	 */
 	public function testFailDiscoveryNoDOM()
 	{
-		$data = new MockSimplePie_File('http://example.com/feed.xml');
+		$data = new MockSimplePie_File('https://example.com/feed.xml');
 		$data->headers['content-type'] = 'text/html';
 		$data->body = '<!DOCTYPE html><html><body>Hi!</body></html>';
 
@@ -138,7 +138,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 		{
 			$row[0]->headers = array('content-type' => 'text/html');
 			$row[0]->method = SIMPLEPIE_FILE_SOURCE_REMOTE;
-			$row[0]->url = 'http://example.com/';
+			$row[0]->url = 'https://example.com/';
 		}
 
 		return $data;
@@ -161,7 +161,7 @@ class LocatorTest extends PHPUnit_Framework_TestCase
 		$xpath = new DOMXPath($document);
 		foreach ($xpath->query('//link') as $element)
 		{
-			$expected[] = 'http://example.com' . $element->getAttribute('href');
+			$expected[] = 'https://example.com' . $element->getAttribute('href');
 		}
 		//$expected = SimplePie_Misc::get_element('link', $data->body);
 

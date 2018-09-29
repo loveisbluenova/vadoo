@@ -144,7 +144,7 @@ $age =  $from->diff($to)->y;
             <a href="<?php echo $link_prefix;?>img/<?php echo $buzzyuserimage;?>">
                 <img 
                     src="<?php echo $link_prefix;?>img/<?php echo $buzzyuserimage;?>",
-                    data-big="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
+                    data-big="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
                     data-title="Biandintz eta zaldiak"
                     data-description="Horses on Bianditz mountain, in Navarre, Spain."
                 >
@@ -154,7 +154,7 @@ $age =  $from->diff($to)->y;
             <a href="<?php echo $finala_image_prefix;?><?php echo $buzzyuser_image;?>">
                 <img 
                     src="<?php echo $finala_image_prefix;?><?php echo $buzzyuser_image;?>",
-                    data-big="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
+                    data-big="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
                     data-title="Biandintz eta zaldiak"
                     data-description="Horses on Bianditz mountain, in Navarre, Spain."
                 >

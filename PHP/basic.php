@@ -16,8 +16,8 @@ $myUrl .= $_SERVER['REQUEST_URI'];
 if (!empty($_SERVER['PATH_INFO'])) $myUrl .= $_SERVER['PATH_INFO'];
 // Add query string, if any (some servers include a ?, some don't)
 if (!empty($_SERVER['QUERY_STRING'])) $myUrl .= '?'.ltrim($_SERVER['REQUEST_URI'],'?');
-if (strpos($myUrl,'http://') !== false) {
-$htttp='http://';	
+if (strpos($myUrl,'https://') !== false) {
+$htttp='https://';	
 }
 else if (strpos($myUrl,'https://') !== false) {
 $htttp='https://';		
@@ -65,7 +65,7 @@ function kgToLb ($val) {
 }
 
 $link_suff = substr($_SERVER['REQUEST_URI'], 0, strrpos($_SERVER['REQUEST_URI'], '/') + 1);;
-$actual_link2 = "http://$_SERVER[HTTP_HOST]$link_suff";
+$actual_link2 = "https://$_SERVER[HTTP_HOST]$link_suff";
 date_default_timezone_set('Etc/UTC');
 $website_chat_query = "SELECT * FROM chat_options WHERE chat_option_id=1";
 foreach ($connread->query($website_chat_query) as $row) {
