@@ -1,7 +1,7 @@
 <?php
 
 	// DB Connection Configuration
-	define('DB_HOST', 'eluvo.co.uk'); 
+	define('DB_HOST', 'localhost'); 
 	define('DB_USERNAME', 'root'); 
 	define('DB_PASSWORD', 'root'); 
 	define('DATABASE', 'vadoo'); 
