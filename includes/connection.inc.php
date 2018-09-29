@@ -7,10 +7,10 @@ function dbConnect($usertype, $connectionType = 'mysqli')
     // the password for this core user is factional
     if ($usertype == 'read') {
         $user = 'root';
-        $pwd = '';
+        $pwd = 'root';
     } elseif ($usertype == 'write') {      
         $user = 'root';
-        $pwd = '';
+        $pwd = 'root';
     } else {
         exit('Unrecognized connection type');
     }
