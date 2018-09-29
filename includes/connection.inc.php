@@ -2,7 +2,7 @@
 // THIS IS PART FOR THE CONNECTING DATABASE AND FRONTEND
 function dbConnect($usertype, $connectionType = 'mysqli')
 {
-   $host =  'ip-172-26-10-85.eu-west-2.compute.internal';
+   $host =  'eluvo.co.uk';
     $db = 'vadoo';
     // the password for this core user is factional
     if ($usertype == 'read') {
