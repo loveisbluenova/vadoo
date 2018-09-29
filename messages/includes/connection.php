@@ -1,7 +1,7 @@
 <?php
 
 	// DB Connection Configuration
-	define('DB_HOST', 'localhost'); 
+	define('DB_HOST', '52.56.181.79'); 
 	define('DB_USERNAME', 'root'); 
 	define('DB_PASSWORD', 'root'); 
 	define('DATABASE', 'vadoo'); 
