@@ -1,0 +1,21 @@
+
+<div id="popup-1" class="slickModal newsletter">
+			<div class="slickWindow">
+				<!-- Your popup content -->
+				<div class="wrap">
+					<div class="title" style="font-size:20px!important; color:#<?php echo $buzzycss_color_css;?>;">Get fresh daily news for free!</div>
+					<p>Signup to our awesome newsletter and receive fresh daily news.</p>
+					<form  action="<?php echo $link_prefix;?>add-to-mail-list-reg.php" id="formmail" method="POST">
+						<input type="email"  name="buzzymailing_list_email"  class="field" placeholder="Your email goes here" />
+						<br>
+		  <input name="CSRFtoken" type="hidden" value="<?php echo  $token;?>">						
+						<input type="submit" name="submit_email"  class="btn btn-primary" style="width:275px!important; height:40px;" value="Submit" />					
+					</form>
+					<label class="deny closeModal">Not interested? Close the form.</label>
+				</div>
+				<div class="cta">
+					<span class="icon"></span>
+				</div>
+				<!-- / Your popup content -->
+			</div>
+		</div>

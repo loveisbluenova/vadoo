@@ -1,0 +1,161 @@
+	<div id="chat-toolbar" style="color:#fff!important;">
+    	<a id="emotic" style="color:#fff!important; font-size:18px!important;" href="#"><i class="fa fa-smile-o" aria-hidden="true"></i></a>      
+        <div class="clearfix"></div>
+    </div>
+	<br>
+    <textarea style="height:50px!important;resize: none; margin-left:2%!important; margin-right:2%!important; width:96%;" class="type-a-message-box form-control border-none" id="<?php echo $user_id; ?>" placeholder=""></textarea>	
+    <br>
+	<div class="emots" style="display:none;" >
+	<ul class="tab">
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'London')"><img src="img/sm1.png" alt="" style="width:48px!important;" /></a></li>
+  <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Paris')"><img src="img/sm2.png" alt="" style="width:48px!important;" /></a></li>
+   <li><a href="javascript:void(0)" class="tablinks" onclick="openCity(event, 'Newyork')"><img src="img/sm3.png"  alt="" style="width:48px!important;" /></a></li>
+</ul>
+
+	<?php
+	
+	$website_firstemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=1";	
+	foreach ($connread->query($website_firstemot_query) as $row) {
+	$buzzypaidservice_title=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_price=$row['buzzypaidservice_price'];	
+    }
+	
+	$website_secondemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=2";	
+	foreach ($connread->query($website_secondemot_query) as $row) {
+	$buzzypaidservice_secondtitle=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_secondprice=$row['buzzypaidservice_price'];	
+    }	
+	
+	 if (isset($_SESSION["buzzyuser_id"])) {
+    $session_user_id=$_SESSION["buzzyuser_id"];	
+	}
+    $website_firstemo_query = "SELECT COUNT(*) FROM  buzzyservicepayouts WHERE buzzyuser_id=$session_user_id AND buzzypaidservice_id=1";	
+	foreach ($connread->query($website_firstemo_query) as $row) {
+	$row_count_firstemo=$row['COUNT(*)'];	
+    }
+	
+	$website_secondemo_query = "SELECT COUNT(*) FROM  buzzyservicepayouts WHERE buzzyuser_id=$session_user_id AND buzzypaidservice_id=2";	
+	foreach ($connread->query($website_secondemo_query) as $row) {
+	$row_count_secondemo=$row['COUNT(*)'];	
+    }
+	?>
+
+	<div style="margin:15px!important;" class="emotss">
+	<div id="London" class="tabcontent" style="display:block;">
+	<?php
+    $website_emots_query = "SELECT * FROM  buzzyemots WHERE buzzyemot_cat=0 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#" class="emotss" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><i draggable="false" class="em <?php echo $buzzyemot_sign;?>" style="margin-right:5px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+	</div>
+	
+	<div id="Paris" class="tabcontent">
+	<?php 
+	if ($row_count_firstemo==0){
+    $top_mgg='margin-top:426px;';	
+	?>
+	<div id="buycont">
+	<a href="buybluemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" ><?php echo _($unlock_now);?></a> 
+	<div class="only-display"> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_title;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_price;?> <?php echo $credits;?></span>
+	</div>
+	<div class="clearfix"></div>
+	</div>
+	<br>
+	<?php } ?>
+	
+	<?php 
+	if ($row_count_firstemo==0){
+    $top_mgg='';	
+	?>
+	
+	<?php } ?>
+	
+	<?php
+    $website_emots_query = "SELECT * FROM  buzzyemots WHERE buzzyemot_cat=1 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<?php 
+	if ($row_count_firstemo==1){	
+	?>
+	<a href="#" class="emotss" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img alt="" style="width:64px!important; height:64px!important;" draggable="false"  src="<?php echo $buzzyemot_sign;?>" /></a>
+	<?php } ?>
+
+	<?php 
+	if ($row_count_firstemo==0){	
+	?>
+	<img alt="" style="width:64px!important; height:64px!important; opacity:0.8;" draggable="false" src="<?php echo $buzzyemot_sign;?>" />
+	<?php } ?>		
+	<?php } ?>
+	</div>
+
+	
+	
+	
+	
+	<div id="Newyork" class="tabcontent">
+	<?php 
+	if ($row_count_secondemo==0){	
+	?>
+	<div id="buycont">
+	<a href="buyminemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" ><?php echo _($unlock_now);?></a> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_secondtitle;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_secondprice;?> <?php echo $credits;?></span>
+	<div class="clearfix"></div>
+	</div>
+	<br>
+	<?php } ?>
+	<?php
+    $website_emots_query = "SELECT * FROM  buzzyemots WHERE buzzyemot_cat=2 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<?php 
+	if ($row_count_secondemo==1){	
+	?>
+	<a href="#" class="emotss" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img alt="" style="width:64px!important; height:64px!important;"  draggable="false" src="<?php echo $buzzyemot_sign;?>" /></a>
+	<?php } ?>
+
+	<?php 
+	if ($row_count_secondemo==0){	
+	?>
+	<img alt="" style="width:64px!important; height:64px!important; opacity:0.8;" draggable="false" src="<?php echo $buzzyemot_sign;?>" />
+	<?php } ?>		
+	<?php } ?>
+	</div>
+	
+	</div>
+	</div>
+		
+	
+<script>
+$('a.emotss').click(function(){
+    var smiley = $(this).attr('title');
+    $('.type-a-message-box').val($('.type-a-message-box').val()+" "+smiley+" ");
+});
+</script>	
+<script>	
+$("#emotic").click(function() {
+  $(".emots").slideToggle(300, 'swing');
+});
+</script>
+<script>
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>

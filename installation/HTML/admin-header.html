@@ -1,0 +1,26 @@
+	<!-- Admin header with all functionalities------ START -->
+	<div id="mobile-header">
+	 <div id="mobile-nav">
+    <a href="#" style="float:left; margin-bottom:10px;" id="toggle"><img src="img/mobile-nav.png" id="nav-image"/></a>
+    <h1 id="logobig" style="float:left; margin-top:13px!important; margin-left:10px;"><strong><span style="color:#67abff;">VADOO</span> - CPANEL</strong> 
+	<a href="../index.php" style="color:#fff!important;" title="View website" ><span class="glyphicon glyphicon-zoom-in"></span></a>
+	</h1>	
+	<div class="clearfix"></div>
+    <div id="mobile-nav-link" style="display:none;">
+    <ul>
+    <?php include 'admin-nav-links.html';?>			
+	</ul>
+    </div>
+	<script>
+    $('#toggle').click(function () {
+        $('#mobile-nav-link').slideToggle('fast');
+        return false;
+    });
+</script>
+
+    </div>
+    </div>
+	<div id="display-header">
+    <h1 id="logobig" style="float:left;"><strong><span style="color:#67abff;">VADOO</span> - INSTALATTION</strong> </h1>
+	</div>
+	<!-- Admin header with all functionalities ------ END -->	

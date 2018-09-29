@@ -1,0 +1,67 @@
+#header{
+background:#704214!important;
+}
+.btn-primary{
+background:#8A5E33!important;
+border-color:#694929!important;
+}
+#mobile-nav-link ul {
+border-bottom:3px solid #704214!important;
+}
+.suggested{
+background:#704214!important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: #fff!important;
+  color:#704214!important;
+}
+
+ul#user-header  li a:hover{
+  color:#704214!important;
+}
+#side-container span{
+color:#704214!important;
+}
+li.small-text a{
+color:#704214!important;
+}
+li.small-text a:hover{
+color:#704214!important;
+}
+.vote-container a{
+color:#704214!important;
+}
+.vote-container a:hover{
+color:#704214!important;
+}
+#sort-button{
+background:#8A5E33!important;
+}
+.dropdown-toggle{
+background:#8A5E33!important;
+}
+.btn-danger{
+background:#0F52BA!important;
+border-color:#1C4D99!important;
+}
+.btn-danger:hover{
+background:#1E4F9C!important;
+border-color:#1C4D99!important;
+}
+
+span.info-text a{
+color:#704214!important;
+}
+.btn-primary:hover{
+background:#7A5530!important;
+}
+a#tab-chats{
+color:#704214!important;
+}
+a#tab-contacts{
+color:#704214!important;
+}
+.active-message{
+color:#704214!important;	  
+ }

@@ -1,0 +1,6 @@
+[25-May-2018 07:30:20 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/vadoo/public_html/oauth/fb/login_with_facebook.php on line 154
+[25-May-2018 07:57:13 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/vadoo/public_html/oauth/fb/login_with_facebook.php on line 154
+[25-May-2018 08:18:39 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/vadoo/public_html/oauth/fb/login_with_facebook.php on line 154
+[27-May-2018 05:36:01 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/vadoo/public_html/oauth/fb/login_with_facebook.php on line 154
+[27-May-2018 05:59:32 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/vadoo/public_html/oauth/fb/login_with_facebook.php on line 154
+[27-May-2018 06:48:12 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/vadoo/public_html/oauth/fb/login_with_facebook.php on line 154

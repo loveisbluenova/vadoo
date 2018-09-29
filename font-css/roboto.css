@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto:700);
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto'!important;	
+	 }
+.category-tag{
+    font-family: 'Roboto'!important;	 
+	font-size:14px!important;
+}
+.user-tag{
+     font-family: 'Roboto'!important;
+	 font-size:14px!important;
+}
+.nav-link{
+    font-family: 'Roboto'!important;	
+	font-size:14px!important;
+}
+#nav ul li a{
+    font-family: 'Roboto'!important;
+	font-size:14px!important;	
+	  }
+ #mobile-nav-link ul li a {
+    font-family: 'Roboto'!important;
+	font-size:14px!important;	
+	}
+.suggested{
+	font-size:14px!important;
+}

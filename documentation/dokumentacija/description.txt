@@ -1,0 +1,144 @@
+<h2><a href="http://www.gagogirls.com/admin/login.php">ADMIN PAGE - CLICK HERE</a></h2>
+<a href="https://codecanyon.net/item/magic-estate-real-estate-portal/19445465"><img src="http://brankomatovic.net/envatofiles/fet1001.jpg" /></a>
+<img src="http://brankomatovic.net/envatofiles/supportmsg.jpg" />
+<img src="http://brankomatovic.net/envatofiles/required1.jpg" />
+<img src="http://brankomatovic.net/envatofiles/reviews.jpg" />
+<img src="http://brankomatovic.net/envatofiles/customwork.png" />
+<img src="http://brankomatovic.net/envatofiles/marketing.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfetfb1.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfetsup.png" />
+<a href="https://www.youtube.com/watch?v=W3rCt92Q5uU"><img src="http://brankomatovic.net/envatofiles/frontvideo1.png" /></a>
+<br><br>
+<a href="https://www.youtube.com/watch?v=x2-f3xRSkOg"><img src="http://brankomatovic.net/envatofiles/adminvideo1.png" /></a>
+<br><br>
+<img src="http://brankomatovic.net/envatofiles/vadfet1.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet2.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet3.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet21.png" />
+<img src="http://brankomatovic.net/envatofiles/fet22.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet4.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet5.png" />
+<img src="http://brankomatovic.net/envatofiles/fet10.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet6.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet7.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet8.png" />
+<img src="http://brankomatovic.net/envatofiles/vadfet9.png" />
+
+<h3>Update 1.0.5 (In review process)</h3>
+<ul>
+<li><b>5 desing themes for Vadoo (Basic, Facebook,
+Badoo, EHarmony, Lovoo)</b></li>
+<li>GZip enabled (Improve website speed significantly)</li>
+<li>When user register with facebook, he must enter data for using website (age and password)</li>
+</ul>
+
+
+<h3>Update 1.0.5 (18.02.2017)</h3>
+<ul>
+<li>Preloader</li>
+<li>Profile confirmation through mail</li>
+<li>User can delete profile</li>
+<li>When admin delete user or user delete own profile, all data connected with user are deleted (fixed bug)</li>
+</ul>
+
+
+<h3>Update 1.0.4 (06.02.2017)</h3>
+<ul>
+<li>Landing page</li>
+<li>
+Users can become friends
+</li>
+<li>
+Improved chat (There is no more confusing chat and contact tab)
+</li>
+<li>Chat sound notification</li>
+<li>Search users by location</li>
+<li>Admin can change website background</li>
+<li>Dutch language</li>
+</ul>
+<h3>Update 1.0.3 (13.01.2017.)</h3>
+<ul>
+<li>
+Multilingual support - Script detects visitor country and switch language to visitor language (8 languages, 22 countries)
+</li>
+<li>
+Facebook comments on users profiles
+</li>
+<li>
+User can become moderator by admin approval
+</li>
+<li>
+User images review options (You can enable and disable this in admin)
+</li>
+<li>
+Admin can add user interest categories
+</li>
+<li>
+Fixed sidebar bug for 1280px devices
+</li>
+</ul>
+
+<h3>Update 1.0.2 (27.12.2016)</h3>
+<ul>
+<li>100 fake users (You can filter them by age span and genre)</li>
+<li>8 languages (english, german, italian, chinese, turkish, portuguese, 
+french, spanish)</li>
+<li>Mailing list (Every registered user is automatically in your mailing list)</li>
+<li>Improved image upload security</li>
+<li>4 paypal options for buying credits</li>
+<li>User images protection by disabling right click</li>
+</ul>
+<h3>Update 1.0.1 (01.12.2016)</h3>
+<ul>
+<li>Added automatic update system</li>
+<li>Added earnings field in Admin panel</li>
+<li>Added "Buy VIP status" to sidebar</li>
+<li>User can add location manually and script will add data to map (User can add even own street
+ to map)</li>
+<li>Improved internet explorer image quality (Now it is very high quality of images in IE)</li>
+<li>Fixed Bootstrap modal bug in Internet explorer</li>
+<li>Solved duplicate issues with username and email</li>
+</ul>
+<p>
+Vadoo is dating site software which is based mostly on Badoo website. Beautiful design, javascript grid animation (8 in total), advanced realtime Ajax chat with emoticons, premium stickers and very friendly user interface. Spotlight, user geolocation, like or not game and many other Badoo like options like user filter. 
+</p>
+<h3>Front end features</h3>
+<ul>
+<li>Automatic and easy instalation system</li>
+<li>Grid user list with 8 beautiful animations</li>
+<li>Auto grab user location</li>
+<li>Users are sorted automatically by their distance from logged in user (from nearest)</li>
+<li>Advanced credit system - Credits could be bought by users with Paypal and SMS</li>
+<li>Users has limited chat posibilites like in Badoo. They can extend it by extend their status</li>
+<li>Users can set their photos to be private</li>
+<li>Users can allow other users to see their private photos</li>
+<li>Users can send gifts to other users.</li>
+<li>Like me or not game</li>
+<li>Matches page</li>
+<li>Notification page</li>
+<li>Visitors page</li>
+<li>Users can set data and interests</li>
+</ul>
+<h3>Admin features</h3>
+<ul>
+<li>Admin can set website options, CSS 3, unlimited colors and fonts, logo</li>
+<li>Admin can setup prices for credits, number of credits</li>
+<li>Admin can setup chat limit settings</li>
+<li>Admin can add gifts and their price for website</li>
+<li>Admin can manage users, change their status, give them credits</li>
+<li>Tutorials for admin (Fortumo, Paypal,Facebook integration and so on...)</li>
+<li>Admin can add prices for user statuses, stickers and other services.</li>
+</ul>
+<h3>Facebook registration and login</h3>
+<p>Users can automaticaly register and login with their facebook profile.</p>
+<h3>Paypal Payment Gateway</h3>
+<p>Vadoo offers you a Paypal payment getaway with video tutorial how to setup it.</p>
+<h3>Fortumo SMS Gateway</h3>
+<p>Vadoo offers you a SMS payment getaway with video tutorial how to setup it.</p>
+<p>Credits: <br> 
+<a href="http://www.icons-land.com">http://www.icons-land.com</a></p>
+<a href="http://www.iconka.com">http://www.iconka.com</a>
+<a href="http://www.freepik.com/free-photos-vectors/business">Business photograph designed by Prostooleh - Freepik.com</a>
+<a href="http://www.freepik.com/free-vector/twenty-social-media-icons_962807.htm">Designed by Freepik</a>
+</p>
+<h3><b>Important:</b> All images of fake users are properly licenced  and can be used in both comercial and free projects. Source:<a href="https://www.pexels.com">https://www.pexels.com</a><h3>

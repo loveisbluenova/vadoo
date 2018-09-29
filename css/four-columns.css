@@ -1,0 +1,32 @@
+.grid li {
+	display: block;
+	float: left;
+	padding: 1%;
+	margin-left:1%;
+	margin-right:1%;
+	width: 23%;
+}
+@media screen and (max-width: 900px) {
+		.news-box h4{
+	font-size:15px!important;	
+	} 
+	.grid li {
+	padding: 1.5%;
+	margin-left:1%;
+	margin-right:1%;
+		width: 48%;
+	}
+}
+
+@media screen and (max-width: 360px) {
+	.news-box h4{
+	font-size:15px!important;	
+	} 
+	.grid li {
+	padding: 2%;
+		width: 96%;
+		margin-left:2%;
+	margin-right:2%;
+	}
+	
+}

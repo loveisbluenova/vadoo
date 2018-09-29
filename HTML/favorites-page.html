@@ -1,0 +1,224 @@
+<style>
+#owl-four17.item{
+  margin: 0px;
+}
+#owl-four17 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+
+	  a {
+    text-decoration: none !important;
+      }
+
+</style>
+<?php   		   
+?>
+<div id="wrapper">
+    <div class="full-column">
+     <div class="news-wrapper">
+	<div style="margin-left:15px;margin-right:15px;">	
+	<h3><?php echo $favorites;?></h3> 
+	
+	
+	
+	<div class="favorites-tab">
+	<span style="" id="favone" class="actfav" ><?php echo $add_you_to_f;?></span>
+	<span style="" id="favtwo" ><?php echo $you_add_to_f;?></span>	
+	</div>
+	
+	<div class="youfav" >
+    <?php
+	$website_cfav_query = "SELECT COUNT(*) FROM buzzyfavorites WHERE buzzyfavorite=$session_user_id";
+    foreach ($connread->query($website_cfav_query) as $row) {
+    $count_yfav=$row['COUNT(*)'];
+    if($count_yfav==0){	
+	?>
+  <p style="font-size:20px; margin-top:40px; text-align:center!important;"><?php echo $noone_fav_y_yet;?></p>
+	<br><br><br>
+	<div style="width:176px; margin:0 auto!important; float:none!important;">
+	<img src="<?php echo $link_prefix;?>img/love-meet.png" style="margin-top:12px; z-index:1; width:176px;float:left;"  >
+	</div>
+	<div class="clearfix"></div>
+	<br><br><br>
+	<p style="text-align:center!important;">
+	<a href="<?php echo $link_prefix;?>page.php?hotnot-id=true" style="margin:0 auto; font-size:26px!important;" class="btn btn-success"><?php echo $play_like_me;?></a>
+	</p> 
+	<br>	
+    <?php } ?>
+	<?php } ?>	
+	<br>
+	<?php	
+    $website_fav_query = "SELECT * FROM buzzyfavorites WHERE buzzyfavorite=$session_user_id ORDER by buzzyfavorite_timestamp DESC";
+    foreach ($connread->query($website_fav_query) as $row) {	
+	$buzzyuser_id=$row['buzzyuser_id'];
+	$buzzyfavorite_timestamp=$row['buzzyfavorite_timestamp'];
+	
+     $buzzyfavorite_difference=$now-$buzzyfavorite_timestamp;
+				
+				if ($buzzyfavorite_difference>=86400){
+				$final_buzzyfavorite_difference=round($buzzyfavorite_difference/86400);	
+                $date_measure=$days;				
+				}
+				else if ($buzzyfavorite_difference<86400 AND $buzzyfavorite_difference>=3600){
+				$final_buzzyfavorite_difference=round($buzzyfavorite_difference/3600);	
+                $date_measure=$hours;				
+				}	
+				else if ($buzzyfavorite_difference<3600){
+				$final_buzzyfavorite_difference=round($buzzyfavorite_difference/60);	
+                $date_measure=$minutes;				
+				}			
+	
+    $websitef_users_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$buzzyuser_id";	
+    foreach ($connread->query($websitef_users_query) as $row) {	
+	$buzzyuser_image=$row['buzzyuser_image'];
+if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$final_buzzyuser_image=$final_image_prefix . $buzzyuser_image;
+
+			if ($row['buzzyuser_aboutme']==''){
+			$buzzyuser_aboutme='';
+			}
+			else if ($row['buzzyuser_aboutme']!=''){
+			$buzzyuser_aboutme=$row['buzzyuser_aboutme'];
+			}
+			$buzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+            $buzzyuser_last_name=$row['buzzyuser_last_name'];				
+			$buzzyuser_username=$row['buzzyuser_username'];
+			$buzzyuser_email=$row['buzzyuser_email'];
+			$buzzyuser_password=$row['buzzyuser_password'];			
+			$buzzyuser_location=$row['buzzyuser_location'];	
+            $buzzyuser_status=$row['buzzyuser_status'];
+			$buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+            $buzzyuser_last_login=$row['buzzyuser_last_login'];	
+	?>
+    <img style="width:64px!important; height:64px!important; float:left!important; margin-right:15px!important;"  src="<?php echo $final_buzzyuser_image;?>" style="" />	
+	<span style=""><a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $buzzyuser_id;?>"><?php echo $buzzyuser_first_name;?> <?php echo $buzzyuser_last_name;?></a></span>
+	<br>
+	<span style="font-size:13px!important;  color:#acacac!important;"><?php echo $final_buzzyfavorite_difference;?> <?php echo $date_measure;?> <?php echo $ago;?></span>
+	<div class="clearfix"></div>
+	<br>
+	<?php } ?>
+	<?php } ?>	
+	</div>	
+	
+	<div class="myfav" style="display:none!important;">
+   <?php
+	$website_cfavm_query = "SELECT COUNT(*) FROM  buzzyfavorites WHERE buzzyuser_id=$session_user_id";
+    foreach ($connread->query($website_cfavm_query) as $row) {
+    $count_mfav=$row['COUNT(*)'];
+    if($count_mfav==0){	
+	?>
+  <p style="font-size:20px; margin-top:40px; text-align:center!important;"><?php echo $youno_fav_y_yet;?></p>
+	<br><br><br>
+	<div style="width:176px; margin:0 auto!important; float:none!important;">
+	<img src="<?php echo $link_prefix;?>img/love-meet.png" style="margin-top:12px; z-index:1; width:176px;float:left;"  >
+	</div>
+	<div class="clearfix"></div>
+	<br><br><br>
+	<p style="text-align:center!important;">
+	<a href="<?php echo $link_prefix;?>page.php?hotnot-id=true" style="margin:0 auto; font-size:26px!important;" class="btn btn-success"><?php echo $play_like_me;?></a>
+	</p> 
+	<br>	
+    <?php } ?>
+	<?php } ?>		
+	
+	
+	<br>
+	<?php
+    $website_fav_query = "SELECT * FROM buzzyfavorites WHERE buzzyuser_id=$session_user_id ORDER by buzzyfavorite_timestamp DESC";
+    foreach ($connread->query($website_fav_query) as $row) {	
+	$buzzyfavorite=$row['buzzyfavorite'];
+	$buzzyfavorite_timestamp=$row['buzzyfavorite_timestamp'];
+	
+     $buzzyfavorite_difference=$now-$buzzyfavorite_timestamp;
+				
+				if ($buzzyfavorite_difference>=86400){
+				$final_buzzyfavorite_difference=round($buzzyfavorite_difference/86400);	
+                $date_measure=$days;				
+				}
+				else if ($buzzyfavorite_difference<86400 AND $buzzyfavorite_difference>=3600){
+				$final_buzzyfavorite_difference=round($buzzyfavorite_difference/3600);	
+                $date_measure=$hours;				
+				}	
+				else if ($buzzyfavorite_difference<3600){
+				$final_buzzyfavorite_difference=round($buzzyfavorite_difference/60);	
+                $date_measure=$minutes;				
+				}			
+	
+    $websitef_users_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$buzzyfavorite";	
+    foreach ($connread->query($websitef_users_query) as $row) {	
+	$buzzyuser_image=$row['buzzyuser_image'];
+if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$final_buzzyuser_image=$final_image_prefix . $buzzyuser_image;
+
+			if ($row['buzzyuser_aboutme']==''){
+			$buzzyuser_aboutme='';
+			}
+			else if ($row['buzzyuser_aboutme']!=''){
+			$buzzyuser_aboutme=$row['buzzyuser_aboutme'];
+			}
+			$buzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+            $buzzyuser_last_name=$row['buzzyuser_last_name'];				
+			$buzzyuser_username=$row['buzzyuser_username'];
+			$buzzyuser_email=$row['buzzyuser_email'];
+			$buzzyuser_password=$row['buzzyuser_password'];			
+			$buzzyuser_location=$row['buzzyuser_location'];	
+            $buzzyuser_status=$row['buzzyuser_status'];
+			$buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+            $buzzyuser_last_login=$row['buzzyuser_last_login'];	
+	?>
+    <img style="width:64px!important; height:64px!important; float:left!important; margin-right:15px!important;"  src="<?php echo $final_buzzyuser_image;?>" style="" />	
+	<span style=""><a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $buzzyuser_id;?>"><?php echo $buzzyuser_first_name;?> <?php echo $buzzyuser_last_name;?></a></span>
+	<br>
+	<span style="font-size:13px!important;  color:#acacac!important;"><?php echo $final_buzzyfavorite_difference;?> <?php echo $date_measure;?> <?php echo $ago;?></span>
+	<div class="clearfix"></div>
+	<br>
+	<?php } ?>
+	<?php } ?>	
+	</div>
+	 </div>
+	</div>	
+<script type="text/javascript">   
+$( "#favtwo" ).click(function() {
+  $(".myfav").show();
+  $(".youfav").hide();  
+  $( "#favtwo" ).addClass( "actfav" );
+  $( "#favone" ).removeClass( "actfav" );
+});
+</script>
+<script type="text/javascript">   
+$( "#favone" ).click(function() {
+  $(".myfav").hide();
+  $(".youfav").show();    
+  $( "#favone" ).addClass( "actfav" );
+  $( "#favtwo" ).removeClass( "actfav" );
+});
+</script>
+		</div>
+		</div>

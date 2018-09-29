@@ -1,0 +1,20 @@
+@import url(http://fonts.googleapis.com/css?family=Ropa+Sans);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Ropa Sans'!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Ropa Sans'!important;
+	 font-size:15px!important;		 
+}
+.user-tag{
+     font-family: 'Ropa Sans'!important;
+	 font-size:15px!important;		 
+}
+#nav ul li a{
+     font-family: 'Ropa Sans'!important;
+	 font-size:15px!important;	
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Ropa Sans'!important;
+	 font-size:15px!important;		 
+}

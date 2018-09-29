@@ -1,0 +1,106 @@
+
+<script>
+if ($.browser.msie) {
+$('.modal').removeClass('fade');
+}
+</script>
+<?php
+	$pieces = explode(' ', $search_news);
+    $news = array_pop($pieces);
+    foreach ($connread->query($website_options_query) as $row) {
+	$buzzysitelogo=$row['buzzysitelogo'];
+	?>
+   
+	<?php } ?>
+	<?php if($buzzy_theme==2){
+	?>		
+<?php
+if ($buzzywebsite_status==1){
+?>
+	<img src="<?php echo $link_prefix;?>img/logobadoo.png" id="logo" alt="">
+<?php } ?>
+
+
+	
+	
+    <?php } ?>
+
+	<?php if($buzzy_theme!=2 AND $buzzy_theme!=4){
+	?>	
+	<img src="<?php echo $link_prefix;?><?php echo $buzzysitelogo;?>" id="logo" alt="">
+    <?php } ?>
+		<?php if($buzzy_theme==4){
+	?>	
+	<img src="<?php echo $link_prefix;?>img/logolovoo2.png" id="logo" alt="">
+    <?php } ?>	
+	<div id="nav">
+	<ul>
+		<li>
+		<a style="text-transform: uppercase;<?php if($buzzy_theme==4){?>color:#000!important;<?php } ?>" 	 href="<?php echo $link_prefix;?>index.php">
+		<em class="fa fa-users" aria-hidden="true"></em>
+		<?php echo  $people_near_you; ?>
+		</a>
+		</li>
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;<?php if($buzzy_theme==4){?>color:#000!important;<?php } ?>" href="<?php echo $link_prefix;?>page.php?hotnot-id=true">
+		<em class="fa fa-heart" aria-hidden="true"></em>
+		<?php echo  $play_like_me; ?>
+		</a>
+		</li>			
+		<?php } ?>
+		<li>
+            <a style="text-transform: uppercase;<?php if($buzzy_theme==4){?>color:#000!important;<?php } ?>"  href="" data-toggle="modal" data-target="#searchbox">
+                 <em class="fa fa-search" aria-hidden="true"></em>
+                  <?php echo $search_news; ?>
+            </a>
+
+        </li>
+		<?php
+         if (isset($_SESSION["buzzyuser_id"])) {
+		?>
+		<li>
+		<a style="text-transform: uppercase;<?php if($buzzy_theme==4){?>color:#000!important;<?php } ?>" data-toggle="modal" data-target="#filterbox" href="">
+        <em class="fa fa-filter" aria-hidden="true"></em>
+		<?php echo $filter; ?>
+		</a>
+		</li>
+		<?php } ?>
+         <?php
+         if (!isset($_SESSION["buzzyuser_id"])) {
+         include 'register-login.html';
+         }   
+         ?>
+		 
+	</ul>
+		<div class="modal fade"  id="searchbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="#" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label  class="control-label"><?php echo $search;?>:</label>
+                        <input type="text" name="q" required class="form-control" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="search" class="buttontr btn btn-primary"><?php echo $search;?></button>
+                </div>
+            </form>
+           </div>
+       </div>
+    </div>
+	<?php
+        if($mobile_device_detected==FALSE)	
+        {		
+    if (isset($_SESSION["buzzyuser_id"])){
+    include 'user-oldheader.html';
+    }
+	}
+   ?>
+	</div>
+	

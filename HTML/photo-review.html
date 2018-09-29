@@ -1,0 +1,101 @@
+<?php
+if($session_buzzyuser_moderator==0){
+header('Location: '.$link_prefix.'index.php');	
+}
+?>
+<style>
+#owl-four16.item{
+  margin: 0px;
+}
+#owl-four16 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+	  #galleria{height:360px}
+</style>
+        <link href="<?php echo $link_prefix;?>bootstrap/css/tQera.Uploader.Bootstrap.css" rel="stylesheet" />
+		<link href="<?php echo $link_prefix;?>bootstrap/css/app.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" rel="stylesheet" />	
+        <link rel="stylesheet" href="<?php echo $link_prefix;?>/css/galleria.classic.css">		
+        <script src="<?php echo $link_prefix;?>bootstrap/js/npm.js"></script>
+        <script src="<?php echo $link_prefix;?>/js/galleria-1.4.7.min.js"></script>		
+        <script src="<?php echo $link_prefix;?>/js/galleria.classic.min.js"></script>			
+<div id="wrapper">
+    <div class="full-column">
+        <div class="news-wrapper">
+		<div style="margin-left:15px;margin-right:15px;">
+                 <h1>
+                   <?php echo $us_photos;?>
+				</h1>
+   <?php
+  $basic_countusimg_query = "SELECT COUNT(*)  as count_usimg FROM buzzyuserimages WHERE  buzzyuserimage_approval=1";
+  foreach ($connread->query($basic_countusimg_query) as $row) {
+  $count_usimg=$row['count_usimg'];
+	}
+	?>		
+	<?php	
+	if ($count_usimg==0){
+	?>	
+			<br>	
+			<div class="alert alert-info">
+               <?php echo $no_img_for_rev;?>
+             </div>
+			<br>
+	<?php } ?>		
+
+		<?php
+                  $all_images_query="SELECT * FROM buzzyuserimages WHERE  buzzyuserimage_approval=1 ORDER by buzzyuserimage_id DESC";
+  foreach ($connread->query($all_images_query) as $row) { 
+  $buzzyuserimage_id=$row['buzzyuserimage_id'];  
+  $buzzyuserimage=$row['buzzyuserimage'];
+  $buzzyuserimage_privatestatus=$row['buzzyuserimage_privatestatus'];
+if (strpos($buzzyuserimage,'facebook') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else if (strpos($buzzyuserimage,'http') !== false) {
+			$final_image_prefix='';		  
+		    }			
+			else if (strpos($buzzyuserimage,'fbcdn') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($buzzyuserimage,'http://brankomatovic.net/safetoupload/') !== false) {
+			$final_image_prefix='';		  
+		    }			
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$buzzyuser_id=$row['buzzyuser_id'];
+			
+			$image_users_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$buzzyuser_id";
+           foreach ($connread->query($image_users_query) as $row) { 
+		   $buzzyuser_username=$row['buzzyuser_username'];
+		 ?>
+		 <div class="one-eight-column" style="margin-bottom:30px!important;">
+		 <img class="thumbnail" style="width:120px!important; height:120px!important;"  src="<?php echo $final_image_prefix;?><?php echo $buzzyuserimage;?>" alt="" />
+		 <span style="font-weight:700; color:#4b90e5!important;">By <?php echo $buzzyuser_username;?></span>
+		 <br><br>
+		 <a href="<?php echo $link_prefix;?>approve-photo.php?photo-id=<?php echo $buzzyuserimage_id;?>" style="font-size:11px!important; font-weight:700; margin-right:8px!important; padding-left:5px!important; padding-right:5px!important; padding-top:5px!important; padding-bottom:5px!important;" class="btn btn-success btn-small"><?php echo $appprove;?></a>
+		 <a href="<?php echo $link_prefix;?>delete-photo.php?photo-id=<?php echo $buzzyuserimage_id;?>" style="font-size:11px!important; font-weight:700; margin-right:8px!important; padding-left:5px!important; padding-right:5px!important; padding-top:5px!important; padding-bottom:5px!important;" class="btn btn-danger btn-small"><?php echo $delllete;?></a>		 
+         </div>
+		 
+  <?php } ?>
+  <?php } ?>
+<br>	
+		</div>	
+		</div>
+		</div>
+		</div>
+	

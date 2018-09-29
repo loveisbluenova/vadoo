@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Cuprum:700);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Cuprum'!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Cuprum'!important;
+	 	 font-size:15px!important;
+}
+.user-tag {
+     font-family: 'Cuprum'!important;
+	 font-size:15px!important;
+}
+#nav ul li a{
+     font-family: 'Cuprum'!important;
+	 	 font-size:15px!important;
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Cuprum'!important;
+	 	 font-size:15px!important;
+		  padding-top:-1px!important;
+}

@@ -1,0 +1,207 @@
+<style>
+#owl-four17.item{
+  margin: 0px;
+}
+#owl-four17 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+
+	  a {
+    text-decoration: none !important;
+      }
+
+</style>
+<?php   		   
+?>
+<div id="wrapper">
+    <div class="full-column">
+     <div class="news-wrapper">
+	<div style="margin-left:15px;margin-right:15px;">	
+	<h3><?php echo $friends;?></h3> 
+	
+	
+	
+	<div class="favorites-tab">
+	<span style="" id="favone" class="actfav" ><?php echo $friends;?></span>
+	<span style="" id="favtwo" ><?php echo $friend_requests;?></span>	
+	</div>
+	
+	<div class="youfav" >
+    <?php
+$buzzyfriends_countquery="SELECT COUNT(*) FROM buzzyfriends WHERE (buzzyfriend=$session_user_id OR buzzyuser_id=$session_user_id) AND buzzyfriend_status=1";
+	foreach ($connread->query($buzzyfriends_countquery) as $row) { 
+    $count_yfav=$row['COUNT(*)'];
+    if($count_yfav==0){	
+	?>
+  <p style="font-size:20px; margin-top:40px; text-align:center!important;"><?php echo $you_dont_have_friends;?></p>
+	<br><br><br>
+	<div style="width:176px; margin:0 auto!important; float:none!important;">
+	<img src="http://www.branko83.com/envatofiles/pr1.jpg" style="margin-top:12px; z-index:1; width:96px; height:96px;float:left;" class="thumbnail" >
+	<img src="http://www.branko83.com/envatofiles/pr2.jpg" style="position:absolute; margin-left:28px;width:120px; z-index:2; height:120px;float:left;" class="thumbnail" >
+	<img src="http://www.branko83.com/envatofiles/pr3.jpg" style=" margin-left:-16px; z-index:1; margin-top:12px; width:96px; height:96px;float:left;" class="thumbnail" >	
+	</div>
+	<div class="clearfix"></div>
+	<br><br><br>
+	<p style="text-align:center!important;">
+	<a href="<?php echo $link_prefix;?>page.php?hotnot-id=true" style="margin:0 auto; font-size:26px!important;" class="btn btn-success"><?php echo $play_like_me;?></a>
+	</p> 
+	<br>	
+    <?php } ?>
+	<?php } ?>	
+	<br>
+	<?php	
+    $website_friends_query = "SELECT * FROM buzzyfriends WHERE (buzzyfriend=$session_user_id OR buzzyuser_id=$session_user_id) AND buzzyfriend_status=1";
+    foreach ($connread->query($website_friends_query) as $row) {
+    if($row['buzzyfriend']==$session_user_id){	
+	$thbuzzyuser_id=$row['buzzyuser_id'];	
+	}
+    else if($row['buzzyuser_id']==$session_user_id){
+ 	$thbuzzyuser_id=$row['buzzyfriend'];	  
+    } 
+   
+    $websitef_users_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$thbuzzyuser_id";	
+    foreach ($connread->query($websitef_users_query) as $row) {	
+	$buzzyuser_image=$row['buzzyuser_image'];
+if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$final_buzzyuser_image=$final_image_prefix . $buzzyuser_image;
+
+			if ($row['buzzyuser_aboutme']==''){
+			$buzzyuser_aboutme='';
+			}
+			else if ($row['buzzyuser_aboutme']!=''){
+			$buzzyuser_aboutme=$row['buzzyuser_aboutme'];
+			}
+			$buzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+            $buzzyuser_last_name=$row['buzzyuser_last_name'];				
+			$buzzyuser_username=$row['buzzyuser_username'];
+			$buzzyuser_email=$row['buzzyuser_email'];
+			$buzzyuser_password=$row['buzzyuser_password'];			
+			$buzzyuser_location=$row['buzzyuser_location'];	
+            $buzzyuser_status=$row['buzzyuser_status'];
+			$buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+            $buzzyuser_last_login=$row['buzzyuser_last_login'];	
+	?>
+    <img style="width:64px!important; height:64px!important; float:left!important; margin-right:15px!important;"  src="<?php echo $final_buzzyuser_image;?>" style="" />	
+	<span style=""><a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $buzzyuser_id;?>"><?php echo $buzzyuser_first_name;?> <?php echo $buzzyuser_last_name;?></a></span>
+	<br>
+	<span style="font-size:13px!important;  color:#acacac!important;"><?php echo $fromm;?> <?php echo $buzzyuser_location;?></span>
+	<div class="clearfix"></div>
+	<br>
+	<?php } ?>
+	<?php } ?>	
+	</div>	
+	
+	<div class="myfav" style="display:none!important;">
+   <?php
+	$buzzyfriends_countquery="SELECT COUNT(*) FROM buzzyfriends WHERE buzzyfriend=$session_user_id AND buzzyfriend_status=0";
+	foreach ($connread->query($buzzyfriends_countquery) as $row) { 
+    $count_mfav=$row['COUNT(*)'];
+    if($count_mfav==0){	
+	?>
+  <p style="font-size:20px; margin-top:40px; text-align:center!important;"><?php echo $you_dont_hav_freq_yet;?></p>
+	<br><br><br>
+	<div style="width:176px; margin:0 auto!important; float:none!important;">
+	<img src="http://www.branko83.com/envatofiles/pr1.jpg" style="margin-top:12px; z-index:1; width:96px; height:96px;float:left;" class="thumbnail" >
+	<img src="http://www.branko83.com/envatofiles/pr2.jpg" style="position:absolute; margin-left:28px;width:120px; z-index:2; height:120px;float:left;" class="thumbnail" >
+	<img src="http://www.branko83.com/envatofiles/pr3.jpg" style=" margin-left:-16px; z-index:1; margin-top:12px; width:96px; height:96px;float:left;" class="thumbnail" >	
+	</div>
+	<div class="clearfix"></div>
+	<br><br><br>
+	<p style="text-align:center!important;">
+	<a href="<?php echo $link_prefix;?>page.php?hotnot-id=true" style="margin:0 auto; font-size:26px!important;" class="btn btn-success"><?php echo $play_like_me;?></a>
+	</p> 
+	<br>	
+    <?php } ?>
+	<?php } ?>		
+	
+	
+	<br>
+	<?php
+     $website_friends_query = "SELECT * FROM buzzyfriends WHERE buzzyfriend=$session_user_id AND buzzyfriend_status=0";
+    foreach ($connread->query($website_friends_query) as $row) {
+    if($row['buzzyfriend']==$session_user_id){	
+	$thrbuzzyuser_id=$row['buzzyuser_id'];	
+	}
+    else if($row['buzzyuser_id']==$session_user_id){
+ 	$thrbuzzyuser_id=$row['buzzyfriend'];	  
+    } 	
+	
+    $websitef_users_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$thrbuzzyuser_id";	
+    foreach ($connread->query($websitef_users_query) as $row) {	
+	$buzzyuser_image=$row['buzzyuser_image'];
+if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$final_buzzyuser_image=$final_image_prefix . $buzzyuser_image;
+
+			if ($row['buzzyuser_aboutme']==''){
+			$buzzyuser_aboutme='';
+			}
+			else if ($row['buzzyuser_aboutme']!=''){
+			$buzzyuser_aboutme=$row['buzzyuser_aboutme'];
+			}
+			$buzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+            $buzzyuser_last_name=$row['buzzyuser_last_name'];				
+			$buzzyuser_username=$row['buzzyuser_username'];
+			$buzzyuser_email=$row['buzzyuser_email'];
+			$buzzyuser_password=$row['buzzyuser_password'];			
+			$buzzyuser_location=$row['buzzyuser_location'];	
+            $buzzyuser_status=$row['buzzyuser_status'];
+			$buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+            $buzzyuser_last_login=$row['buzzyuser_last_login'];	
+	?>
+    <img style="width:64px!important; height:64px!important; float:left!important; margin-right:15px!important;"  src="<?php echo $final_buzzyuser_image;?>" style="" />	
+	<span style=""><a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $buzzyuser_id;?>"><?php echo $buzzyuser_first_name;?> <?php echo $buzzyuser_last_name;?></a></span>
+	<br>
+	<span class="acceptfr"><a href="<?php echo $link_prefix;?>accept-friend-request.php?requester-id=<?php echo $thrbuzzyuser_id;?>" style="color:#fff!important;"> <i class="fa fa-check" aria-hidden="true"></i> <?php echo $accept;?></a></span>
+	<span class="rejectfr" style="color:#fff!important;"><a href="<?php echo $link_prefix;?>reject-friend-request.php?requester-id=<?php echo $thrbuzzyuser_id;?>" style="color:#fff!important;"> <i class="fa fa-trash" aria-hidden="true"></i> <?php echo $reject;?></span> </span>
+	<div class="clearfix"></div>
+	<br>
+	<?php } ?>
+	<?php } ?>	
+	</div>
+	 </div>
+	</div>	
+<script type="text/javascript">   
+$( "#favtwo" ).click(function() {
+  $(".myfav").show();
+  $(".youfav").hide();  
+  $( "#favtwo" ).addClass( "actfav" );
+  $( "#favone" ).removeClass( "actfav" );
+});
+</script>
+<script type="text/javascript">   
+$( "#favone" ).click(function() {
+  $(".myfav").hide();
+  $(".youfav").show();    
+  $( "#favone" ).addClass( "actfav" );
+  $( "#favtwo" ).removeClass( "actfav" );
+});
+</script>
+		</div>
+		</div>

@@ -1,0 +1,275 @@
+
+<div id="mobile-nav">
+    <?php if($buzzy_theme!=2){
+	$ffcolor='fff';
+	?>	
+	<a href="#" style="margin-right:10px!important;"  id="toggle"><img src="<?php echo $link_prefix;?>img/mobile-nav.png" alt="" id="nav-image"/></a>
+    <?php } ?>
+	<?php if($buzzy_theme==2){
+	$ffcolor=$final_style_color;	
+	?>	
+	<a href="#" style="margin-right:10px!important;" id="toggle"><img src="<?php echo $link_prefix;?>img/mobile-navbadoo.png" alt="" id="nav-image"/></a>
+    <?php } ?>
+	   <span style="color:#<?php echo $ffcolor;?>; 
+	   font-weight:700; font-size:16px!important; text-transform: uppercase;"><?php echo $buzzyuser_first_name;?> <?php echo $buzzyuser_last_name;?> <img style="margin-top:-3px!important;" src="<?php echo $link_prefix;?>img/<?php echo $onofline_img;?>" />
+	   <a style="color:#<?php echo $ffcolor;?>;" href="<?php echo $link_prefix;?>mobile-chat.php">
+	   <i class="fa fa-reply-all" style="font-size:18px!important; float:right; margin-top:5px!important; margin-right:20px!important;" aria-hidden="true"></i>
+	   </a>
+	   </span>	
+	<br/>
+  <div id="mobile-nav-link" style="display:none;">
+        <ul>
+ 		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>index.php">
+		<i class="fa fa-users" aria-hidden="true"></i>
+		<?php echo  $people_near_you; ?>
+		</a>
+		</li>
+
+		
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>
+       <?php
+       if($session_buzzyuser_moderator==1){
+        ?>		
+ 		<li>
+		<a style="text-transform: uppercase;" href="">
+		<i class="fa fa-lock" aria-hidden="true"></i>
+		<?php echo  $moderator_level_one; ?>
+		</a>
+		</li>				
+ 		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>page.php?photo-review-id=1">
+		<i class="fa fa-picture-o" aria-hidden="true"></i>
+		<?php echo  $photo_reviews; ?>
+		</a>
+		</li>			
+       <?php } ?>
+       <?php } ?>
+		
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>page.php?hotnot-id=true">
+		<i class="fa fa-heart" aria-hidden="true"></i>
+		<?php echo  $play_like_me; ?>
+		</a>
+		</li>			
+		<?php } ?>
+		
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>chat.php">
+		<i class="fa fa-comment" aria-hidden="true"></i>
+		<?php echo  $messages; ?>
+<span class="cictwob" style="margin-left:0px!important;">		
+<span style="<?php echo $display_classs1;?>" class="mobilecic blink">
+<span style="margin-left:5px!important; font-weight:700;">
+<?php echo $count_unmessages;?></span></span></span>
+		</a>
+		</li>			
+		<?php } ?>
+		
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	
+       <?php
+       if (2>5){
+       ?>			
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $likes_href;?>">
+		<i class="fa fa-heartbeat" aria-hidden="true"></i>	
+		<?php echo  $liked_you; ?>
+<span style="<?php echo $display_classs2;?>"class="mobilecic">
+<span style="margin-left:5px!important; font-weight:700;">
+<?php echo $count_usunreadliked;?>
+</span>
+</span>
+		</a>
+		</li>			
+		<?php } ?>	
+       <?php } ?>	
+	
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?><?php echo  $matches_url;?><?php echo  $session_user_id;?>">
+		<i class="fa fa-venus-mars" aria-hidden="true"></i>
+		<?php echo  $my_matches; ?>
+		</a>
+		</li>			
+		<?php } ?>	
+
+		
+		
+		
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $visitors_href;?>">
+		<i class="fa fa-eye" aria-hidden="true"></i>
+		<?php echo  $visitors; ?>
+<span style="<?php echo $display_classs3;?>" class="mobilecic">
+<span style="margin-left:5px!important; font-weight:700;">
+<?php echo $count_ses_visitors;?></span></span>
+		</a>
+		</li>			
+		<?php } ?>	
+		
+		
+
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+					
+		<?php } ?>			
+		
+		
+		
+	<?php
+         if (isset($_SESSION["buzzyuser_id"])) {
+		?>
+		<li>
+		<a style="text-transform: uppercase;" data-toggle="modal" data-target="#filterbox" href="">
+        <i class="fa fa-filter" aria-hidden="true"></i>
+		<?php echo $filter; ?>
+		</a>
+		</li>
+		<?php } ?>		
+<li>
+            <a style="text-transform: uppercase;"  href="" data-toggle="modal" data-target="#mobsearchbox">
+                 <i class="fa fa-search" aria-hidden="true"></i>
+                  <?php echo $search_news; ?>
+            </a>
+
+        </li>	
+		
+		
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>page.php?friends=<?php echo $session_user_id;?>">
+		<i class="fa fa-user-plus" aria-hidden="true"></i>
+		<?php echo  $friends; ?> <span style="<?php echo $display_classs16;?>" class="mobilecic">
+		<span style="margin-left:5px!important; font-weight:700;">
+		<?php echo $count_unnfriends;?></span></span>
+		</a>
+		</li>			
+		<?php } ?>
+		
+		
+		
+		
+	<?php
+         if (!isset($_SESSION["buzzyuser_id"])) {
+		?>
+         <li>
+        <a class="nav-link" href=""  style="text-transform: uppercase;" data-toggle="modal" data-target="#sign-in-form"><i class="fa fa-sign-in" aria-hidden="true"></i> <?php echo $login;?></a>
+        </li> 
+<li>
+<a class="nav-link" style="text-transform: uppercase;" href="<?php echo $link_prefix;?>register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> <?php echo $sign_up;?></a>
+</li>	
+    <?php } ?>		
+        </ul>
+	<div class="modal fade" id="mobsearchbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="#" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label  class="control-label"><?php echo $search;?>:</label>
+                        <input type="text" name="q" required class="form-control" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="search" class="buttontr btn btn-primary"><?php echo $search;?></button>
+                </div>
+            </form>
+           </div>
+       </div>
+    </div>		
+		<div class="modal fade" data-easein="flipBounceYIn"  id="sign-in-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $sign_in;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<br>
+		<?php 
+		if ($buzzywebsite_status==0){
+		?>
+		<div class="row">
+			<div class="span7 offset5"><a  href="<?php echo $link_prefix;?>oauth/fb/login_with_facebook.php"><img src="<?php echo $link_prefix;?>img/fb-login.png" style="margin-left:30px!important; display: block; width:365px;" alt="Sign in with Facebook" title="Sign in with Facebook"></a></div>
+		</div>
+		<?php } ?>
+
+		<?php 
+		if ($buzzywebsite_status==1){
+		?>
+		<div class="row">
+			<div class="span7 offset5"><a  href="<?php echo $link_prefix;?>oauth/fb/login_with_facebook.php"><img src="<?php echo $link_prefix;?>img/fb-login.png" style="margin-left:30px!important; display: block; width:365px;" alt="Sign in with Facebook" title="Sign in with Facebook"></a></div>
+		</div>
+		<?php } ?>	
+		<!-- End of For Social login Buttons -->
+	     <form action="#" method="POST">
+      <div class="modal-body">
+		  <div class="form-group">
+            <label class="control-label"><?php echo $email;?>:</label>
+            <input type="email" name="buzzyuser_email" value="<?php echo $log_user;?>" required class="form-control" >
+          </div>
+		  <div class="form-group">
+            <label class="control-label"><?php echo $password;?>:</label>
+            <input type="password" name="buzzyuser_password" value="<?php echo $log_pwd;?>" required class="form-control" >
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo $close;?></button>
+        <button type="submit" name="login" data-target="#error" class="buttontr  btn btn-primary login"><?php echo $login;?></button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>	
+    </div>
+</div>
+<div class="modal fade" id="mobilesearchbox" tabindex="-1" role="dialog" 
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="#" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label class="control-label"><?php echo $search_news;?>:</label>
+                        <input type="text" name="q" required class="form-control" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="search" class="btn btn-primary"><?php echo $search_news;?></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<script>
+    $('#toggle').click(function () {
+        $('#mobile-nav-link').slideToggle('fast');
+        return false;
+    });
+</script>
+  	<script>	
+	setInterval(function(){ 	
+    $('.cictwoc').load(document.URL +  ' .cictwoc');		
+	},<?php echo $chat_option_refresh;?>);
+	</script>	

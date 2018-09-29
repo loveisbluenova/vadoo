@@ -1,0 +1,18 @@
+
+<div id="popup-2" class="slickModal contactForm">
+			<div class="slickWindow">
+				<!-- Your popup content -->
+				<div class="topIcon"></div>
+				<div class="title">Login form</div>
+				<p>Login to your profile</p>
+	     <form action="#" method="POST" >
+                    <input type="email"  name="buzzyuser_email" required class="field email" placeholder="Your email" />
+                    <input type="password"name="buzzyuser_password" required class="field password" placeholder="Your password" />
+                    <input type="submit" name="login"  style="text-align:center; font-size:14px!important; padding-top:9px; width:420px!important; height:40px;" class="btn btn-primary" value="Login" />
+		            <input name="CSRFtoken" type="hidden" value="<?php echo  $token;?>">					
+                    <div id="errorMsg"></div>
+                </form>
+                <div class="closeModal bottomClose">No thanks, i don't want to login now</div>
+				<!-- / Your popup content -->
+			</div>
+		</div>

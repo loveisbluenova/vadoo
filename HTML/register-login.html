@@ -1,0 +1,52 @@
+ <li>
+ <a class="nav-link" href="" style="<?php if($buzzy_theme==4){?>color:#000!important;<?php } ?>"data-toggle="modal" data-target="#exampleModal23"><i class="fa fa-sign-in" aria-hidden="true"></i> <?php echo $login;?></a>
+</li> 
+<li>
+<a class="nav-link" style="<?php if($buzzy_theme==4){?>color:#000!important;<?php } ?>" href="<?php echo $link_prefix;?>register.php"><i class="fa fa-user-plus" aria-hidden="true"></i> <?php echo $sign_up;?></a>
+</li>	
+<div class="modal fade" data-easein="flipBounceYIn"  id="exampleModal23" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $sign_in;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<br>
+		<?php 
+		if ($buzzywebsite_status==0){
+		?>
+		<div class="row">
+			<div class="span7 offset5"><a  href="<?php echo $link_prefix;?>oauth/fb/login_with_facebook.php"><img src="<?php echo $link_prefix;?>img/fb-login.png" style="margin-left:30px!important; display: block; width:365px;" alt="Sign in with Facebook" title="Sign in with Facebook"></a></div>
+		</div>
+		<?php } ?>
+
+		<?php 
+		if ($buzzywebsite_status==1){
+		?>
+		<div class="row">
+			<div class="span7 offset5"><a  href="<?php echo $link_prefix;?>oauth/fb/login_with_facebook-demo.php"><img src="<?php echo $link_prefix;?>img/fb-login.png" style="margin-left:30px!important; display: block; width:365px;" alt="Sign in with Facebook" title="Sign in with Facebook"></a></div>
+		</div>
+		<?php } ?>		
+		<!-- End of For Social login Buttons -->
+	     <form action="#" method="POST">
+      <div class="modal-body">
+		  <div class="form-group">
+            <label class="control-label"><?php echo $email;?>:</label>
+            <input type="email" name="buzzyuser_email" value="<?php echo $log_user;?>" required class="form-control" >
+          </div>
+		  <div class="form-group">
+            <label class="control-label"><?php echo $password;?>:</label>
+            <input type="password" name="buzzyuser_password" value="<?php echo $log_pwd;?>" required class="form-control" >
+          </div>
+      <div id="status">
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo $close;?></button>
+        <button type="submit" name="login" data-target="#error" class="buttontr  btn btn-primary login"><?php echo $login;?></button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>

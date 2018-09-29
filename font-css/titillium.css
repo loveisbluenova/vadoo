@@ -1,0 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Titillium+Web:400);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Titillium Web'!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Titillium Web'!important;
+}
+.user-tag{
+     font-family: 'Titillium Web'!important;
+}
+#nav ul li a{
+     font-family: 'Titillium Web'!important;
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Titillium Web'!important;
+}

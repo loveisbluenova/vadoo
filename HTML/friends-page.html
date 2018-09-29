@@ -1,0 +1,184 @@
+<?php
+$buddies_countquery="SELECT COUNT(*) FROM buddies WHERE (friend=$session_user_id OR user_id=$session_user_id) AND friend_status=1";
+foreach ($connread->query($buddies_countquery) as $row) { 
+$count_total_buddies=$row['COUNT(*)'];	
+}
+if($count_total_buddies==0){
+header('Location: '.$link_prefix.'page.php?no-friends=true');	
+	$no_buddies_info='<div class="alert alert-info" role="alert">'.$you_dont_have_friends.'</div>';	
+}	
+	else if($count_total_buddies==1){
+	$no_buddies_info='';	
+	}	
+   else{
+	$no_buddies_info='';	   
+   }
+?>
+<style>
+#owl-four17.item{
+  margin: 0px;
+}
+#owl-four17 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+</style>
+	        <link href="<?php echo $link_prefix;?>bootstrap/css/tQera.Uploader.Bootstrap.css" rel="stylesheet" />
+		<link href="<?php echo $link_prefix;?>bootstrap/css/app.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" rel="stylesheet" /> 
+<?php
+if (!isset($_SESSION["buzzyuser_id"])) {
+header('Location: '.$link_prefix.'index.php');	   
+}	   
+ if($session_buzzyuser_status==0){
+			$user_status_class='regular-user';
+			$user_status=$regular;
+			$status_badge='https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/human-24.png';
+			}	
+            else if($session_buzzyuser_status==1){
+			$user_status_class='premium-user';
+			$user_status=$premium;
+			$status_badge='https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/star-24.png';			
+			}	
+            else if($session_buzzyuser_status==2){
+			$user_status_class='gold-user';
+			$user_status=$gold;
+			$status_badge='https://cdn0.iconfinder.com/data/icons/customicondesign-office7-shadow-png/32/Metal-gold-blue.png';				
+			}		
+            else if($session_buzzyuser_status==3){
+			$user_status_class='vip-user';
+			$user_status=$vip;
+			$status_badge='https://t3.rbxcdn.com/44c11236a40914ead32a5ea71f06ec08';						
+			}			
+	       if($session_buzzyuser_visibility==0){
+           $visibility_image='https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/eye-24.png';
+		   $vis_text=$you_are_visible;
+           }
+	       else if($session_buzzyuser_visibility==1){
+           $visibility_image='https://cdn2.iconfinder.com/data/icons/free-color-halloween-icons/24/Ghost-24.png';
+		   $vis_text=$you_are_unvisible;		   
+           }		   
+?>
+<div id="wrapper">
+    <div class="full-column">
+    <div class="news-wrapper"
+	<?php if($buzzy_theme==2){?>
+    style="background:none!important; border:0px solid #fff;
+"
+	<?php } ?>
+	>
+	<div style="margin-left:15px;margin-right:15px;">
+<?php	
+$buddies_countquery="SELECT COUNT(*) FROM buddies WHERE (friend=$session_user_id OR user_id=$session_user_id) AND friend_status=1";
+foreach ($connread->query($buddies_countquery) as $row) { 
+$count_total_buddies=$row['COUNT(*)'];	
+}
+if($count_total_buddies==0){
+header('Location: '.$link_prefix.'page.php?no-friends=true');	
+	$no_buddies_info='<div class="alert alert-info" role="alert">'.$you_dont_have_friends.'</div>';	
+}	
+	else if($count_total_buddies==1){
+	$no_buddies_info='';	
+	}	
+   else{
+	$no_buddies_info='';	   
+   }	
+   ?>	
+	
+	<?php
+    $friend_request_query="SELECT * FROM buddies WHERE friend=$session_user_id  AND friend_status=0";
+	foreach ($connread->query($friend_request_query) as $row) {
+    $req_buzzyuser_id=$row['user_id'];
+    $friendreq_user_query="SELECT * FROM buzzyusers WHERE buzzyuser_id=$req_buzzyuser_id";
+	foreach ($connread->query($friendreq_user_query) as $row) {
+	$req_buzzyuser_first_name=$row['buzzyuser_first_name'];
+	$req_buzzyuser_last_name=$row['buzzyuser_last_name'];    	
+	?>
+	<div class="friend-request">
+	<div style="margin:15px!important;">
+	<?php echo $you_have_friend_request_from;?> <a target="_blank" style="color:#<?php echo $buzzycss_color_css;?>!important;" href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $req_buzzyuser_id;?>"><?php echo $req_buzzyuser_first_name;?> <?php echo $req_buzzyuser_last_name;?></a>.
+	<br><br>
+	<a href="<?php echo $link_prefix;?>accept-request.php?request-id=<?php echo $req_buzzyuser_id;?>" class="btn btn-success btn-sm buttontr" style="margin-right:10px!important;"><?php echo $accept;?></a> 	
+	<a href="<?php echo $link_prefix;?>delete-request.php?request-id=<?php echo $req_buzzyuser_id;?>" class="btn btn-danger btn-sm buttontr"><?php echo $reject;?></a>
+	</div>
+	</div>
+    <?php } ?>	
+    <?php } ?>		
+		<h1 style="margin-top:0px; margin-bottom:20px;" ><?php echo $friends;?></h1>
+	    <?php echo $no_buddies_info;?>		
+     <?php	
+    $buddies_query="SELECT * FROM buddies WHERE (friend=$session_user_id OR user_id=$session_user_id) AND friend_status=1";
+	foreach ($connread->query($buddies_query) as $row) { 
+	if($row['friend']==$session_user_id){
+	$f_buzzyuser_id=$row['user_id'];
+	}
+	else if($row['user_id']==$session_user_id){
+	$f_buzzyuser_id=$row['friend'];
+	}
+	
+    $buddies_user_query="SELECT * FROM buzzyusers WHERE buzzyuser_id=$f_buzzyuser_id";
+	foreach ($connread->query($buddies_user_query) as $row) { 
+	$f_buzzyuser_first_name=$row['buzzyuser_first_name'];
+	$f_buzzyuser_last_name=$row['buzzyuser_last_name'];
+	$f_buzzyuser_image=$row['buzzyuser_image'];	
+	$f_buzzyuser_age=$row['buzzyuser_age'];	
+    $f_buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+    if($f_buzzyuser_onlinestatus==0){
+    $f_online_text='<span style="color:#898989!important; font-size:13px!important;">'.$offlinee.'</span>';	
+	}	
+    else if($f_buzzyuser_onlinestatus==1){
+    $f_online_text='<span style="color:#00a608!important; font-size:13px!important;">'.$onlinee.'</span>';		
+	}	
+    if (strpos($f_buzzyuser_image,'facebook') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else if (strpos($f_buzzyuser_image,'fbcdn') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($f_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($f_buzzyuser_image,'http://') !== false) {
+			$final_image_prefix='';		  
+		    }	
+		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
+			$final_image_prefix='';		  
+		    }				
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			
+    ?>
+
+
+	<div class="one-third-column" style="margin-bottom:20px!important;">
+	<a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $f_buzzyuser_id;?>" >
+	<img style="width:64px!important; height:64px!important; float:left!important; margin-right:10px!important;" src="<?php echo $final_image_prefix;?><?php echo $f_buzzyuser_image;?>" />	
+    </a>
+	<a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $f_buzzyuser_id;?>" ><span style="color:#<?php echo $buzzycss_color_css;?>!important; font-weight:700!important; font-size:14px!important;"><?php echo $f_buzzyuser_first_name;?> <?php echo $f_buzzyuser_last_name;?></span></a>	
+    <br>
+	<span style="color:#ccc!important; font-size:13px!important;"><?php echo $f_buzzyuser_age;?> <?php echo $yearss;?> <?php echo $oldd;?></span>
+	<br>
+	<?php echo $f_online_text;?>
+	</div>
+	<?php } ?>
+	<?php } ?>
+     <div class="clearfix"></div>
+  <br>
+        </div>	
+		</div>
+		</div>
+		</div>

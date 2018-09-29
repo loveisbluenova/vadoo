@@ -1,0 +1,115 @@
+<form action="" method="POST">
+<h5><?php echo  $about_me;?></h5>
+<textarea class="form-control" name="buzzyuser_aboutme"></textarea>
+<h5><?php echo $height;?> (cm)</h5>
+<input type="number" min="130" max="230" name="buzzyuser_data_height" required class="form-control" id="recipient-name">
+<h5><?php echo  $weight;?> (kg)</h5>
+<input type="number" min="35" max="300" name="buzzyuser_data_height" required class="form-control" id="recipient-name">
+<h5><?php echo  $sexual_orientation;?></h5>
+ <select class="form-control" name="buzzyuser_data_sexual_orientation" required>
+ <option value="0">
+<?php echo $heterosexual;?>
+ </option>
+  <option value="1">
+<?php echo $homosexual;?>
+ </option>
+   <option value="2">
+<?php echo $bisexual;?>
+ </option>
+ </select>
+ 
+ <h5><?php echo  $relationship_status;?></h5>
+ <select class="form-control" name="buzzyuser_data_rel_status" required>
+ <option value="0">
+<?php echo $single;?>
+ </option>
+  <option value="1">
+<?php echo $in_a_relationship;?>
+ </option>
+   <option value="2">
+<?php echo $in_a_open_relationship;?>
+ </option>
+ </select>
+ 
+ <h5><?php echo  $body;?></h5>
+ <select class="form-control" name="buzzyuser_data_body" required>
+ <option value="0">
+<?php echo $average;?>
+ </option>
+  <option value="1">
+<?php echo $athletic;?>
+ </option>
+   <option value="2">
+<?php echo $muscle;?>
+ </option>
+    <option value="3">
+<?php echo $thick;?>
+ </option>
+  <option value="4">
+<?php echo $thin;?>
+ </option>
+ </select>
+ 
+  <h5><?php echo  $hair_color;?></h5>
+ <select class="form-control" name="buzzyuser_hair_color" required>
+ <option value="0">
+<?php echo $black;?>
+ </option>
+  <option value="1">
+<?php echo $brown;?>
+ </option>
+   <option value="2">
+<?php echo $red;?>
+ </option>
+    <option value="3">
+<?php echo $blue;?>
+ </option>
+  <option value="4">
+<?php echo $grey;?>
+ </option>
+   <option value="5">
+<?php echo $bold;?>
+ </option>
+ </select>
+ 
+   <h5><?php echo  $eye_color;?></h5>
+ <select class="form-control" name="buzzyuser_eye_color" required>
+ <option value="0">
+<?php echo $brown;?>
+ </option>
+  <option value="1">
+<?php echo $green;?>
+ </option>
+   <option value="2">
+<?php echo $blue;?>
+ </option>
+    <option value="3">
+<?php echo $other;?>
+ </option>
+ </select>
+ 
+ <h5><?php echo  $no_kids;?></h5>
+ <input type="number" min="0" max="12" name="buzzyuser_no_kids" required class="form-control" id="recipient-name">
+  
+ <h5><?php echo  $smoker;?></h5>
+ <select class="form-control" name="buzzyuser_smoker" required>
+ <option value="0">
+<?php echo $yes;?>
+ </option>
+  <option value="1">
+<?php echo $no;?>
+ </option>
+ </select>
+ 
+  <h5><?php echo  $alcohol;?></h5>
+ <select class="form-control" name="buzzyuser_drinker" required>
+ <option value="0">
+<?php echo $yes;?>
+ </option>
+  <option value="1">
+<?php echo $no;?>
+ </option>
+ </select>
+ 
+ <button type="submit" name="add_data" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>	
+ </form>

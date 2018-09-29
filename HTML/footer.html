@@ -1,0 +1,1394 @@
+  	<script>	
+	setInterval(function(){ 
+    $('.cictwo').load(document.URL +  ' .cictwo');		
+	},<?php echo $chat_option_refresh;?>);
+	</script>	
+	
+  	<script>	
+	setInterval(function(){ 
+    $('.cicfour').load(document.URL +  ' .cicfour');		
+	},<?php echo $chat_option_refresh;?>);
+	</script>	
+	
+  <div class="clearfix"></div>   
+   <br>
+	<?php
+	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	if (strpos($actual_link, 'localhost') !== false){
+	$local='localhost/';
+    }
+	else{
+	$local='';
+	}
+	foreach ($connread->query($website_options_query) as $row) {
+			$buzzysitename = $row['buzzysitename'];
+			$buzzysiteurl = $row['buzzysiteurl'];			
+			$buzzyprivacy = $row['buzzyprivacy'];
+			$buzzyterms = $row['buzzyterms'];
+	?>
+	<?php } ?>
+	<div class="modal fade"  id="searchboxa" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="#" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label  class="control-label"><?php echo $search;?>:</label>
+                        <input type="text" name="q" required class="form-control" >
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="search" class="buttontr btn btn-primary"><?php echo $search;?></button>
+                </div>
+            </form>
+           </div>
+       </div>
+    </div>
+	<?php 
+	include 'footer-modal.html';
+	?>
+<div id="footer" style="margin-left:10px!important;">
+<span class="links" style="float:left; font-size:13px!important; border:0px solid #333!important;  <?php echo $color_foot;?>" ><?php echo $buzzysitename  ;?> &#169;  <?php echo date("Y"); ?></span>
+<?php
+$website_acustompage_query = "SELECT * FROM buzzycustompages";
+foreach ($connread->query($website_acustompage_query) as $row) {
+$buzzycustompage_title=$row['buzzycustompage_title'];
+$buzzycustompage_url=$row['buzzycustompage_url'];
+?>
+<span class="links"  style="float:left; <?php echo $color_foot;?>
+  font-size:13px!important; border:0px solid #333!important;">
+  <a style="<?php echo $color_foot;?>" href="<?php echo $link_prefix;?>page.php?custom-page=<?php echo $buzzycustompage_url;?>" >
+  <?php echo $buzzycustompage_title;?>
+  </a></span>
+<?php } ?>
+<span class="links"  style="float:left; <?php echo $color_foot;?>  font-size:13px!important; border:0px solid #333!important;"><a style="<?php echo $color_foot;?>" href="<?php echo $link_prefix;?><?php echo  $privacy_url;?>1" ><?php echo $privacy  ;?></a></span>
+<span class="links"  style="float:left; <?php echo $color_foot;?> font-size:13px!important; border:0px solid #333!important;"><a style="<?php echo $color_foot;?>" href="<?php echo $link_prefix;?><?php echo  $terms_url;?>1" ><?php echo $terms  ;?></a></span>
+<div class="fb-share-button" style="margin-left:10px!important; float:left!important;" data-href="<?php echo $link_prefix;?>" data-layout="button_count"></div>
+ <a href="https://twitter.com/share" class="twitter-share-button">Tweet</a>
+ <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>               
+<div class="clearfix"></div>
+</div>
+
+<div class="modal fade" data-easein="flipBounceYIn"  id="footerlogin" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $sign_in;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<br>
+		<?php 
+		if ($buzzywebsite_status==0){
+		?>
+		<div class="row">
+			<div class="span7 offset5"><a  href="<?php echo $link_prefix;?>oauth/fb/login_with_facebook.php"><img src="<?php echo $link_prefix;?>img/fb-login.png" style="margin-left:30px!important; display: block; width:365px;" alt="Sign in with Facebook" title="Sign in with Facebook"></a></div>
+		</div>
+		<?php } ?>
+
+		<?php 
+		if ($buzzywebsite_status==1){
+		?>
+		<div class="row">
+			<div class="span7 offset5"><a  href="<?php echo $link_prefix;?>oauth/fb/login_with_facebook.php"><img src="<?php echo $link_prefix;?>img/fb-login.png" style="margin-left:30px!important; display: block; width:365px;" alt="Sign in with Facebook" title="Sign in with Facebook"></a></div>
+		</div>
+		<?php } ?>	
+		<!-- End of For Social login Buttons -->
+	     <form action="#" method="POST">
+      <div class="modal-body">
+		   <div class="form-group">
+            <label class="control-label"><?php echo $email;?>:</label>
+            <input type="email" name="buzzyuser_email" value="<?php echo $log_user;?>" required class="form-control" >
+          </div>
+		  <div class="form-group">
+            <label class="control-label"><?php echo $password;?>:</label>
+            <input type="password" name="buzzyuser_password" value="<?php echo $log_pwd;?>" required class="form-control" >
+          </div>
+      <div id="status">
+      </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo $close;?></button>
+        <button type="submit" name="login" data-target="#error" class="buttontr  btn btn-primary login"><?php echo $login;?></button>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+<script>
+$.fn.modal.Constructor.prototype.enforceFocus = function() {};
+</script>	  
+<script>
+   $(function () {
+        $("[rel='tooltip']").tooltip();
+    });
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip({
+   container: 'body'
+}); 
+});
+$('a[data-toggle="tooltip"]').tooltip({
+   container: 'body'
+});
+$('img[data-toggle="tooltip"]').tooltip({
+   container: 'body'
+});
+</script>
+  <!--.......................-->		  
+<?php
+ if (isset($_SESSION["buzzyuser_id"])) {
+ ?>
+  <div class="modal fade" data-easein="flipBounceYIn"  id="matchquiz" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $match_quiz_title;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<!-- End of For Social login Buttons -->
+		<div class="written-content" style="margin-left:5px!important; margin-bottom:10px!important;" >
+<div id="firstq"> 
+ <?php 
+  $website_questionone_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionone_query) as $row) {  
+  $buzzyquiz_one=$row['buzzyquiz_one'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+ 1. <?php echo $buzzyquiz_one;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesone" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success btn-lg yesone buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="noone" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger noone btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>
+
+<div id="secondq" style="display:none;"> 
+ <?php 
+  $website_questiontwo_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questiontwo_query) as $row) {  
+  $buzzyquiz_two=$row['buzzyquiz_two'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+ 2. <?php echo $buzzyquiz_two;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yestwo" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yestwo btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="notwo" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger notwo btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>
+	 
+
+<div id="thirdq" style="display:none;"> 
+ <?php 
+  $website_questionthree_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionthree_query) as $row) {  
+  $buzzyquiz_three=$row['buzzyquiz_three'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+ 3. <?php echo $buzzyquiz_three;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesthree" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yesthree btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nothree" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nothree btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+
+<div id="fourq" style="display:none;"> 
+ <?php 
+  $website_questionfour_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionfour_query) as $row) {  
+  $buzzyquiz_four=$row['buzzyquiz_four'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+ 4. <?php echo $buzzyquiz_four;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesfour" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yesfour btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nofour" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nofour btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+
+	 
+<div id="fiveq" style="display:none;"> 
+ <?php 
+  $website_questionfive_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionfive_query) as $row) {  
+  $buzzyquiz_five=$row['buzzyquiz_five'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+ 5. <?php echo $buzzyquiz_five;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesfive" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yesfive btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nofive"   style="padding-left:20px!important; padding-right:20px!important;" class="btn nofive btn-danger btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+
+<div id="sixq" style="display:none;"> 
+ <?php 
+  $website_questionsix_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionsix_query) as $row) {  
+  $buzzyquiz_six=$row['buzzyquiz_six'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+6. <?php echo $buzzyquiz_six;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yessix" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yessix btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nosix"   style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nosix btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>		 
+
+<div id="sevenq" style="display:none;"> 
+ <?php 
+  $website_questionseven_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionseven_query) as $row) {  
+  $buzzyquiz_seven=$row['buzzyquiz_seven'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+7. <?php echo $buzzyquiz_seven;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesseven"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yesseven btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="noseven"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger  noseven  btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	
+
+<div id="eightq" style="display:none;"> 
+ <?php 
+  $website_questioneight_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questioneight_query) as $row) {  
+  $buzzyquiz_eight=$row['buzzyquiz_eight'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+8. <?php echo $buzzyquiz_eight;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yeseight"   style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yeseight btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="noeight" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger noeight btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	
+	
+<div id="nineq" style="display:none;"> 
+ <?php 
+  $website_questionnine_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionnine_query) as $row) {  
+  $buzzyquiz_nine=$row['buzzyquiz_nine'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+9. <?php echo $buzzyquiz_nine;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yesnine"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yesnine btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nonine" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nonine btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>		
+
+<div id="tenq" style="display:none;"> 
+ <?php 
+  $website_questionten_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionten_query) as $row) {  
+  $buzzyquiz_ten=$row['buzzyquiz_ten'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+10. <?php echo $buzzyquiz_ten;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yesten"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yesten btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="noten"  style="padding-left:20px!important; padding-right:20px!important;" class="btn noten btn-danger btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>
+	 
+<div id="elevenq" style="display:none;"> 
+ <?php 
+  $website_questioneleven_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questioneleven_query) as $row) {  
+  $buzzyquiz_eleven=$row['buzzyquiz_eleven'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+11. <?php echo $buzzyquiz_eleven;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yeseleven"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yeseleven btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name=""  id="noeleven"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger noeleven btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+
+<div id="twelveq" style="display:none;"> 
+ <?php 
+  $website_questiontwelve_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questiontwelve_query) as $row) {  
+  $buzzyquiz_twelve=$row['buzzyquiz_twelve'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+12. <?php echo $buzzyquiz_twelve;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yestwelve"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yestwelve btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name=""  id="notwelve" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger notwelve btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+	
+<div id="thirteenq" style="display:none;"> 
+ <?php 
+  $website_questionthirteen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionthirteen_query) as $row) {  
+  $buzzyquiz_thirteen=$row['buzzyquiz_thirteen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+13. <?php echo $buzzyquiz_thirteen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yesthirteen"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yesthirteen btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name=""  id="nothirteen"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nothirteen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 	
+	
+<div id="fourteenq" style="display:none;"> 
+ <?php 
+  $website_questionfourteen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionfourteen_query) as $row) {  
+  $buzzyquiz_fourteen=$row['buzzyquiz_fourteen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+14. <?php echo $buzzyquiz_fourteen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesfourteen" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yesfourteen btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name=""  id="nofourteen" style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nofourteen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+	
+<div id="fifteenq" style="display:none;"> 
+ <?php 
+  $website_questionfifteen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionfifteen_query) as $row) {  
+  $buzzyquiz_fifteen=$row['buzzyquiz_fifteen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+15. <?php echo $buzzyquiz_fifteen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yesfifteen" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yesfifteen btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nofifteen"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nofifteen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+
+<div id="sixteenq" style="display:none;"> 
+ <?php 
+  $website_questionsixteen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionsixteen_query) as $row) {  
+  $buzzyquiz_sixteen=$row['buzzyquiz_sixteen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+16. <?php echo $buzzyquiz_sixteen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yessixteen"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yessixteen btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nosixteen"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nosixteen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	 
+
+
+<div id="seventeenq" style="display:none;"> 
+ <?php 
+  $website_questionseventeen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionseventeen_query) as $row) {  
+  $buzzyquiz_seventeen=$row['buzzyquiz_seventeen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+17. <?php echo $buzzyquiz_seventeen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesseventeen"   style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn yesseventeen btn-success btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name=""  id="noseventeen"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger noseventeen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	
+
+<div id="eightteenq" style="display:none;"> 
+ <?php 
+  $website_questioneightteen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questioneightteen_query) as $row) {  
+  $buzzyquiz_eightteen=$row['buzzyquiz_eightteen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+18. <?php echo $buzzyquiz_eightteen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name=""  id="yeseightteen" style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yeseightteen btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="noeightteen"    style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger noeightteen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>	
+
+<div id="nineteenq" style="display:none;"> 
+ <?php 
+  $website_questionnineteen_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questionnineteen_query) as $row) {  
+  $buzzyquiz_nineteen=$row['buzzyquiz_nineteen'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+19. <?php echo $buzzyquiz_nineteen;?>
+  </p> 
+ <?php } ?>  
+        <br>	   
+       <a href="#" name="" id="yesnineteen"   style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yesnineteen btn-lg buttontr"><?php echo $yes;?></a>
+       <a href="#" name="" id="nonineteen"  style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger nonineteen btn-lg buttontr"><?php echo $no;?></a>	   
+	 </div>		 
+
+<div id="twentyq" style="display:none;"> 
+ <?php 
+  $website_questiontwenty_query = "SELECT * FROM  buzzyquiz WHERE buzzyquiz_id=1";
+  foreach ($connread->query($website_questiontwenty_query) as $row) {  
+  $buzzyquiz_twenty=$row['buzzyquiz_twenty'];
+  ?>  
+  <p style="font-weight:400; font-size:17px; margin-top:10px;">
+20. <?php echo $buzzyquiz_twenty;?>
+  </p> 
+ <?php } ?>  
+        <br>
+       <form action="<?php echo $link_prefix;?>index.php?quiz=finished" method="POST">		
+       <button type="submit"  name="yestwenty" id="yestwenty"  style="padding-left:20px!important; padding-right:20px!important; margin-right:10px!important;"  class="btn btn-success yestwenty btn-lg buttontr"><?php echo $yes;?></button>
+       <button type="submit"  name="notwenty" id="notwenty"   style="padding-left:20px!important; padding-right:20px!important;" class="btn btn-danger notwenty btn-lg buttontr"><?php echo $no;?></button>	   
+	   </form>
+</div>		
+	 
+      </div>
+<script type="text/javascript">   
+$( "#yesone" ).click(function() {
+  $( "#secondq" ).show();
+   $( "#firstq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesone").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesone="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noone" ).click(function() {
+  $( "#secondq" ).show();
+   $( "#firstq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noone").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noone="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+				
+				
+				
+<script type="text/javascript">   
+$( "#yestwo" ).click(function() {
+  $( "#thirdq" ).show();
+   $( "#secondq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yestwo").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yestwo="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#notwo" ).click(function() {
+  $( "#thirdq" ).show();
+   $( "#secondq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".notwo").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"notwo="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+
+
+
+
+
+
+
+
+
+				
+<script type="text/javascript">   
+$( "#yesthree" ).click(function() {
+  $( "#fourq" ).show();
+   $( "#thirdq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesthree").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesthree="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nothree" ).click(function() {
+  $( "#fourq" ).show();
+   $( "#thirdq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nothree").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nothree="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+<script type="text/javascript">   
+$( "#yesfour" ).click(function() {
+  $( "#fiveq" ).show();
+   $( "#fourq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesfour").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesfour="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nofour" ).click(function() {
+  $( "#fiveq" ).show();
+   $( "#fourq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nofour").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nofour="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+<script type="text/javascript">   
+$( "#yesfive" ).click(function() {
+  $( "#sixq" ).show();
+   $( "#fiveq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesfive").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesfive="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nofive" ).click(function() {
+  $( "#sixq" ).show();
+   $( "#fiveq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nofive").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nofive="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+
+<script type="text/javascript">   
+$( "#yessix" ).click(function() {
+  $( "#sevenq" ).show();
+   $( "#sixq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yessix").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yessix="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nosix" ).click(function() {
+  $( "#sevenq" ).show();
+   $( "#sixq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nosix").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nosix="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+				
+				
+				
+<script type="text/javascript">   
+$( "#yesseven" ).click(function() {
+  $( "#eightq" ).show();
+   $( "#sevenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesseven").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesseven="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noseven" ).click(function() {
+  $( "#eightq" ).show();
+   $( "#sevenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noseven").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noseven="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+				
+				
+<script type="text/javascript">   
+$( "#yeseight" ).click(function() {
+  $( "#nineq" ).show();
+   $( "#eightq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yeseight").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yeseight="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noeight" ).click(function() {
+  $( "#nineq" ).show();
+   $( "#eightq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noeight").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noeight="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+
+<script type="text/javascript">   
+$( "#yesnine" ).click(function() {
+  $( "#tenq" ).show();
+   $( "#nineq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesnine").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesnine="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nonine" ).click(function() {
+  $( "#tenq" ).show();
+   $( "#nineq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nonine").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nonine="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>						
+	
+
+<script type="text/javascript">   
+$( "#yesten" ).click(function() {
+  $( "#elevenq" ).show();
+   $( "#tenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesten").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesten="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noten" ).click(function() {
+  $( "#elevenq" ).show();
+   $( "#tenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noten").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noten="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+
+
+								
+<script type="text/javascript">   
+$( "#yeseleven" ).click(function() {
+  $( "#twelveq" ).show();
+   $( "#elevenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yeseleven").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yeseleven="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noeleven" ).click(function() {
+  $( "#twelveq" ).show();
+   $( "#elevenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noeleven").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noeleven="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>				
+				
+
+
+<script type="text/javascript">   
+$( "#yestwelve" ).click(function() {
+  $( "#thirteenq" ).show();
+   $( "#twelveq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yestwelve").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yestwelve="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#notwelve" ).click(function() {
+  $( "#thirteenq" ).show();
+   $( "#twelveq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".notwelve").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"notwelve="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+
+
+<script type="text/javascript">   
+$( "#yesthirteen" ).click(function() {
+  $( "#fourteenq" ).show();
+   $( "#thirteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesthirteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesthirteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nothirteen" ).click(function() {
+  $( "#fourteenq" ).show();
+   $( "#thirteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nothirteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nothirteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>		
+
+
+<script type="text/javascript">   
+$( "#yesfourteen" ).click(function() {
+  $( "#fifteenq" ).show();
+   $( "#fourteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesfourteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesfourteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nofourteen" ).click(function() {
+  $( "#fifteenq" ).show();
+   $( "#fourteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nofourteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nofourteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>			
+
+
+
+<script type="text/javascript">   
+$( "#yesfifteen" ).click(function() {
+  $( "#sixteenq" ).show();
+   $( "#fifteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesfifteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesfifteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nofifteen" ).click(function() {
+  $( "#sixteenq" ).show();
+   $( "#fifteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nofifteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nofifteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>			
+
+
+<script type="text/javascript">   
+$( "#yessixteen" ).click(function() {
+  $( "#seventeenq" ).show();
+   $( "#sixteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yessixteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yessixteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nosixteen" ).click(function() {
+  $( "#seventeenq" ).show();
+   $( "#sixteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nosixteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nosixteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+
+<script type="text/javascript">   
+$( "#yesseventeen" ).click(function() {
+  $( "#eightteenq" ).show();
+   $( "#seventeenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesseventeen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesseventeen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noseventeen" ).click(function() {
+  $( "#eightteenq" ).show();
+   $( "#seventeenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noseventeen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noseventeen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+
+
+<script type="text/javascript">   
+$( "#yeseightteen" ).click(function() {
+  $( "#nineteenq" ).show();
+   $( "#eightteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yeseightteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yeseightteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#noeightteen" ).click(function() {
+  $( "#nineteenq" ).show();
+   $( "#eightteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".noeightteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"noeightteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>	
+
+
+<script type="text/javascript">   
+$( "#yesnineteen" ).click(function() {
+  $( "#twentyq" ).show();
+   $( "#nineteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".yesnineteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"yesnineteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>
+<script type="text/javascript">   
+$( "#nonineteen" ).click(function() {
+  $( "#twentyq" ).show();
+   $( "#nineteenq" ).hide(); 
+});
+</script>
+          <script type="text/javascript">
+                  $(function() {
+                  $(".nonineteen").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>quized.php",
+                  data:"nonineteen="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>						
+    </div>
+  </div>
+</div> 
+<?php } ?>  

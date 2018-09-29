@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Oxygen:700);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Oxygen'!important;
+
+}
+h1{
+font-size:20px!important;
+}
+h4{
+font-size:17px!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Oxygen'!important;
+	 font-size:13px!important;
+}
+.user-tag{
+     font-family: 'Oxygen'!important;
+	 font-size:13px!important;
+}
+#nav ul li a{
+     font-family: 'Oxygen'!important;
+	 	 font-size:13px!important;
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Oxygen'!important;
+	 	 font-size:13px!important;
+}

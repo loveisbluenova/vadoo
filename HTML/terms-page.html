@@ -1,0 +1,49 @@
+<style>
+#owl-four17.item{
+  margin: 0px;
+}
+#owl-four17 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+
+	  a {
+    text-decoration: none !important;
+      }
+
+</style>
+<div id="wrapper">
+    <div class="full-column">
+        <div class="news-wrapper"<?php if($buzzy_theme==2){?>
+    style="background:none!important; border:0px solid #fff; margin-top:0px;
+"
+	<?php } ?> >
+	<div style="margin-left:15px;margin-right:15px;">	
+<?php 
+	foreach ($connread->query($website_options_query) as $row) {
+			$buzzysitename = $row['buzzysitename'];
+			$buzzysiteurl = $row['buzzysiteurl'];			
+			$buzzyprivacy = $row['buzzyprivacy'];
+			$buzzyterms = $row['buzzyterms'];
+?>
+<?php } ?>				
+<h1><?php echo $terms;?></h1>	
+		 <?php echo $buzzyterms;?>
+	 </div>
+	</div>	
+		</div>
+		</div>

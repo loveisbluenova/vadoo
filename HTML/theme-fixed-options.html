@@ -1,0 +1,86 @@
+<?php
+if($buzzy_theme==0){
+$selhone='selected';	
+$selhtwo='';
+$selhthree='';
+$selhfour='';
+$selhfive='';
+}
+if($buzzy_theme==1){
+$selhone='';	
+$selhtwo='selected';
+$selhthree='';
+$selhfour='';
+$selhfive='';
+}    
+if($buzzy_theme==2){
+$selhone='';	
+$selhtwo='';
+$selhthree='selected';
+$selhfour='';
+$selhfive='';
+} 
+if($buzzy_theme==3){
+$selhone='';	
+$selhtwo='';
+$selhthree='';
+$selhfour='selected';
+$selhfive='';
+} 
+if($buzzy_theme==4){
+$selhone='';	
+$selhtwo='';
+$selhthree='';
+$selhfour='';
+$selhfive='selected';
+}
+   if ($_SESSION["buzzyadmin_id"]==1){   
+   if (isset($_POST['update_website_theme'])) {
+       $OK = false;
+        $update_website_options_query = "UPDATE buzzysiteoptions SET  buzzy_theme=:buzzy_theme WHERE buzzysiteoptions_id=1";
+        $stmt = $connwrite->prepare($update_website_options_query);
+        // bind the parameters and execute the statement
+        $stmt->bindParam(':buzzy_theme', $_POST['buzzy_theme'], PDO::PARAM_STR);				
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+	  	header('Location: index.php?add-settings-success=true');	
+   }
+   }
+   if ($_SESSION["buzzyadmin_id"]==2){   
+   if (isset($_POST['update_website_theme'])) {
+	  	header('Location: index.php?onlydemo=true');	
+   }
+   }
+?>
+<div id="theme-fixed-option" style="display:none;">
+<div style="margin:20px;"> 
+	<?php if($buzzy_theme==0){
+    ?>
+    <br><br>
+    <?php } ?>	
+   <form action="" method="POST">
+                    <h3>Select theme for your website</h3>
+					<select style="font-size:13px;" class="form-control" name="buzzy_theme" required>
+                    <option <?php echo $selhone;?> value="0">
+				     Classic theme
+					</option>
+                    <option <?php echo $selhthree;?> value="2">
+					Badoo theme 
+					</option>	             			
+					</select>	
+             <div class="clearfix"></div>	
+             <br>
+		    <button type="submit" name="update_website_theme" class="btn btn-success">Submit theme</button>	
+			</form>
+                <br>	
+</div>
+</div>
+<script>
+     $("#themeclick").click(function(e) {
+     e.preventDefault();
+     $("#theme-fixed-option").toggle();
+	 $("#css-fixed-option").hide();
+	 $("#seo-fixed-option").hide();	 
+   });
+</script>

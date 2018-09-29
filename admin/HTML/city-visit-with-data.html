@@ -1,0 +1,45 @@
+  <?php
+   $rest_buzzyvisitorcitycount=$countvisits-$first_buzzyvisitorcitycount-$second_buzzyvisitorcitycount-$third_buzzyvisitorcitycount-$fourth_buzzyvisitorcitycount-$fifth_buzzyvisitorcitycount;
+   $rest_buzzyvisitorcitypercent=($rest_buzzyvisitorcitycount/$countvisits)*100;
+  ?>
+  <div class="content canvas-data">
+  <div class="container">
+	 <h5>
+   Total visit by cities (%)
+   </h5>
+  
+      		<div style="width: 100%">
+			<canvas id="canvas4"></canvas>
+		</div>
+
+
+	<script>
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+	var barChartData = {
+		labels : ["<?php echo $first_buzzyvisitors_city; ?>,<?php echo $first_buzzyvisitors_countrycode;?>","<?php echo $second_buzzyvisitors_city; ?>,<?php echo $second_buzzyvisitors_countrycode;?>","<?php echo $third_buzzyvisitors_city; ?>,<?php echo $third_buzzyvisitors_countrycode;?>","<?php echo $fourth_buzzyvisitors_city; ?>,<?php echo $fourth_buzzyvisitors_countrycode;?>","<?php echo $fifth_buzzyvisitors_city; ?>,<?php echo $fifth_buzzyvisitors_countrycode;?>","Rest"],
+		datasets : [
+			{
+				fillColor : "rgba(224,0,0,0.5)",
+				strokeColor : "rgba(224,0,0,0.8)",
+				highlightFill: "rgba(224,0,0,0.75)",
+				highlightStroke: "rgba(224,0,0,1)",
+				data : [<?php echo number_format($first_buzzyvisitorcitypercent,2); ?>,<?php echo number_format($second_buzzyvisitorcitypercent,2); ?>,
+				<?php echo number_format($third_buzzyvisitorcitypercent,2); ?>,<?php echo number_format($fourth_buzzyvisitorcitypercent,2); ?>,
+				<?php echo number_format($fifth_buzzyvisitorcitypercent,2); ?>,<?php echo number_format($rest_buzzyvisitorcitypercent,2); ?>]
+			}
+					]
+
+	}
+
+		var ctx4 = document.getElementById("canvas4").getContext("2d");
+		window.myBar = new Chart(ctx4).Bar(barChartData, {
+			responsive : true
+		});
+	
+	</script>
+
+   
+	<div class="clearfix"></div>
+ </div>
+ </div>

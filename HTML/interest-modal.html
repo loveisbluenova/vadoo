@@ -1,0 +1,116 @@
+ <?php
+ if (isset($_POST['add_interest'])) {
+  if (strpos($_POST['buzzyuser_interest'],'script') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_interest'],'document(') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+  else if (strpos($_POST['buzzyuser_interest'],'body onload') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_interest'],'alert') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_interest'],'onerror=alert') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_interest'],'META HTTP') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+  else if (strpos($_POST['buzzyuser_interest'],'<%') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_interest'],'urldecode') !== false) {
+ $buzzyuser_interest='None';	
+  $xss_attack=TRUE;
+ }
+ else{
+ $buzzyuser_interestclean=preg_replace('/[^-a-zA-Z0-9_]/', '', $_POST['buzzyuser_interest']); 
+ $buzzyuser_interest=htmlspecialchars($buzzyuser_interestclean, ENT_QUOTES);
+ $buzzyuser_interest=htmlspecialchars($_POST['buzzyuser_interest'], ENT_QUOTES);
+ }
+  if (isset($xss_attack)){
+ if ($xss_attack=TRUE){ 
+ $add_xss_attacker= "INSERT INTO  buzzyalert_ip(buzzyalert_ip,buzzyalert_iptimestamp)
+		 	  VALUES(:buzzyalert_ip,:buzzyalert_iptimestamp)";
+        // prepare the statement
+        $stmt = $connwrite->prepare($add_xss_attacker);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyalert_ip', $user_ipreal, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyalert_iptimestamp', $now, PDO::PARAM_STR);			
+			
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+ header('Location: '.$link_prefix.'index.php');			 			
+ }
+ }
+
+ $buzzyuser_interest_category_id=$_POST['buzzyuser_interest_category_id'];
+ $add_interest_query = "INSERT INTO  buzzyuser_interests(buzzyuser_interest,buzzyuser_interest_category_id,buzzyuser_id)
+		 	  VALUES(:buzzyuser_interest,:buzzyuser_interest_category_id,:buzzyuser_id)";
+        // prepare the statement
+        $stmt = $connwrite->prepare($add_interest_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyuser_interest', $buzzyuser_interest, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyuser_interest_category_id', $buzzyuser_interest_category_id, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_id', $session_user_id, PDO::PARAM_STR);		
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+        header('Location: '.$link_prefix.'page.php?user-id='.$session_user_id.'');		
+ }
+ ?>
+ <div class="modal fade" data-easein="flipBounceYIn" id="userinterests" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+      <div class="modal-dialog">
+     <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"><?php echo $add_your_interest;?></h4>
+     </div>
+     <div class="modal-body">
+	 	  <div class="form-group">
+		  <form action="" method="POST">   
+            <label for="recipient-name" class="control-label"><?php echo $add_interest;?>:</label>
+            <input type="text" name="buzzyuser_interest" required class="form-control" id="recipient-name">
+          </div>
+	 	  <div class="form-group">
+            <label for="recipient-name" class="control-label"><?php echo $choose_interest_category;?>:</label>
+           <select class="form-control" name="buzzyuser_interest_category_id" required>
+		   <?php
+          $all_categories_query="SELECT * FROM buzzyuser_interest_categories ORDER by buzzyuser_interest_category ASC"; 
+          foreach ($connread->query($all_categories_query) as $row) { 
+          $buzzyuser_interest_category_id=$row['buzzyuser_interest_category_id']; 	
+          $buzzyuser_interest_category=$row['buzzyuser_interest_category']; 			  
+		   ?>
+		   <option value="<?php echo $buzzyuser_interest_category_id;?>">
+		   <?php echo $buzzyuser_interest_category;?>
+		   </option>
+		   <?php } ?>
+		   </select>
+          </div>	  
+            </div>	  
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-info buttontr" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="add_interest" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>					
+                </div>
+			  </form>		
+           </div>
+       </div>
+     </div>

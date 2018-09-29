@@ -1,0 +1,373 @@
+                 
+	 	 <div class="modal fade" data-easein="flipBounceYIn" id="chooseanim" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+          <div class="modal-dialog">
+     <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Choose animation for index page (8 in total)</h4>
+     </div>
+     <div class="modal-body">
+	 <form action="<?php echo $link_prefix;?>index.php" method="POST">  
+	 	  <div class="form-group">
+            <label for="recipient-name" class="control-label">Animations</label>
+      			  <select class="form-control" name="buzzyuser_animationtwo" required>
+                        <option disabled selected>Select frontend grid animation</option>
+						<?php for ($i = 1; $i <= 8; $i++) { 
+						if($session_buzzyuser_animationtwo==$i){
+						$selected='selected';
+						}
+						else if($session_buzzyuser_animationtwo!=$i){
+						$selected='';
+						}						
+                        if ($i==1){
+                        $j='Opacity';
+                        }      
+                        else if ($i==2){
+                        $j='Move up';
+                        }     
+                        else if ($i==3){
+                        $j='Scale up';
+                        }      
+                        else if ($i==4){
+                        $j='Fall perspective';
+                        }   
+                        else if ($i==5){
+                        $j='Fly';
+                        }        
+                        else if ($i==6){
+                        $j='Flip';
+                        }        
+                        else if ($i==7){
+                        $j='Helix';
+                        }    
+                         else if ($i==8){
+                        $j='Bounce up';
+                        }              
+                        ?>
+     			<option <?php echo $selected;?> value="<?php echo $i;?>">
+			<?php echo $j; ?>						
+                        </option>   
+                        <?php } ?>						
+                    </select> 
+          </div>
+		  
+           </div>	  
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-info buttontr" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="update_website_anim" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>					
+                </div>
+			  </form>		
+           </div>
+       </div>
+     </div>
+
+
+
+	 <div class="modal fade" data-easein="flipBounceYIn" id="userlinksb" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+         <?php include 'user-modal-page.html';?>
+     </div>
+ 
+	 	 <div class="modal fade" data-easein="flipBounceYIn" id="choosetheme" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+          <div class="modal-dialog">
+     <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">Choose theme for Vadoo</h4>
+     </div>
+     <div class="modal-body">
+	 <form action="<?php echo $link_prefix;?>index.php" method="POST">  
+	 	  <div class="form-group">
+            <label for="recipient-name" class="control-label">Themes</label>
+      			<select class="form-control" name="buzzyuser_theme" required>
+                    <option <?php echo $selhone;?> value="0">
+				     Classic theme
+					</option>
+                    
+                    <option <?php echo $selhthree;?> value="2">
+					Badoo theme 
+					</option>	
+          					
+					</select>	  
+          </div>
+		  
+           </div>	  
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-info buttontr" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="update_website_theme" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>					
+                </div>
+			  </form>		
+           </div>
+       </div>
+     </div>
+<?php 
+
+$session_filter_query = "SELECT COUNT(*) FROM buzzyfilter WHERE buzzyuser_id=$session_user_id";
+foreach ($connread->query($session_filter_query) as $row) {
+$count_filter=$row['COUNT(*)'];
+if($count_filter==0){
+$checkedman='checked';
+$checkedwoman='';
+$checkedall='';
+
+$selectedsexone='selected';
+$selectedsextwo='';
+$selectedsexthree='';
+
+$radiusvalue='5000';
+$minnage='18';
+$maxxage='80';
+}
+}
+if (isset($_POST['submit_filter'])) {
+ if(isset($_POST['buzzyfilter_g'])){
+ if($_POST['buzzyfilter_g']==0){
+ $buzzyfilter_man=1;
+ $buzzyfilter_woman=0;
+ }
+ else if($_POST['buzzyfilter_g']==1){
+ $buzzyfilter_man=0;
+ $buzzyfilter_woman=1;
+ } 
+ else if($_POST['buzzyfilter_g']==2){
+ $buzzyfilter_man=1;
+ $buzzyfilter_woman=1;
+ }  
+ }
+ 
+ $buzzyuser_data_sexual_orientation=$_POST['buzzyuser_data_sexual_orientation']; 
+ 
+ if(isset($_POST['buzzyfilter_minage'])){
+ $buzzyfilter_minage=$_POST['buzzyfilter_minage']; 
+ }
+ else{
+ $buzzyfilter_minage=0;  
+ }
+ if(isset($_POST['buzzyfilter_maxage'])){ 
+ $buzzyfilter_maxage=$_POST['buzzyfilter_maxage']; 
+ }
+ else{
+ $buzzyfilter_maxage=0;  
+ } 
+ $buzzyfilter_radius=$_POST['buzzyfilter_radius']; 
+  
+foreach ($connread->query($session_filter_query) as $row) {
+$count_filter=$row['COUNT(*)'];
+if($count_filter==0){
+ $insert_filter_query = "INSERT INTO  buzzyfilter(buzzyfilter_man,buzzyfilter_woman,buzzyuser_data_sexual_orientation,buzzyfilter_minage,buzzyfilter_maxage,buzzyfilter_radius,buzzyuser_id)
+	    VALUES(:buzzyfilter_man,:buzzyfilter_woman,:buzzyuser_data_sexual_orientation,:buzzyfilter_minage,:buzzyfilter_maxage,:buzzyfilter_radius,:buzzyuser_id)";
+        // prepare the statement
+        $stmt = $connwrite->prepare($insert_filter_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyfilter_man', $buzzyfilter_man, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyfilter_woman', $buzzyfilter_woman, PDO::PARAM_STR);			
+        $stmt->bindParam(':buzzyuser_data_sexual_orientation', $buzzyuser_data_sexual_orientation, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyfilter_minage', $buzzyfilter_minage, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyfilter_maxage', $buzzyfilter_maxage, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyfilter_radius', $buzzyfilter_radius, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_id', $session_user_id, PDO::PARAM_STR);		
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+		if ($OK!=0){
+        header('Location: '.$link_prefix.'index.php');	
+        }
+		else{
+        header('Location: '.$link_prefix.'error.php');		
+		}
+		}					
+		if($count_filter!=0){		
+	   $update_filter_query = "UPDATE buzzyfilter SET buzzyfilter_man=:buzzyfilter_man,buzzyfilter_woman=:buzzyfilter_woman,buzzyuser_data_sexual_orientation=:buzzyuser_data_sexual_orientation,
+	   buzzyfilter_minage=:buzzyfilter_minage,buzzyfilter_maxage=:buzzyfilter_maxage,buzzyfilter_radius=:buzzyfilter_radius
+	   WHERE buzzyuser_id=$session_user_id";
+        $stmt = $connwrite->prepare($update_filter_query);			
+        // prepare the statement
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyfilter_man', $buzzyfilter_man, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyfilter_woman', $buzzyfilter_woman, PDO::PARAM_STR);			
+        $stmt->bindParam(':buzzyuser_data_sexual_orientation', $buzzyuser_data_sexual_orientation, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyfilter_minage', $buzzyfilter_minage, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyfilter_maxage', $buzzyfilter_maxage, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyfilter_radius', $buzzyfilter_radius, PDO::PARAM_STR);			
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+		if ($OK!=0){
+        header('Location: '.$link_prefix.'index.php');	
+        }
+		else{
+		
+		}
+		}	
+		}
+}
+if (isset($_POST['clear_filter'])) {
+foreach ($connread->query($session_filter_query) as $row) {
+$count_filter=$row['COUNT(*)'];
+if($count_filter!=0){
+$OK = false;
+$delete_filter_query = "DELETE FROM buzzyfilter WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_filter_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+ header('Location: '.$link_prefix.'index.php');	
+}
+}
+}
+foreach ($connread->query($session_filter_query) as $row) {
+$count_filter=$row['COUNT(*)'];
+if($count_filter!=0){
+$session_allfilter_query = "SELECT * FROM buzzyfilter WHERE buzzyuser_id=$session_user_id";
+foreach ($connread->query($session_allfilter_query) as $row) {
+$buzzyfilter_man=$row['buzzyfilter_man'];
+$buzzyfilter_woman=$row['buzzyfilter_woman'];
+$buzzyuser_data_sexual_orientation=$row['buzzyuser_data_sexual_orientation'];
+$buzzyfilter_minage=$row['buzzyfilter_minage'];
+$buzzyfilter_maxage=$row['buzzyfilter_maxage'];
+$buzzyfilter_radius=$row['buzzyfilter_radius'];
+$radiusvalue=$buzzyfilter_radius;
+$minnage=$buzzyfilter_minage;
+$maxxage=$buzzyfilter_maxage;
+
+if($buzzyfilter_man==1 AND $buzzyfilter_woman==0){
+$checkedman='checked';
+$checkedwoman='';
+$checkedall='';
+}
+else if($buzzyfilter_man==0 AND $buzzyfilter_woman==1){
+$checkedman='';
+$checkedwoman='checked';
+$checkedall='';
+}
+else if($buzzyfilter_man==1 AND $buzzyfilter_woman==1){
+$checkedman='';
+$checkedwoman='';
+$checkedall='checked';
+}
+
+if($buzzyuser_data_sexual_orientation==0){
+$selectedsexone='selected';
+$selectedsextwo='';
+$selectedsexthree='';
+}
+else if($buzzyuser_data_sexual_orientation==1){
+$selectedsexone='';
+$selectedsextwo='selected';
+$selectedsexthree='';
+}
+else if($buzzyuser_data_sexual_orientation==2){
+$selectedsexone='';
+$selectedsextwo='';
+$selectedsexthree='selected';
+}
+
+
+
+}
+}
+}
+?>
+<div class="modal fade" data-easein="flipBounceYIn"  id="filterbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+		<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"><?php echo $filter_your_matches;?></h4>
+       </div>
+            <form action="" method="POST">
+                <div class="modal-body">			
+                <div class="form-group">
+				<h5><?php echo $show;?></h5>				
+                <div class="radio">
+                <label style="font-size:13px!important; font-weight:bold;">
+                <input type="radio" <?php echo $checkedman;?> name="buzzyfilter_g" value="0"  data-toggle="tooltip" data-placement="top" title=""> <?php echo $men;?>			
+                </label>
+                <label style="margin-left:15px!important; font-size:13px!important; font-weight:bold;">
+                <input type="radio" <?php echo $checkedwoman;?> name="buzzyfilter_g" value="1"  data-toggle="tooltip" data-placement="top" title=""> <?php echo $women;?>				
+                </label>	
+                <label style="margin-left:15px!important; font-size:13px!important; font-weight:bold;">
+                <input type="radio" <?php echo $checkedall;?> name="buzzyfilter_g" value="2"  data-toggle="tooltip" data-placement="top" title=""> <?php echo $all;?>				
+                </label>				
+                </div>
+                </div>
+				
+<div class="form-group" style="margin-top:20px!important;">	
+<h5><?php echo  $sexual_orientation;?></h5>
+ <select class="form-control" style="width:200px!important;font-size:13px; font-weight:700;" name="buzzyuser_data_sexual_orientation" required>
+ <option <?php echo $selectedsexone;?> style="font-size:13px; font-weight:700;" value="0">
+<?php echo $heterosexual;?>
+ </option>
+  <option <?php echo $selectedsextwo;?> style="font-size:13px; font-weight:700;" value="1">
+<?php echo $homosexual;?>
+ </option>
+   <option <?php echo $selectedsexthree;?> style="font-size:13px; font-weight:700;" value="2">
+<?php echo $bisexual;?>
+ </option>
+ </select>	
+</div> 
+				
+				
+                    <div class="form-group" style="margin-top:20px!important;">	
+									<h5><?php echo $sage;?></h5>
+                    <div class="nstSlider" data-range_min="18" data-range_max="80" 
+                    data-cur_min="<?php echo $minnage;?>"    data-cur_max="<?php echo $maxxage;?>">
+                    <div class="bar">
+	                </div>    
+	                <span  class="leftGrip"></span>
+                    <span  class="rightGrip"></span>	
+                    </div>
+
+<div style="width:200px!important; margin-top:10px;">
+<span style="float:left!important; font-size:13px!important; font-weight:bold;" name="" class="leftLabel" ></span>
+<span style="float:right!important; font-size:13px!important; font-weight:bold;" name="" class="rightLabel" ></span>
+<input type="hidden" value="" class="leftLabel" name="buzzyfilter_minage" />
+<input type="hidden"  value="" class="rightLabel" name="buzzyfilter_maxage"/>
+ </div>
+</div>
+        <script type="text/javascript">
+$('.nstSlider').nstSlider({
+    "crossable_handles": false,
+    "left_grip_selector": ".leftGrip",
+    "right_grip_selector": ".rightGrip",
+    "value_bar_selector": ".bar",
+    "value_changed_callback": function(cause, leftValue, rightValue) {
+        $(this).parent().find('.leftLabel').text(leftValue);
+        $(this).parent().find('.rightLabel').text(rightValue);
+        $(this).parent().find('.leftLabel').val(leftValue);
+        $(this).parent().find('.rightLabel').val(rightValue);	
+    }
+}); 
+        </script>
+		<div class="clearfix"></div>
+        <div class="form-group" style="margin-top:20px!important;">		
+		<h5><?php echo $in_radius;?> (<?php echo $kmm;?>)</h5>
+        <input type="number"  name="buzzyfilter_radius" value="<?php echo $radiusvalue;?>" style="width:200px!important; font-size:13px; font-weight:700;" class="form-control" min='10' max='10000' />
+        </div>        
+		<div class="modal-footer">
+		 <?php
+		 foreach ($connread->query($session_filter_query) as $row) {            
+		 $count_filter=$row['COUNT(*)'];
+                    if($count_filter!=0){
+                    ?>
+                    <button type="submit" name="clear_filter" class="buttontr btn btn-info" ><?php echo $clear_filter;?></button>
+					<?php } ?>
+					<?php } ?>
+					
+		 <?php
+		 foreach ($connread->query($session_filter_query) as $row) {            
+		 $count_filter=$row['COUNT(*)'];
+                    if($count_filter==0){
+                    ?>
+                    <button type="button" class="btn buttontr btn-info" data-dismiss="modal"><?php echo $close;?></button>
+					<?php } ?>
+					<?php } ?>					
+                    <button type="submit" name="submit_filter" class="buttontr btn btn-primary"><?php echo $submit;?></button>
+                </div>					
+                </div>
+            </form>
+           </div>
+       </div>
+	   </div>

@@ -1,0 +1,901 @@
+<?php
+$all_birtcount_query="SELECT COUNT(*) FROM buzzyuser_reminders WHERE buzzyuser_reminder_receiver=$session_user_id AND buzzyuser_reminder_type=1";	
+	foreach ($connread->query($all_birtcount_query) as $row) { 
+	$count_birth=$row['COUNT(*)'];
+	if($count_birth==0){
+if($birdaymonth==$currdaymonth){
+?>
+<script>
+	swal({ 
+	title: 'Happy birthday dear <?php echo $session_buzzyuser_first_name;?>!',
+  imageUrl: 'https://s-media-cache-ak0.pinimg.com/originals/7e/86/25/7e8625ac3f4985c9d3bc620a837f344b.gif',
+  imageWidth: 160,
+  imageHeight: 165
+	});
+</script>
+<?php
+$us_count_query = "INSERT INTO buzzyuser_reminders(buzzyuser_reminder_receiver,buzzyuser_reminder_timestamp,buzzyuser_reminder_type)
+        VALUES(:buzzyuser_reminder_receiver,:buzzyuser_reminder_timestamp,1)";
+        $stmt = $connwrite->prepare($us_count_query);
+        // bind the parameters and execute the statement		
+        $stmt->bindParam(':buzzyuser_reminder_receiver', $session_user_id, PDO::PARAM_STR);				
+        $stmt->bindParam(':buzzyuser_reminder_timestamp', $now, PDO::PARAM_STR);				
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();	
+?>
+<?php } ?>
+<?php } ?>
+<?php } ?>
+
+
+
+<?php
+$all_birtcount_query="SELECT COUNT(*) FROM buzzyuser_reminders WHERE buzzyuser_reminder_receiver=$session_user_id AND buzzyuser_reminder_type=1";	
+	foreach ($connread->query($all_birtcount_query) as $row) { 
+	$count_birth=$row['COUNT(*)'];
+	if($count_birth==1){
+$all_birt_query="SELECT * FROM buzzyuser_reminders WHERE buzzyuser_reminder_receiver=$session_user_id AND buzzyuser_reminder_type=1";	
+foreach ($connread->query($all_birt_query) as $row) { 
+$ses_buzzyuser_reminder_timestamp=$row['buzzyuser_reminder_timestamp'];
+$breminddiff=$now-$ses_buzzyuser_reminder_timestamp;
+if($birdaymonth==$currdaymonth AND $breminddiff>120000){
+?>
+<script>
+	swal({ 
+	title: 'Happy birthday dear <?php echo $session_buzzyuser_first_name;?>!',
+  imageUrl: 'https://s-media-cache-ak0.pinimg.com/originals/7e/86/25/7e8625ac3f4985c9d3bc620a837f344b.gif',
+  imageWidth: 160,
+  imageHeight: 165
+	});
+</script>
+<?php
+  $update_tutu_query = "UPDATE buzzyuser_reminders SET buzzyuser_reminder_timestamp=:buzzyuser_reminder_timestamp
+		 WHERE buzzyuser_reminder_receiver=$session_user_id AND buzzyuser_reminder_type=1";
+        $stmt = $connwrite->prepare($update_tutu_query);
+        // bind the parameters and execute the statement	
+        // execute and get number of affected rows
+	    $stmt->bindParam(':buzzyuser_reminder_timestamp', $now, PDO::PARAM_STR);			
+        $stmt->execute();		
+        $OK = $stmt->rowCount();
+?>
+<?php } ?>
+<?php } ?>
+<?php } ?>
+<?php } ?>
+
+
+
+<?php
+if (isset ($_GET['friend-request'])){   
+$friend_request=$_GET['friend-request'];
+if ($friend_request='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_have_sent_req;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['favorite'])){   
+$favorite=$_GET['favorite'];
+if ($favorite='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_add_us_to_fav;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['login'])){   
+$login_status=$_GET['login'];
+if ($login_status=='false'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $wrong_login;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['your-link-expired'])){   
+$your_pwd_dontmatch=$_GET['your-link-expired'];
+if ($your_pwd_dontmatch='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $your_link_expired;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+
+<?php
+if (isset ($_GET['payment'])){   
+$payment=$_GET['payment'];
+if ($payment='cancelled'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3>Your payment has been cancelled.</h3>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['your-pwd-dontmatch'])){   
+$your_pwd_dontmatch=$_GET['your-pwd-dontmatch'];
+if ($your_pwd_dontmatch='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $your_pwd_dont_match;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['your-pwd-changed'])){   
+$your_pwd_changed=$_GET['your-pwd-changed'];
+if ($your_pwd_changed='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_changed_your_pwd_succ;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+$full_url=basename($_SERVER['REQUEST_URI']);
+if (isset($_GET['user-registration'])){   
+$user_registration=$_GET['user-registration'];
+if ($user_registration=='success'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $registration_success;?></h3>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php
+if ($user_registration=='trial'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_have_trial;?> <?php echo $buzzy_accesstime;?> <?php echo $days_only;?></h3>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['quiz'])){   
+$quiz=$_GET['quiz'];
+if ($quiz='finished'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h4><?php echo $quiz_finish;?></h4>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['status'])){   
+$status=$_GET['status'];
+if ($status='restricted'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h4><?php echo $you_have_restrict;?></h4>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['profile-deleted'])){   
+$profile_deleted=$_GET['profile-deleted'];
+if ($profile_deleted='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h4><?php echo $you_deleted_profile;?></h4>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['importusers'])){   
+$importusers=$_GET['importusers'];
+if ($importusers='true'){
+?>
+<script>
+	swal({ 
+	title:'<i></i>', 
+	html:'<h4>You have succesfully imported fake users to the database.</h4>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['messagenot'])){   
+$importusers=$_GET['messagenot'];
+if ($importusers='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4>You do not have any message yet.</h4>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['settings-updated'])){   
+$settings_updated=$_GET['settings-updated'];
+if ($settings_updated='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4><?php echo $updated_settings_succ;?></h4>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['fb-import'])){   
+$fb_import=$_GET['fb-import'];
+if ($fb_import='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4><?php echo $fb_import_succ;?></h4>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['paypalerror'])){   
+$paypalerror=$_GET['paypalerror'];
+if ($paypalerror='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4><?php echo $paypal_var_error;?></h4>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+
+
+<?php
+if (isset ($_GET['version-updated'])){   
+$version_updated=$_GET['version-updated'];
+if ($version_updated='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4>You have updated your script succesfully. Congratulations!</h4>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['version-notexist'])){   
+$version_notexist=$_GET['version-notexist'];
+if ($version_notexist='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4>New version has not been published yet.</h4>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['version-demoexist'])){   
+$version_demoexist=$_GET['version-demoexist'];
+if ($version_demoexist='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4>You cannot update script in demo preview.</h4>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['no-reg'])){   
+$no_reg=$_GET['no-reg'];
+if ($no_reg='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h4>You cannot register in demo. Login with a given credentials.</h4>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['add-news-status'])){   
+$add_news_status=$_GET['add-news-status'];
+if ($add_news_status='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $news_success;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['edit-news-status'])){   
+$edit_news_status=$_GET['edit-news-status'];
+if ($edit_news_status='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $edit_news_success;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+
+
+
+<?php
+if (isset ($_GET['error'])){   
+$error_country=$_GET['error'];
+if ($error_country='no-country'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $no_news_from_country;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['no-facebook'])){   
+$no_facebook=$_GET['no-facebook'];
+if ($no_facebook='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $your_profile_is_not_fbconn;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['my-chat-limit'])){   
+$chatlimitt=$_GET['my-chat-limit'];
+if ($chatlimitt='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $your_chat_limit_reach;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['add-image-success'])){   
+$add_image_success=$_GET['add-image-success'];
+if ($add_image_success='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $image_success_add;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['add-verimage-success'])){   
+$add_image_success=$_GET['add-verimage-success'];
+if ($add_image_success='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $image_success_addver;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['rss-success'])){   
+$rss_success=$_GET['rss-success'];
+if ($rss_success='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3>You have successfully added news to our database. Add category and country for news</h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+<?php
+if (isset ($_GET['buyonesuccess'])){   
+$buyonesuccess=$_GET['buyonesuccess'];
+if ($buyonesuccess='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_bought_100credit_succ;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['buypponesuccess'])){   
+$buypponesuccess=$_GET['buypponesuccess'];
+if ($buypponesuccess='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_bought_onecredit_succ;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['buypptwosuccess'])){   
+$buypptwosuccess=$_GET['buypptwosuccess'];
+if ($buypptwosuccess='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_bought_twocredit_succ;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['buyppfoursuccess'])){   
+$buyppfoursuccess=$_GET['buyppfoursuccess'];
+if ($buyppfoursuccess='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_bought_fourcredit_succ;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['buyppeightsuccess'])){   
+$buyppfoursuccess=$_GET['buyppeightsuccess'];
+if ($buyppeightsuccess='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_bought_eightcredit_succ;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['upload-wrong'])){   
+$upload_wrong=$_GET['upload-wrong'];
+if ($upload_wrong='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_didnt_uploadr;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['emailtaken'])){   
+$emailtaken=$_GET['emailtaken'];
+if ($emailtaken='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $this_email_taken;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET['usernametaken'])){   
+$usernametaken=$_GET['usernametaken'];
+if ($usernametaken='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $this_username_taken;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['low-credit'])){   
+$low_credit=$_GET['low-credit'];
+if ($low_credit='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_dont_have_credit;?></h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['gift-bought'])){   
+$gift_bought=$_GET['gift-bought'];
+if ($gift_bought='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_bought_gift;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['image-private'])){   
+$image_private=$_GET['image-private'];
+if ($image_private='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_change_privacy;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['request-access'])){   
+$request_access=$_GET['request-access'];
+if ($request_access='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_requested_access;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['requested-access'])){   
+$request_access=$_GET['requested-access'];
+if ($request_access='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_haverequested_access;?></h3>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if($buzzy_forbid==1){
+?>
+<?php
+$url = 'http://' . $_SERVER['SERVER_NAME'] . $_SERVER['REQUEST_URI'];
+if (strpos($url,'register.php') !== false) {
+if (!isset($_GET['login'])){   
+?>
+<script>
+swal({
+  title: '<?php echo $vertitle;?>',
+   html:'<p><?php echo $vertext;?></p>',  
+  input: 'checkbox',
+  allowOutsideClick:false,
+  inputValue: 0,
+  customClass: 'swal-wide',
+  inputPlaceholder:
+    ' <?php echo $veragree;?>',
+  confirmButtonText:
+    'Continue <i class="fa fa-arrow-right></i>',
+  inputValidator: function (result) {
+    return new Promise(function (resolve, reject) {
+      if (result) {
+        resolve()
+      } else {
+        reject('<?php echo $verrej;?>')
+      }
+    })
+  }
+}).then(function (result) {
+  swal({
+    type: 'success',
+    html: '<?php echo $verconf;?>'
+  })
+})
+</script>
+<?php } ?>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['bougth-blueemo'])){   
+$bougth_blueemo=$_GET['bougth-blueemo'];
+if ($bougth_blueemo='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_unlock_stickers;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['accepted-access'])){   
+$accepted_access=$_GET['accepted-access'];
+if ($accepted_access='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_acceptrequest_access;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php
+if (isset ($_GET['rejected-access'])){   
+$reject_access=$_GET['rejected-access'];
+if ($reject_access='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $you_rejectrequest_access;?></h3>',
+	type: "info"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+
+<?php
+if (isset ($_GET["user-id"])){ 
+if (isset ($_GET['send-mail-success'])){  
+$send_mail_success=$_GET['send-mail-success'];
+if ($send_mail_success='success'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3><?php echo $sent_mail_succesfully;?></h3>',
+	type: "success"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+<?php } ?>
+<?php
+if (isset ($_GET['add-settings-success'])){   
+$add_settings_success=$_GET['add-settings-success'];
+if ($_GET['add-settings-success']='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<h4>You have updated website settings succesfully.</h4>', 
+	animation: "slide-from-top",
+	html:'',
+	type: "success"
+	});
+</script>
+<?php } ?>
+
+<?php
+if (isset ($_GET['add-tokken-error'])){   
+$add_tokken_error=$_GET['add-tokken-error'];
+if ($add_tokken_error='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	html:'<h3>There is mistake, probably your facebook access token is not valid.</h3>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>
+
+<?php } ?>
+<?php
+if (isset ($_GET['onlydemo'])){   
+$onlydemo=$_GET['onlydemo'];
+if ($onlydemo='true'){
+?>
+<script>
+	swal({ 
+	
+	title:'<i></i>', 
+	animation: "slide-from-top",
+	html:'<h4>You cannot change anything in demo.</h4>',
+	type: "error"
+	});
+</script>
+<?php } ?>
+<?php } ?>

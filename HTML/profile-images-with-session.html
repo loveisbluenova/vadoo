@@ -1,0 +1,147 @@
+			<?php
+			if ($user_id!=$session_user_id){
+			$check_follow_status_query = "SELECT COUNT(*) FROM  buzzyfollows WHERE buzzyfolower_id=$session_user_id AND buzzyfolowing_id=$user_id";
+			$check_block_status_query = "SELECT COUNT(*) FROM  buzzyblocks WHERE buzzyblocker_id=$session_user_id AND buzzyblocking_id=$user_id";
+			$check_contact_status_query = "SELECT COUNT(*) FROM  friends WHERE user_id=$session_user_id AND friend=$user_id";
+		    $check_blocked_status_query = "SELECT COUNT(*) FROM  buzzyblocks WHERE buzzyblocker_id=$user_id AND buzzyblocking_id=$session_user_id";
+			foreach ($connread->query($check_follow_status_query) as $row) {
+			$count_check_query=$row['COUNT(*)'];
+			if ($count_check_query==0){
+			$follow_btn_class='btn btn-primary btn-follow';
+			$follow_btn_value=$follow_user;
+		    $follow_btn_name='follow-button';
+			}
+			else if ($count_check_query!=0){
+			$follow_btn_class='btn btn-success btn-follow';
+			$follow_btn_value= $following;
+		    $follow_btn_name='unfollow-button';			
+			}
+			}
+			
+						
+			foreach ($connread->query($check_block_status_query) as $row) {
+			$count_checkblock_query=$row['COUNT(*)'];
+			if ($count_checkblock_query==0){
+			$block_btn_class='btn btn-primary btn-block';
+			$block_btn_value= $block_user;
+		    $block_btn_name='block-button';
+			}
+			else if ($count_checkblock_query!=0){
+			$block_btn_class='btn btn-danger btn-block';
+			$block_btn_value=$blocked;
+		    $block_btn_name='unblock-button';			
+			}
+			}
+			foreach ($connread->query($check_blocked_status_query) as $row) {
+			$count_checkblocked_query=$row['COUNT(*)'];
+			}
+			?>
+			<div id="profile-bg">
+		    <?php if ($count_checkblocked_query==0){
+			if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			?>
+			<button type="button" name="<?php echo $block_btn_name; ?><?php echo $user_id; ?>" id="<?php echo $user_id; ?>"  class="blocked  buttontr <?php echo  $block_btn_class; ?><?php echo $user_id; ?>"><?php echo $block_btn_value; ?></button>
+			<?php } ?>
+			<img src="<?php echo $link_prefix;?>img/<?php echo $buzzyuser_cover; ?>" id="cover" class="thumbnail"/>
+			<div id="profile-img">
+			<img class="thumbnail"  src="<?php echo $final_image_prefix;?><?php echo $buzzyuser_image; ?>" />
+            </div>
+			<span id="username"><?php echo $buzzyuser_username; ?></span>
+			<?php if ($count_checkblock_query==0){
+			?>
+		    <?php if ($count_checkblocked_query==0){
+			?>
+			<button type="button" name="<?php echo $follow_btn_name; ?><?php echo $user_id; ?>" id="<?php echo $user_id; ?>"  class="buttontr follow <?php echo  $follow_btn_class; ?><?php echo $user_id; ?>"><?php echo $follow_btn_value; ?></button>
+			<?php } ?>
+			<?php } ?>
+			</div>
+			<?php } ?>
+			<?php
+			if ($user_id==$session_user_id){
+			?>
+		
+			<div id="profile-bg">
+			<a href="<?php echo $link_prefix;?>add-cover-image.php?user-id=<?php echo $user_id; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $add_your_cover_image_here;?>" class="buttontr btn btn-primary cover-btn"><strong><?php echo $add_cover_image; ?></strong></a>
+			<img src="<?php echo $link_prefix;?>img/<?php echo $buzzyuser_cover; ?>" id="cover" class="thumbnail"/>
+			<div id="profile-img">
+			<a href="<?php echo $link_prefix;?>add-profile-image.php?user-id=<?php echo $user_id; ?>"  data-toggle="tooltip" data-placement="top" title="<?php echo $add_your_cover_image_here;?>">
+			<img class="thumbnail add-profile-image" style="position:relative; z-index:100000;" src="<?php echo $link_prefix;?>img/add-profile-image.png" />
+			<img class="thumbnail" src="<?php echo $final_image_prefix;?><?php echo $buzzyuser_image; ?>" />
+			</a>
+            </div>
+			<span id="username" class="opera-user"><?php echo $buzzyuser_username; ?></span>
+			</div>
+			<?php } ?>
+			<script>
+                   $('.btn-follow<?php echo $user_id; ?>').click(function(){
+		           var $this = $(this);
+		           $this.toggleClass('btn-primary');
+		           if($this.hasClass('btn-primary')){
+	               $this.html('<?php echo $follow_user; ?>');	
+                   $(this).removeClass("btn-success");
+                   $(this).addClass("btn-primary");					   
+		           }
+			      else {
+				  $(this).removeClass("btn-primary");
+                  $(this).addClass("btn-success");	
+			      $this.html('<?php echo $following; ?>');
+		          }
+	              });
+             </script>
+			 <script>
+                  $(function() {
+                  $(".btn-follow<?php echo $user_id; ?>").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>follow.php",
+                  data:"btn-follow="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+             </script>
+				
+			 <script>
+                   $('.btn-block<?php echo $user_id; ?>').click(function(){
+		           var $this = $(this);
+		           $this.toggleClass('btn-primary');
+		           if($this.hasClass('btn-primary')){
+	               $this.html('<?php echo $block_user; ?>');	
+                   $(this).removeClass("btn-danger");
+                   $(this).addClass("btn-primary");					   
+		           }
+			      else {
+				  $(this).removeClass("btn-primary");
+                  $(this).addClass("btn-danger");	
+			      $this.html('<?php echo $blocked; ?>');
+		          }
+	              });
+             </script>
+			 <script>
+                  $(function() {
+                  $(".btn-block<?php echo $user_id; ?>").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>blocked.php",
+                  data:"btn-block="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+               </script>
+			   		   

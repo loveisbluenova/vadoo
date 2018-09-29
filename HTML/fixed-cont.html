@@ -1,0 +1,202 @@
+<?php if($buzzy_theme==2){
+?>
+<img style="margin-top:-30px!important; height:40px!important;" src="<?php echo $link_prefix;?><?php echo $buzzysitelogo;?>" id="logo" alt="">
+<br>
+<?php } ?>
+<?php 
+$sf = 3.14159 / 180;
+$distance=1;	
+ $vip_users_query = "SELECT buzzyuser_id,buzzyuser_first_name,buzzyuser_last_name,buzzyuser_status,buzzyuser_username,buzzyuser_image,buzzyuser_location,buzzyuser_lat,buzzyuser_long,
+   buzzyuser_cover,buzzyuser_email,buzzyuser_birthdate,buzzyuser_password,DATE_FORMAT(buzzyuser_registration_date, '%d/%m/%Y, %H:%i')as formated_registration_date,
+   buzzyuser_aboutme,buzzyuser_onlinestatus,buzzyuser_last_login,ACOS(SIN(buzzyuser_lat*$sf)*SIN($session_buzzyuser_lat*$sf) + COS(buzzyuser_lat*$sf)*COS($session_buzzyuser_lat*$sf)*COS((buzzyuser_long-$session_buzzyuser_long)*$sf)) as distance FROM buzzyusers WHERE buzzyuser_id!=$session_user_id AND buzzyuser_status=3
+   ORDER BY distance ASC LIMIT 12"; 
+
+ ?> 
+
+<?php if($buzzy_theme!=2){
+?> 
+<div class="" style="margin-top:50px; margin-left:7px!important; margin-right:7px!important;">
+<?php } ?>
+<?php if($buzzy_theme==2){
+?> 
+<div class="" style="margin-top:0px; margin-left:7px!important; margin-right:7px!important;">
+<?php } ?>
+<br>  
+<a  href="" data-toggle="modal" data-target="#userlinksb">
+<img alt="" class="circle" src="<?php echo $final_image_prefix;?><?php echo $session_buzzyuser_image;?>" style="float:left; width:32px; height:32px;  margin-top:-7px!important; margin-bottom:20px!important; margin-right:5px!important;" />
+<span style="margin-top:5px!important; font-weight:<?php echo $font_weightb;?>!important; text-transform:uppercase;"><strong><?php echo $session_buzzyuser_first_name;?> <?php echo $session_buzzyuser_last_name;?></strong></span>
+</a>
+<?php if($buzzy_theme==2){
+if($session_liked_percentage<=40){
+$sp_color="c50707";
+$sp_text=$low;
+}
+else if($session_liked_percentage>40 AND $session_liked_percentage<=60){
+$sp_color="ecb134";
+$sp_text=$moderate;
+}
+else if($session_liked_percentage>60){
+$sp_color="6ac91e";
+$sp_text=$high;
+}
+?> 
+<div class="clearfix"></div>
+<?php } ?>
+<div class="clearfix"></div>
+
+<?php
+if ($buzzywebsite_status==1 AND 5>2){
+?>
+<div class="ffspan">
+<img alt="" src="https://cdn4.iconfinder.com/data/icons/SUPERVISTA/graphics/png/24/palette.png" 
+style="float:left; margin-bottom:6px!important;  margin-right:5px;" />
+<a href=""  data-toggle="modal" data-target="#choosetheme">
+<span style="font-weight:<?php echo $font_weightb;?>!important; margin-right:5px; color:#5d93fe!important;!important;">Choose theme!</span>
+</a>
+</div>
+<div class="clearfix"></div>
+
+<div class="ffspan">
+<img alt="" src="http://icons.iconarchive.com/icons/itzikgur/my-seven/24/Videos-1-icon.png" 
+style="float:left; margin-bottom:6px!important;  margin-right:5px;" />
+<a href=""  data-toggle="modal" data-target="#chooseanim">
+<span style="font-weight:<?php echo $font_weightb;?>!important;  color:#5d93fe!important;!important;">Choose animation!</span>
+</a>
+</div>
+<div class="clearfix"></div>
+<?php } ?>
+
+<?php
+if($session_buzzyuser_moderator==1){
+?>
+<div class="ffspan">
+<img alt="" src="<?php echo $fix_user_icon;?>" style="float:left; margin-bottom:6px!important; margin-right:<?php echo $margin_img_r;?>;" /><span style="font-weight:<?php echo $font_weightb;?>!important; color:#<?php echo $mod_color;?>!important;"><?php echo $moderator_level_one;?></span>
+</div>
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $photo_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" />
+<a href="<?php echo $link_prefix;?>page.php?photo-review-id=1">
+<span style="color:#<?php echo $mod_color;?>!important; font-weight:<?php echo $font_weightb;?>!important;"><?php echo $photo_reviews;?></span>
+</a>
+</div>
+<div class="clearfix"></div>
+<?php } ?>
+<div class="ffspan">
+<img alt="" src="<?php echo $filter_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> 
+<a href="" data-toggle="modal" data-target="#filterbox"><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $filter_your_matches; ?></span></a>
+</div>
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $heart_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> 
+<a href="<?php echo $link_prefix;?>page.php?hotnot-id=true"><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $play_like_me; ?></span><a/>
+</div>
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $people_user_icon;?>" 
+style="float:left; margin-bottom:6px!important; margin-right:<?php echo $margin_img_r;?>;" /> <a href="<?php echo $link_prefix;?>index.php"><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $people_near_you; ?></a></span>
+</div>
+
+<div class="clearfix"></div>
+<?php
+if (5>2){
+?>
+<div class="ffspan">
+<img alt=""  src="<?php echo $fire_user_icon;?>" 
+style="float:left; margin-right:<?php echo $margin_img_r;?>;
+ margin-bottom:6px!important;" /> <a href="#" data-toggle="modal" data-target="#matchquiz"><span style="font-weight:<?php echo $font_weightb;?>!important;">
+<?php echo $match_quiz;?></span>
+</a>
+</div>
+<?php } ?>
+
+
+
+
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt=""  src="<?php echo $mail_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> <a href="<?php echo $link_prefix;?>chat.php">
+<span style="font-weight:<?php echo $font_weightb;?>!important; margin-right:10px!important;"><?php echo  $messages; ?></span>
+<span class="cictwo" style="margin-left:0px!important;">
+<span style="font-size:11px!important; color:#fff!important; <?php echo $display_classs1;?>" class="blink cic"><span style="font-size:11px!important; color:#fff!important; margin-left:0px!important;">
+<?php echo $count_unmessages;?></span></span></span></a>
+</div>
+<div class="clearfix"></div>
+<?php if(2>5){
+?>
+<div class="ffspan">
+<img alt="" src="<?php echo $like_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> <a href="<?php echo $likes_href;?>">
+<span style="font-weight:<?php echo $font_weightb;?>!important; margin-right:10px!important;"><?php echo  $liked_you; ?> </span>
+<span class="cictwoa" style="margin-left:0px!important;">
+<span  style="font-size:11px!important; color:#fff!important; <?php echo $display_classs2;?> color:#fff!important;  font-size:11px!important;"class="cic"><?php echo $count_usunreadliked;?>
+</span>
+</span>
+</div>
+<?php } ?>
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $match_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" />
+ <a href="<?php echo $link_prefix;?><?php echo  $matches_url;?><?php echo  $session_user_id;?>"><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $my_matches; ?> </span>
+</div>
+
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $fav_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" />
+ <a href="<?php echo $link_prefix;?>page.php?favorites-page=true"><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $favorites; ?> </span>
+</div>
+
+
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $eye_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> <a href="<?php echo $visitors_href;?>">
+<span style="font-weight:<?php echo $font_weightb;?>!important; margin-right:10px!important;"><?php echo  $visitors; ?></span></a>
+<span class="cictwoa" style="margin-left:0px!important;">
+<span  style="font-size:11px!important; color:#fff!important;  <?php echo $display_classs4;?>"  class="cic"><?php echo $count_ses_visitors;?></span></span>
+</div>
+<div class="clearfix"></div>
+<div class="ffspan">
+<img alt="" src="<?php echo $friends_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> 
+<a href="<?php echo $link_prefix;?>page.php?friends=<?php echo $session_user_id;?>"><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $friends; ?></span></a>
+<span class="cictwoa" style="margin-left:0px!important; margin-right:10px!important;">
+<span  style="font-size:11px!important; color:#fff!important;  <?php echo $display_classs16;?>" class="cic"><?php echo $count_unnfriends;?></span></a>
+</div>
+
+<?php if($buzzy_theme==2){
+?>
+<div class="ffspan">
+<img alt="" src="<?php echo $search_user_icon;?>" style="float:left; margin-right:<?php echo $margin_img_r;?>; margin-bottom:6px!important;" /> 
+<a href="#" data-toggle="modal" data-target="#searchboxa" ><span style="font-weight:<?php echo $font_weightb;?>!important;"><?php echo  $search; ?></span></a>
+	
+<span class="cictwoa" style="margin-left:0px!important; margin-right:10px!important;">
+<span  style="font-size:11px!important; color:#fff!important;  <?php echo $display_classs16;?>" class="cic"><?php echo $count_unnfriends;?></span></a>
+</div>
+<?php } ?>
+
+
+<div class="clearfix"></div>
+<br>
+<a style="margin-left:4px!important;" href="<?php echo $link_prefix;?>buyvipstatus.php" class="btn-primary btn-sm buttontr"><strong><?php echo $add_vip_status;?></strong></a>
+<br><br>
+<?php
+
+     foreach ($connread->query($vip_users_query) as $row) {
+	 $vipbuzzyuser_id=$row['buzzyuser_id'];
+			if ($row['buzzyuser_image']==''){
+			$vipbuzzyuser_image='profile-icon1.jpg';
+			}
+			else if ($row['buzzyuser_image']!=''){
+			$vipbuzzyuser_image=$row['buzzyuser_image'];
+			}
+  //get age from date or birthdate
+
+			if (strpos($vipbuzzyuser_image,'http') !== false) {
+			$vipfinal_image_prefix='';		  
+		    }
+			else{
+			$vipfinal_image_prefix=$link_prefix.'img/';					
+			}
+			$vipfinal_buzzyuser_image=$vipfinal_image_prefix . $vipbuzzyuser_image;
+   ?>
+<a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $vipbuzzyuser_id;?>" target="_blank" title=""><img src="<?php echo $vipfinal_buzzyuser_image; ?>" style="margin-right:7px!important; margin-bottom:8px!important; width:40px!important; height:40px!important;" alt="" class="circle"  class="bicubic nearest"></a>	
+<?php } ?>
+</div>
+<br><br>

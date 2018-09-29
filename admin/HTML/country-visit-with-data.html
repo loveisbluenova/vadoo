@@ -1,0 +1,45 @@
+  <?php
+   $rest_buzzyvisitorcountrycount=$countvisits-$first_buzzyvisitorcountrycount-$second_buzzyvisitorcountrycount-$third_buzzyvisitorcountrycount-$fourth_buzzyvisitorcountrycount-$fifth_buzzyvisitorcountrycount;
+   $rest_buzzyvisitorcountrypercent=($rest_buzzyvisitorcountrycount/$countvisits)*100;
+  ?>
+  <div class="content canvas-data">
+  <div class="container">
+	 <h5>
+   Total visit by countries (%)
+   </h5>
+  
+      		<div style="width: 100%">
+			<canvas id="canvas1"></canvas>
+		</div>
+
+
+	<script>
+	var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+
+	var barChartData = {
+		labels : ["<?php echo $first_buzzyvisitors_country; ?>","<?php echo $second_buzzyvisitors_country; ?>","<?php echo $third_buzzyvisitors_country; ?>","<?php echo $fourth_buzzyvisitors_country; ?>","<?php echo $fifth_buzzyvisitors_country; ?>","Rest"],
+		datasets : [
+			{
+				fillColor : "rgba(27,57,170,0.5)",
+				strokeColor : "rgba(27,57,170,0.8)",
+				highlightFill: "rgba(27,57,170,0.75)",
+				highlightStroke: "rgba(27,57,170,1)",
+				data : [<?php echo number_format($first_buzzyvisitorcountrypercent,2); ?>,<?php echo number_format($second_buzzyvisitorcountrypercent,2); ?>,
+				<?php echo number_format($third_buzzyvisitorcountrypercent,2); ?>,<?php echo number_format($fourth_buzzyvisitorcountrypercent,2); ?>,
+				<?php echo number_format($fifth_buzzyvisitorcountrypercent,2); ?>,<?php echo number_format($rest_buzzyvisitorcountrypercent,2); ?>]
+			}
+					]
+
+	}
+
+		var ctx = document.getElementById("canvas1").getContext("2d");
+		window.myBar = new Chart(ctx).Bar(barChartData, {
+			responsive : true
+		});
+	
+	</script>
+
+   
+	<div class="clearfix"></div>
+ </div>
+ </div>

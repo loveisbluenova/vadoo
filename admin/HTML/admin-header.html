@@ -1,0 +1,70 @@
+<?php
+foreach ($connread->query($website_options_query) as $row) {
+$buzzysiteurl=$row['buzzysiteurl'];	
+$buzzysitelogo=$row['buzzysitelogo'];
+$buzzyoptimizedstatus=$row['buzzyoptimizedstatus'];
+$buzzynewslimit=$row['buzzynewslimit'];
+$buzzyyoutubeapi=$row['buzzyyoutubeapi'];
+$buzzyfortumoid=$row['buzzyfortumoid'];
+$buzzyfacebookaccess=$row['buzzyfacebookaccess'];
+$buzzyfortumosecret=$row['buzzyfortumosecret'];
+$buzzydistance_mesaure=$row['buzzydistance_mesaure'];
+$buzzywebsite_status=$row['buzzywebsite_status'];
+$buzzyversion=$row['buzzyversion'];
+$buzzyupdatestatus=$row['buzzyupdatestatus'];
+  if($buzzyversion=='1.0.0'){
+  $version_ext='1.0.1';
+  }
+  else if($buzzyversion=='1.0.1'){
+  $version_ext='1.0.2';
+  }
+   else if($buzzyversion=='1.0.2'){
+  $version_ext='1.0.3';
+  }
+  else if($buzzyversion=='1.0.3'){
+  $version_ext='1.0.4';
+  }
+  else if($buzzyversion=='1.0.5'){
+  $version_ext='1.0.6';
+  } 
+  else if($buzzyversion=='1.0.6'){
+  $version_ext='1.0.7';
+  }
+  else if($buzzyversion=='1.0.7'){
+  $version_ext='1.0.8';
+  }    
+  else if($buzzyversion=='1.0.8'){
+  $version_ext='1.0.9';
+  } 
+  else if($buzzyversion=='1.0.9'){
+  $version_ext='1.1.0';
+  }  
+  else if($buzzyversion=='1.1.0'){
+  $version_ext='1.1.1';
+  }   
+}
+?>
+
+	<!-- Admin header with all functionalities------ START -->
+  <link href="https://cdn.jsdelivr.net/sweetalert2/6.6.1/sweetalert2.css" rel="stylesheet"/>
+    <script src="https://cdn.jsdelivr.net/sweetalert2/6.6.1/sweetalert2.js"></script>
+	<div id="display-header">
+    <h1 id="logobig" style="float:left;"><strong><span style="color:#9cc1ff;">VADOO</span> - CPANEL</strong></h1>
+	<div id="administrator">
+	<ul>
+	<li data-toggle="tooltip" data-placement="bottom" title="Website frontend" ><a  href="../index.php" target="_blank"><span class="admin-header-icon glyphicon glyphicon-zoom-in"></span></a></li>
+	<script>
+	 $(function () {
+     $('[data-toggle="tooltip"]').tooltip()
+     })
+	</script>
+    <li id="admin-profile"><span id="adminspan"><img src="adminimg/superadmin.jpg">Super admin</span>
+	</li>
+	</ul>  
+	<div class="clearfix"></div>
+	<!-- Split button -->
+    
+	 <div class="clearfix"></div>
+	</div>
+	</div>
+	<!-- Admin header with all functionalities ------ END -->	

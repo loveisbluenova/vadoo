@@ -1,0 +1,340 @@
+<?php
+if (isset($_POST['update_data'])) {
+ if (strpos($_POST['buzzyuser_aboutme'],'script') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_aboutme'],'document(') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+  else if (strpos($_POST['buzzyuser_aboutme'],'body onload') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_aboutme'],'alert') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_aboutme'],'onerror=alert') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_aboutme'],'META HTTP') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+  else if (strpos($_POST['buzzyuser_aboutme'],'<%') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+
+ }
+ else if (strpos($_POST['buzzyuser_aboutme'],'urldecode') !== false) {
+ $buzzyuser_aboutme='Later...';	
+  $xss_attack=TRUE;
+ }
+ else{
+ $buzzyuser_aboutme=htmlspecialchars($_POST['buzzyuser_aboutme'], ENT_QUOTES);
+ }
+  if (isset($xss_attack)){
+ if ($xss_attack=TRUE){ 
+ $add_xss_attacker= "INSERT INTO  buzzyalert_ip(buzzyalert_ip,buzzyalert_iptimestamp)
+		 	  VALUES(:buzzyalert_ip,:buzzyalert_iptimestamp)";
+        // prepare the statement
+        $stmt = $connwrite->prepare($add_xss_attacker);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyalert_ip', $user_ipreal, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyalert_iptimestamp', $now, PDO::PARAM_STR);			
+			
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+header('Location: '.$link_prefix.'index.php');			 			
+ }
+ }
+ $buzzyuser_data_lbweight=$_POST['buzzyuser_data_lbweight'];
+ $buzzyuser_data_height=$_POST['buzzyuser_data_height'];
+ $buzzyuser_data_weight=$_POST['buzzyuser_data_weight']; 
+ $buzzyuser_data_sexual_orientation=$_POST['buzzyuser_data_sexual_orientation']; 
+ $buzzyuser_data_rel_status=$_POST['buzzyuser_data_rel_status']; 
+ $buzzyuser_data_body=$_POST['buzzyuser_data_body']; 
+ $buzzyuser_hair_color=$_POST['buzzyuser_hair_color']; 
+ $buzzyuser_eye_color=$_POST['buzzyuser_eye_color']; 
+ $buzzyuser_no_kids=$_POST['buzzyuser_no_kids']; 
+ $buzzyuser_smoker=$_POST['buzzyuser_smoker'];
+ $buzzyuser_drinker=$_POST['buzzyuser_drinker']; 
+ 
+if ($buzzysitemeasure==0){
+$final_buzzyuser_data_weight=$buzzyuser_data_weight;
+}
+else if ($buzzysitemeasure==1){
+$final_buzzyuser_data_weight=$buzzyuser_data_lbweight/2.2;
+}
+ 
+ $update_data_query = "UPDATE buzzyuser_data SET buzzyuser_aboutme=:buzzyuser_aboutme,buzzyuser_data_height=:buzzyuser_data_height, 
+		buzzyuser_data_weight=:buzzyuser_data_weight,buzzyuser_data_sexual_orientation=:buzzyuser_data_sexual_orientation, buzzyuser_data_rel_status=:buzzyuser_data_rel_status, buzzyuser_data_body=:buzzyuser_data_body, 
+		buzzyuser_hair_color=:buzzyuser_hair_color,buzzyuser_eye_color=:buzzyuser_eye_color,buzzyuser_no_kids=:buzzyuser_no_kids,
+		buzzyuser_smoker=:buzzyuser_smoker,buzzyuser_drinker=:buzzyuser_drinker WHERE buzzyuser_id=$session_user_id";
+        // prepare the statement
+        $stmt = $connwrite->prepare($update_data_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyuser_aboutme', $buzzyuser_aboutme, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyuser_data_height', $buzzyuser_data_height, PDO::PARAM_STR);			
+		$stmt->bindParam(':buzzyuser_data_weight', $final_buzzyuser_data_weight, PDO::PARAM_STR);
+        $stmt->bindParam(':buzzyuser_data_sexual_orientation', $buzzyuser_data_sexual_orientation, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_data_rel_status', $buzzyuser_data_rel_status, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_data_body', $buzzyuser_data_body, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_hair_color', $buzzyuser_hair_color, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_eye_color', $buzzyuser_eye_color, PDO::PARAM_STR);		
+        $stmt->bindParam(':buzzyuser_no_kids', $buzzyuser_no_kids, PDO::PARAM_STR);		
+        $stmt->bindParam(':buzzyuser_smoker', $buzzyuser_smoker, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_drinker', $buzzyuser_drinker, PDO::PARAM_STR);				
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+		
+$update_userdata_query = "UPDATE buzzyusers SET buzzyuser_data_sexual_orientation=:buzzyuser_data_sexual_orientation WHERE buzzyuser_id=$session_user_id";
+        // prepare the statement
+        $stmt = $connwrite->prepare($update_userdata_query);
+        // bind the parameters and execute the statement
+        $stmt->bindParam(':buzzyuser_data_sexual_orientation', $buzzyuser_data_sexual_orientation, PDO::PARAM_STR);	     		
+		// execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();		
+		
+        header('Location: '.$link_prefix.'page.php?user-id='.$session_user_id.'');	
+}	
+
+
+if ($buzzysitemeasure==0){
+$heights_array='<input type="number" min="130" max="230" name="buzzyuser_data_height" value="'.$session_buzzyuser_data_height.'"  required class="form-control" id="recipient-name">';	
+$weights_array='<input type="number" min="35" max="300"  name="buzzyuser_data_weight" value="'.$session_buzzyuser_data_weight.'" required class="form-control" id="recipient-name">';
+$hes='kg';
+$mes='cm';
+$mess='cm';
+}
+
+if ($buzzysitemeasure==1){
+$hes='lbs';
+$weights_array='<input type="number" min="70" max="600" " name="buzzyuser_data_lbweight" value="'.kgToLb($session_buzzyuser_data_weight).'" required class="form-control" id="recipient-name">';
+$heights_array='<select class="form-control" name="buzzyuser_data_height" required>
+<option value="134.62">
+4&#x27; 5&#x22;
+</option>
+<option value="137.16">
+4&#x27; 6&#x22;
+</option>
+<option value="139.7">
+4&#x27; 7&#x22;
+</option>
+<option value="142.24">
+4&#x27; 8&#x22;
+</option>
+<option value="144.78">
+4&#x27; 9&#x22;
+</option>
+<option value="147.32">
+4&#x27; 10&#x22;
+</option>
+<option value="149.86">
+4&#x27; 11&#x22;
+</option>
+<option value="152.4">
+5&#x27; 0&#x22;
+</option>
+<option value="154.94">
+5&#x27; 1&#x22;
+</option>
+<option value="157.48">
+5&#x27; 2&#x22;
+</option>
+<option value="160.02">
+5&#x27; 3&#x22;
+</option>
+<option value="162.56">
+5&#x27; 4&#x22;
+</option>
+<option value="165.1">
+5&#x27; 5&#x22;
+</option>
+<option value="167.64">
+5&#x27; 6&#x22;
+</option>
+<option value="170.18">
+5&#x27; 7&#x22;
+</option>
+<option value="172.72">
+5&#x27; 8&#x22;
+</option>
+<option value="175.26">
+5&#x27; 9&#x22;
+</option>
+<option value="177.8">
+5&#x27; 10&#x22;
+</option>
+<option value="180.34">
+5&#x27; 11&#x22;
+</option>
+<option value="182.88">
+6&#x27; 0&#x22;
+</option>
+<option value="185.42">
+6&#x27; 1&#x22;
+</option>
+<option value="187.96">
+6&#x27; 2&#x22;
+</option>
+<option value="190.5">
+6&#x27; 3&#x22;
+</option>
+<option value="193.04">
+6&#x27; 4&#x22;
+</option>
+<option value="195.58">
+6&#x27; 5&#x22;
+</option>
+<option value="198.12">
+6&#x27; 6&#x22;
+</option>
+<option value="200.66">
+6&#x27; 7&#x22;
+</option>
+<option value="203.2">
+6&#x27; 8&#x22;
+</option>
+<option value="205.74">
+6&#x27; 9&#x22;
+</option>
+<option value="208.28">
+6&#x27; 10&#x22;
+</option>
+<option value="210.82">
+6&#x27; 11&#x22;
+</option>
+</select>
+';	
+$mes='Feet and inches';	
+$mess='';
+}	
+?>
+<form action="" method="POST">
+<h5><?php echo  $about_me;?></h5>
+<textarea class="form-control" name="buzzyuser_aboutme"><?php echo $session_buzzyuser_aboutme;?></textarea>
+<h5><?php echo $height;?> (<?php echo $mes;?>)</h5>
+<?php echo $heights_array;?>
+<h5><?php echo  $weight;?> (<?php echo $hes;?>)</h5>
+<?php echo $weights_array;?>
+<h5><?php echo  $sexual_orientation;?></h5>
+ <select class="form-control" name="buzzyuser_data_sexual_orientation" required>
+ <option <?php echo $selected_sex1;?> value="0">
+<?php echo $heterosexual;?>
+ </option>
+  <option <?php echo $selected_sex2;?> value="1">
+<?php echo $homosexual;?>
+ </option>
+   <option <?php echo $selected_sex3;?> value="2">
+<?php echo $bisexual;?>
+ </option>
+ </select>
+ 
+ <h5><?php echo  $relationship_status;?></h5>
+ <select class="form-control" name="buzzyuser_data_rel_status" required>
+ <option value="0" <?php echo $selected_rel1;?>>
+<?php echo $single;?>
+ </option>
+  <option value="1" <?php echo $selected_rel2;?>>
+<?php echo $in_a_relationship;?>
+ </option>
+   <option value="2" <?php echo $selected_rel3;?>>
+<?php echo $in_a_open_relationship;?>
+ </option>
+ </select>
+ 
+ <h5><?php echo  $body;?></h5>
+ <select class="form-control" name="buzzyuser_data_body" required>
+ <option value="0" <?php echo $selected_bod1;?>>
+<?php echo $average;?>
+ </option>
+  <option value="1" <?php echo $selected_bod2;?>>
+<?php echo $athletic;?>
+ </option>
+   <option value="2" <?php echo $selected_bod3;?>>
+<?php echo $muscle;?>
+ </option>
+    <option value="3" <?php echo $selected_bod4;?>>
+<?php echo $thick;?>
+ </option>
+  <option value="4" <?php echo $selected_bod5;?>>
+<?php echo $thin;?>
+ </option>
+ </select>
+ 
+  <h5><?php echo  $hair_color;?></h5>
+ <select class="form-control" name="buzzyuser_hair_color" required>
+ <option value="0" <?php echo $selected_hair1;?>>
+<?php echo $black;?>
+ </option>
+  <option value="1" <?php echo $selected_hair2;?>>
+<?php echo $brown;?>
+ </option>
+   <option value="2" <?php echo $selected_hair3;?>>
+<?php echo $red;?>
+ </option>
+    <option value="3" <?php echo $selected_hair4;?>>
+<?php echo $blue;?>
+ </option>
+  <option value="4" <?php echo $selected_hair5;?>>
+<?php echo $grey;?>
+ </option>
+   <option value="5" <?php echo $selected_hair6;?>>
+<?php echo $bold;?>
+ </option>
+ </select>
+ 
+   <h5><?php echo  $eye_color;?></h5>
+ <select class="form-control" name="buzzyuser_eye_color" required>
+ <option value="0" <?php echo $selected_eye1;?>>
+<?php echo $brown;?>
+ </option>
+  <option value="1" <?php echo $selected_eye2;?>>
+<?php echo $green;?>
+ </option>
+   <option value="2" <?php echo $selected_eye3;?>>
+<?php echo $blue;?>
+ </option>
+    <option value="3" <?php echo $selected_eye4;?>>
+<?php echo $other;?>
+ </option>
+ </select>
+ 
+ <h5><?php echo  $no_kids;?></h5>
+ <input type="number" min="0" max="12" name="buzzyuser_no_kids" value="<?php echo $session_buzzyuser_no_kids;?>" required class="form-control" id="recipient-name">
+  
+ <h5><?php echo  $smoker;?></h5>
+ <select class="form-control" name="buzzyuser_smoker" required>
+ <option value="0" <?php echo $selected_smok1;?>>
+<?php echo $yes;?>
+ </option>
+  <option value="1" <?php echo $selected_smok2;?>>
+<?php echo $no;?>
+ </option>
+ </select>
+ 
+  <h5><?php echo  $alcohol;?></h5>
+ <select class="form-control" name="buzzyuser_drinker" required>
+ <option value="0" <?php echo $selected_drink1;?>>
+<?php echo $yes;?>
+ </option>
+  <option value="1" <?php echo $selected_drink2;?>>
+<?php echo $no;?>
+ </option>
+ </select>
+ 
+ <button type="submit" name="update_data" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>	
+ </form>

@@ -1,0 +1,42 @@
+<?php if($buzzy_theme==2){
+?>
+<img style="margin-top:-30px!important; height:40px!important;" src="<?php echo $link_prefix;?><?php echo $buzzysitelogo;?>" id="logo" alt="">
+<br>
+<br>
+<a href="<?php echo $link_prefix;?>register.php"  style="width:160px" class="btn btn-primary buttontr"><?php echo $register;?></a>	
+<br><br>
+<a href="#"  style="width:160px" class="openSlickModal-2  btn btn-info buttontr"><?php echo $login;?></a>
+
+
+<br>
+<h5 style="font-weight:bold; font-size:18px; margin-top:20px;"><?php echo $meet_new_people;?></h5>	
+<?php
+   $allr_users_query = "SELECT * FROM buzzyusers ORDER BY RAND() LIMIT 5"; 
+   foreach ($connread->query($allr_users_query ) as $row) {
+  			$buzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+			if ($row['buzzyuser_image']==''){
+			$buzzyuser_image='profile-icon1.jpg';
+			}
+			else if ($row['buzzyuser_image']!=''){
+			$buzzyuser_image=$row['buzzyuser_image'];
+			}
+		if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$final_buzzyuser_image=$final_image_prefix . $buzzyuser_image;
+			$buzzyuser_location=$row['buzzyuser_location'];				
+?>
+<a href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $buzzyuser_id;?>">
+<img src="<?php echo $final_buzzyuser_image; ?>"  style="width:48px; height:48px; float:left!important;" class="circle" >
+<span style="font-size:13px!important;"><?php echo $buzzyuser_first_name;?></span>
+<br>
+<span style="font-size:11px!important; font-weight:400!important; color:#959595!important;"><?php echo $buzzyuser_location;?></span>
+</a>
+<div class="clearfix"></div>
+<br>
+<?php } ?>
+<?php } ?>

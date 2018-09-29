@@ -1,0 +1,10 @@
+       <div class="btn-group  mobile-user" id="user-nav">
+            <button type="button" class="btn btn-primary" id="sort-button"><span id="avatar" class="glyphicon glyphicon-user"></span><span id="user" href=""><?php echo $session_buzzyuser_username;?></span></button>
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span class="caret"></span>
+                <span class="sr-only">Toggle Dropdown</span>
+            </button>
+            <ul class="dropdown-menu mob-dropdown" id="user-header" role="menu">
+			   <?php include ''.$link_prefix.'HTML/dropdown-links.html'; ?>
+            </ul>
+		  </div>

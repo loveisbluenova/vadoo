@@ -1,0 +1,22 @@
+    <?php
+	$actual_link = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	if (strpos($actual_link, 'localhost') !== false){
+	$local='localhost/';
+    }
+	else{
+	$local='';
+	}
+	foreach ($connread->query($website_options_query) as $row) {
+			$buzzysitename = $row['buzzysitename'];
+			$buzzysiteurl = $row['buzzysiteurl'];			
+			$buzzyprivacy = $row['buzzyprivacy'];
+			$buzzyterms = $row['buzzyterms'];
+	?>
+	<?php } ?>
+<div id="footer" style="margin-left:0px!important;">
+<span class="links"><?php echo $buzzysitename  ;?> &#169;  <?php echo $this_year  ;?> - <?php echo $trademarks  ;?></span>
+<span class="links"><a href="<?php echo $link_prefix;?>privacy.php" ><?php echo $privacy  ;?></a></span>
+<span class="links"><a href="<?php echo $link_prefix;?>terms.php" ><?php echo $terms  ;?></a></span>
+<span class="links"><a href="http://<?php echo $local ;?><?php echo $buzzysiteurl ;?>/rss.php"><img src="<?php echo $link_prefix;?><?php echo $message_prefix;?>img/rss.png" style="width:16px; margin-right:5px;" />RSS Feeds</a></span>
+</div>
+<br>

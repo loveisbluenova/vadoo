@@ -1,0 +1,769 @@
+<style>
+.emo-carousel{
+height:50px;
+margin-top:-20px!important;
+border-bottom:1px solid #e4e4e4;
+border-top:1px solid #e4e4e4;
+}
+</style>
+<div class="send-msgbtn" id="send-msgbtn<?php echo $f_buzzyuser_id;?>" style="position:absolute!important; display:none; background:#fff!important; width:100%;">
+<div style="height:8px!important;">
+
+</div>
+<div style="height:55px!important; min-width:100%; background:#fff;">
+<div id="emotico" style="display:none; min-width:100%; background:#fff;">
+<div class="emo-carousel" style="padding-top:9px; background:#fff!important;">
+<div style="margin-left:20px!important;">
+<div >
+<img id="smibtn" src="<?php echo $link_prefix;?>img/sm1c.png" style="cursor:pointer; width:32px!important; margin-right:12px; float:left;" />
+<img id="animbtn" src="<?php echo $link_prefix;?>img/sm2d.png" style="cursor:pointer; width:32px!important; margin-right:12px; float:left;" />
+<img id="foodbtn" src="<?php echo $link_prefix;?>img/sm3.png" style="cursor:pointer; width:32px!important; margin-right:12px; float:left;" />
+<img id="stickbtn" src="<?php echo $link_prefix;?>img/sm4a.png" style="cursor:pointer; width:32px!important; margin-right:12px; float:left;" />
+<img id="coolbtn" src="<?php echo $link_prefix;?>img/sm5a.png" style="cursor:pointer; width:32px!important; margin-right:12px; float:left;" />
+<img id="trollbtn" src="<?php echo $link_prefix;?>img/sm6.png" style="cursor:pointer; width:32px!important; margin-right:12px; float:left;" />
+</div>
+</div>
+</div>
+<div style="margin:15px;" id="emotem" >
+	<?php
+	$website_firstemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=1";	
+	foreach ($connread->query($website_firstemot_query) as $row) {
+	$buzzypaidservice_title=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_price=$row['buzzypaidservice_price'];	
+    }
+	
+	$website_secondemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=2";	
+	foreach ($connread->query($website_secondemot_query) as $row) {
+	$buzzypaidservice_secondtitle=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_secondprice=$row['buzzypaidservice_price'];	
+    }
+	
+	$website_thirdemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=6";	
+	foreach ($connread->query($website_thirdemot_query) as $row) {
+	$buzzypaidservice_thirdtitle=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_thirdprice=$row['buzzypaidservice_price'];	
+    }
+
+	$website_fourthemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=8";	
+	foreach ($connread->query($website_fourthemot_query) as $row) {
+	$buzzypaidservice_fourthtitle=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_fourthprice=$row['buzzypaidservice_price'];	
+    }	
+
+	$website_fifthemot_query = "SELECT * FROM  buzzypaidservices WHERE buzzypaidservice_id=9";	
+	foreach ($connread->query($website_fifthemot_query) as $row) {
+	$buzzypaidservice_fifthtitle=$row['buzzypaidservice_title'];	
+	$buzzypaidservice_fifthprice=$row['buzzypaidservice_price'];	
+    }	
+	
+    $website_emots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=0 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];	
+
+  $website_firstemo_query = "SELECT COUNT(*) FROM  buzzyservicepayouts WHERE buzzyuser_id=$session_user_id AND buzzypaidservice_id=1";	
+	foreach ($connread->query($website_firstemo_query) as $row) {
+	$row_count_firstemo=$row['COUNT(*)'];	
+    }
+	if ($row_count_firstemo==0){
+    $nletter='n';	
+    $opacitynn='0.8';	
+	}	
+	else if ($row_count_firstemo==1){
+    $nletter='';	
+    $opacitynn='1';	
+	}
+	
+	$website_secondemo_query = "SELECT COUNT(*) FROM  buzzyservicepayouts WHERE buzzyuser_id=$session_user_id AND buzzypaidservice_id=2";	
+	foreach ($connread->query($website_secondemo_query) as $row) {
+	$row_count_secondemo=$row['COUNT(*)'];	
+    }
+	if ($row_count_secondemo==0){
+    $nnletter='n';	
+    $opacitynnn='0.8';	
+	}	
+	else if ($row_count_secondemo==1){
+    $nnletter='';	
+    $opacitynnn='1';	
+	}	
+	
+$website_thirdemo_query = "SELECT COUNT(*) FROM  buzzyservicepayouts WHERE buzzyuser_id=$session_user_id AND buzzypaidservice_id=6";	
+	foreach ($connread->query($website_thirdemo_query) as $row) {
+	$row_count_thirdemo=$row['COUNT(*)'];	
+    }
+	if ($row_count_thirdemo==0){
+    $nnnletter='n';	
+    $opacitynnnn='0.8';	
+	}	
+	else if ($row_count_thirdemo==1){
+    $nnnletter='';	
+    $opacitynnnn='1';	
+	}		
+
+$website_fourthcemo_query = "SELECT COUNT(*) FROM  buzzyservicepayouts WHERE buzzyuser_id=$session_user_id AND buzzypaidservice_id=7";	
+	foreach ($connread->query($website_fourthcemo_query) as $row) {
+	$row_count_fourthemo=$row['COUNT(*)'];	
+    }
+	if ($row_count_fourthemo==0){
+    $nnnletter='n';	
+    $opacitynnnn='0.8';	
+	}	
+	else if ($row_count_fourthemo==1){
+    $nnnletter='';	
+    $opacitynnnn='1';	
+	}	
+	?>
+	<a href="#" class="emotss" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_sign, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $link_prefix;?>img/<?php echo $buzzyemot_title;?>" style="width:20px!important;  margin-left:5px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+
+
+
+
+<div id="animotico<?php echo $nletter;?>" style="display:none;">
+<div style="margin:15px;">
+<?php 
+	if ($row_count_firstemo==0){
+    $top_mgg='margin-top:-426px;';		
+	?>
+	<div id="buycont">
+	<div class="only-mobile">
+<a href="buybluemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?> <?php echo $forr;?> <?php echo $buzzypaidservice_price;?></a>			
+	<br>
+	</div>		
+	
+		<div class="only-display">
+	<a href="buybluemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?></a> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_title;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_price;?> <?php echo $credits;?></span>
+	<div class="clearfix"></div>
+    </div>
+	</div>
+	<br>
+	<?php } ?>
+	
+<?php 
+	if ($row_count_firstemo!=0){	
+?>
+ <p  style="float:left!important; margin-right:15px!important;" class="btn btn-success buttontr" >
+<i class="fa fa-check" aria-hidden="true"></i>	<?php echo $unlocked;?></p>
+<div class="clearfix"></div>	
+<br>
+	<?php } ?>	
+	
+	<?php
+    $website_emots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=1 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#"  class="emotss<?php echo $nletter;?>" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $buzzyemot_sign;?>" style="width:36px!important; margin-left:0px!important; margin-right:3px!important; opacity:<?php echo $opacitynn;?>; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+</div>
+
+<div id="foodico<?php echo $nnletter;?>" style="display:none;">
+<div style="margin:15px;">
+
+<?php 
+	if ($row_count_secondemo==0){
+    $top_mggg='margin-top:-426px;';			
+	?>
+	<div id="buycont">
+	<div class="only-mobile">
+<a href="buyminemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?> <?php echo $forr;?> <?php echo $buzzypaidservice_secondprice;?></a>			
+	<br>
+	</div>		
+	
+		<div class="only-display">
+	<a href="buyminemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?></a> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_secondtitle;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_secondprice;?> <?php echo $credits;?></span>
+	<div class="clearfix"></div>
+    </div>
+	</div>
+	<br>
+	<?php } ?>
+
+<?php 
+	if ($row_count_secondemo!=0){	
+?>
+ <p  style="float:left!important; margin-right:15px!important;" class="btn btn-success buttontr" >
+<i class="fa fa-check" aria-hidden="true"></i>	<?php echo $unlocked;?></p>
+<div class="clearfix"></div>	
+<br>
+	<?php } ?>	
+
+	<?php
+    $website_emots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=2 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#" class="emotss<?php echo $nnletter;?>" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $buzzyemot_sign;?>" style="width:36px!important; opacity:<?php echo $opacitynnn;?>;  margin-left:0px!important; margin-right:3px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+</div>
+
+<div id="stickico<?php echo $nnnletter;?>" style="display:none;">
+<div style="margin:15px;">
+<?php 
+	if ($row_count_thirdemo==0){
+    $top_mggg='margin-top:-426px;';			
+	?>
+	<div id="buycont">
+	<div class="only-mobile">
+<a href="buystickemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?> <?php echo $forr;?> <?php echo $buzzypaidservice_thirdprice;?></a>			
+	<br>
+	</div>		
+	
+		<div class="only-display">
+	<a href="buystickemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?></a> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_thirdtitle;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_thirdprice;?> <?php echo $credits;?></span>
+	<div class="clearfix"></div>
+    </div>
+	</div>
+	<br>
+	<?php } ?>
+
+
+<?php 
+	if ($row_count_thirdemo!=0){	
+?>
+ <p  style="float:left!important; margin-right:15px!important;" class="btn btn-success buttontr" >
+<i class="fa fa-check" aria-hidden="true"></i>	<?php echo $unlocked;?></p>
+<div class="clearfix"></div>	
+<br>
+	<?php } ?>	
+	<?php
+    $website_ttemots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=3 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_ttemots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#" class="emotss<?php echo $nnnletter;?>" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $buzzyemot_sign;?>" style="width:40px!important; opacity:<?php echo $opacitynnnn;?>;  margin-left:10px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+</div>
+
+
+
+
+<div id="coolico<?php echo $nnnletter;?>" style="display:none; padding-top:10px!important;">
+<div style="margin:15px; margin-bottom:0px!important;">
+<?php 
+	if ($row_count_fourthemo==0){
+    $top_mggg='margin-top:-426px;';			
+	?>
+	<div id="buycont">
+	<div class="only-mobile">
+<a href="buystickemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?> <?php echo $forr;?> <?php echo $buzzypaidservice_fourthprice;?></a>			
+	<br>
+	</div>		
+	
+<div class="only-display">
+	<a href="buystickemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?></a> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_fourthtitle;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_fourthprice;?> <?php echo $credits;?></span>
+	<div class="clearfix"></div>
+    </div>
+	</div>
+	<br>
+	<?php } ?>
+
+
+<?php 
+	if ($row_count_fourthemo!=0){	
+?>
+ <p  style="float:left!important; margin-right:15px!important;" class="btn btn-success buttontr" >
+<i class="fa fa-check" aria-hidden="true"></i>	<?php echo $unlocked;?></p>
+<div class="clearfix"></div>	
+<br>
+	<?php } ?>	
+	<?php
+    $website_ttemots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=4 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_ttemots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#" class="emotss<?php echo $nnnletter;?>" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $buzzyemot_sign;?>" style="width:40px!important; opacity:<?php echo $opacitynnnn;?>;  margin-left:10px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+</div>
+
+
+
+
+
+
+
+<div id="trollico<?php echo $nnnletter;?>" style="display:none; padding-top:10px!important;">
+<div style="margin:15px; margin-bottom:0px!important;">
+<?php 
+	if ($row_count_fourthemo==0){
+    $top_mggg='margin-top:-426px;';			
+	?>
+	<div id="buycont">
+	<div class="only-mobile">
+<a href="buystickemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?> <?php echo $forr;?> <?php echo $buzzypaidservice_fifthprice;?></a>			
+	<br>
+	</div>		
+	
+<div class="only-display">
+	<a href="buystickemo.php?user-id=<?php echo $session_user_id;?>" style="float:left!important; margin-right:15px!important;" class="btn btn-primary buttontr" >
+	<?php echo _($unlock_now);?></a> <h5 style="margin-bottom:0px!important;"><?php echo $buzzypaidservice_fifthtitle;?></h5>
+	<span style="color:#9b9b9b!important; font-size:12px!important;"><?php echo $price;?>: <?php echo $buzzypaidservice_fifthprice;?> <?php echo $credits;?></span>
+	<div class="clearfix"></div>
+    </div>
+	</div>
+	<br>
+	<?php } ?>
+
+
+<?php 
+	if ($row_count_fourthemo!=0){	
+?>
+ <p  style="float:left!important; margin-right:15px!important;" class="btn btn-success buttontr" >
+<i class="fa fa-check" aria-hidden="true"></i>	<?php echo $unlocked;?></p>
+<div class="clearfix"></div>	
+<br>
+	<?php } ?>	
+	<?php
+    $website_ttemots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=5 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_ttemots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#" class="emotss<?php echo $nnnletter;?>" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_title, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $buzzyemot_sign;?>" style="width:40px!important; opacity:<?php echo $opacitynnnn;?>;  margin-left:10px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+</div>
+
+
+
+<div id="carico" style="display:none;">
+<div style="margin:15px;">
+	<?php
+    $website_emots_query = "SELECT * FROM  chatemots WHERE buzzyemot_cat=23 ORDER by buzzyemot_id ASC";	
+	foreach ($connread->query($website_emots_query) as $row) {
+	$buzzyemot_sign=$row['buzzyemot_sign'];	
+	$buzzyemot_title=$row['buzzyemot_title'];		
+	?>
+	<a href="#" class="emotss" draggable="false" title="<?php echo htmlspecialchars($buzzyemot_sign, ENT_QUOTES);?>"><img draggable="false" 
+	src="<?php echo $link_prefix;?>img/<?php echo $buzzyemot_title;?>" style="width:30px!important; opacity:<?php echo $opacitynnn;?>; margin-left:5px!important; margin-bottom:15px!important;"></i></a>
+	<?php } ?>
+</div>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="clearfix"></div>
+<div style="padding:20px!important; padding-top:0px!important;">
+<form action='<?php echo $link_prefix?>sendmsg.php' class="myform" method='post' style="width:100%;"  id='myform' >
+<div id="regularsub" class=""> 
+<div style="width:calc(100% - 200px); float:left;margin-top:8px;">
+<input type="hidden" class="hidmsg" id="hidmsg<?php echo $f_buzzyuser_id;?>"  value="<?php echo $f_buzzyuser_id;?>" name="receiver" />
+<input class="form-control type-a-message-box" placeholder="Type your message here..." autocomplete="off" style="font-size:12px!important;" name="message" id="message" aria-label="Text input with multiple buttons"> 
+
+</div>
+<div style="width:200px; float:left; margin-top:12px;">
+<i class="fa fa-paper-plane" id='insert' style="color:#<?php echo $final_style_color; ?>!important; margin-top:4px; font-size:19px; cursor:pointer; float:right!important; margin-right:0px!important;" aria-hidden="true"></i> 
+<a href="#ae" id="smileybtn" class="" style="color:#<?php echo $final_style_color; ?>!important; float:right; margin-top:-3px; margin-right:10px; font-size:21px;"><i class="fa fa-smile-o" aria-hidden="true"></i></a>
+
+</div>
+<script type="text/javascript"> 
+$( "#trollbtn" ).click(function() {
+	  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();     
+  $( "#emotem" ).hide();
+  $( "#foodico" ).hide();  
+    $( "#foodicon" ).hide(); 
+  $( "#carico" ).hide();   
+     $( "#photoico" ).hide();  
+   $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();	 
+     $( "#trollico" ).show();  
+  $( "#trollicon" ).show();	 
+	       $( "#yousub" ).hide(); 
+});
+$( "#smileybtn" ).click(function() {
+  $( "#linksub" ).hide();
+  $( "#emotem" ).show();  
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#emotico" ).toggle();
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();  
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();   
+  $( "#foodico" ).hide();  
+  $( "#foodicon" ).hide();   
+  $( "#carico" ).hide();  
+   $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();  
+      $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	  
+     $( "#photoico" ).hide(); 
+      $( "#yousub" ).hide(); 	 
+});
+$( "#smibtn" ).click(function() {
+  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#emotem" ).show();
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();  
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();   
+  $( "#foodico" ).hide();  
+  $( "#foodicon" ).hide();   
+  $( "#carico" ).hide();  
+   $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();  
+     $( "#photoico" ).hide(); 
+      $( "#yousub" ).hide(); 
+      $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	 	  
+});
+$( "#animbtn" ).click(function() {
+	  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#animotico" ).show();
+  $( "#animoticon" ).show();
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();     
+  $( "#emotem" ).hide();
+  $( "#foodico" ).hide();  
+    $( "#foodicon" ).hide(); 
+  $( "#carico" ).hide();   
+     $( "#photoico" ).hide();
+      $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	 	 
+   $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();	 
+	       $( "#yousub" ).hide(); 
+});
+$( "#foodbtn" ).click(function() {
+  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#foodico" ).show();
+  $( "#foodicon" ).show();   
+  $( "#emotem" ).hide();
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();  
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();     
+  $( "#carico" ).hide(); 
+   $( "#photoico" ).hide();
+   $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();   
+      $( "#yousub" ).hide(); 
+      $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	 	  
+});
+$( "#carbtn" ).click(function() {
+	  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#carico" ).toggle('fast');
+  $( "#emotem" ).hide();
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();  
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();     
+  $( "#foodico" ).hide(); 
+   $( "#foodicon" ).hide();  
+   $( "#photoico" ).hide(); 
+    $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();  
+      $( "#yousub" ).hide(); 
+      $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	 	  
+});
+$( "#stickbtn" ).click(function() {
+	  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#carico" ).hide();
+  $( "#emotem" ).hide();
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();  
+  $( "#stickico" ).show();
+  $( "#stickicon" ).show();     
+  $( "#foodico" ).hide(); 
+   $( "#foodicon" ).hide();  
+   $( "#photoico" ).hide(); 
+   $( "#coolico" ).hide();  
+  $( "#coolicon" ).hide();   
+      $( "#yousub" ).hide(); 
+      $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	 	  
+});
+$( "#coolbtn" ).click(function() {
+  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+  $( "#animotico" ).hide();
+  $( "#animoticon" ).hide();
+  $( "#stickico" ).hide();
+  $( "#stickicon" ).hide();     
+  $( "#emotem" ).hide();
+  $( "#foodico" ).hide();  
+  $( "#foodicon" ).hide(); 
+  $( "#carico" ).hide();   
+  $( "#photoico" ).hide();  
+  $( "#coolico" ).show();  
+  $( "#coolicon" ).show();	 
+  $( "#yousub" ).hide(); 
+        $( "#trollico" ).hide();  
+  $( "#trollicon" ).hide();	 
+});
+$( "#photobtn" ).click(function() {
+  $( "#photosub" ).show();
+  $( "#regularsub" ).hide();
+  $( "#linksub" ).hide(); 
+      $( "#yousub" ).hide(); 
+})
+$( "#youbtn" ).click(function() {
+  $( "#photosub" ).hide();
+  $( "#regularsub" ).hide();
+  $( "#linksub" ).hide(); 
+    $( "#yousub" ).show(); 
+})
+$( "#writebtn" ).click(function() {
+  $( "#linksub" ).hide();
+  $( "#regularsub" ).show();
+  $( "#photosub" ).hide();   
+       $( "#yousub" ).hide();  
+})
+</script>
+</div>
+</div>
+<script type="text/javascript">
+$('#myform').submit(function(){
+	return false;
+});
+$('#insert').click(function(){
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myform').attr('action'),
+ $('#myform :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myform").reset();
+  $( "#emotico" ).hide();
+  $( "#animotico" ).hide();
+  $( "#foodico" ).hide();  
+  $( "#carico" ).hide();   
+  $( "#photoico" ).hide();  
+  $( "#stickico" ).hide();  
+  $('.message-contsmall').animate({scrollTop: $('.message-contsmall').prop("scrollHeight")}, 1000);  
+ }				  			   
+ );
+});
+$('#message').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myform').attr('action'),
+ $('#myform :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myform").reset();
+  $( "#emotico" ).hide();
+  $( "#animotico" ).hide();
+  $( "#foodico" ).hide();  
+  $( "#carico" ).hide();   
+  $( "#photoico" ).hide(); 
+  $('.message-contsmall').animate({scrollTop: $('.message-contsmall').prop("scrollHeight")}, 1000);    
+ }				  			   
+ );
+  }
+})
+ </script>
+ 
+ <script>
+$('a.emotss').click(function(){
+    var smiley = $(this).attr('title');
+    $('.type-a-message-box').val($('.type-a-message-box').val()+" "+smiley+" ");
+});
+</script>
+</form>
+
+<form action='<?php echo $link_prefix?>sendyou.php' class="myformyou" method='post' style="width:100%;"  id='myformyou' >
+<div id="yousub" style="display:none;" class="input-group"> 
+<input type="hidden" class="hidmsg" id="hidmsg<?php echo $f_buzzyuser_id;?>"  value="<?php echo $f_buzzyuser_id;?>" name="receiver" />
+<input class="form-control" placeholder="<?php echo $past_you_vid_here;?>" style="font-size:12px!important;" name="message" id="messagefour" aria-label=""> 
+<div class="input-group-btn"> 
+<button type="button" id='insertfour' name="<?php echo $f_buzzyuser_id;?>" class="btn btn-primary" style="border:1px solid #<?php echo $final_style_color;?>;" >
+<i class="fa fa-paper-plane" aria-hidden="true"></i> <?php echo $past_you_vid;?></button> </div> </div>
+<script type="text/javascript">
+$('#myformyou').submit(function(){
+	return false;
+});
+$('#insertfour').click(function(){
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myformyou').attr('action'),
+ $('#myformyou :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myformyou").reset();
+   $( "#yousub" ).hide();
+  $( "#regularsub" ).show();
+ }				  			   
+ );
+});
+
+$('#messagefour').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myformyou').attr('action'),
+ $('#myformyou :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myformyou").reset();
+   $( "#yousub" ).hide();
+  $( "#regularsub" ).show();
+ }					  			   
+ );
+  }
+})
+ </script>
+</form>
+
+<form action='<?php echo $link_prefix?>sendimg.php' class="myformimg" method='post' style="width:100%;"  id='myformimg' >
+<div id="photosub" style="display:none;" class="input-group"> 
+<input type="hidden" class="hidmsg" id="hidmsg<?php echo $f_buzzyuser_id;?>"  value="<?php echo $f_buzzyuser_id;?>" name="receiver" />
+<input class="form-control" placeholder="<?php echo $paste_image_here;?>" style="font-size:12px!important;" name="message" id="messagetwo" aria-label=""> 
+<div class="input-group-btn"> 
+<button type="button" id='inserttwo' name="<?php echo $f_buzzyuser_id;?>" class="btn btn-primary" style="border:1px solid #<?php echo $final_style_color;?>;" >
+<i class="fa fa-paper-plane" aria-hidden="true"></i> <?php echo $paste_image;?></button> </div> </div>
+
+<script type="text/javascript">
+$('#myformimg').submit(function(){
+	return false;
+});
+$('#inserttwo').click(function(){
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myformimg').attr('action'),
+ $('#myformimg :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myformimg").reset();
+   $( "#photosub" ).hide();
+  $( "#regularsub" ).show();
+ }				  			   
+ );
+});
+
+$('#messagetwo').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myformimg').attr('action'),
+ $('#myformimg :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myformimg").reset();
+   $( "#photosub" ).hide();
+  $( "#regularsub" ).show();
+ }				  			   
+ );
+  }
+})
+ </script>
+ 
+</form>
+
+<form action='<?php echo $link_prefix?>sendlink.php' class="myformlink" method='post' style="width:100%;"  id='myformlink' >
+<div id="linksub" style="display:none;" class="input-group"> 
+<input type="hidden" class="hidmsg" id="hidmsg<?php echo $f_buzzyuser_id;?>"  value="<?php echo $f_buzzyuser_id;?>" name="receiver" />
+<input class="form-control" placeholder="<?php echo $past_lnk_here;?>" style="font-size:12px!important;" name="message" id="messagethree" aria-label=""> 
+<div class="input-group-btn"> 
+<button type="button" id='insertthree' name="<?php echo $f_buzzyuser_id;?>" class="btn btn-primary" style="border:1px solid #<?php echo $final_style_color;?>;" >
+<i class="fa fa-paper-plane" aria-hidden="true"></i> <?php echo $paste_link;?></button> </div> </div>
+
+<script type="text/javascript">
+$('#myformlink').submit(function(){
+	return false;
+});
+$('#insertthree').click(function(){
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myformlink').attr('action'),
+ $('#myformlink :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myformlink").reset();
+   $( "#photosub" ).hide();
+  $( "#regularsub" ).show();
+   $( "#linksub" ).hide(); 
+ }				  			   
+ );
+});
+
+$('#messagethree').keypress(function (e) {
+ var key = e.which;
+ if(key == 13)  // the enter key code
+  {
+ var uid = $('.hidmsg').attr('value');		
+ $.post( 
+ $('#myformlink').attr('action'),
+ $('#myformlink :input').serializeArray(),
+ function(result){
+  $('#mmmmm' + uid).load(document.URL +  ' #mmmmm' + uid);		 
+ document.getElementById("myformlink").reset();
+   $( "#photosub" ).hide();
+  $( "#regularsub" ).show();
+   $( "#linksub" ).hide();   
+ }				  			   
+ );
+  }
+})
+ </script>
+ 
+</form>
+<br>
+</div>
+</div>

@@ -1,0 +1,27 @@
+<nav style="margin-left:15px!important;" >
+  <ul class="pagination">
+    <li class="<?php echo $prev_page_enbl;?>">
+      <a style="<?php echo $prev_link_class;?>" href="<?php echo $final_basic_quest;?><?php echo $final_quest;?>page=<?php echo $prev_page;?><?php echo $prev_page_suffix;?>"  aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+
+  <?php
+	for ( $i = 1; $i < $total_pages+1;){
+	$page_number=$i++;
+	if ($page==$page_number){
+	$active='active';
+	}
+	else if($page!=$page_number){
+	$active='';	
+	}
+  ?> 
+  <li class="<?php echo $active;?>"><a  href="<?php echo $final_basic_quest;?><?php echo $final_quest;?>&page=<?php echo $page_number;?>"><?php echo $page_number;?></a></li>
+  <?php } ?>
+    <li class="<?php echo $next_page_enbl;?>">
+      <a style="<?php echo $next_link_class;?>" href="<?php echo $final_basic_quest;?><?php echo $final_quest;?>&page=<?php echo $next_page;?><?php echo $next_page_suffix;?>"  aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -1,0 +1,210 @@
+<?php
+if ($_SESSION["buzzyadmin_id"]==1){ 
+if (isset($_POST['update_css_options'])) {
+        $OK = false;	
+		$buzzycss_loader=$_POST['buzzycss_loader'];
+		$buzzycss_color_css=$_POST['buzzycss_color_css'];
+		$buzzycss_color_css1=$_POST['buzzycss_color_css1'];	
+		$buzzycss_color_css2=$_POST['buzzycss_color_css2'];	
+		$buzzycss_color_css3=$_POST['buzzycss_color_css3'];	
+		$buzzycss_color_css4=$_POST['buzzycss_color_css4'];	
+		$buzzycss_color_css5=$_POST['buzzycss_color_css5'];			
+        $buzzycss_width=$_POST['buzzycss_width'];
+		$buzzycss_btnradius=$_POST['buzzycss_btnradius'];								
+		if (!isset($_POST['buzzycss_headings_font_family'])){		
+		$buzzycss_headings_font_family='roboto';
+		}
+		else {
+		$buzzycss_headings_font_family=$_POST['buzzycss_headings_font_family'];
+        }	
+		if (!isset($_POST['buzzycss_body_font_family'])){	
+		$buzzycss_body_font_family='arial';
+		}
+		else {
+		$buzzycss_body_font_family=$_POST['buzzycss_body_font_family'];
+        }		
+        $update_website_cssoptions_query = "UPDATE buzzycss SET buzzycss_color_css=:buzzycss_color_css,buzzycss_color_css1=:buzzycss_color_css1,buzzycss_color_css2=:buzzycss_color_css2,buzzycss_color_css3=:buzzycss_color_css3,
+		buzzycss_color_css4=:buzzycss_color_css4,buzzycss_color_css5=:buzzycss_color_css5,buzzycss_width=:buzzycss_width,buzzycss_headings_font_family=:buzzycss_headings_font_family,
+		buzzycss_body_font_family=:buzzycss_body_font_family,buzzycss_loader=:buzzycss_loader,buzzycss_btnradius=:buzzycss_btnradius  WHERE buzzycss_id=1";
+        $stmt = $connwrite->prepare($update_website_cssoptions_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzycss_color_css', $buzzycss_color_css, PDO::PARAM_STR);
+		$stmt->bindParam(':buzzycss_color_css1', $buzzycss_color_css1, PDO::PARAM_STR);
+		$stmt->bindParam(':buzzycss_color_css2', $buzzycss_color_css2, PDO::PARAM_STR);	
+		$stmt->bindParam(':buzzycss_color_css3', $buzzycss_color_css3, PDO::PARAM_STR);	
+		$stmt->bindParam(':buzzycss_color_css4', $buzzycss_color_css4, PDO::PARAM_STR);	
+		$stmt->bindParam(':buzzycss_color_css5', $buzzycss_color_css5, PDO::PARAM_STR);			
+		$stmt->bindParam(':buzzycss_width', $buzzycss_width, PDO::PARAM_STR);		
+		$stmt->bindParam(':buzzycss_headings_font_family', $buzzycss_headings_font_family, PDO::PARAM_STR);	
+		$stmt->bindParam(':buzzycss_body_font_family', $buzzycss_body_font_family, PDO::PARAM_STR);	
+		$stmt->bindParam(':buzzycss_loader', $buzzycss_loader, PDO::PARAM_STR);	
+		$stmt->bindParam(':buzzycss_btnradius', $buzzycss_btnradius, PDO::PARAM_STR);			
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+	     header('Location: index.php?add-settings-success=true');
+		}
+     }
+	 
+	  if ($_SESSION["buzzyadmin_id"]==2){ 
+      if (isset($_POST['update_css_options'])) {
+	    header('Location:index.php?onlydemo=true');	   
+      }
+	  }
+?>
+<div id="css-fixed-option" style="display:none;">
+<div style="margin:20px;"> 
+<form action="#" method="POST"> 
+	<?php if($buzzy_theme==0){
+    ?>
+    <br><br>
+    <?php } ?>	
+	<h3>Website layout color </h3>			
+	<input id="chosen-value3" style="color:#ffffff!important;" class="form-control jscolor" name="buzzycssmain_bg" value="<?php echo $buzzycssmain_bg;?>">
+	<script>
+
+	</script>
+	<h3>Main color </h3>			
+	<input id="chosen-value" style="color:#ffffff!important;" onchange="updatecolorone(this.jscolor)"  class="form-control jscolor" name="buzzycss_color_css" value="<?php echo $buzzycss_color_css;?>">
+	<script>
+    function updatecolorone(jscolor) {
+	<?php if($buzzy_theme==0){
+    ?>
+    $('<style>.btn-primary,.btn-follow {background:#'+jscolor+'!important;} #header{background:#'+jscolor+'!important;}</style>').appendTo('head');	
+	<?php } ?>
+	}
+	</script>
+	<h3>Second color (hover color)</h3>	
+	<input id="chosen-value1" style="color:#ffffff!important;" onchange="updatecolortwo(this.jscolor)" class="form-control jscolor" name="buzzycss_color_css1" value="<?php echo $buzzycss_color_css1;?>">
+	<script>
+   function updatecolortwo(jscolor) {
+	<?php if($buzzy_theme==0){
+    ?>
+    $('<style>.btn-primary:hover{background:#'+jscolor+'!important;}.btn-follow:hover{background:#'+jscolor+'!important;}</style>').appendTo('head');	
+	<?php } ?>
+	}
+	</script>
+	<h3>Third color (border color)</h3>	
+	<input id="chosen-value2" style="color:#ffffff!important;" class="form-control jscolor {valueElement:'chosen-value2', onFineChange:'setTextColor2(this)'}" name="buzzycss_color_css2" value="<?php echo $buzzycss_color_css2;?>">
+	<script>
+	function setTextColor2(picker) {
+
+	}
+	</script>
+	<h3>Fourth color </h3>	
+	<input id="chosen-value7" style="color:#ffffff!important;" class="form-control jscolor {valueElement:'chosen-value7', onFineChange:'setTextColor7(this)'}"
+	name="buzzycss_color_css3" value="<?php echo $buzzycss_color_css3;?>">
+	<script>
+	function setTextColor7(picker) {
+
+	}
+	</script>	
+	
+   <h3>Badoo theme color </h3>	
+	<input id="chosen-value8" style="color:#ffffff!important;"  onchange="updatebcolorone(this.jscolor)" class="form-control jscolor"
+	name="buzzycss_color_css4" value="<?php echo $buzzycss_color_css4;?>">
+	<script>
+    function updatebcolorone(jscolor) {
+	<?php if($buzzy_theme==2){
+    ?>
+    $('<style>.btn-primary,.btn-follow {background:#'+jscolor+'!important;}</style>').appendTo('head');	
+	<?php } ?>
+	}
+	</script>	
+
+  <h3>Badoo theme second color </h3>	
+	<input id="chosen-value9" style="color:#ffffff!important;" onchange="updatebcolortwo(this.jscolor)" class="form-control jscolor"
+	name="buzzycss_color_css5" value="<?php echo $buzzycss_color_css5;?>">
+	<script>
+   function updatebcolortwo(jscolor) {
+	<?php if($buzzy_theme==2){
+    ?>
+    $('<style>.btn-primary:hover{background:#'+jscolor+'!important;}.btn-follow:hover{background:#'+jscolor+'!important;}</style>').appendTo('head');	
+	<?php } ?>
+	}
+	</script>
+	
+	<h3>Headings fonts </h3>	
+	<input  class="form-control" id="header_font" name="buzzycss_headings_font_family" value="<?php echo $buzzycss_headings_font_family;?>">
+	<script>
+   var headerFont = document.getElementById('header_font');
+   headerFont.onkeyup = function(){	
+    $('<link href="https://fonts.googleapis.com/css?family='+headerFont.value+':400,700" rel="stylesheet">').appendTo('head');	
+    $('<style>#nav ul li a{font-family: '+headerFont.value+'!important;} h1,h2,h3,h4,h5,h6{font-family: '+headerFont.value+'!important;}  #mobile-nav-link ul li a {font-family: '+headerFont.value+'!important;}</style>').appendTo('head');
+	}
+   headerFont.onkeydown = function(){	
+    $('<link href="https://fonts.googleapis.com/css?family='+headerFont.value+':400,700" rel="stylesheet">').appendTo('head');	
+     $('<style>#nav ul li a{font-family: '+headerFont.value+'!important;} h1,h2,h3,h4,h5,h6{font-family: '+headerFont.value+'!important;}  #mobile-nav-link ul li a {font-family: '+headerFont.value+'!important;}</style>').appendTo('head');
+	}	 
+   $("#header_font").bind("paste", function(e){
+    // access the clipboard using the api
+    $('<link href="https://fonts.googleapis.com/css?family='+headerFont.value+':400,700" rel="stylesheet">').appendTo('head');	
+     $('<style>#nav ul li a{font-family: '+headerFont.value+'!important;} h1,h2,h3,h4,h5,h6{font-family: '+headerFont.value+'!important;}  #mobile-nav-link ul li a {font-family: '+headerFont.value+'!important;}</style>').appendTo('head');
+	});  
+	</script>	
+	<h3>Body fonts </h3>	
+	<input  class="form-control"  id="body_font" name="buzzycss_body_font_family" value="<?php echo $buzzycss_body_font_family;?>">			
+	<script>
+   var bodyFont = document.getElementById('body_font');
+   bodyFont.onkeyup = function(){	
+   $('<style>body{font-family: '+bodyFont.value+'!important;}</style>').appendTo('head'); 
+	}
+   bodyFont.onkeydown = function(){	
+    $('<style>body{font-family: '+bodyFont.value+'!important;}</style>').appendTo('head');   
+	}	 
+   $("#body_font").bind("paste", function(e){
+    // access the clipboard using the api
+    $('<style>body{font-family: '+bodyFont.value+'!important;}</style>').appendTo('head');  
+	});  
+	</script>
+	<h3>Wrapper width</h3>									
+                <input type="number" class="form-control"  id="css_widtha" name="buzzycss_width" required value="<?php echo $buzzycss_width;?>"  min="720" max="1440" >	
+	<?php
+	if(2>5){
+	?>
+	<script>
+   var cssWidtha = document.getElementById('css_widtha');
+   cssWidtha.onkeyup = function(){	
+   $('<style>#wrapper{max-width:'+cssWidtha.value+'px!important;}</style>').appendTo('head'); 
+	}
+    cssWidtha.onkeydown = function(){	
+    $('<style>#wrapper{max-width:'+cssWidtha.value+'px!important;}</style>').appendTo('head');   
+	}	 
+   $("#css_widtha").bind("paste", function(e){
+    // access the clipboard using the api
+    $('<style>#wrapper{max-width:'+cssWidtha.value+'px!important;}</style>').appendTo('head');  
+	});  
+	</script>
+   <?php } ?>	
+  <h3>Button radius width</h3>									
+                <input type="number" class="form-control"  id="css_radius" name="buzzycss_btnradius" required value="<?php echo $buzzycss_btnradius;?>"  min="0" max="30" >	
+
+	<script>
+   var css_radius = document.getElementById('css_radius');
+   css_radius.onkeyup = function(){	
+   $('<style>.buttontr { color: #fff !important; -webkit-border-radius: '+css_radius.value+'px; -moz-border-radius: '+css_radius.value+'px; border-radius:'+css_radius.value+'px;</style>').appendTo('head'); 
+	}
+    css_radius.onkeydown = function(){	
+    $('<style>.buttontr { color: #fff !important; -webkit-border-radius: '+css_radius.value+'px; -moz-border-radius: '+css_radius.value+'px; border-radius:'+css_radius.value+'px;</style>').appendTo('head');   
+	}	 
+   $("#css_radius").bind("paste", function(e){
+    // access the clipboard using the api
+    $('<style>.buttontr { color: #fff !important; -webkit-border-radius: '+css_radius.value+'px; -moz-border-radius: '+css_radius.value+'px; border-radius:'+css_radius.value+'px;</style>').appendTo('head');  
+	});  
+	</script>
+ 
+   
+<br>				
+					<button type="submit" name="update_css_options" class="btn btn-success">Submit CSS 3 options</button>
+                </form>
+                <br>
+</div>
+</div>
+<script>
+     $("#cssclick").click(function(e) {
+     e.preventDefault();
+     $("#css-fixed-option").toggle();
+	 $("#seo-fixed-option").hide();
+     $("#theme-fixed-option").hide();	 
+   });
+</script>

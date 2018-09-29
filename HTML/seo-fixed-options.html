@@ -1,0 +1,235 @@
+<?php
+?>
+<div id="seo-fixed-option" style="display:none;">
+<div style="margin:20px;"> 
+	<?php if($buzzy_theme==0){
+    ?>
+    <br><br>
+    <?php } ?>	
+			    <?php
+  if ($_SESSION["buzzyadmin_id"]==1){   
+   if (isset($_POST['update_website_options'])) {
+        if (isset($_POST['buzzytimezone'])) {
+		$buzzytimezone=$_POST['buzzytimezone'];
+		}
+	    else if (!isset($_POST['buzzytimezone'])) {
+		$buzzytimezone=$rowbuzzytimezone;
+		}
+		
+		if (isset($_POST['buzzynewslimit'])) {
+		$buzzynewslimit=$_POST['buzzynewslimit'];
+		}
+	    else if (!isset($_POST['buzzynewslimit'])) {
+		$buzzynewslimit=$rowbuzzynewslimit;
+		}
+		
+        if (isset($_POST['buzzygrideffect'])) {
+		$buzzygrideffect=$_POST['buzzygrideffect'];
+		}
+	    else if (!isset($_POST['buzzygrideffect'])) {
+		$buzzygrideffect='2';
+		}
+		if (isset($_POST['buzzycolumns'])) {
+		$buzzycolumns=$_POST['buzzycolumns'];
+		}
+		else if (!isset($_POST['buzzycolumns'])) {
+		$buzzycolumns='three-columns';
+		}
+		if (isset($_POST['buzzyanimationspeed'])) {
+		$buzzyanimationspeed=$_POST['buzzyanimationspeed'];
+		}
+		else if (!isset($_POST['buzzyanimationspeed'])) {
+		$buzzyanimationspeed='normal';
+		}
+		if (isset($_POST['buzzyoptimizedstatus'])) {
+		$buzzyoptimizedstatus=$_POST['buzzyoptimizedstatus'];
+		}
+		else if (!isset($_POST['buzzyoptimizedstatus'])) {
+		$buzzyoptimizedstatus=0;
+		}
+        $OK = false;
+        $update_website_options_query = "UPDATE buzzysiteoptions SET buzzytitletag=:buzzytitletag,
+		buzzymetatag=:buzzymetatag,buzzyoptimizedstatus=:buzzyoptimizedstatus,
+		buzzy_gzip=:buzzy_gzip WHERE buzzysiteoptions_id=1";
+        $stmt = $connwrite->prepare($update_website_options_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzytitletag', $_POST['buzzytitletag'], PDO::PARAM_STR);
+		$stmt->bindParam(':buzzymetatag', $_POST['buzzymetatag'], PDO::PARAM_STR);
+	    $stmt->bindParam(':buzzyoptimizedstatus', $buzzyoptimizedstatus, PDO::PARAM_STR);			
+	    $stmt->bindParam(':buzzy_gzip', $_POST['buzzy_gzip'], PDO::PARAM_STR);			
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+	  	header('Location: index.php?add-settings-success=true');	
+		}
+   }
+      if ($_SESSION["buzzyadmin_id"]==2){
+	if (isset($_POST['update_website_options'])) {
+  	header('Location: index.php?onlydemo=true');
+     }      
+	  }				
+                foreach ($connread->query($website_options_query) as $row) {
+				$buzzysitename=$row['buzzysitename'];
+				$buzzysiteurl=$row['buzzysiteurl'];
+				$buzzytitletag=$row['buzzytitletag'];
+				$buzzymetatag=$row['buzzymetatag'];
+				$buzzyads=$row['buzzyads'];
+				$buzzyemail=$row['buzzyemail'];
+                $buzzygrideffect=$row['buzzygrideffect'];
+				$buzzyfacebookid=$row['buzzyfacebookid'];			
+				$buzzyprivacy=$row['buzzyprivacy'];
+				$buzzyterms=$row['buzzyterms'];		
+                $buzzynewslimit=$row['buzzynewslimit'];		
+                $buzzydistance_mesaure=$row['buzzydistance_mesaure'];				
+                $buzzyoptimizedstatus=$row['buzzyoptimizedstatus'];		
+                $buzzytimezone=$row['buzzytimezone'];
+                $buzzycolumns=$row['buzzycolumns'];	
+                $buzzyanimationspeed=$row['buzzyanimationspeed'];	
+                $buzzywebsite_status=$row['buzzywebsite_status'];	
+				$buzzydistance_mesaure=$row['buzzydistance_mesaure'];
+				$buzzysitemeasure=$row['buzzysitemeasure'];				
+				$buzzymax_pages=$row['buzzymax_pages'];
+			    $buzzyuserimage_status=$row['buzzyuserimage_status'];
+                $buzzylanguage_status=$row['buzzylanguage_status'];
+                $buzzy_gzip=$row['buzzy_gzip'];
+			    if ($buzzy_gzip==0){
+                $selectedgz1='selected';
+                $selectedgz2='';				
+                }	
+			    else if ($buzzy_gzip==1){
+                $selectedgz1='';					
+                $selectedgz2='selected';
+                }					
+				
+				if ($buzzylanguage_status==0){
+                $selectedlgg1='selected';
+                $selectedlgg2='';				
+                }	
+			    else if ($buzzylanguage_status==1){
+                $selectedlgg1='';
+                $selectedlgg2='selected';				
+                }				
+				
+				if ($buzzyuserimage_status==0){
+                $selectedupup1='selected';
+                $selectedupup2='';				
+                }	
+			    else if ($buzzyuserimage_status==1){
+                $selectedupup1='';
+                $selectedupup2='selected';				
+                }
+				
+				if ($buzzywebsite_status==0){
+                $selectedliv1='selected';
+                $selectedliv2='';				
+                }	
+			    else if ($buzzywebsite_status==1){
+                $selectedliv1='';
+                $selectedliv2='selected';				
+                }
+	
+			    if ($buzzydistance_mesaure==0){
+                $selectedmes1='selected';
+                $selectedmes2='';				
+                }	
+			    else if ($buzzydistance_mesaure==1){
+                $selectedmes1='';
+                $selectedmes2='selected';					
+                }
+	
+			    if ($buzzysitemeasure==0){
+                $selectedmec1='selected';
+                $selectedmec2='';				
+                }	
+			    else if ($buzzysitemeasure==1){
+                $selectedmec1='';
+                $selectedmec2='selected';					
+                }	
+	
+	
+	
+	
+	
+
+			    if ($buzzyanimationspeed=='slow'){
+                $selected1a='selected';
+				$selected2a='';
+				$selected3a='';			
+                }	
+			    else if ($buzzyanimationspeed=='normal'){
+				$selected1a='';		
+                $selected2a='selected';
+				$selected3a='';	
+                }
+			    else if ($buzzyanimationspeed=='fast'){
+				$selected1a='';						
+                $selected3a='selected';
+                $selected2a='';	
+                }				
+			    if ($buzzyoptimizedstatus==0){
+                $checkedseo='';
+                }
+				else if ($buzzyoptimizedstatus==1){
+                $checkedseo='checked';
+                }
+				
+                if ($buzzynewslimit==25){
+                $checked25='active';
+                }	
+                else if ($buzzynewslimit!=25){
+                $checked25='';
+                }	
+                if ($buzzynewslimit==50){
+                $checked50='active';
+                }	
+                else if ($buzzynewslimit!=50){
+                $checked50='';
+                }	
+                if ($buzzynewslimit==75){
+                $checked75='active';
+                }	
+                else if ($buzzynewslimit!=75){
+                $checked75='';
+                }	
+                if ($buzzynewslimit==100){
+                $checked100='active';           
+			    }	
+                else if ($buzzynewslimit!=100){
+                $checked100='';
+                }				
+		        ?>
+                <form action="" method="POST"> 
+			  <h3>Website title tag</h3>
+				<input type="text" class="form-control" name="buzzytitletag" required value=" <?php echo $buzzytitletag; ?>" >			
+				<h3>Website meta tag</h3>
+				<input type="text" name="buzzymetatag"  class="form-control"  required value="<?php echo $buzzymetatag ;?>" >
+				<h3>GZIP your  files</h3>
+				<select style="font-size:13px!important;" class="form-control" name="buzzy_gzip" required >
+     					<option <?php echo $selectedgz1;?> value="0">
+					    Basic files
+						</option>	
+                       <option <?php echo $selectedgz2;?> value="1">
+                        G-ziped files
+						</option>							
+                 </select>
+				 <br>
+				<div class="checkbox">
+                <label style="color:#fff!important; font-size:12px;">
+                <input type="checkbox" name="buzzyoptimizedstatus" value="1" <?php echo $checkedseo; ?> > Make urls SEO optimized
+                </label>
+                </div>					 
+				<?php }	?>
+				<br>
+					<button type="submit" name="update_website_options" class="btn btn-success">Submit website options</button>
+                </form>
+                <br>	
+</div>
+</div>
+<script>
+     $("#seoclick").click(function(e) {
+     e.preventDefault();
+     $("#seo-fixed-option").toggle();
+	 $("#css-fixed-option").hide();
+     $("#theme-fixed-option").hide();	 
+   });
+</script>

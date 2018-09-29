@@ -1,0 +1,16 @@
+@import url(http://fonts.googleapis.com/css?family=Signika:600);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Signika'!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Signika'!important;
+}
+.user-tag{
+     font-family: 'Signika'!important;
+}
+#nav ul li a{
+     font-family: 'Signika'!important;
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Signika'!important;
+}

@@ -1,0 +1,55 @@
+   <div class="content">
+    <div class="full-column">
+	<div class="container">
+
+	 <h5>
+   Visit in last seven days
+   </h5>
+			<div style="width:100%">
+			<div>
+				<canvas id="canvas2"></canvas>
+			</div>
+		</div>
+
+
+	<script>
+		var randomScalingFactor = function(){ return Math.round(Math.random()*100)};
+		var lineChartData = {
+			labels : ["<?php echo $day7daysago; ?>.<?php echo $months7daysago; ?>","<?php echo $day6daysago; ?>.<?php echo $months6daysago; ?>","<?php echo $day5daysago; ?>.<?php echo $months5daysago; ?>","<?php echo $day4daysago; ?>.<?php echo $months4daysago; ?>","<?php echo $day3daysago; ?>.<?php echo $months3daysago; ?>","<?php echo $day2daysago; ?>.<?php echo $months2daysago; ?>","<?php echo $day1daysago; ?>.<?php echo $months1daysago; ?>","<?php echo $day0daysago; ?>.<?php echo $months0daysago; ?>"],
+			datasets : [
+				{
+					label: "My First dataset",
+					fillColor : "rgba(194,62,227,0.2)",
+					strokeColor : "rgba(194,62,227,0.5)",
+					pointColor : "rgba(194,62,227,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(194,62,227,1)",
+					data : [<?php echo $count7daysago;?>,<?php echo $count6daysago;?>,<?php echo $count5daysago;?>,<?php echo $count4daysago;?>,<?php echo $count3daysago;?>,<?php echo $count2daysago;?>,<?php echo $count1daysago;?>,<?php echo $counttoday;?>]
+				},
+				{
+					label: "My Second dataset",
+					fillColor : "rgba(61,94,227,0.2)",
+					strokeColor : "rgba(61,94,227,0.5)",
+					pointColor : "rgba(61,94,227,1)",
+					pointStrokeColor : "#fff",
+					pointHighlightFill : "#fff",
+					pointHighlightStroke : "rgba(61,94,227,1)",
+					data : [<?php echo $countunique7daysago;?>,<?php echo $countunique6daysago;?>,<?php echo $countunique5daysago;?>,<?php echo $countunique4daysago;?>,<?php echo $countunique3daysago;?>,<?php echo $countunique2daysago;?>,<?php echo $countunique1daysago;?>,<?php echo $countuniquetoday;?>]
+				}
+			]
+
+		}
+
+
+		var ctx = document.getElementById("canvas2").getContext("2d");
+		window.myLine = new Chart(ctx).Line(lineChartData, {
+			responsive: true
+		});
+
+
+	</script>
+	</div>
+	</div>
+	 <div class="clearfix"></div>
+	 </div>

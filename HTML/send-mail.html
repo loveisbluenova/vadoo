@@ -1,0 +1,28 @@
+    <?php
+	if (isset($_POST['mail-user'])) {
+	?>
+	<div class="alert alert-success" role="alert">
+	<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+    </button>
+	</div>
+	<?php } ?>
+	<h4><?php echo $send_mail_to_user; ?></h4>
+	<?php
+	if ($session_buzzyuser_status!=0) {
+	?>
+			<form action="" method="POST">
+            <textarea name="mail-user" required cols="80" id="editor1" rows="10" style="width: 100%; max-width:480px!important;  padding-left:10px!important; padding-top:10px!important; height:90px;"></textarea>
+            <br><br>
+            <button type="submit" name="send_mail"  class="buttontr btn btn-primary"><?php echo $send_mail; ?></button>
+            </form>
+ <br>	
+			<?php } ?>
+	<?php
+	if ($session_buzzyuser_status==0){
+
+	?>
+		   <div class="alert alert-danger" role="alert">
+	       <span><?php echo $only_activated_users_can_send_msgs; ?></span>
+	       </div>
+		   <?php } ?>

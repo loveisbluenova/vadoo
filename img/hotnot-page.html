@@ -1,0 +1,321 @@
+<style>
+#owl-four16.item{
+  margin: 0px;
+}
+#owl-four16 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+	  #galleria{height:480px}
+	  #likeForm{
+width:64px!important;
+ transition:all 0.3s ease;
+}
+#likeForm:hover{
+width:70px!important;
+}
+
+#closeForm{
+width:64px!important;
+height:64px!important;
+ transition:all 0.3s ease;
+}
+#closeForm:hover{
+width:70px!important;
+}
+</style>
+        <link href="<?php echo $link_prefix;?>bootstrap/css/tQera.Uploader.Bootstrap.css" rel="stylesheet" />
+		<link href="<?php echo $link_prefix;?>bootstrap/css/app.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" rel="stylesheet" />	
+        <link rel="stylesheet" href="<?php echo $link_prefix;?>css/galleria.classic.css">		
+        <script src="<?php echo $link_prefix;?>bootstrap/js/npm.js"></script>
+        <script src="<?php echo $link_prefix;?>js/galleria-1.4.7.min.js"></script>		
+        <script src="<?php echo $link_prefix;?>js/galleria.classic.min.js"></script>			
+<?php
+if (!isset($_SESSION["buzzyuser_id"])) {
+header('Location: '.$link_prefix.'index.php');	   
+}
+ $sf = 3.14159 / 180;
+ $distance=1;	
+if($count_filter!=0){
+$session_allfilter_query = "SELECT * FROM buzzyfilter WHERE buzzyuser_id=$session_user_id";
+foreach ($connread->query($session_allfilter_query) as $row) {
+$buzzyfilter_man=$row['buzzyfilter_man'];
+$buzzyfilter_woman=$row['buzzyfilter_woman'];
+
+if($buzzyfilter_man==1 AND $buzzyfilter_woman==0){
+$genre_text='AND buzzyuser_genre!=1';
+}
+else if ($buzzyfilter_man==0 AND $buzzyfilter_woman==1){
+$genre_text='AND buzzyuser_genre!=0';
+}
+else if ($buzzyfilter_man==1 AND $buzzyfilter_woman==1){
+$genre_text='';
+}
+
+$buzzyuser_data_sexual_orientation=$row['buzzyuser_data_sexual_orientation'];
+$buzzyfilter_minage=$row['buzzyfilter_minage'];
+$buzzyfilter_maxage=$row['buzzyfilter_maxage'];
+$buzzyfilter_radius=$row['buzzyfilter_radius'];
+$basic_count_users_query = "SELECT COUNT(*) FROM buzzyusers  WHERE buzzyuser_id!=$session_user_id 
+AND buzzyuser_age>=$buzzyfilter_minage AND buzzyuser_age<=$buzzyfilter_maxage $genre_text AND buzzyuser_data_sexual_orientation=$buzzyuser_data_sexual_orientation AND 
+(6371*ACOS(SIN(buzzyuser_lat*$sf)*SIN($session_buzzyuser_lat*$sf) + COS(buzzyuser_lat*$sf)*COS($session_buzzyuser_lat*$sf)*COS((buzzyuser_long-$session_buzzyuser_long)*$sf))) BETWEEN 0 AND $buzzyfilter_radius";
+foreach ($connread->query($basic_count_users_query) as $row) {
+$get_total_rows=$row['COUNT(*)'];
+if($get_total_rows==0){
+header('Location:'.$link_prefix.'page.php?no-criteria=true');
+}
+}
+ $random_user_query  = "SELECT buzzyuser_id,buzzyuser_first_name,buzzyuser_last_name,buzzyuser_status,buzzyuser_username,buzzyuser_image,buzzyuser_location,buzzyuser_lat,buzzyuser_long,
+   buzzyuser_cover,buzzyuser_email,buzzyuser_age,buzzyuser_data_sexual_orientation,buzzyuser_birthdate,buzzyuser_password,DATE_FORMAT(buzzyuser_registration_date, '%d/%m/%Y, %H:%i')as formated_registration_date,
+   buzzyuser_aboutme,buzzyuser_onlinestatus,buzzyuser_last_login,(6371*ACOS(SIN(buzzyuser_lat*$sf)*SIN($session_buzzyuser_lat*$sf) + COS(buzzyuser_lat*$sf)*COS($session_buzzyuser_lat*$sf)*COS((buzzyuser_long-$session_buzzyuser_long)*$sf))) AS distance  FROM buzzyusers  WHERE buzzyuser_id!=$session_user_id 
+   AND buzzyuser_age>=$buzzyfilter_minage AND buzzyuser_age<=$buzzyfilter_maxage $genre_text AND buzzyuser_data_sexual_orientation=$buzzyuser_data_sexual_orientation HAVING distance <= $buzzyfilter_radius
+   ORDER BY RAND() LIMIT 1"; 
+}
+}
+ 
+   if ($count_filter==0){
+ $random_user_query = "SELECT buzzyuser_id,buzzyuser_first_name,buzzyuser_last_name,buzzyuser_status,buzzyuser_username,buzzyuser_image,buzzyuser_location,buzzyuser_lat,buzzyuser_long,
+   buzzyuser_cover,buzzyuser_email,buzzyuser_birthdate,buzzyuser_password,DATE_FORMAT(buzzyuser_registration_date, '%d/%m/%Y, %H:%i')as formated_registration_date,
+   buzzyuser_aboutme,buzzyuser_onlinestatus,buzzyuser_last_login FROM buzzyusers WHERE buzzyuser_id!=$session_user_id ORDER BY RAND() LIMIT 1"; 	   
+   }
+   foreach ($connread->query($random_user_query) as $row) {
+   		$randombuzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+            $buzzyuser_last_name=$row['buzzyuser_last_name'];				
+			$buzzyuser_username=$row['buzzyuser_username'];
+			$buzzyuser_email=$row['buzzyuser_email'];
+			$buzzyuser_password=$row['buzzyuser_password'];			
+			$buzzyuser_location=$row['buzzyuser_location'];	
+            $buzzyuser_status=$row['buzzyuser_status'];
+            $buzzyuser_confirmed=$row['buzzyuser_confirmed'];			
+			$buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+            $buzzyuser_last_login=$row['buzzyuser_last_login'];
+			if ($row['buzzyuser_cover']==''){
+			$buzzyuser_cover='profilebg.jpg';
+			}
+			else if ($row['buzzyuser_cover']!=''){
+			$buzzyuser_cover=$row['buzzyuser_cover'];
+			}
+			if ($row['buzzyuser_image']==''){
+			$buzzyuser_image='profile-icon1.jpg';
+			}
+			else if ($row['buzzyuser_image']!=''){
+			$buzzyuser_image=$row['buzzyuser_image'];
+			}
+			if ($row['buzzyuser_birthdate']=='00/00/0000'){
+			$buzzyuser_birthdate='';
+			}
+			else if ($row['buzzyuser_birthdate']!='0000-00-00'){
+			$buzzyuser_birthdate=$row['buzzyuser_birthdate'];
+			}
+			if (strpos($buzzyuser_image,'facebook') !== false) {
+			$finala_image_prefix='';		  
+		    }
+			else if (strpos($buzzyuser_image,'http') !== false) {
+			$finala_image_prefix='';		  
+		    }			
+			else if (strpos($buzzyuser_image,'fbcdn') !== false) {
+			$finala_image_prefix='';		  
+		    }
+		    else if (strpos($buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+			$finala_image_prefix='';		  
+		    }			
+			else {
+			$finala_image_prefix=$link_prefix.'img/';					
+			}
+  //get age from date or birthdate
+$from = new DateTime($buzzyuser_birthdate);
+$to   = new DateTime('today');
+$age =  $from->diff($to)->y;
+		
+			if($buzzyuser_onlinestatus==0){
+			$onofline_img='offline.png';
+			}
+			else if ($buzzyuser_onlinestatus==1){
+			$onofline_img='online.png';			
+			}
+   ?>
+<div id="wrapper">
+    <div class="full-column" style="">
+        <div class="news-wrapper"<?php if($buzzy_theme==2){?>
+    style="background:none!important; border:0px solid #fff; margin-top:0px;
+"
+	<?php } ?> >
+		<div style="margin-left:15px;margin-right:15px;">
+		<br>
+		 <span class="spantitle" style=""><img src="<?php echo $link_prefix;?>img/<?php echo $onofline_img;?>"> <?php echo $buzzyuser_first_name;?>, <?php echo $age;?> 		
+		 <?php if($buzzyuser_confirmed==0){
+		?>
+		<?php } ?>
+		<?php if($buzzyuser_confirmed==1){
+		?>
+		<span class="unconfspan" style="padding:6px!important; margin-left:15px; -webkit-border-radius: 7px 7px 7px 7px;
+    -moz-border-radius: 7px 7px 7px 7px;
+    border-radius: 7px 7px 7px 7px;" ><i class="fa fa-check" aria-hidden="true"></i> <?php echo $your_p_confirmed;?></span>
+		<?php } ?></span>		
+		<br><br>
+		<div class="half-column">
+		
+		<?php 
+        $count_liked_query="SELECT COUNT(*) FROM buzzyuserliked WHERE buzzyuser_id=$session_user_id AND buzzyliked_id=$randombuzzyuser_id";
+        $count_unliked_query="SELECT COUNT(*) FROM buzzyuserunliked WHERE buzzyuser_id=$session_user_id AND buzzyunliked_id=$randombuzzyuser_id";		
+        foreach ($connread->query($count_liked_query) as $row) {
+        $count_liked=$row['COUNT(*)'];
+		}
+        foreach ($connread->query($count_unliked_query) as $row) {
+        $count_unliked=$row['COUNT(*)'];
+		}		
+		?>
+		<?php
+        if($count_liked==0 AND $count_unliked==0){ 		
+		?>
+		<form action="<?php echo $link_prefix;?>likedunliked.php" method="POST">
+		<input type="hidden" name="likedid" value="<?php echo $randombuzzyuser_id;?>" >		  		
+       <div style="width:70px; height:70px; float:left; margin-right:10px!important;">		
+		<input  type="submit" value=""
+data-toggle="tooltip" data-placement="top" title="<?php echo $like_you;?>!"
+		style="float:left; border:none!important; margin-right:10px!important; background:url(<?php echo $link_prefix;?>img/heartbtn2a.png) no-repeat;" name="submit-like" class="btTxt submit" id="closeForm" />
+		</div>
+       <div style="width:70px; height:70px; float:left; margin-right:10px!important;">		
+		<input  type="submit" value=""
+data-toggle="tooltip" data-placement="top" title="<?php echo $dont_like_you;?>!"
+		style="float:left; border:none!important; margin-right:10px!important; background:url(<?php echo $link_prefix;?>img/closebtn2a.png) no-repeat;" name="submit-unlike" class="btTxt submit" id="closeForm" />
+		</div>	
+		
+        </form>
+        <?php } ?>
+		
+		<?php
+        if($count_liked!=0 AND $count_unliked==0){ 		
+		?>
+		<form action="<?php echo $link_prefix;?>page.php?hotnot-id=true" method="POST">
+		<span class="likedspan"><i class="fa fa-heart" aria-hidden="true"></i> <?php echo $you_liked_user;?></span>
+ 		 <button type="submit" name="" class="btn btn-primary buttontr"  autocomplete="off">
+         <?php echo $next_user;?>
+        </button>          
+        </form>
+        <?php } ?>
+		
+		<?php
+        if($count_liked==0 AND $count_unliked!=0){ 		
+		?>
+		<form action="<?php echo $link_prefix;?>page.php?hotnot-id=true" method="POST">
+		<span class="unlikedspan"><i class="fa fa-times" aria-hidden="true"></i> <?php echo $you_unliked_user;?></span>
+ 		 <button type="submit" name="" class="btn btn-primary buttontr"  autocomplete="off">
+         <?php echo $next_user;?>
+        </button>          
+        </form>
+        <?php } ?>
+		</div>
+		<div class="clearfix"></div>
+		<br/>
+<?php
+  $random_images_query="SELECT * FROM buzzyuserimages WHERE buzzyuser_id=$randombuzzyuser_id LIMIT 20";
+  foreach ($connread->query($random_images_query) as $row) { 
+  $buzzyuserimage_id=$row['buzzyuserimage_id'];  
+  $buzzyuserimage=$row['buzzyuserimage'];
+
+  if (strpos($buzzyuserimage,'facebook') !== false 
+  OR strpos($buzzyuserimage,'fbcdn') !== false OR strpos($buzzyuserimage,'http') !== false 
+  OR strpos($buzzyuserimage,'http://brankomatovic.net/safetoupload/') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+  
+  }
+?> 
+  <div id="galleria">
+  <?php
+  foreach ($connread->query($random_images_query) as $row) { 
+  $buzzyuserimage_id=$row['buzzyuserimage_id'];  
+  $buzzyuserimage=$row['buzzyuserimage'];
+    if (strpos($buzzyuserimage,'facebook') !== false 
+  OR strpos($buzzyuserimage,'fbcdn') !== false OR strpos($buzzyuserimage,'http') !== false
+  OR strpos($buzzyuserimage,'http://brankomatovic.net/safetoupload/') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+?> 			
+            <a href="<?php echo $final_image_prefix;?><?php echo $buzzyuserimage;?>">
+                <img 
+                    src="<?php echo $final_image_prefix;?><?php echo $buzzyuserimage;?>",
+                    data-big="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
+                    data-title="Biandintz eta zaldiak"
+                    data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                >
+            </a>
+<?php } ?>	
+            <a href="<?php echo $finala_image_prefix;?><?php echo $buzzyuser_image;?>">
+                <img 
+                    src="<?php echo $finala_image_prefix;?><?php echo $buzzyuser_image;?>",
+                    data-big="http://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Biandintz_eta_zaldiak_-_modified2.jpg/1280px-Biandintz_eta_zaldiak_-_modified2.jpg"
+                    data-title="Biandintz eta zaldiak"
+                    data-description="Horses on Bianditz mountain, in Navarre, Spain."
+                >
+            </a>  					
+     </div> 
+    <script>
+    $(function() {
+$('#galleria').galleria({
+    extend: function() {
+        this.$('image-nav-left, image-nav-right').unbind('hover');
+        this.$('image-nav-left, image-nav-right').animate({opacity: 1}, 100);
+    }
+});
+    });
+    </script>	
+<br>	
+<div style="width:<?php echo $buzzycss_widththree;?>px; margin:0 auto;">
+<p style="text-align:center; font-weight:700;"><?php echo $meet_new_people;?></p>
+<?php
+   $allr_users_query = "SELECT * FROM buzzyusers ORDER BY RAND() LIMIT 5"; 
+   foreach ($connread->query($allr_users_query ) as $row) {
+  			$buzzyuser_id=$row['buzzyuser_id'];			
+            $buzzyuser_first_name=$row['buzzyuser_first_name'];	
+			if ($row['buzzyuser_image']==''){
+			$buzzyuser_image='profile-icon1.jpg';
+			}
+			else if ($row['buzzyuser_image']!=''){
+			$buzzyuser_image=$row['buzzyuser_image'];
+			}
+		if (strpos($buzzyuser_image,'http') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else{
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+			$final_buzzyuser_image=$final_image_prefix . $buzzyuser_image;
+			$buzzyuser_location=$row['buzzyuser_location'];	
+			$buzzyuser_age=$row['buzzyuser_age'];			
+?>
+<a   href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $buzzyuser_id;?>">
+<img src="<?php echo $final_buzzyuser_image; ?>"  class="circle" style="width:48px; margin-right:10px!important; height:48px; float:left;">
+</a>
+<?php } ?>
+</div>
+<div class="clearfix"></div>
+<br>
+
+		</div>	
+		</div>
+		</div>
+		</div>
+		<?php } ?>

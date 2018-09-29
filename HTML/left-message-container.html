@@ -1,0 +1,190 @@
+            <!-- chatmessages -->
+      <div class="left-msg scroll" style="float:left; background:#fff!important;">
+	  <div style="margin:0px!important; padding-top:20px!important; padding-bottom:20px!important;">
+	  
+	  
+	  
+<?php
+ $mssa_users_query = "SELECT * FROM buzzyusers  WHERE buzzyuser_genre=1 ORDER by rand() LIMIT 1";
+	foreach ($connread->query($mssa_users_query) as $row) { 	 
+	$f_buzzyuser_first_name = $row['buzzyuser_first_name'];
+	$f_buzzyuser_last_name = $row['buzzyuser_last_name'];	 
+    $f_buzzyuser_username = $row['buzzyuser_username'];
+	$f_buzzyuser_image = $row['buzzyuser_image'];
+	$f_buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+	
+	if($f_buzzyuser_onlinestatus==0){
+	$on_span='<span style="color:#333; margin-left:2px; font-size:12px;">'.$offlinee.'</span>';	
+	}
+	else if($f_buzzyuser_onlinestatus==1){
+	$on_span='<span style="color:#6fc848; margin-left:2px;  font-size:12px;">'.$onlinee.'</span>';	
+	}	
+	
+if (strpos($f_buzzyuser_image,'facebook') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else if (strpos($f_buzzyuser_image,'fbcdn') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($f_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($f_buzzyuser_image,'http://') !== false) {
+			$final_image_prefix='';		  
+		    }	
+		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
+			$final_image_prefix='';		  
+		    }				
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+?>	  
+	<div class="muser" id="mser<?php echo $f_buzzyuser_id;?>"  rel="muser<?php echo $f_buzzyuser_id;?>" style="background:#c7dfff!important; cursor:pointer; padding-top:13px; padding-bottom:18px; margin-top:0px!important; margin-bottom:0px!importan;">
+	<div class="circle" style="  float:left; margin-left:20px; width: 48px;
+    height: 48px; min-height:48px!important;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;">
+	<img src="<?php echo $final_image_prefix;?><?php echo $f_buzzyuser_image;?>" class="" style="    display: inline;
+    margin: 0 auto;
+    height: auto; min-width:48px;
+    width: auto;"> 
+	</div>
+	<img src="https://cdn0.iconfinder.com/data/icons/fatcow/16x16/cards.png" alt="" style="position:absolute; margin-top:34px!important; margin-left:-15px!important; width:16px!important; height:16px!important; "  />	
+	<span class="bigerspan" style="font-size:14px!important; font-weight:700; margin-left:10px;"><?php echo $f_buzzyuser_first_name;?></span> 
+	<br>
+<span  class="onemsg<?php echo $f_buzzyuser_id;?>">		
+</span>	
+    <script>	
+	setInterval(function(){ 
+    $('.onemsg<?php echo $f_buzzyuser_id;?>').load(document.URL +  ' .onemsg<?php echo $f_buzzyuser_id;?>');		
+	},<?php echo $chat_option_refresh;?>);
+	</script>	
+	<span class="bigerspan" style="margin-left:10px;">Find this user in like me game!</span>
+    <div class="clearfix"></div>	
+	</div>
+<?php } ?>
+
+	
+	 <?php
+	 $all_users_msgquery = "SELECT * FROM buddies WHERE user_id=$session_user_id OR friend=$session_user_id";
+	 foreach ($connread->query($all_users_msgquery) as $row) { 
+	 if($row['friend']==$session_user_id){
+	 $f_buzzyuser_id=$row['user_id'];
+	 }
+	 else if($row['user_id']==$session_user_id){
+	 $f_buzzyuser_id=$row['friend'];
+	 }
+	 $mss_users_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$f_buzzyuser_id";
+	foreach ($connread->query($mss_users_query) as $row) { 	 
+	$f_buzzyuser_first_name = $row['buzzyuser_first_name'];
+	$f_buzzyuser_last_name = $row['buzzyuser_last_name'];	 
+    $f_buzzyuser_username = $row['buzzyuser_username'];
+	$f_buzzyuser_image = $row['buzzyuser_image'];
+	$f_buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+	
+	if($f_buzzyuser_onlinestatus==0){
+	$on_span='<span style="color:#333; margin-left:2px; font-size:12px;">'.$offlinee.'</span>';	
+	}
+	else if($f_buzzyuser_onlinestatus==1){
+	$on_span='<span style="color:#6fc848; margin-left:2px;  font-size:12px;">'.$onlinee.'</span>';	
+	}	
+	
+if (strpos($f_buzzyuser_image,'facebook') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else if (strpos($f_buzzyuser_image,'fbcdn') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($f_buzzyuser_image,'http://brankomatovic.net/safetoupload/') !== false) {
+			$final_image_prefix='';		  
+		    }
+		    else if (strpos($f_buzzyuser_image,'http://') !== false) {
+			$final_image_prefix='';		  
+		    }	
+		    else if (strpos($f_buzzyuser_image,'https://') !== false) {
+			$final_image_prefix='';		  
+		    }				
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+
+	$messagescountff_query="SELECT COUNT(*) FROM chatmessages WHERE receiver=$session_user_id AND user_id=$f_buzzyuser_id  
+	AND status='0'";
+	foreach ($connread->query($messagescountff_query) as $row) { 
+	$count_unmessagesff=$row['COUNT(*)'];
+	if($count_unmessagesff==0){
+	$marg_left='0px';	
+    $display_classs1ff='';	
+    $opacity='0';	
+	}
+	else if($count_unmessagesff!=0){
+    $display_classs1ff='';	
+	$marg_left='0px';
+    $opacity='1';	
+	}
+	}
+
+			
+	 ?>
+	<div class="muser" id="mser<?php echo $f_buzzyuser_id;?>"  rel="muser<?php echo $f_buzzyuser_id;?>" style="cursor:pointer; padding-top:13px; padding-bottom:15px; margin-top:0px!important; margin-bottom:0px!importan;">
+	<div class="circle" style="  float:left; margin-left:20px; width: 48px;
+    height: 48px;
+    position: relative;
+    overflow: hidden;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    border-radius: 50%;">
+	<img src="<?php echo $final_image_prefix;?><?php echo $f_buzzyuser_image;?>" class="" style="    display: inline;
+    margin: 0 auto;
+    height: auto; min-width:48px;
+    width: auto;"> 
+	</div>
+	<span class="bigerspan" style="font-size:14px!important; font-weight:700; margin-left:10px;"><?php echo $f_buzzyuser_first_name;?></span> 
+	<br>
+<span  class="onemsg<?php echo $f_buzzyuser_id;?>">	
+<span class="cictwomsg" style="margin-left:-13px; margin-top:10px!important;">
+<span style=" font-size:11px!important; color:#fff!important; opacity:<?php echo $opacity;?>; <?php echo $display_classs1ff;?>" class="cic"><span style="font-size:11px!important; color:#fff!important; margin-left:0px!important;">
+<?php echo $count_unmessagesff;?></span></span></span>		
+</span>	
+    <script>	
+	setInterval(function(){ 
+    $('.onemsg<?php echo $f_buzzyuser_id;?>').load(document.URL +  ' .onemsg<?php echo $f_buzzyuser_id;?>');		
+	},<?php echo $chat_option_refresh;?>);
+	</script>	
+	<span class="bigerspan" style="margin-left:<?php echo $marg_left;?>;"><?php echo $on_span;?></span>
+    <div class="clearfix"></div>	
+	</div>
+	<div class="clearfix"></div>
+	<?php } ?>
+	  <script type="text/javascript">
+$('#mser<?php echo $f_buzzyuser_id;?>').on('click', function(){
+   var target = $(this).attr('rel');
+    var target2 = $(this).attr('id');
+    $('#mser<?php echo $f_buzzyuser_id;?>').addClass('activemmm').siblings("div").removeClass('activemmm');
+     $('.send-msgbtn').show();
+     $('#greetings-msg').hide();	  
+    $('.send-msgbtn').attr( 'id', 'send-msgbtn<?php echo $f_buzzyuser_id;?>' ).siblings("div").removeClass('activemmm');
+    $('.hidmsg').attr( 'id', '#hidmsg<?php echo $f_buzzyuser_id;?>' ).siblings("div").removeClass('activemmm');	
+    $('.hidmsg').attr( 'value', '<?php echo $f_buzzyuser_id;?>' ).siblings("div").removeClass('activemmm');
+   $('#insert').attr( 'name', '<?php echo $f_buzzyuser_id;?>' ).siblings("div").removeClass('activemmm');	
+   $("#"+target).show().siblings("div").hide();
+   $("#head"+target).show().siblings("div").hide();
+     $('.message-contsmall').animate({scrollTop: $('.message-contsmall').prop("scrollHeight")}, 500); 
+	            $.ajax({
+                type: 'POST',
+                url: '<?php echo $link_prefix;?>notmsg.php?user-id=<?php echo $f_buzzyuser_id;?>',
+                success: function(data) {
+                }				
+            });	 	 
+});
+</script> 
+	  <?php } ?>	  
+	  </div>
+	  </div>

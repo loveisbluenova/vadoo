@@ -1,0 +1,72 @@
+<h6 style="margin-left:20px!important; color:#fff!important; margin-top:0px!important;" <?php echo $buzzyversion;?></h6>
+	<form action="" style="margin-left:20px!important; margin-top:10px!important; margin-bottom:10px!important;" method="POST">
+	<button type="submit" name="update_version" class="updtt btn btn-success"><?php echo $version_ext;?> version</button>
+	</form>
+	<li class="<?php echo $current11; ?>"><a href="dashboard.php"><span class="glyphicon glyphicon-dashboard"></span></a></li>
+    <li class="<?php echo $current15; ?>"><a href="apis.php"><span class="glyphicon glyphicon-tower"></span></a></li>			
+    <li class="<?php echo $current4; ?>"><a href="index.php"><i class="fa fa-sliders" style="margin-left:20px!important; margin-right:10px!important;" aria-hidden="true"></i></a></li>
+    <li class="<?php echo $current5; ?>"><a href="css-options.php"><span class="glyphicon glyphicon-tint"></span></a></li>
+    <li class="<?php echo $current18; ?>"><a href="customizescript.php"><span class="glyphicon glyphicon-pencil"></span></a></li>	
+    <li class="<?php echo $current14; ?>"><a href="chat-limit.php"><span class="glyphicon glyphicon-comment"></span></a></li>
+	
+   <li class="<?php echo $current13; ?>"><a href="paid-services.php"><span class="glyphicon glyphicon-shopping-cart"></span><span class="badge red">
+ <?php
+    foreach ($connread->query($basic_countpaids_query) as $row) {
+	 $count_paids=$row['count_paids'];
+	echo $count_paids;
+	}
+	?>
+	</span></a></li>	
+	<li class="<?php echo $current16; ?>"><a href="earnings.php"><span class="glyphicon glyphicon-usd"></span></a></li>	
+	
+	<li  class="<?php echo $current6; ?>"><a href="users.php"><span class="glyphicon glyphicon-user"></span><span class="badge violet">
+ <?php
+    foreach ($connread->query($count_users_query) as $row) {
+	 $count_users=$row['count_users'];
+	echo $count_users;
+	}
+	?>
+	</span></a></li>
+	
+	<li  class="<?php echo $current19; ?>"><a href="usphotos.php"><span class="glyphicon glyphicon-picture"></span><span class="badge violettwo">
+ <?php
+    foreach ($connread->query($basic_countusimg_query) as $row) {
+	 $count_usimg=$row['count_usimg'];
+	echo $count_usimg;
+	}
+	?>
+	</span></a></li>
+	
+   <li class="<?php echo $current9; ?>"><a href="fakeusers.php"><span class="glyphicon glyphicon-user"></span></a></li>
+   <li  class="<?php echo $current17; ?>"><a href="mailing-list.php"><span class="glyphicon glyphicon-envelope"></span><span class="badge zero">
+   <?php
+    foreach ($connread->query($count_allmails_query) as $row) {
+	 $count_allmails=$row['count_allmails'];
+	echo $count_allmails;
+	}
+	?>
+	</span></a></li>	
+	
+    <li  class="<?php echo $current12; ?>"><a href="customlng.php"><span class="glyphicon glyphicon-briefcase"></span>
+	</a></li>
+	
+	<li class="<?php echo $current2; ?>"><a href="vadoogifts.php"><i class="fa fa-gift"  style="font-size:18px!important; margin-left:20px!important; margin-right:11px!important;" aria-hidden="true"></i>
+	<span class="badge aqua">
+    <?php
+    foreach ($connread->query($count_gifts_query) as $row) {
+	 $count_gifts=$row['count_gifts'];
+	echo $count_gifts;
+	}
+	?>
+	</span>
+	</a></li>
+	<li class="<?php echo $current8; ?>"><a href="admin-options.php"><span class="glyphicon glyphicon-lock"></span></a></li>
+	<li class="<?php echo $current1; ?>"><a href="payment-options.php"><i class="fa fa-credit-card" style="margin-left:20px!important; margin-right:10px!important;" aria-hidden="true"></i></a></li>
+	<?php
+	if(2>5){
+	?>
+	 <li class="<?php echo $current10; ?>"><a href="add-google.php"><span class="glyphicon glyphicon-eye-open"></span></a></li> 
+	<?php } ?>
+	
+    <li class="<?php echo $current3; ?>"><a href="tutorials.php"><span class="glyphicon glyphicon-book"></span></a></li> 	
+    <li class=""><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span></a></li>

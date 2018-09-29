@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Roboto+Condensed:700);
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Roboto Condensed'!important;	
+	 }
+.category-tag{
+    font-family: 'Roboto Condensed'!important;	 
+	font-size:15px!important;
+}
+.user-tag{
+     font-family: 'Roboto Condensed'!important;
+	 font-size:15px!important;
+}
+.nav-link{
+    font-family: 'Roboto Condensed'!important;	
+	font-size:15px!important;
+}
+#nav ul li a{
+    font-family: 'Roboto Condensed'!important;
+	font-size:15px!important;	
+	  }
+ #mobile-nav-link ul li a {
+    font-family: 'Roboto Condensed'!important;
+	font-size:15px!important;	
+	}
+.suggested{
+	font-size:15px!important;
+}

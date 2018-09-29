@@ -1,0 +1,24 @@
+@import url(http://fonts.googleapis.com/css?family=Cabin:600,600italic);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Cabin'!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Cabin'!important;
+	 font-size:12px!important;
+}
+.user-tag {
+     font-family: 'Cabin'!important;
+	 font-size:12px!important;
+}
+#nav ul li a{
+     font-family: 'Cabin'!important;
+	 font-size:12px!important;
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Cabin'!important;
+	 	 font-size:12px!important;
+}
+li#more a{	
+ font-size:12px!important;
+ padding-top:3px!important;
+}

@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu:500);
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Ubuntu'!important;	
+	 }
+.category-tag{
+    font-family: 'Ubuntu'!important;		 
+	font-size:15px!important;	
+	}
+.user-tag{
+     font-family: 'Ubuntu'!important;
+	 font-size:15px!important;	
+	 }
+.nav-link{
+    font-family: 'Ubuntu'!important;
+	font-size:15px!important;		
+}
+#nav ul li a{
+    font-family: 'Ubuntu'!important;	
+	font-size:15px!important;		
+	  }
+ #mobile-nav-link ul li a {
+    font-family: 'Ubuntu'!important;
+	 font-size:15px!important;		
+	}
+.suggested{
+	 font-size:15px!important;	
+}

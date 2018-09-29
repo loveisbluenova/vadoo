@@ -1,0 +1,1163 @@
+<style>
+#owl-four17.item{
+  margin: 0px;
+}
+#owl-four17 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+	  #galleria{
+	  height:640px;
+	  }	  
+#likeForm{
+width:64px!important;
+ transition:all 0.3s ease;
+}
+#likeForm:hover{
+width:70px!important;
+}
+
+#closeForm{
+width:64px!important;
+ transition:all 0.3s ease;
+}
+#closeForm:hover{
+width:70px!important;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+
+	  a {
+    text-decoration: none !important;
+      }
+.public{
+opacity:0!important;
+}
+.public:hover{
+opacity:0.8!important;
+}
+
+.privattt{
+opacity:0!important;
+}
+.privattt:hover{
+opacity:0.8!important;
+}
+.imgtemp{
+background:#<?php echo $buzzycss_color_css;?>!important;
+opacity:0!important;
+}
+.imgtemp:hover{
+background:#<?php echo $buzzycss_color_css;?>!important;
+opacity:0.8!important;
+}
+#firstdiv{
+display:block;
+}
+#seconddiv{
+display:none;
+}
+#thirddiv{
+display:none;
+}
+#fourthdiv{
+display:none;
+}
+</style>
+<?php
+
+ $session_count_stripe_query = "SELECT COUNT(*) FROM  buzzystripepayments WHERE buzzyuser_id=$session_user_id";
+ foreach ($connread->query($session_count_stripe_query) as $row) {
+ $count_stripe=$row['COUNT(*)'];
+ if($count_stripe!=0){ 
+ $session_buzzyuser_creditsplus=$session_buzzyuser_credits+100;	
+        $update_usercredits_query = "UPDATE buzzyusers SET buzzyuser_credits=:buzzyuser_credits WHERE buzzyuser_id=$session_user_id";
+        $stmt = $connwrite->prepare($update_usercredits_query);
+        // bind the parameters and execute the statement
+	    $stmt->bindParam(':buzzyuser_credits', $session_buzzyuser_creditsplus, PDO::PARAM_STR);
+	    // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount(); 
+
+$OK = false;
+$delete_stripe_query = "DELETE FROM buzzystripepayments  WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_stripe_query);
+$stmt->execute();
+$OK = $stmt->rowCount();		
+        header('Location: '.$link_prefix.'page.php?user-id='.$session_user_id.'&buyonesuccess=success');			
+		}
+		}
+?>
+<?php
+if($session_buzzyuser_age==0){
+ header('Location: '.$link_prefix.'page.php?missing-age=true');	
+}
+else if($session_buzzyuser_age==99){
+ header('Location: '.$link_prefix.'page.php?missing-age=true');	
+}
+?>
+<?php
+if (!isset($_SESSION["buzzyuser_id"])) {
+header('Location: '.$link_prefix.'index.php');	   
+}
+ if($session_buzzyuser_status==0){
+			$user_status_class='regular-user';
+			$user_status=$regular;
+			$status_badge='https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/human-32.png';
+			}	
+            else if($session_buzzyuser_status==1){
+			$user_status_class='premium-user';
+			$user_status=$premium;
+			$status_badge='https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/star-32.png';			
+			}	
+            else if($session_buzzyuser_status==2){
+			$user_status_class='gold-user';
+			$user_status=$gold;
+			$status_badge='https://cdn0.iconfinder.com/data/icons/customicondesign-office7-shadow-png/32/Metal-gold-blue.png';				
+			}		
+            else if($session_buzzyuser_status==3){
+			$user_status_class='vip-user';
+			$user_status=$vip;
+			$status_badge='https://t3.rbxcdn.com/44c11236a40914ead32a5ea71f06ec08';						
+			}	
+            else if($session_buzzyuser_status==10){
+			$user_status_class='res-user';
+			$user_status=$res;
+			$status_badge='https://t3.rbxcdn.com/44c11236a40914ead32a5ea71f06ec08';						
+			}			
+	       if($session_buzzyuser_visibility==0){
+           $visibility_image='https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/eye-32.png';
+		   $vis_text=$you_are_visible;
+           }
+	       else if($session_buzzyuser_visibility==1){
+           $visibility_image='https://cdn2.iconfinder.com/data/icons/free-color-halloween-icons/32/Ghost-32.png';
+		   $vis_text=$you_are_unvisible;		   
+           }		   
+?>
+<div id="wrapper">
+    <div class="full-column">
+        <div class="news-wrapper"
+	
+    style="background:none!important; border:0px solid #fff;
+"
+>
+		<div style="margin-left:15px;margin-right:15px;">
+		<h3 style="margin-bottom:20px;"><?php echo $session_buzzyuser_first_name;?>, <?php echo $session_buzzyuser_age;?> 
+	<?php if($buzzy_theme==2){?>
+	<div class="badoofixer">
+	<br>
+	</div>
+	<?php } ?> 	
+		<a href="#" style="color:#ddd; "  data-toggle="modal" data-target="#userinfo">
+		<span class="" data-toggle="tooltip" data-placement="top" title="<?php echo $edit_your_profile;?>" style="margin-left:0px!important; padding-left:8px!important; padding-right:2px!important;" > 
+		<i class="fa fa-pencil"  aria-hidden="true"></i>
+		</span>
+				</a> 
+		<a href="#" style="color:#ddd; "  data-toggle="modal" data-target="#userdelete">
+		<span class="" data-toggle="tooltip" data-placement="top" title="<?php echo $delete_your_profile;?>" style="padding-left:10px!important; padding-right:10px!important;" > <i   class="fa fa-trash" aria-hidden="true"></i></span>
+		</a>
+		<?php 
+		if($session_buzzyphoto_ver==0){
+		?>
+		<a href="#" style="color:#ddd; "   data-toggle="modal" data-target="#verphotomod"  >
+		<span class="" data-toggle="tooltip" data-placement="top" title="<?php echo $verify_photo;?>"><i class="fa fa-camera" aria-hidden="true"></i><span>
+		</a>
+		<?php } ?>	
+	 <p style="text-align:right; margin-bottom:0px; margin-top:0px; padding-top:0px;"><span class="label label-success" style="cursor:pointer;  font-size:13px;"><img src="http://icons.iconarchive.com/icons/visualpharm/finance/256/coins-icon.png" style="width:20px;" /> <?php echo $session_buzzyuser_credits;?>	<?php echo $credits;?></span>	</p>
+		</h3>
+		<?php
+        include 'HTML/userinfo-modal.html'; 
+         ?>
+
+		
+	
+		</div>
+		<div class="clearfix"></div>
+<div id="owl-four17" style="cursor:pointer!important;" class="owl-carousel">
+  <div class="item" style="height:148px!important;">  
+  <div style="position:relative;">  
+  <img  title="<?php echo $add_profile_image;?>"  data-toggle="tooltip" data-placement="left"  src="<?php echo $final_image_prefix;?><?php echo $session_buzzyuser_image;?>" alt="">
+  <a href="#"style="height:148px!important;" data-toggle="modal" data-target="#profilegal"  >
+  <div class="imghoverblack imgtemp" style="">
+   <h3 style="margin-top:66.5px; margin-bottom:0px!important; padding-bottom:-10px!important;"><i class="fa fa-camera" aria-hidden="true"></i><h3>
+  </div>
+  </a> 
+  </div>
+  </div>
+  
+<?php
+  $session_countimages_query="SELECT COUNT(*) FROM buzzyuserimages WHERE buzzyuser_id=$session_user_id";
+  foreach ($connread->query($session_countimages_query) as $row) { 
+  $buzzyusercountimages=$row['COUNT(*)'];
+  if($buzzyusercountimages==0){
+  
+?> 
+<div class="item" style="height:148px!important;"> 
+  <div style="position:relative;">  
+  <img  src="<?php echo $link_prefix;?>img/gallery-icon1.jpg" alt="" />
+   <a href="#"   data-toggle="modal" data-target="#galgal"   title="<?php echo $add_gallery_image;?>">
+  <div class="imghoverblack imgtemp" style="background:#0754ad!important;">
+   <h3 style="margin-top:66.5px; margin-bottom:0px!important; padding-bottom:-10px!important;"><i class="fa fa-picture-o" aria-hidden="true"></i><h3>
+  </div>
+  </a>
+  </div>
+  </div>
+
+<?php } ?>
+<?php } ?>
+
+<?php
+  $session_images_query="SELECT * FROM buzzyuserimages WHERE buzzyuser_id=$session_user_id AND buzzyuserimage_approval=0";
+  foreach ($connread->query($session_images_query) as $row) { 
+    $buzzyuserimage_id=$row['buzzyuserimage_id'];
+  $buzzyuserimage=$row['buzzyuserimage'];
+  
+	if (strpos($buzzyuserimage,'facebook') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else if (strpos($buzzyuserimage,'http') !== false) {
+			$final_image_prefix='';		  
+		    }			
+			else if (strpos($buzzyuserimage,'fbcdn') !== false) {
+			$final_image_prefix='';		  
+		    }
+			else {
+			$final_image_prefix=$link_prefix.'img/';					
+			}
+  
+   $buzzyuserimage_privatestatus=$row['buzzyuserimage_privatestatus'];
+  if($buzzyuserimage_privatestatus==0){
+  $lock_icon='unlock-alt';
+  $imageclasss='public';
+  $private_text='';
+  $private_titletext='Make this photo private';
+  }
+  else if ($buzzyuserimage_privatestatus==1){
+  $lock_icon='lock'; 
+  $imageclasss='privattt';
+  $private_text='Private';
+ $private_titletext='Make this photo public';  
+  }
+?>  
+
+  <div class="item" style="height:148px!important;"> 
+  <div style="position:relative;">  
+  <img style="" src="<?php echo $final_image_prefix;?><?php echo $buzzyuserimage;?>" alt="">
+   <a  href="#"   data-toggle="modal" data-target="#galgal"  title="<?php echo $add_gallery_image;?>">
+  <div class="imghoverblack  imgtemp">
+   <h3 style="margin-top:66.5px; margin-bottom:0px!important; padding-bottom:-10px!important;"><a style="color:#fff!important;"  title="<?php echo $private_titletext;?>"  href="<?php echo $link_prefix;?>addphotoprivacy.php?image-id=<?php echo $buzzyuserimage_id;?>">
+   <i style="font-size:20px!important; margin-right:10px!important;" class="fa fa-<?php echo $lock_icon;?>" aria-hidden="true"></i></a> 
+   <a style="color:#fff!important;"  title="<?php echo $delete_image;?>"  href="<?php echo $link_prefix;?>deleteimage.php?image-id=<?php echo $buzzyuserimage_id;?>">
+   <i style="font-size:20px!important;" class="fa fa-trash-o" aria-hidden="true"></i>
+   </a>
+   <h3>
+   <div class="clearfix"></div>
+    <h5 style="margin-top:-30px!important;"><?php echo $private_text; ?></h5>
+  </div>
+  </a>
+  </div>
+  </div>
+  <?php } ?>
+  <div class="item" style="height:148px!important;">  
+  <div style="position:relative;">
+ <img style=""  src="<?php echo $link_prefix;?>img/addgallery1.jpg" alt="">  
+  <a  href="#"   data-toggle="modal" data-target="#galgal"  title="<?php echo $add_gallery_image;?>">
+  <div class="imghoverblack imgtemp" style="display:block!important; opacity:1!important;">
+   <h3 style="margin-top:66.5px; margin-bottom:0px!important; padding-bottom:-10px!important;"><i class="fa fa-picture-o" aria-hidden="true"></i><h3>
+  </div>
+  </a>
+  </div>
+  </div>  
+  
+  <?php
+  foreach ($connread->query($session_countimages_query) as $row) {
+    $buzzyusercountimages=$row['COUNT(*)'];
+?>
+<?php
+  if($buzzyusercountimages==0){
+?>
+<?php 
+if($buzzyfb_images==1){
+?>
+   <div class="item" style="height:148px!important;"> 
+   <a href="<?php echo $link_prefix;?>importfbimages.php" data-toggle="tooltip" data-placement="bottom" title="<?php echo $import_fbimages;?>">
+  <img style="" src="<?php echo $link_prefix;?>img/fbimg.jpg" alt="">
+  </a>
+  </div>
+<?php } ?> 
+   <img class="item"  style="height:148px!important;" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" />
+   <img class="item" style="height:148px!important;"  src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" /> 
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" />  
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" /> 
+<?php } ?>
+<?php
+  if($buzzyusercountimages==1){
+?>
+<?php 
+if($buzzyfb_images==1){
+?>
+   <div class="item" style="height:148px!important;"> 
+   <a href="<?php echo $link_prefix;?>importfbimages.php" data-toggle="tooltip" data-placement="bottom" title="<?php echo $import_fbimages;?>">
+  <img style="height:148px!important;" src="<?php echo $link_prefix;?>img/fbimg.jpg" alt="">
+  </a>
+  </div>
+<?php } ?> 
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" />
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" /> 
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" />  
+<?php } ?>
+<?php
+  if($buzzyusercountimages==2){
+?>
+<?php 
+if($buzzyfb_images==1){
+?>
+   <div class="item" style="height:148px!important;"> 
+   <a href="<?php echo $link_prefix;?>importfbimages.php" data-toggle="tooltip" data-placement="bottom" title="<?php echo $import_fbimages;?>">
+  <img style="height:148px!important;" src="<?php echo $link_prefix;?>img/fbimg.jpg" alt="">
+  </a>
+  </div>
+<?php } ?>  
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" />
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" /> 
+<?php } ?>
+<?php
+  if($buzzyusercountimages==3){
+?>
+<?php 
+if($buzzyfb_images==1){
+?>
+   <div class="item" style="height:148px!important;"> 
+   <a href="<?php echo $link_prefix;?>importfbimages.php" data-toggle="tooltip" data-placement="bottom" title="<?php echo $import_fbimages;?>">
+  <img style="height:148px!important;" src="<?php echo $link_prefix;?>img/fbimg.jpg" alt="">
+  </a>
+  </div>
+<?php } ?> 
+   <img class="item" src="<?php echo $link_prefix;?>img/greyimg.jpg"  style="height:148px!important;" alt="" />
+<?php } ?>
+<?php
+  if($buzzyusercountimages==4){
+?>
+<?php 
+if($buzzyfb_images==1){
+?>
+   <div class="item" style="height:148px!important;"> 
+   <a href="<?php echo $link_prefix;?>importfbimages.php" data-toggle="tooltip" data-placement="bottom" title="<?php echo $import_fbimages;?>">
+  <img style="height:148px!important;" src="<?php echo $link_prefix;?>img/fbimg.jpg" alt="">
+  </a>
+  </div>
+<?php } ?> 
+<?php } ?>
+<?php
+  if($buzzyusercountimages>4){
+?>
+<?php 
+if($buzzyfb_images==1){
+?>
+   <div class="item" style="height:148px!important;"> 
+   <a href="<?php echo $link_prefix;?>importfbimages.php" data-toggle="tooltip" data-placement="bottom" title="<?php echo $import_fbimages;?>">
+  <img style="height:148px!important;" src="<?php echo $link_prefix;?>img/fbimg.jpg" alt="">
+  </a>
+  </div>
+<?php } ?> 
+<?php } ?>
+<?php } ?> 
+</div>
+<script>
+$(document).ready(function() {
+  $("#owl-four17").owlCarousel({
+       items:6,
+    responsiveClass:true,
+    nav: true,
+	dots: false,
+    autoHeight: true,
+    loop:false,
+    navText: [
+      "<i class='fa fa-chevron-left'></i>",
+      "<i class='fa fa-chevron-right'></i>"
+    ],
+    responsiveClass:true,
+    responsive:{
+        0:{
+            items:2,
+			 margin:0
+
+        },
+        480:{
+            items:4,
+			 margin:0
+        },
+        1024:{
+            items:6,
+			 margin:0
+        }
+    }
+  });
+});
+</script>
+<div class="clearfix"></div>
+<br>
+<div style="margin-left:15px;margin-right:15px;">
+<div class="two-third-column">
+		<?php if($session_buzzyuser_confirmed==0){
+		?>
+		<span class="confspan"><i class="fa fa-info" aria-hidden="true"></i> <?php echo $your_p_unconfirmed;?></span>
+		<?php } ?>
+		<?php if($session_buzzyuser_confirmed==1){
+		?>
+		<span class="unconfspan"><i class="fa fa-check" aria-hidden="true"></i> <?php echo $your_p_confirmed;?></span>
+		<?php } ?>
+		<div class="clearfix"></div>
+		<br>
+<?php
+if ($fortumo_status!=2){
+?>	
+	<h4 style="margin-bottom:20px!important;"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    <?php echo $buy_credits;?></h4>
+	
+	<a id="fmp-button" style="background:#e53f2f!important; margin-right:20px!important; margin-bottom:20px!important; float:left!important;" class="buttontr btn btn-primary btn-sm"  href="#" rel="<?php echo $buzzyfortumoid;?>/<?php echo $session_buzzyuser_fortumo_tnx;?><?php echo $fok;?>">
+	<i class="fa fa-mobile" style="font-size:20px!important;" aria-hidden="true"></i> <?php echo  $buy_100_credits;?></a>
+	 <a href=""  data-toggle="modal" data-target="#paypalmodal"  style="margin-bottom:20px!important; margin-right:20px!important; float:left!important;"  class="paypall-button buttontr btn btn-primary btn-sm"><i style="font-size:20px!important;" class="fa fa-paypal" aria-hidden="true"></i> <?php echo $buy_with_paypal;?></a>
+	 
+<form action="<?php echo $link_prefix;?>stripepayment.php" method="POST" style="float:left!important;" >
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="<?php echo $buzzy_stripekey;?>"
+    data-amount="<?php echo $buzzy_stripefullprice;?>"
+    data-name="<?php echo $buy_100_cr_with_creditcard;?>"
+    data-description=""
+	data-bitcoin="true"
+	data-value="Pay with cart"
+    data-image="http://icons.iconarchive.com/icons/rockettheme/ecommerce/64/shop-icon.png"
+    data-locale="auto">
+  </script>
+    <script>
+        // Hide default stripe button, be careful there if you
+        // have more than 1 button of that class
+        document.getElementsByClassName("stripe-button-el")[0].style.display = 'none';
+    </script>
+	 <button type="submit" style="background:#6772e5!important; " class="buttontr btn btn-primary btn-sm"><i style="font-size:20px!important;" class="fa fa-credit-card" aria-hidden="true"></i> <?php echo $pay_with_card;?></button>
+</form>
+	 
+<?php } ?>
+<?php
+foreach ($connread->query($website_userglobals_query) as $row) {
+$buzzyuserglobal_credits=$row['buzzyuserglobal_credits'];
+$buzzyuserglobal_creditprice=$row['buzzyuserglobal_creditprice'];
+$twobuzzyuserglobal_credits=2*$buzzyuserglobal_credits;
+$twobuzzyuserglobal_creditprice=2*$buzzyuserglobal_creditprice;
+$fourbuzzyuserglobal_credits=4*$buzzyuserglobal_credits;
+$fourbuzzyuserglobal_creditprice=4*$buzzyuserglobal_creditprice;
+$eightbuzzyuserglobal_credits=8*$buzzyuserglobal_credits;
+$eightbuzzyuserglobal_creditprice=8*$buzzyuserglobal_creditprice;
+
+$buzzyuserpaypal_currency=$row['buzzyuserpaypal_currency'];
+$buzzypaypal_email=$row['buzzypaypal_email'];
+$buzzyuserskrill_currency=$row['buzzyuserskrill_currency'];
+$buzzyskrill_email=$row['buzzyskrill_email'];
+$paypal_url=$row['paypal_url'];
+}
+?>
+
+<div class="modal fade" data-easein="flipBounceYIn"  id="paypalmodal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $buy_credits_now;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<!-- End of For Social login Buttons -->
+    <div class="modal-body">		
+	<div class="form-group">
+	 <select class="form-control" onchange="showDiv(this)"  id="choose"  required>
+     <option value="0"><?php echo $buyy;?> <?php echo $buzzyuserglobal_credits;?> <?php echo $creditss;?> <?php echo $forr;?> <?php echo number_format($buzzyuserglobal_creditprice, 2, '.', ' ');?> <?php echo $buzzyuserpaypal_currency;?>
+	 </option>
+	 <option value="1"><?php echo $buyy;?> <?php echo $twobuzzyuserglobal_credits;?> <?php echo $creditss;?> <?php echo $forr;?> <?php echo number_format($twobuzzyuserglobal_creditprice, 2, '.', ' ');?> <?php echo $buzzyuserpaypal_currency;?>
+	 </option>
+	 <option value="2"><?php echo $buyy;?> <?php echo $fourbuzzyuserglobal_credits;?> <?php echo $creditss;?> <?php echo $forr;?> <?php echo number_format($fourbuzzyuserglobal_creditprice, 2, '.', ' ');?> <?php echo $buzzyuserpaypal_currency;?>
+	 </option>	 
+	 <option value="3"><?php echo $buyy;?> <?php echo $eightbuzzyuserglobal_credits;?> <?php echo $creditss;?> <?php echo $forr;?> <?php echo number_format($eightbuzzyuserglobal_creditprice, 2, '.', ' ');?> <?php echo $buzzyuserpaypal_currency;?>
+	 </option>		 
+     </select>
+	           <script type="text/javascript">
+               function showDiv(elem){
+               if(elem.value == 0){
+               document.getElementById('firstdiv').style.display = "block";
+               document.getElementById('seconddiv').style.display = "none";	
+               document.getElementById('thirddiv').style.display = "none";
+               document.getElementById('fourthdiv').style.display = "none";				   
+               }
+			   if(elem.value == 1){
+               document.getElementById('firstdiv').style.display = "none";
+               document.getElementById('seconddiv').style.display = "block";	
+               document.getElementById('thirddiv').style.display = "none";
+               document.getElementById('fourthdiv').style.display = "none";					   
+               }
+			   if(elem.value == 2){
+               document.getElementById('firstdiv').style.display = "none";
+               document.getElementById('seconddiv').style.display = "none";	
+               document.getElementById('thirddiv').style.display = "block";
+               document.getElementById('fourthdiv').style.display = "none";					   
+               }
+			   if(elem.value == 3){
+               document.getElementById('firstdiv').style.display = "none";
+               document.getElementById('seconddiv').style.display = "none";	
+               document.getElementById('thirddiv').style.display = "none";
+               document.getElementById('fourthdiv').style.display = "block";					   
+               }			   
+			   }
+               </script>
+	</div> 
+	<div id="firstdiv">
+    <form action="<?php echo $paypal_url; ?>" style="float:left!important;"  method="post" name="frmPayPal1">
+    <input type="hidden" name="business" value="<?php echo $buzzypaypal_email;?>">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="item_name" value="<?php echo $buy_credits_now;?>">
+    <input type="hidden" name="item_number" value="<?php echo $buzzyuserglobal_credits;?>">
+    <input type="hidden" name="amount" value="<?php echo $buzzyuserglobal_creditprice;?>">
+    <input type="hidden" name="currency_code" value="<?php echo $buzzyuserpaypal_currency;?>">
+    <input type="hidden" name="handling" value="0">
+    <input type="hidden" name="cancel_return" value="<?php echo $link_prefix;?>payment_with_paypal/cancel.php">
+    <input type="hidden" name="return" value="<?php echo $link_prefix;?>paypalsuccess.php">
+    <a href="javascript:void(0)" name="submitpp"   style="margin-bottom:20px!important;"  value="PDT" class="paypall-button buttontr btn btn-primary btn-sm"><i style="font-size:20px!important;" class="fa fa-paypal" aria-hidden="true"></i> <?php echo $buy_with_paypal;?></a>
+    </form>
+	</div>
+	
+	<div id="seconddiv">
+    <form action="<?php echo $paypal_url; ?>" style="float:left!important;"  method="post" name="frmPayPal1">
+    <input type="hidden" name="business" value="<?php echo $buzzypaypal_email;?>">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="item_name" value="<?php echo $buy_credits_now;?>">
+    <input type="hidden" name="item_number" value="<?php echo $twobuzzyuserglobal_credits;?>">
+    <input type="hidden" name="amount" value="<?php echo $twobuzzyuserglobal_creditprice;?>">
+    <input type="hidden" name="currency_code" value="<?php echo $buzzyuserpaypal_currency;?>">
+    <input type="hidden" name="handling" value="0">
+    <input type="hidden" name="cancel_return" value="<?php echo $link_prefix;?>payment_with_paypal/cancel.php">
+    <input type="hidden" name="return" value="<?php echo $link_prefix;?>paypalsuccess.php">
+    <a href="javascript:void(0)" name="submitpp"   style="margin-bottom:20px!important;"  value="PDT" class="paypall-button buttontr btn btn-primary btn-sm"><i style="font-size:20px!important;" class="fa fa-paypal" aria-hidden="true"></i> <?php echo $buy_with_paypal;?></a>
+    </form>
+	</div>
+
+	<div id="thirddiv">
+    <form action="<?php echo $paypal_url; ?>" style="float:left!important;"  method="post" name="frmPayPal1">
+    <input type="hidden" name="business" value="<?php echo $buzzypaypal_email;?>">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="item_name" value="<?php echo $buy_credits_now;?>">
+    <input type="hidden" name="item_number" value="<?php echo $fourbuzzyuserglobal_credits;?>">
+    <input type="hidden" name="amount" value="<?php echo $fourbuzzyuserglobal_creditprice;?>">
+    <input type="hidden" name="currency_code" value="<?php echo $buzzyuserpaypal_currency;?>">
+    <input type="hidden" name="handling" value="0">
+    <input type="hidden" name="cancel_return" value="<?php echo $link_prefix;?>payment_with_paypal/cancel.php">
+    <input type="hidden" name="return" value="<?php echo $link_prefix;?>paypalsuccess.php">
+    <a href="javascript:void(0)" name="submitpp"   style="margin-bottom:20px!important;"  value="PDT" class="paypall-button buttontr btn btn-primary btn-sm"><i style="font-size:20px!important;" class="fa fa-paypal" aria-hidden="true"></i> <?php echo $buy_with_paypal;?></a>
+    </form>
+	</div>
+
+	<div id="fourthdiv">
+    <form action="<?php echo $paypal_url; ?>" style="float:left!important;"  method="post" name="frmPayPal1">
+    <input type="hidden" name="business" value="<?php echo $buzzypaypal_email;?>">
+    <input type="hidden" name="cmd" value="_xclick">
+    <input type="hidden" name="item_name" value="<?php echo $buy_credits_now;?>">
+    <input type="hidden" name="item_number" value="<?php echo $eightbuzzyuserglobal_credits;?>">
+    <input type="hidden" name="amount" value="<?php echo $eightbuzzyuserglobal_creditprice;?>">
+    <input type="hidden" name="currency_code" value="<?php echo $buzzyuserpaypal_currency;?>">
+    <input type="hidden" name="handling" value="0">
+    <input type="hidden" name="cancel_return" value="<?php echo $link_prefix;?>cancel.php">
+    <input type="hidden" name="return" value="<?php echo $link_prefix;?>paypalsuccess.php">
+    <a href="javascript:void(0)" name="submitpp"   style="margin-bottom:20px!important;"  value="PDT" class="paypall-button buttontr btn btn-primary btn-sm"><i style="font-size:20px!important;" class="fa fa-paypal" aria-hidden="true"></i> <?php echo $buy_with_paypal;?></a>
+    </form>
+	</div>
+	
+	<script>
+	$(document).ready(function(){
+   $(document).on("click",".paypall-button",function(){
+     var form = $(this).closest("form");
+     //console.log(form);
+     form.submit();
+   });
+});
+	</script>
+	<div class="clearfix"></div>
+      <div id="status">
+      </div>
+      </div>
+	  </form>
+    </div>
+  </div>
+</div>
+
+  <div class="clearfix"></div>
+<h4 style="margin-bottom:0px!important;"><i class="fa fa-map-marker" aria-hidden="true"></i> 
+<?php echo $location;?></h4>
+<span style="color:#b2b2b2!important; font-size:13px!important;"><?php echo $session_buzzyuser_location;?></span>
+<div class=""></div>
+<br>
+<div id="mapcont">
+ <div id="map"></div>
+</div>    
+	<script>
+      var map;
+      function initMap() {
+        map = new google.maps.Map(document.getElementById('map'), {
+          center: {lat: <?php echo $session_buzzyuser_lat;?>, lng: <?php echo $session_buzzyuser_long;?>},
+          zoom: 14
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo $buzzyyoutubeapi;?>&callback=initMap"
+    async defer></script>
+	
+	<div class="clearfix"></div>
+    <hr>
+<h4 style="margin-bottom:0px!important;"><i class="fa fa-user" aria-hidden="true"></i>
+<?php echo $personal_data;?> <a href="#dsfsfsf" id="toogleint"><span style="margin-left:10px!important; font-size:24px!important;font-weight:bold;"><img data-toggle="tooltip" data-placement="top" title="<?php echo $edit_data;?>" src="<?php echo $link_prefix;?>img/edit-icon.png" style="width:16px; height:16px;" /></span></a></h4>	
+<br/>
+<?php
+  $session_countdata_query="SELECT COUNT(*) FROM buzzyuser_data WHERE buzzyuser_id=$session_user_id";
+  foreach ($connread->query($session_countdata_query) as $row) { 
+  $buzzyusercountdata=$row['COUNT(*)'];
+  if($buzzyusercountdata==0){
+?>
+<script>
+$("#toogleint").click(function() { 
+    // assumes element with id='button'
+    $("#data").toggle();	
+    $("#datainput").toggle();
+});
+</script>
+<div id="data">
+<p><span><?php echo $no_data;?></span></p>
+</div>
+<div id="datainput" style="display:none;">
+<?php
+ include 'HTML/add-data.html'; 
+ ?>	
+</div>
+<?php } ?>	
+
+<?php
+  $session_countdata_query="SELECT COUNT(*) FROM buzzyuser_data WHERE buzzyuser_id=$session_user_id";
+  foreach ($connread->query($session_countdata_query) as $row) { 
+  $buzzyusercountdata=$row['COUNT(*)'];
+  if($buzzyusercountdata!=0){
+?>
+<script>
+$("#toogleint").click(function() { 
+    // assumes element with id='button'
+    $("#data").toggle();	
+    $("#datainput").toggle();
+});
+</script>
+
+<?php
+  $session_data_query="SELECT * FROM buzzyuser_data WHERE buzzyuser_id=$session_user_id";
+  foreach ($connread->query($session_data_query) as $row) { 
+  $session_buzzyuser_aboutme=$row['buzzyuser_aboutme'];
+  $session_buzzyuser_data_height=$row['buzzyuser_data_height'];
+  $session_buzzyuser_data_weight=$row['buzzyuser_data_weight']; 
+ 
+  $session_buzzyuser_data_sexual_orientation=$row['buzzyuser_data_sexual_orientation'];   
+  if($session_buzzyuser_data_sexual_orientation==0){
+  $sexual_text=$heterosexual;
+  $selected_sex1='selected';
+  $selected_sex2=''; 
+  $selected_sex3='';
+  }
+  else if($session_buzzyuser_data_sexual_orientation==1){
+  $sexual_text=$homosexual;
+  $selected_sex1='';
+  $selected_sex2='selected'; 
+  $selected_sex3='';  
+  }
+  else if($session_buzzyuser_data_sexual_orientation==2){
+  $sexual_text=$bisexual;
+  $selected_sex1='';
+  $selected_sex2=''; 
+  $selected_sex3='selected';   
+  }
+  
+  $session_buzzyuser_data_rel_status=$row['buzzyuser_data_rel_status']; 
+  if($session_buzzyuser_data_rel_status==0){
+  $rel_text=$single;
+  $selected_rel1='selected';
+  $selected_rel2=''; 
+  $selected_rel3='';
+  }
+  else if($session_buzzyuser_data_rel_status==1){
+  $rel_text=$in_a_relationship;
+  $selected_rel1='';
+  $selected_rel2='selected'; 
+  $selected_rel3='';  
+  }
+  else if($session_buzzyuser_data_rel_status==2){
+  $rel_text=$in_a_open_relationship;
+  $selected_rel1='';
+  $selected_rel2=''; 
+  $selected_rel3='selected';   
+  }
+   
+  
+  
+  $session_buzzyuser_data_body=$row['buzzyuser_data_body']; 
+  if($session_buzzyuser_data_body==0){
+  $bod_text=$average;
+  $selected_bod1='selected';
+  $selected_bod2=''; 
+  $selected_bod3='';
+  $selected_bod4='';   
+  $selected_bod5='';   
+  }
+  else if($session_buzzyuser_data_body==1){
+  $bod_text=$athletic;
+  $selected_bod1='';
+  $selected_bod2='selected'; 
+  $selected_bod3='';
+  $selected_bod4='';   
+  $selected_bod5='';  
+  }
+  else if($session_buzzyuser_data_body==2){
+  $bod_text=$muscle;
+  $selected_bod1='';
+  $selected_bod2=''; 
+  $selected_bod3='selected';
+  $selected_bod4='';   
+  $selected_bod5='';   
+  }  
+  else if($session_buzzyuser_data_body==3){
+  $bod_text=$thick;
+  $selected_bod1='';
+  $selected_bod2=''; 
+  $selected_bod3='';
+  $selected_bod4='selected';   
+  $selected_bod5='';    
+  }  
+  else if($session_buzzyuser_data_body==4){
+  $bod_text=$thin;
+  $selected_bod1='';
+  $selected_bod2=''; 
+  $selected_bod3='';
+  $selected_bod4='';   
+  $selected_bod5='selected';   
+  }    
+  
+  $session_buzzyuser_hair_color=$row['buzzyuser_hair_color']; 
+  if($session_buzzyuser_hair_color==0){
+  $hair_text=$black;
+  $selected_hair1='selected';
+  $selected_hair2=''; 
+  $selected_hair3='';
+  $selected_hair4='';   
+  $selected_hair5='';   
+  $selected_hair6='';  
+ }
+  else if($session_buzzyuser_hair_color==1){
+  $hair_text=$brown;
+  $selected_hair1='';
+  $selected_hair2='selected'; 
+  $selected_hair3='';
+  $selected_hair4='';   
+  $selected_hair5='';     
+  $selected_hair6='';  
+  }
+  else if($session_buzzyuser_hair_color==2){
+  $hair_text=$red;
+  $selected_hair1='';
+  $selected_hair2=''; 
+  $selected_hair3='selected';
+  $selected_hair4='';   
+  $selected_hair5=''; 
+  $selected_hair6='';   
+  }  
+  else if($session_buzzyuser_hair_color==3){
+  $hair_text=$blue;
+  $selected_hair1='';
+  $selected_hair2=''; 
+  $selected_hair3='';
+  $selected_hair4='selected';   
+  $selected_hair5='';  
+  $selected_hair6='';  
+  }  
+  else if($session_buzzyuser_hair_color==4){
+  $hair_text=$grey;
+  $selected_hair1='';
+  $selected_hair2=''; 
+  $selected_hair3='';
+  $selected_hair4='';   
+  $selected_hair5='selected';
+  $selected_hair6='';   
+  }  
+  else if($session_buzzyuser_hair_color==5){
+  $hair_text=$bold;
+  $selected_hair1='';
+  $selected_hair2=''; 
+  $selected_hair3='';
+  $selected_hair4='';   
+  $selected_hair5=''; 
+  $selected_hair6='selected'; 
+  }  
+ 
+  $session_buzzyuser_eye_color=$row['buzzyuser_eye_color']; 
+  if($session_buzzyuser_eye_color==0){
+  $eye_text=$brown;
+  $selected_eye1='selected';
+  $selected_eye2=''; 
+  $selected_eye3='';
+  $selected_eye4='';   
+  }
+  else if($session_buzzyuser_eye_color==1){
+  $eye_text=$green;
+  $selected_eye1='';
+  $selected_eye2='selected'; 
+  $selected_eye3='';
+  $selected_eye4='';    
+  }
+  else if($session_buzzyuser_eye_color==2){
+  $eye_text=$blue;
+  $selected_eye1='';
+  $selected_eye2=''; 
+  $selected_eye3='selected';
+  $selected_eye4='';  
+  }  
+  else if($session_buzzyuser_eye_color==3){
+  $eye_text=$other;
+  $selected_eye1='';
+  $selected_eye2=''; 
+  $selected_eye3='';
+  $selected_eye4='selected';    
+  }    
+  
+  $session_buzzyuser_no_kids=$row['buzzyuser_no_kids']; 
+  
+  $session_buzzyuser_smoker=$row['buzzyuser_smoker'];
+  if($session_buzzyuser_smoker==0){
+  $smok_text=$yes;
+  $selected_smok1='selected';
+  $selected_smok2='';   
+  }
+  else if($session_buzzyuser_smoker==1){
+  $smok_text=$no;
+  $selected_smok1='';
+  $selected_smok2='selected';   
+  } 
+    
+  $session_buzzyuser_drinker=$row['buzzyuser_drinker']; 
+  if($session_buzzyuser_drinker==0){
+  $drink_text=$yes;
+  $selected_drink1='selected';
+  $selected_drink2='';   
+  }
+  else if($session_buzzyuser_drinker==1){
+  $drink_text=$no;
+  $selected_drink1='';
+  $selected_drink2='selected';   
+  } 
+?>
+<div id="data">
+<?php
+ include 'HTML/added-data.html'; 
+ ?>	
+</div>
+<?php } ?>
+
+<div id="datainput" style="display:none;">
+<?php
+ include 'HTML/update-data.html'; 
+ ?>	
+</div>
+<?php } ?>	
+<?php } ?>	
+<div class="clearfix"></div>
+<hr>
+<h4 style="margin-bottom:0px!important;"><i class="fa fa-link" aria-hidden="true"></i>
+<?php echo $interests;?> <a href="#"  data-toggle="modal" data-target="#userinterests"><span style="margin-left:10px!important; font-size:24px!important;font-weight:bold;"><img data-toggle="tooltip" data-placement="top" title="<?php echo $edit_int;?>" src="<?php echo $link_prefix;?>img/edit-icon.png" style="width:16px; height:16px;" /></span></a></h4>
+<?php
+ include 'HTML/interest-modal.html'; 
+ ?>	
+<br/>
+<?php
+  $session_countint_query="SELECT COUNT(*) FROM buzzyuser_interests WHERE buzzyuser_id=$session_user_id";
+  foreach ($connread->query($session_countint_query) as $row) { 
+  $buzzyusercountint=$row['COUNT(*)'];
+  if($buzzyusercountint==0){
+?>
+<p><span><?php echo $no_data;?></span></p>
+<?php } ?>	
+<ul style="list-style-type:none!important;">
+<?php
+  if($buzzyusercountint!=0){
+  $session_int_query="SELECT * FROM buzzyuser_interests WHERE buzzyuser_id=$session_user_id";
+  foreach ($connread->query($session_int_query) as $row) { 
+  $buzzyuser_interest=$row['buzzyuser_interest'];
+  $buzzyuser_interest_category_id=$row['buzzyuser_interest_category_id']; 
+  $session_catint_query="SELECT * FROM buzzyuser_interest_categories WHERE buzzyuser_interest_category_id=$buzzyuser_interest_category_id"; 
+  foreach ($connread->query($session_catint_query) as $row) { 
+  $buzzyuser_interest_category_icon=$row['buzzyuser_interest_category_icon']; 
+?>
+<li style="margin-bottom:30px!important; float:left!important; margin-right:0px!important; margin-left:0px!important;">
+<span class="roundaround"><i class="fa <?php echo $buzzyuser_interest_category_icon;?>" aria-hidden="true"></i> <?php echo $buzzyuser_interest;?></span>
+</li>
+<?php } ?>	
+<?php } ?>	
+<?php } ?>	
+<?php } ?>	
+</ul>
+<?php } ?>
+<div class="clearfix"></div>	
+<br>
+
+<div class="fb-comments"  data-width="100%"  data-href="<?php echo $link_prefix;?>page.php?user-id=<?php echo $user_id;?>" data-numposts="5" data-mobile="Auto-detected" data-colorscheme="light"></div>
+  <script>
+  function(){
+  $(".fb-comments").attr("data-width", $(".comments").width());
+  FB.XFBML.parse($(".comments")[0]);
+ });
+  </script>
+	
+</div>
+<div class="one-third-column">	
+<div class="sidepagega">
+         <span style="font-size:20px!important;" class="<?php echo $user_status_class;?>"><?php echo $user_status;?> <?php echo $statuss;?></span> 	
+		 <div class="clearfix"></div>
+		 		 <br>
+         <?php  if($session_buzzyuser_status==10){
+		 ?>
+		 <p style="margin-bottom:5px!important;"><a href="<?php echo $link_prefix;?>buyregstatus.php" style="margin-bottom:0px!important;" ><i class="fa fa-plus-circle" style="color:#3363ea!important;" aria-hidden="true"></i> 
+		  <span style="font-size:12px!important; margin-bottom:0px!important;"><?php echo $add_regular_status;?> <?php echo $forr;?> <?php echo $regbuzzypaidservice_price;?> <?php echo $credits;?></span></a></p>
+         <?php } ?>					 
+		 <?php  if($session_buzzyuser_status==0 OR $session_buzzyuser_status==10){
+		 ?>
+		 <p style="margin-bottom:5px!important;"><a href="<?php echo $link_prefix;?>buypremstatus.php" style="margin-bottom:0px!important;" ><i class="fa fa-plus-circle" style="color:#3363ea!important;" aria-hidden="true"></i> 
+		  <span style="font-size:12px!important; margin-bottom:0px!important;"><?php echo $add_premium_status;?> <?php echo $forr;?> <?php echo $premiumbuzzypaidservice_price;?> <?php echo $credits;?></span></a></p>
+         <?php } ?>	
+		  <?php  if($session_buzzyuser_status<=1 OR $session_buzzyuser_status==10){
+		  ?>
+          <p style="margin-bottom:5px!important;">		  
+		  <a href="<?php echo $link_prefix;?>buygoldstatus.php" style="margin-bottom:0px!important;"><i class="fa fa-plus-circle" style="color:#3363ea!important;" aria-hidden="true"></i> 
+		  <span style="font-size:12px!important;"><?php echo $add_gold_status;?> <?php echo $forr;?> <?php echo $goldbuzzypaidservice_price;?> <?php echo $credits;?></span></a>
+		  </p>
+		  <?php } ?>
+		  
+		  <?php  if($session_buzzyuser_status<=2 OR $session_buzzyuser_status==10){
+		  ?>		  
+          <p style="margin-bottom:5px!important;">	
+		  <a href="<?php echo $link_prefix;?>buyvipstatus.php" style="margin-bottom:20px!important;"><i class="fa fa-plus-circle" style="color:#3363ea!important;" aria-hidden="true"></i>
+		  <span style="font-size:12px!important;"><?php echo $add_vip_status;?> <?php echo $forr;?> <?php echo $vipbuzzypaidservice_price;?> <?php echo $credits;?></span></a>
+		  </p>
+		  <?php } ?>
+		 <?php 
+		if($session_buzzyphoto_ver==1){
+		?>
+		<br>
+		<img src="<?php echo $link_prefix;?>img/ver.png" style="float:left!important; margin-right:10px!important;width:40px!important; margin-top:-8px;" /><span style="color:#5d93fe!important; font-size:14px;"><?php echo $profile_verified_by_photo;?></span> 
+		<div class="clearfix"></div>
+		<?php } ?>
+		
+		               <hr>	
+           <h4 style="margin-bottom:0px!important;"><i class="fa fa-hand-o-right" aria-hidden="true"></i> <?php echo $user_characteristics;?></h4>		  
+           <?php
+		    $act_time=$now-604800;
+            $all_sesuseract_query = "SELECT COUNT(*) FROM buzzyuseractivities WHERE buzzyuser_id=$session_user_id AND buzzyuseractivity_timestamp>$act_time";
+            foreach ($connread->query($all_sesuseract_query) as $row) {	
+            $count_act=$row['COUNT(*)'];
+            }
+            $all_sesuserres_query = "SELECT COUNT(*) FROM buzzyuserresponses WHERE buzzyuser_id=$session_user_id AND buzzyuserresponse_timestamp>$act_time";
+            foreach ($connread->query($all_sesuserres_query) as $row) {	
+            $count_res=$row['COUNT(*)'];
+            }	
+            $all_sesuserlov_query = "SELECT COUNT(*) FROM buzzyuserloveable WHERE buzzyuser_id=$session_user_id AND buzzyuserloveable_timestamp>$act_time";
+            foreach ($connread->query($all_sesuserlov_query) as $row) {	
+            $count_lov=$row['COUNT(*)'];
+            }			
+            ?>
+			
+			<?php
+			if($count_act>7){
+			?>
+             <p style="color:#1d7824; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-smile-o" aria-hidden="true"></i> <?php echo $very_act_user;?></p>			
+             <?php } ?>
+			<?php
+			if($count_act>3 AND $count_act<=7){
+			?>
+             <p style="color:#a647be; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-meh-o" aria-hidden="true"></i> <?php echo $avg_act_user;?></p>			
+             <?php } ?>	
+			<?php
+			if($count_act<=3){
+			?>
+             <p style="color:#6a6a6a; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-frown-o" aria-hidden="true"></i> <?php echo $low_act_user;?></p>			
+             <?php } ?>	
+
+			 
+			<?php
+			if($count_res>7){
+			?>
+             <p style="color:#7894fb; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?php echo $very_res_user;?></p>			
+             <?php } ?>
+			<?php
+			if($count_res>3 AND $count_res<=7){
+			?>
+             <p style="color:#e0ac48; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?php echo $avg_res_user;?></p>			
+             <?php } ?>	
+
+			<?php
+			if($count_res<=3){
+			?>
+             <p style="color:#6a6a6a; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-commenting-o" aria-hidden="true"></i> <?php echo $low_res_user;?></p>			
+             <?php } ?>	
+	
+			<?php
+			if($count_lov<=5){
+			?>
+             <p style="color:#6a6a6a; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-heartbeat" aria-hidden="true"></i> User is not loved</p>			
+             <?php } ?>
+			<?php
+			if($count_lov>5){
+			?>
+             <p style="color:#d442ac; font-weight:400; margin-top:10px!important; font-size:13px!important;"><i class="fa fa-heartbeat" aria-hidden="true"></i> User is loved</p>			
+             <?php } ?>	
+	
+             <hr>			 
+			 <h4 style="margin-bottom:0px!important;"><i class="fa fa-star" aria-hidden="true"></i> <?php echo $ratings;?></h4>
+			 <span style="color:#b2b2b2!important; font-size:13px!important;"><?php echo $you_are_liked;?> <?php echo $by;?> <?php echo $count_usliked;?> <?php echo $of;?>
+			  <?php echo $total_usliked;?> <?php echo $people;?></span>
+			  <div class="clearfix"></div>
+			  <br>
+             <div style="cursor:pointer!important;" class="c100 p<?php echo round ($session_liked_percentage);?> center">
+                    <span><?php echo round ($session_liked_percentage);?>%</span>
+                    <div class="slice">
+                        <div class="bar"></div>
+                        <div class="fill"></div>
+                    </div>
+                </div>
+             <hr>
+             <h4><i class="fa fa-gift" aria-hidden="true"></i> <?php echo $gifts;?></h4>	
+             <?php
+              $all_gifts_query = "SELECT * FROM buzzyusergifts WHERE buzzyuser_id=$session_user_id ORDER by buzzyusergift_id DESC";			  
+              foreach ($connread->query($all_gifts_query) as $row) {
+              $buzzyusergift_id=$row['buzzyusergift_id'];
+			  $buzzysender_id=$row['buzzysender_id'];
+              $buzzygift_id=$row['buzzygift_id'];
+			  $all_giftusers_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$buzzysender_id";		
+              foreach ($connread->query($all_giftusers_query) as $row) {
+              $gbuzzyuser_first_name=$row['buzzyuser_first_name'];
+              $gbuzzyuser_last_name=$row['buzzyuser_last_name'];			  
+              }			  
+              $all_buzzygifts_query = "SELECT * FROM buzzygifts WHERE buzzygift_id=$buzzygift_id";	
+              foreach ($connread->query($all_buzzygifts_query) as $row) {
+			  $buzzygift_title=$row['buzzygift_title'];
+			  $buzzygift_img=$row['buzzygift_img'];
+   			  ?>
+              <img style="width:60px!important; cursor:pointer; margin-right:20px!important;"  data-toggle="tooltip" data-placement="bottom"
+			  title="<?php echo $buzzygift_title;?> <?php echo $fromm;?> <?php echo $gbuzzyuser_first_name;?> <?php echo $gbuzzyuser_last_name;?>" 
+src="<?php echo $link_prefix;?>gifts/<?php echo $buzzygift_img;?>" alt="<?php echo $buzzygift_title;?>" />
+			  <?php } ?>			  
+			  <?php } ?>
+            <hr>
+            <h4 style="margin-bottom:15px!important;"><i class="fa fa-thumbs-o-up" aria-hidden="true"></i> <?php echo $confirmations;?></h4>
+			<?php echo $fb_con_txt;?>
+			<div class="clearfix"></div>
+		    <?php echo $google_con_txt;?>
+			<br>
+	</div>			
+</div>		
+</div>
+<br>		
+</div>	
+		</div>
+		</div>
+		
+ <div class="modal fade" data-easein="flipBounceYIn"  id="galgal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $add_gallery_image;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<!-- End of For Social login Buttons -->
+		<div class="written-content" style="margin-left:5px!important; margin-bottom:10px!important;" >
+       <div class="okvir">		
+ <form method="post" id="dropper" enctype="multipart/form-data" action="">
+       <input required type="file" accept='image/x-png, image/jpeg' name="userfile" />	
+        <br>	   
+       <button type="submit" name="add_galleryimg"  class="btn btn-primary buttontr"><?php echo $add_gallery_image;?></button>
+     </form>
+	 </div>
+</div>	 
+    </div>
+  </div>
+</div>		
+		
+ <div class="modal fade" data-easein="flipBounceYIn"  id="profilegal" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $add_profile_image;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<!-- End of For Social login Buttons -->
+		<div class="written-content" style="margin-left:5px!important; margin-bottom:10px!important;" >
+      <div class="okvir">			
+ <form method="post" id="dropper" enctype="multipart/form-data" action="">
+       <input required type="file" accept='image/x-png, image/jpeg' name="userfile" />	
+        <br>	   
+       <button type="submit" name="add_profileimg"  class="btn btn-primary buttontr"><?php echo $add_profile_image;?></button>
+     </form>
+	 </div>
+</div>	 
+    </div>
+  </div>
+</div>
+
+
+ <div class="modal fade" data-easein="flipBounceYIn"  id="verphotomod" tabindex="-1" role="dialog"  aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" ><?php echo $verify_photo;?></h4>
+      </div>
+		<!-- Start of For Social login Buttons -->
+		<!-- End of For Social login Buttons -->
+		<div class="written-content" style="margin-left:5px!important; margin-bottom:10px!important;" >
+	<div style="margin:0 auto; width:240px!important;">
+	<img style="width:240px!important; height:240px!important;" src="<?php echo $link_prefix;?>img/photover.jpg" class="thumbnail" />
+	</div>
+  <p style="font-weight:400; text-align:center; font-size:14px; ">
+ <?php echo $make_gesture;?>
+  </p>  
+  <br>
+ <form method="post" id="dropper" enctype="multipart/form-data" action="">
+       <input required type="file" accept='image/x-png, image/jpeg' name="userfile" />	
+        <br>	   
+       <button type="submit" name="add_verimg"  class="btn btn-primary buttontr"><?php echo $add_ver_image;?></button>
+     </form>
+
+</div>	 
+    </div>
+  </div>
+</div>
+</div>

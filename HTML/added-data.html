@@ -1,0 +1,21 @@
+<p><strong><?php echo $about_me;?>:</strong><span style="font-weight:400!important;"> <?php echo $session_buzzyuser_aboutme;?></span></p>
+<?php if ($buzzysitemeasure==0){
+?>
+<p><strong><?php echo $height;?>:</strong><span style="font-weight:400!important;"> <?php echo $session_buzzyuser_data_height;?> cm</span></p>
+<p><strong><?php echo $weight;?>:</strong><span style="font-weight:400!important;"> <?php echo $session_buzzyuser_data_weight;?> kg</span></p>
+<?php } ?>
+
+<?php if ($buzzysitemeasure==1){
+?>
+<p><strong><?php echo $height;?>:</strong><span style="font-weight:400!important;"> <?php echo cm2feet($session_buzzyuser_data_height);?> </span></p>
+<p><strong><?php echo $weight;?>:</strong><span style="font-weight:400!important;"style="font-weight:400!important;"> <?php echo kgToLb($session_buzzyuser_data_weight);?> lbs</span></p>
+<?php } ?>
+
+<p><strong><?php echo $sexual_orientation;?>:</strong><span style="font-weight:400!important;"> <?php echo $sexual_text;?></span></p>
+<p><strong><?php echo $relationship_status;?>:</strong><span style="font-weight:400!important;"> <?php echo $rel_text;?></span></p>
+<p><strong><?php echo $body;?>:</strong><span style="font-weight:400!important;"> <?php echo $bod_text;?></span></p>
+<p><strong><?php echo $hair_color;?>:</strong><span style="font-weight:400!important;"> <?php echo $hair_text;?></span></p>
+<p><strong><?php echo $eye_color;?>:</strong><span style="font-weight:400!important;"> <?php echo $eye_text;?></span></p>
+<p><strong><?php echo $no_kids;?>:</strong><span style="font-weight:400!important;"> <?php echo $session_buzzyuser_no_kids;?></span></p>
+<p><strong><?php echo $smoker;?>:</strong><span style="font-weight:400!important;"> <?php echo $smok_text;?></span></p>
+<p><strong><?php echo $alcohol;?>:</strong><span style="font-weight:400!important;"> <?php echo $drink_text;?></span></p>

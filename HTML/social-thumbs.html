@@ -1,0 +1,13 @@
+<br>
+<i class="fa fa-thumbs-up thumbsup-color" aria-hidden="true"></i>
+<span class=" reaction-number thumbsup-color"><?php echo $buzzynews_likes; ?></span>
+					   
+
+<i class="fa fa-thumbs-down thumbsdown-color" aria-hidden="true"></i>
+<span class=" reaction-number thumbsdown-color"><?php echo $buzzynews_unlikes; ?></span>
+
+<i class="fa fa-eye views-color" aria-hidden="true"></i>
+<span class=" reaction-number views-color"><?php echo $buzzynews_views; ?></span>
+   
+ <i class="fa fa-comment comments-color" aria-hidden="true"></i>  
+ <span class="reaction-number comments-color"><fb:comments-count href='<?php echo $link_prefix;?><?php echo $news_prefix;?><?php echo $buzzynews_url; ?><?php echo $news_sufix;?>'></span> 

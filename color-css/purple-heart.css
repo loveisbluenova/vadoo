@@ -1,0 +1,58 @@
+#header{
+background:#69359C!important;
+}
+.btn-primary{
+background:#8647C4!important;
+border-color:#7137AB!important;
+}
+#mobile-nav-link ul {
+border-bottom:3px solid #69359C!important;
+}
+.suggested{
+background:#69359C!important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: #fff!important;
+  color:#69359C!important;
+}
+
+ul#user-header  li a:hover{
+  color:#69359C!important;
+}
+#side-container span{
+color:#69359C!important;
+}
+li.small-text a{
+color:#69359C!important;
+}
+li.small-text a:hover{
+color:#69359C!important;
+}
+.vote-container a{
+color:#69359C!important;
+}
+.vote-container a:hover{
+color:#69359C!important;
+}
+#sort-button{
+background:#8647C4!important;
+}
+.dropdown-toggle{
+background:#8647C4!important;
+}
+span.info-text a{
+color:#69359C!important;
+}
+.btn-primary:hover{
+background:#7D4FAB!important;
+}
+a#tab-chats{
+color:#69359C!important;
+}
+a#tab-contacts{
+color:#69359C!important;
+}
+.active-message{
+color:#69359C!important;	  
+ }

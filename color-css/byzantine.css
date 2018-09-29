@@ -1,0 +1,61 @@
+#header{
+background:#BD33A4!important;
+}
+.btn-primary{
+background:#ab3a97!important;
+border-color:#933883!important;
+}
+#mobile-nav-link ul {
+border-bottom:3px solid #BD33A4!important;
+}
+.suggested{
+background:#BD33A4!important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: #fff!important;
+  color:#BD33A4!important;
+}
+ul#user-header  li a:hover{
+  color:#BD33A4!important;
+}
+#side-container span{
+color:#BD33A4!important;
+}
+li.small-text a{
+color:#BD33A4!important;
+}
+li.small-text a:hover{
+color:#BD33A4!important;
+}
+.vote-container a{
+color:#BD33A4!important;
+}
+.vote-container a:hover{
+color:#BD33A4!important;
+}
+#sort-button{
+background:#ab3a97!important;
+}
+.dropdown-toggle{
+background:#ab3a97!important;
+}
+span.info-text a{
+color:#BD33A4!important;
+}
+.btn-primary:hover{
+background:#9C368A!important;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+background-color:#BD33A4!important;
+border-color:#BD33A4!important;
+}
+a#tab-chats{
+color:#BD33A4!important;
+}
+a#tab-contacts{
+color:#BD33A4!important;
+}
+.active-message{
+color:#BD33A4!important;	  
+ }

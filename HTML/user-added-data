@@ -1,0 +1,11 @@
+<p><strong><?php echo _($about_me);?>:</strong><span> <?php echo $session_buzzyuser_aboutme;?></span></p>
+<p><strong><?php echo _($height);?>:</strong><span> <?php echo $session_buzzyuser_data_height;?> cm</span></p>
+<p><strong><?php echo _($weight);?>:</strong><span> <?php echo $session_buzzyuser_data_weight;?> kg</span></p>
+<p><strong><?php echo _($sexual_orientation);?>:</strong><span> <?php echo _($sexual_text);?></span></p>
+<p><strong><?php echo _($relationship_status);?>:</strong><span> <?php echo _($rel_text);?></span></p>
+<p><strong><?php echo _($body);?>:</strong><span> <?php echo _($bod_text);?></span></p>
+<p><strong><?php echo _($hair_color);?>:</strong><span> <?php echo _($hair_text);?></span></p>
+<p><strong><?php echo _($eye_color);?>:</strong><span> <?php echo _($eye_text);?></span></p>
+<p><strong><?php echo _($no_kids);?>:</strong><span> <?php echo $session_buzzyuser_no_kids;?></span></p>
+<p><strong><?php echo _($smoker);?>:</strong><span> <?php echo $smok_text;?></span></p>
+<p><strong><?php echo _($alcohol);?>:</strong><span> <?php echo $drink_text;?></span></p>

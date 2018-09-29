@@ -1,0 +1,43 @@
+	<style>
+	span.ads{
+	margin-left:8px;
+	width:100%!important;
+	}
+	</style>
+ <?php
+    foreach ($connread->query($website_options_query) as $row) {
+	$buzzyads=$row['buzzyads'];
+	?>
+    <span class="ads"> <?php echo stripslashes($buzzyads); ?></span>
+	<br>
+	<?php } ?>		
+
+	<?php
+	$website_siderss_query = "SELECT * FROM  buzzysiderss WHERE buzzysiderss_status=1 ORDER by buzzysiderss_timestamp ASC";
+    foreach ($connread->query($website_siderss_query) as $row) {
+	$buzzysiderss_url=$row['buzzysiderss_url'];
+	?>
+		 <span class="ads">
+	<!-- start feedwind code --><script type="text/javascript">
+	document.write('\x3Cscript type="text/javascript" src="' + ('https:' == document.location.protocol ? 'https://' : 'http://') + 'feed.mikle.com/js/rssmikle.js">\x3C/script>');
+	</script>
+	<script type="text/javascript">
+	(function() {var params = {rssmikle_url: "<?php echo $buzzysiderss_url; ?>",rssmikle_frame_width: "100%",
+	rssmikle_frame_height: "370",frame_height_by_article: "0",rssmikle_target: "_blank",
+	rssmikle_font: "<?php echo $buzzycss_headings_font_family; ?>,Arial, Helvetica, sans-serif",rssmikle_font_size: "13",rssmikle_border: "off",responsive: "off",rssmikle_css_url: "",
+	text_align: "left",text_align2: "left",corner: "off",scrollbar: "off",autoscroll: "on",scrolldirection: "up",scrollstep: "3",mcspeed: "20",sort: "Off",
+	rssmikle_title: "on",rssmikle_title_sentence: "",rssmikle_title_link: "",rssmikle_title_bgcolor: "#<?php echo $buzzycss_color_css;?>",rssmikle_title_color: "#FFFFFF",
+	rssmikle_title_bgimage: "",rssmikle_item_bgcolor: "#FFFFFF",rssmikle_item_bgimage: "",item_thumbnail:"crop",rssmikle_item_title_length: "55",
+	rssmikle_item_title_color: "#<?php echo $buzzycss_color_css;?>",rssmikle_item_border_bottom: "on",rssmikle_item_description: "on",item_link: "on",
+	rssmikle_item_description_length: "150",rssmikle_item_description_color: "#666666",rssmikle_item_date: "gl1",rssmikle_timezone: "Etc/GMT",
+	datetime_format: "%b %e, %Y %l:%M %p",item_description_style: "text+tn",item_thumbnail: "full",item_thumbnail_selection: "auto",
+	article_num: "15",rssmikle_item_podcast: "on",keyword_inc: "",keyword_exc: ""};feedwind_show_widget_iframe(params);})();
+	</script>
+	<!-- end feedwind code --><!--  end  feedwind code -->
+	<br><br>
+	<?php } ?>
+
+	
+	
+	
+	

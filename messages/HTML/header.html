@@ -1,0 +1,91 @@
+<?php
+	function OutputJs($Content) 
+{   
+    ob_start();
+    echo $Content;
+    $expires = DAY_IN_S; // 60 * 60 * 24 ... defined elsewhere
+    header("Content-type: x-javascript");
+    header('Content-Length: ' . ob_get_length());
+    header('Cache-Control: max-age='.$expires.', must-revalidate');
+    header('Pragma: public');
+    header('Expires: '. gmdate('D, d M Y H:i:s', time()+$expires).'GMT');
+    ob_end_flush();
+    return; 
+}
+    include 'PHP/visits-code.php'; 
+	$pieces = explode(' ', $search_news);
+    $news = array_pop($pieces);
+    foreach ($connread->query($website_options_query) as $row) {
+	$buzzysitelogo=$row['buzzysitelogo'];
+	?>
+   
+	<?php } ?>
+	<?php 
+	include ''.$link_prefix.'HTML/mobile-nav.html';
+	?>	
+<div id="nav">
+	<ul>
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>index.php">
+		<i class="fa fa-users" aria-hidden="true"></i>
+		<?php echo  _($people_near_you); ?>
+		</a>
+		</li>
+		<?php 
+        if (isset($_SESSION["buzzyuser_id"])) {
+        ?>	 
+		<li>
+		<a style="text-transform: uppercase;" href="<?php echo $link_prefix;?>page.php?hotnot-id=true">
+		<i class="fa fa-heart" aria-hidden="true"></i>
+		<?php echo  _($play_like_me); ?>
+		</a>
+		</li>			
+		<?php } ?>
+		<li>
+            <a style="text-transform: uppercase;"  href="" data-toggle="modal" data-target="#searchbox">
+                 <i class="fa fa-search" aria-hidden="true"></i>
+                  <?php echo _($search_news); ?>
+            </a>
+	<div class="modal fade" data-easein="flipBounceYIn"  id="searchbox" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label"><?php echo _($search);?>:</label>
+                        <input type="text" name="q" required class="form-control" id="recipient-name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="buttontr btn btn-info" data-dismiss="modal"><?php echo _($close);?></button>
+                    <button type="submit" name="search" class="buttontr btn btn-primary"><?php echo _($search);?></button>
+                </div>
+            </form>
+           </div>
+       </div>
+    </div>
+        </li>
+		<?php
+         if (isset($_SESSION["buzzyuser_id"])) {
+		?>
+		<li>
+		<a style="text-transform: uppercase;" data-toggle="modal" data-target="#filterbox" href="">
+        <i class="fa fa-filter" aria-hidden="true"></i>
+		<?php echo _($filter); ?>
+		</a>
+		</li>
+		<?php } ?>
+         <?php
+         if (!isset($_SESSION["buzzyuser_id"])) {
+         include ''.$link_prefix.'HTML/register-login.html';
+         }   
+         ?>
+	</ul>
+	<?php
+    if (isset($_SESSION["buzzyuser_id"])){
+    include ''.$link_prefix.'HTML/user-header.html';
+    }
+   ?>
+	</div>
+	

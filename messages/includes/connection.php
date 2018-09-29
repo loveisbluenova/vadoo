@@ -1,0 +1,13 @@
+<?php
+
+	// DB Connection Configuration
+	define('DB_HOST', 'localhost'); 
+	define('DB_USERNAME', 'root'); 
+	define('DB_PASSWORD', ''); 
+	define('DATABASE', 'vadoo'); 
+	// Global Vars
+	$base_url = 'https://eluvo.co.uk/';
+	$base_root = '';
+	$perpage = 6;
+	$contacts_per_page = 8;
+	

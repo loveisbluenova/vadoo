@@ -1,0 +1,35 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	color: #777;	
+	background: #eee;
+	font-size: 12px;
+	line-height: 21px;
+}
+
+.margin-reset {
+	margin: 0!important;	
+}
+
+.content-wrap {
+	border-radius: 3px;
+	background: none repeat scroll 0% 0% #FFF;
+	margin-bottom: 20px;
+	box-shadow: 0px 1px 1px 0px #C8CACD;
+	padding: 30px;	
+	margin-top: 40px;
+}
+
+#login-simulator {
+	border: 1px solid #d5d5d5;	
+	width: 30%;
+	padding: 20px;
+	margin: 0 auto;
+}
+
+#login-simulator .btn {
+	margin-top: 20px;	
+}
+
+.greatings {
+	margin-top: 20px;	
+}

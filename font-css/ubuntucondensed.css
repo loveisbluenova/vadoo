@@ -1,0 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Ubuntu+Condensed);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Ubuntu Condensed'!important;
+
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Ubuntu Condensed'!important;
+	 font-size:15px!important;	
+	 }
+.user-tag{
+     font-family: 'Ubuntu Condensed'!important;
+	 font-size:15px!important;	
+	 }
+#nav ul li a{
+     font-family: 'Ubuntu Condensed'!important;
+	 font-size:15px!important;	
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Ubuntu Condensed'!important;
+	 font-size:15px!important;	
+	 }

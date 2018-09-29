@@ -1,0 +1,147 @@
+<style>
+#owl-four17.item{
+  margin: 0px;
+}
+#owl-four17 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+
+	  a {
+    text-decoration: none !important;
+      }
+
+</style>
+<?php
+if (!isset($_SESSION["buzzyuser_id"])) {
+header('Location: '.$link_prefix.'index.php');	   
+}	   
+ if($session_buzzyuser_status==0){
+			$user_status_class='regular-user';
+			$user_status=$regular;
+			$status_badge='https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/human-32.png';
+			}	
+            else if($session_buzzyuser_status==1){
+			$user_status_class='premium-user';
+			$user_status=$premium;
+			$status_badge='https://cdn2.iconfinder.com/data/icons/pictograms-vol-1/400/star-32.png';			
+			}	
+            else if($session_buzzyuser_status==2){
+			$user_status_class='gold-user';
+			$user_status=$gold;
+			$status_badge='https://cdn0.iconfinder.com/data/icons/customicondesign-office7-shadow-png/32/Metal-gold-blue.png';				
+			}		
+            else if($session_buzzyuser_status==3){
+			$user_status_class='vip-user';
+			$user_status=$vip;
+			$status_badge='https://t3.rbxcdn.com/44c11236a40914ead32a5ea71f06ec08';						
+			}			
+	       if($session_buzzyuser_visibility==0){
+           $visibility_image='https://cdn2.iconfinder.com/data/icons/circle-icons-1/64/eye-32.png';
+		   $vis_text=$you_are_visible;
+           }
+	       else if($session_buzzyuser_visibility==1){
+           $visibility_image='https://cdn2.iconfinder.com/data/icons/free-color-halloween-icons/32/Ghost-32.png';
+		   $vis_text=$you_are_unvisible;		   
+           }		   
+?>
+<div id="wrapper">
+    <div class="full-column">
+     <div class="news-wrapper">
+	<div style="margin-left:15px;margin-right:15px;">	
+    <h1><?php echo $my_notifications;?></h1>
+	<?php
+        $update_unreadstatus_query = "UPDATE buzzynotifications SET buzzynotification_status=1 WHERE buzzyuser_id=$session_user_id AND buzzynotification_status=0";
+        $stmt = $connwrite->prepare($update_unreadstatus_query);
+        // bind the parameters and execute the statement
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();		
+	
+	$all_countnotifications_query = "SELECT COUNT(*) FROM buzzynotifications WHERE buzzyuser_id=$session_user_id";
+	foreach ($connread->query($all_countnotifications_query) as $row) { 
+    $count_nots=$row['COUNT(*)']; 
+    if($count_nots==0){
+	$intro_nots='<div class="alert alert-info" role="alert">'.$you_dont_have_nots.'</div>';
+	}
+    else if($count_nots!=0){
+	$intro_nots='';
+	}		
+	}	
+?>
+	<?php
+	echo $intro_nots;
+	?>
+  <?php	
+	$all_notifications_query = "SELECT * FROM buzzynotifications WHERE buzzyuser_id=$session_user_id ORDER by buzzynotification_timestamp DESC LIMIT 20";
+	foreach ($connread->query($all_notifications_query) as $row) { 
+	$buzzynotification_type=$row['buzzynotification_type'];
+	$buzzyuser_id=$row['buzzyuser_id'];
+	$buzzyfriend_id=$row['buzzyfriend_id'];
+	$buzzynotification_status=$row['buzzynotification_status'];
+	$buzzynotification_timestamp=$row['buzzynotification_timestamp'];
+	$buzzynotification_difference=$now-$buzzynotification_timestamp;
+				
+				if ($buzzynotification_difference>=86400){
+				$final_buzzynotification_difference=round($buzzynotification_difference/86400);	
+                $date_measure=$days;				
+				}
+				else if ($buzzynotification_difference<86400 AND $buzzynotification_difference>=3600){
+				$final_buzzynotification_difference=round($buzzynotification_difference/3600);	
+                $date_measure=$hours;				
+				}	
+				else if ($buzzynotification_difference<3600){
+				$final_buzzynotification_difference=round($buzzynotification_difference/60);	
+                $date_measure=$minutes;				
+				}
+	
+	$all_notusers_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=$buzzyfriend_id";
+	foreach ($connread->query($all_notusers_query) as $row) { 
+	$notbuzzyuser_username=$row['buzzyuser_username'];
+	}
+	if($buzzynotification_type==1){
+	$not_icon='<i class="fa fa-lock" style="color:#5677f5;" aria-hidden="true"></i>';	
+	$main_text=$you_have_gallery_request . ' ' . $fromm . ' <a href="'.$link_prefix.'page.php?user-id='.$buzzyfriend_id.'">'.$notbuzzyuser_username.'</a>';
+	$accept_button='<a href="'.$link_prefix.'albumresponder.php?user-id='.$buzzyfriend_id.'&status=accept" style="margin-right:5px!important; margin-top:10px!important;" class="buttontr btn btn-primary btn-sm"><i class="fa fa-check" aria-hidden="true"></i> '.$accept.'</a>';
+	$reject_button='<a href="'.$link_prefix.'albumresponder.php?user-id='.$buzzyfriend_id.'&status=reject" style="margin-top:10px!important;" class="buttontr btn btn-danger btn-sm"><i class="fa fa-times" aria-hidden="true"></i> '.$reject.'</a>';
+	}
+	else if($buzzynotification_type==2){
+	$not_icon='<i class="fa fa-heart" style="color:#b02424;" aria-hidden="true"></i>';	
+	$main_text='<a href="'.$link_prefix.'page.php?user-id='.$buzzyfriend_id.'">'.$notbuzzyuser_username.'</a> '.$liked_youu.'';
+	$accept_button='';
+	$reject_button='';
+	}	
+	else if($buzzynotification_type==3){
+	$not_icon='<i class="fa fa-eye" style="color:#7c049a;" aria-hidden="true"></i>';	
+	$main_text='<a href="'.$link_prefix.'page.php?user-id='.$buzzyfriend_id.'">'.$notbuzzyuser_username.'</a> '.$visited_youu.'';
+	$accept_button='';
+	$reject_button='';
+	}		
+	?>
+	<p><?php echo $not_icon;?> <?php echo $main_text;?>
+	<br>
+    <span style="color:#727272; font-size:12px!important;"><?php echo $final_buzzynotification_difference;?> <?php echo $date_measure;?> <?php echo $ago;?></span>
+	<br>
+	<?php echo $accept_button;?>
+    <?php echo $reject_button;?>
+	</p>
+	<br>
+	<?php } ?>
+	 </div>
+	</div>	
+		</div>
+		</div>

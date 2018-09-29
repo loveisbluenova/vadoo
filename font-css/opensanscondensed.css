@@ -1,0 +1,19 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans+Condensed:700);
+h1,h2,h3,h4,h5,h6{
+     font-family: 'Open Sans Condensed'!important;
+}
+.category-tag,.suggested,.nav-link{
+     font-family: 'Open Sans Condensed'!important;
+}
+.user-tag{
+     font-family: 'Open Sans Condensed'!important;
+	 font-size:15px!important;
+}
+#nav ul li a{
+     font-family: 'Open Sans Condensed'!important;
+	 	 font-size:15px!important;
+}
+ #mobile-nav-link ul li a {
+     font-family: 'Open Sans Condensed'!important;
+	 	 font-size:15px!important;
+}

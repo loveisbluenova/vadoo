@@ -1,0 +1,66 @@
+#header{
+background:#734F96!important;
+}
+.btn-primary,.btn-follow {
+background:#623e85!important;
+border-color:#543671!important;
+}
+#mobile-nav-link ul {
+border-bottom:3px solid #734F96!important;
+}
+.suggested{
+background:#734F96!important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: #fff!important;
+  color:#734F96!important;
+}
+ul#user-header  li a:hover{
+  color:#734F96!important;
+}
+#side-container span{
+color:#734F96!important;
+}
+li.small-text a{
+color:#734F96!important;
+}
+li.small-text a:hover{
+color:#543671!important;
+}
+.vote-container a{
+color:#734F96!important;
+}
+.vote-container a:hover{
+color:#543671!important;
+}
+#sort-button{
+background:#623e85!important;
+}
+.dropdown-toggle{
+background:#623e85!important;
+}
+span.info-text a{
+color:#734F96!important;
+}
+.btn-primary:hover{
+background:#543474!important;
+border-color:#543671!important;
+}
+.btn-follow:hover{
+background:#543474!important;
+border-color:#543671!important;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+background-color:#734F96!important;
+border-color:#734F96!important;
+}
+a#tab-chats{
+color:#734F96!important;
+}
+a#tab-contacts{
+color:#734F96!important;
+}
+.active-message{
+color:#734F96!important;	  
+ }

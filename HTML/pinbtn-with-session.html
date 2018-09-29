@@ -1,0 +1,36 @@
+        <button type="submit" name="<?php echo $btnname; ?><?php echo $buzzyuser_id; ?>" id="<?php echo $buzzyuser_id; ?>" style="font-size:13px!important;"  class="buttontr <?php echo $btnclass; ?><?php echo $buzzyuser_id; ?>" >
+          <?php echo $btnvalue; ?>
+        </button>
+			    <script>
+                   $('.btn-pin<?php echo $buzzyuser_id; ?>').click(function(){
+		           var $this = $(this);
+		           $this.toggleClass('btn-love');
+		           if($this.hasClass('btn-love')){
+	               $this.html('<i class="fa fa-heart-o" aria-hidden="true"></i> <?php echo $send_love;?>');	
+                   $(this).removeClass("btn-loved");
+                   $(this).addClass("btn-love");			  
+		           }
+			      else {
+				  $(this).removeClass("btn-love");
+                  $(this).addClass("btn-loved");	
+			      $this.html('<i class="fa fa-heart" aria-hidden="true"></i>  <?php echo $loved;?>');
+		          }
+	              });
+                </script>
+				<script type="text/javascript">
+                  $(function() {
+                  $(".btn-pin<?php echo $buzzyuser_id; ?>").click(function() {
+                  var ID = $(this).attr("id");
+                  $.ajax({
+		          type: "POST",
+                  url: "<?php echo $link_prefix;?>loved.php",
+                  data:"btn-pin="+ ID, 
+                  cache: false,		 
+                  success: function(data){
+                 
+                  }
+                  });
+                  return false;
+	              });	
+	              });
+                </script>

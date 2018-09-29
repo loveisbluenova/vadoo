@@ -1,0 +1,49 @@
+<li id="more">
+	<a href="">
+	<?php echo $more;?>
+	</a>
+	<ul id="more-categories">
+
+		<?php
+			foreach ($connread->query($extended_category_query) as $row) {
+			$buzzynewscategory_id=$row['buzzynewscategory_id'];
+			$buzzynewscategory=$row['buzzynewscategory'];
+			$buzzynewscategory_url=$row['buzzynewscategory_url'];
+		?>
+		<li>
+			<a href="../index.php?category=<?php echo $buzzynewscategory; ?>">
+		    <?php echo $buzzynewscategory; ?>
+			</a>
+		</li>
+		<?php } ?>	
+	<li>
+        <a href="" data-toggle="modal" data-target="#searchbox">
+		<span class="glyphicon glyphicon-search"></span>
+		<?php echo $search_news; ?>
+	    </a>
+		</li>		
+	<li id="last-page">
+	<a href="../index.php">
+	<?php echo $go_to_main_page;?>
+	</a>
+	</li>
+   </ul>
+  <div class="modal fade" id="searchbox" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+	 <form action="" method="POST">
+      <div class="modal-body">
+		  <div class="form-group">
+            <label for="recipient-name" class="control-label"><?php echo $search_news;?>:</label>
+            <input type="text" name="q" required class="form-control" id="recipient-name">
+          </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $close;?></button>
+        <button type="submit" name="search" class="btn btn-primary"><?php echo $search_news;?></button>
+      </div>
+	  </form>
+      </div>
+    </div>
+  </div>
+	</li>

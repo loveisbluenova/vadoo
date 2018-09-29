@@ -1,0 +1,44 @@
+<!-- PAGE NAVIGATION FOR MOBILE DEVICES -------- START -->
+<div id="mobile-nav">
+    <a href="#" id="toggle"><img src="../icons/mobile-nav.png" id="nav-image"/></a>
+	<div id="mobile-nav-link" style="display:none;">
+    <ul>
+	<li class="<?php echo $current2; ?>"><a href="categories.php"><span class="glyphicon glyphicon-folder-open"></span>Categories<span class="badge red">
+		<?php
+    foreach ($connread->query($count_categories_query) as $row) {
+	$count_categories=$row['count_categories'];
+	echo $count_categories;
+	}
+	?>
+	</span></a></li>
+	<li class="<?php echo $current3; ?>"><a href="news.php"><span class="glyphicon glyphicon-picture"></span>News<span class="badge green">
+	<?php
+    foreach ($connread->query($count_news_query) as $row) {
+	$count_news=$row['count_news'];
+	echo $count_news;
+	}
+	?></span></a></li>
+    <li class="<?php echo $current4; ?>"><a href="index.php"><span class="glyphicon glyphicon-wrench"></span>Website options</a></li>
+    <li class="<?php echo $current5; ?>"><a href="css-options.php"><span class="glyphicon glyphicon-tint"></span>CSS 3 options</a></li>
+	<li  class="<?php echo $current6; ?>"><a href="users.php"><span class="glyphicon glyphicon-user"></span>Users<span class="badge violet">
+ <?php
+    foreach ($connread->query($count_users_query) as $row) {
+	 $count_users=$row['count_users'];
+	echo $count_users;
+	}
+	?>
+	</span></a></li>
+	<li  class="<?php echo $current7; ?>"><a href="languages.php"><span class="glyphicon glyphicon-globe"></span>Languages<span class="badge aero">20</span></a></li>
+	<li class="<?php echo $current8; ?>"><a href="admin-options.php"><span class="glyphicon glyphicon-tower"></span>Admin credentials</a></li>
+    <li class="<?php echo $current9; ?>"><a href="mail-settings.php"><span class="glyphicon glyphicon-send"></span>Admin mail settings</a></li>
+            </ul>
+        </div>	
+    </div>
+</div>
+<!-- PAGE NAVIGATION FOR MOBILE DEVICES -------- END -->
+<script>
+    $('#toggle').click(function () {
+        $('#mobile-nav-link').slideToggle('fast');
+        return false;
+    });
+</script>

@@ -1,0 +1,70 @@
+<!-- PAGE NAVIGATION FOR MOBILE DEVICES -------- START -->
+<img src="../img/logo.png" id="small-logo" alt="">
+<?php
+   if (isset($_SESSION["buzzyuser_id"])){
+   include 'user-mobile-header.html';
+   }
+?>
+<div id="mobile-nav">
+    <a href="#" id="toggle"><img src="../icons/mobile-nav.png" id="nav-image"/></a>
+    <br/>
+
+    <div id="mobile-nav-link" style="display:none;">
+        <ul>
+            <li>
+                <a href="../index.php">
+                   <?php echo $home;?>
+                </a>
+            </li>
+            <?php
+			foreach ($connread->query($all_category_query) as $row) {
+            $buzzynewscategory_id=$row['buzzynewscategory_id'];
+            $buzzynewscategory=$row['buzzynewscategory'];
+            $buzzynewscategory_url=$row['buzzynewscategory_url'];
+            ?>
+            <li>
+                <a href="../index.php?category=<?php echo $buzzynewscategory; ?>">
+                    <?php echo $buzzynewscategory; ?>
+                </a>
+            </li>
+            <?php } ?>
+            <li>
+                <a href="" data-toggle="modal" data-target="#mobilesearchbox">
+                    <span class="glyphicon glyphicon-search"></span>
+                    <?php echo $search_news; ?>
+                </a>
+            </li>
+            <?php
+			   if (!isset($_SESSION["buzzyuser_id"])) {
+			   include 'HTML/mobile-register-login.html';
+			   }
+			   ?>
+        </ul>
+    </div>
+</div>
+<div class="modal fade" id="mobilesearchbox" tabindex="1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form action="" method="POST">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="recipient-name" class="control-label"><?php echo $search_news;?>:</label>
+                        <input type="text" name="q" required class="form-control" id="recipient-name">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="search" class="btn btn-primary"><?php echo $search_news;?></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<!-- PAGE NAVIGATION FOR MOBILE DEVICES -------- END -->
+<script>
+    $('#toggle').click(function () {
+        $('#mobile-nav-link').slideToggle('fast');
+        return false;
+    });
+</script>

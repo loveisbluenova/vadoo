@@ -1,0 +1,109 @@
+<?php
+   if (isset($_POST['update_info'])) {
+     $OK = false;	 
+     $buzzyuser_username=$_POST['buzzyuser_username'];	
+     $buzzyuser_email=$_POST['buzzyuser_email'];		 
+     $userbirthdate = date('Y-m-d', strtotime($_POST['buzzyuser_birthdate']));	
+
+  //get age from date or birthdate
+$afrom = new DateTime($userbirthdate);
+$ato   = new DateTime('today');
+$postage =  $afrom->diff($ato)->y;
+	 
+if ($buzzywebsite_status==0){
+	 $buzzyuser_password=$_POST['buzzyuser_password'];	
+     }
+else if ($buzzywebsite_status==1){
+	 $buzzyuser_password='123123';	
+     }	 
+	 $buzzyuser_password1 = htmlspecialchars($buzzyuser_password, ENT_QUOTES);	
+     $enc_buzzyuser_password1=md5($buzzyuser_password1);	
+	 
+        $update_user_info_query = "UPDATE buzzyusers SET buzzyuser_username=:buzzyuser_username,
+		buzzyuser_birthdate=:buzzyuser_birthdate,buzzyuser_age=:buzzyuser_age,buzzyuser_password=:buzzyuser_password WHERE buzzyuser_id=$session_user_id";
+        $stmt = $connwrite->prepare($update_user_info_query);
+        // bind the parameters and execute the statement
+        $stmt->bindParam(':buzzyuser_username', $buzzyuser_username, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_birthdate', $userbirthdate, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_age', $postage, PDO::PARAM_STR);			
+        $stmt->bindParam(':buzzyuser_password', $enc_buzzyuser_password1, PDO::PARAM_STR);			
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+	    header('Location: '.$link_prefix.'index.php');	
+   }
+?>
+<style>
+#owl-four16.item{
+  margin: 0px;
+}
+#owl-four16 .item img{
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.owl-theme .owl-controls .owl-page {
+    display: inline-block;
+}
+#mapcont{
+        border-radius:3px 3px 3px 3px;
+        -moz-border-radius:3px 3px 3px 3px;
+        -webkit-border-radius:3px 3px 3px 3px;		
+		border:1px solid #ccc;
+}
+      #map {
+        height: 160px!important;
+
+      }
+	  #galleria{height:360px}
+</style>
+        <link href="<?php echo $link_prefix;?>bootstrap/css/tQera.Uploader.Bootstrap.css" rel="stylesheet" />
+		<link href="<?php echo $link_prefix;?>bootstrap/css/app.css?<?php echo date('l jS \of F Y h:i:s A'); ?>" rel="stylesheet" />	
+        <link rel="stylesheet" href="<?php echo $link_prefix;?>/css/galleria.classic.css">		
+        <script src="<?php echo $link_prefix;?>bootstrap/js/npm.js"></script>
+        <script src="<?php echo $link_prefix;?>/js/galleria-1.4.7.min.js"></script>		
+        <script src="<?php echo $link_prefix;?>/js/galleria.classic.min.js"></script>			
+<div id="wrapper">
+    <div class="full-column">
+        <div class="news-wrapper">
+		<div style="margin-left:15px;margin-right:15px;">
+                 <h1>
+                   <?php echo $fullfil_profile;?>
+				</h1>
+<div class="alert alert-warning">
+<?php echo $your_profile_is_not_full;?>
+</div>				
+ <form action="" method="POST">  
+
+            <h5><?php echo $username;?>:</h5>
+            <input type="text" name="buzzyuser_username" value="<?php echo $session_buzzyuser_username;?>" required class="form-control" id="recipient-name">           
+            <br>
+          
+						<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+                        <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+                        <link rel="stylesheet" href="/resources/demos/style.css">
+                        <script>
+                         $(function(){$("#datepicker").datepicker();});
+                         </script>
+                        <h5><?php echo $date_of_birth;?>:</h5>						 
+                        <input type="text" id="datepicker"
+                               name="buzzyuser_birthdate"  required class="form-control" id="recipient-name"/>
+            <br>
+                 
+				      <h5><?php echo $email;?>:</h5>
+                        <input type="email" disabled placeholder="<?php echo $session_buzzyuser_email;?>" name="buzzyuser_email" required class="form-control" id="recipient-name">
+            <br>
+					<h5><?php echo $password;?>:</h5>
+                        <input type="password"  name="buzzyuser_password" required class="form-control"
+                               id="recipient-name">
+
+  
+                   <br>
+                    <button type="submit" name="update_info" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>					
+			  </form>		
+<br>
+		</div>	
+		</div>
+		</div>
+		</div>
+	

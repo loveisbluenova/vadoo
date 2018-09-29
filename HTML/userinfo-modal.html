@@ -1,0 +1,138 @@
+<?php
+   if (isset($_POST['update_info'])) {
+     $OK = false;	 
+     $buzzyuser_username=$_POST['buzzyuser_username'];	
+     $buzzyuser_email=$_POST['buzzyuser_email'];		 
+	 
+if ($buzzywebsite_status==0){
+	 $buzzyuser_password=$_POST['buzzyuser_password'];	
+     }
+else if ($buzzywebsite_status==1){
+	 $buzzyuser_password='123123';	
+     }	 
+	 $buzzyuser_password1 = htmlspecialchars($buzzyuser_password, ENT_QUOTES);	
+     $enc_buzzyuser_password1=md5($buzzyuser_password1);	
+	 
+        $update_user_info_query = "UPDATE buzzyusers SET buzzyuser_username=:buzzyuser_username,buzzyuser_email=:buzzyuser_email,buzzyuser_password=:buzzyuser_password WHERE buzzyuser_id=$session_user_id";
+        $stmt = $connwrite->prepare($update_user_info_query);
+        // bind the parameters and execute the statement
+        $stmt->bindParam(':buzzyuser_username', $buzzyuser_username, PDO::PARAM_STR);	
+        $stmt->bindParam(':buzzyuser_email', $buzzyuser_email, PDO::PARAM_STR);			
+        $stmt->bindParam(':buzzyuser_password', $enc_buzzyuser_password1, PDO::PARAM_STR);			
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+	    header('Location: '.$link_prefix.$user_id_url.$_SESSION["buzzyuser_id"].'');	
+   }
+   
+if (isset($_POST['delete_me'])) {
+if ($buzzywebsite_status==0){
+$delete_user_query = "DELETE FROM buzzyusers WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_user_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userliked_query = "DELETE FROM buzzyuserliked WHERE buzzyliked_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userliked_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userlikedtwo_query = "DELETE FROM buzzyuserliked WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userlikedtwo_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userunliked_query = "DELETE FROM buzzyuserunliked WHERE buzzyunliked_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userunliked_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userunlikedtwo_query = "DELETE FROM buzzyuserunliked WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userunlikedtwo_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userdata_query = "DELETE FROM buzzyuser_data WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userdata_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userint_query = "DELETE FROM buzzyuser_interests WHERE buzzyuser_id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userint_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userr_query = "DELETE FROM users WHERE id=$session_user_id";
+$stmt = $connwrite->prepare($delete_userr_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+session_destroy(); //destroy the session
+header('Location: '.$link_prefix.'register.php?profile-deleted=true');	
+      }
+if($buzzywebsite_status==1){
+header('Location: '.$link_prefix.'index.php?onlydemo=true');		 
+}	 	  
+}
+   
+?>
+<div class="modal fade" data-easein="flipBounceYIn" id="userinfo" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+      <div class="modal-dialog">
+     <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"><?php echo $update_your_info;?></h4>
+     </div>
+     <div class="modal-body">
+	 <form action="" method="POST">  
+	 	  <div class="form-group">
+            <label for="recipient-name" class="control-label"><?php echo $username;?>:</label>
+            <input type="text" name="buzzyuser_username" value="<?php echo $session_buzzyuser_username;?>" required class="form-control" id="recipient-name">           
+          </div>
+                  <div class="form-group">
+				      <label for="recipient-name" class="control-label"><?php echo $email;?>:</label>
+                        <input type="email"  placeholder="<?php echo $session_buzzyuser_email;?>" name="buzzyuser_email" required class="form-control" id="recipient-name">
+                    </div>
+                    <div class="form-group">
+					<label for="recipient-name" class="control-label"><?php echo $password;?>:</label>
+                        <input type="password"  name="buzzyuser_password" required class="form-control"
+                               id="recipient-name">
+                    </div>		  
+           </div>	  
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-info buttontr" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="update_info" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>					
+                </div>
+			  </form>		
+           </div>
+       </div>
+     </div>
+	 
+	 
+<div class="modal fade" data-easein="flipBounceYIn" id="userdelete" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+      <div class="modal-dialog">
+     <div class="modal-content">
+     <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel"><?php echo $delete_your_profile;?></h4>
+     </div>
+     <div class="modal-body">
+	 <form action="" method="POST">  
+	 	  <div class="form-group">
+          <div class="alert alert-warning">
+          <strong><?php echo $are_you_sure_del;?>
+          </div>
+	  
+           </div>	  
+            <div class="modal-footer">
+                    <button type="button" class="btn btn-info buttontr" data-dismiss="modal"><?php echo $close;?></button>
+                    <button type="submit" name="delete_me" data-target="" class="btn btn-primary buttontr"><?php echo $submit;?></button>					
+                </div>
+			  </form>		
+           </div>
+       </div>
+     </div>
+	 </div>
+	 
+	 

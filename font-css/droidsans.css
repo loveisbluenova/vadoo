@@ -1,0 +1,27 @@
+@import url(http://fonts.googleapis.com/css?family=Droid+Sans:700);
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Droid Sans'!important;	
+	 }
+.category-tag{
+    font-family: 'Droid Sans'!important;	 
+	font-size:13px!important;
+}
+.user-tag{
+     font-family: 'Droid Sans'!important;
+	 font-size:13px!important;
+}
+.nav-link{
+    font-family: 'Droid Sans'!important;		
+	font-size:13px!important;
+}
+#nav ul li a{
+    font-family: 'Droid Sans'!important;		
+	font-size:13px!important;	
+	  }
+ #mobile-nav-link ul li a {
+    font-family: 'Droid Sans'!important;		
+	font-size:13px!important;	
+	}
+.suggested{
+	font-size:13px!important;
+}

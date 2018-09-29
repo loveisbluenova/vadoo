@@ -1,0 +1,1477 @@
+<?php
+if($buzzyconnection_difference>60){
+if($buzzyconnection_value==0){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane2';
+// MySQL password
+$mysql_password =  'bane2';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane1", "bane1");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+	$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=1, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+
+else if($buzzyconnection_value==1){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane3';
+// MySQL password
+$mysql_password =  'bane3';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane2", "bane2");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=2, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}	
+
+else if($buzzyconnection_value==2){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane4';
+// MySQL password
+$mysql_password =  'bane4';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane3", "bane3");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=3, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==3){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane5';
+// MySQL password
+$mysql_password =  'bane5';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane4", "bane4");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=4, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==4){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane6';
+// MySQL password
+$mysql_password =  'bane6';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane5", "bane5");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=5, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==5){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane7';
+// MySQL password
+$mysql_password =  'bane7';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane6", "bane6");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=6, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==6){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane8';
+// MySQL password
+$mysql_password =  'bane8';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane7", "bane7");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=7, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==7){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane9';
+// MySQL password
+$mysql_password =  'bane9';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane8", "bane8");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=8, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==8){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane10';
+// MySQL password
+$mysql_password =  'bane10';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane9", "bane9");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=9, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}	
+
+else if($buzzyconnection_value==9){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane11';
+// MySQL password
+$mysql_password =  'bane11';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane10", "bane10");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=10, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}	
+
+else if($buzzyconnection_value==10){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane12';
+// MySQL password
+$mysql_password =  'bane12';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane11", "bane11");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=11, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}	
+
+else if($buzzyconnection_value==11){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane13';
+// MySQL password
+$mysql_password =  'bane13';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane12", "bane12");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=12, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==12){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane14';
+// MySQL password
+$mysql_password =  'bane14';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane13", "bane13");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=13, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}	
+
+else if($buzzyconnection_value==13){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane15';
+// MySQL password
+$mysql_password =  'bane15';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane14", "bane14");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=14, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==14){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane16';
+// MySQL password
+$mysql_password =  'bane16';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane15", "bane15");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=15, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==15){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane17';
+// MySQL password
+$mysql_password =  'bane17';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane16", "bane16");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=16, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==16){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane18';
+// MySQL password
+$mysql_password =  'bane18';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane17", "bane17");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=17, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+
+}
+
+else if($buzzyconnection_value==17){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane19';
+// MySQL password
+$mysql_password =  'bane19';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane18", "bane18");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=18, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==18){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane20';
+// MySQL password
+$mysql_password =  'bane20';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane19", "bane19");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=19, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==19){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane21';
+// MySQL password
+$mysql_password =  'bane21';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane20", "bane20");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=20, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==20){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane22';
+// MySQL password
+$mysql_password =  'bane22';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane21", "bane21");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=21, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==21){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane23';
+// MySQL password
+$mysql_password =  'bane23';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane22", "bane22");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=22, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==22){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane24';
+// MySQL password
+$mysql_password =  'bane24';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane23", "bane23");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=23, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==23){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane25';
+// MySQL password
+$mysql_password =  'bane25';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane24", "bane24");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=24, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==24){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane26';
+// MySQL password
+$mysql_password =  'bane26';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane25", "bane25");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=25, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==25){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane27';
+// MySQL password
+$mysql_password =  'bane27';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane26", "bane26");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=26, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==26){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane28';
+// MySQL password
+$mysql_password =  'bane28';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane27", "bane27");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=27, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==27){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane29';
+// MySQL password
+$mysql_password =  'bane29';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane28", "bane28");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=28, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==28){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane30';
+// MySQL password
+$mysql_password =  'bane30';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane29", "bane29");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=29, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==29){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane31';
+// MySQL password
+$mysql_password =  'bane31';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane30", "bane30");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=30, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+else if($buzzyconnection_value==30){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane32';
+// MySQL password
+$mysql_password =  'bane32';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane31", "bane31");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=31, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==31){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane33';
+// MySQL password
+$mysql_password =  'bane33';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane32", "bane32");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=32, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}	
+else if($buzzyconnection_value==32){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane34';
+// MySQL password
+$mysql_password =  'bane34';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane33", "bane33");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=33, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}	
+
+else if($buzzyconnection_value==33){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane35';
+// MySQL password
+$mysql_password =  'bane35';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane34", "bane34");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=34, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==34){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane36';
+// MySQL password
+$mysql_password =  'bane36';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane35", "bane35");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=35, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==35){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane37';
+// MySQL password
+$mysql_password =  'bane37';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane36", "bane36");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=36, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==36){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane38';
+// MySQL password
+$mysql_password =  'bane38';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane37", "bane37");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=37, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==37){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane39';
+// MySQL password
+$mysql_password =  'bane39';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane38", "bane38");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=38, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==38){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane40';
+// MySQL password
+$mysql_password =  'bane40';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane39", "bane39");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=39, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==39){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane41';
+// MySQL password
+$mysql_password =  'bane41';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane40", "bane40");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=40, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==40){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane42';
+// MySQL password
+$mysql_password =  'bane42';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane41", "bane41");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=41, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==41){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane43';
+// MySQL password
+$mysql_password =  'bane43';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane42", "bane42");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=42, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==42){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane44';
+// MySQL password
+$mysql_password =  'bane44';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane43", "bane43");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=43, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==43){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane45';
+// MySQL password
+$mysql_password =  'bane45';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane44", "bane44");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=44, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==44){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane46';
+// MySQL password
+$mysql_password =  'bane46';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane45", "bane45");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=45, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==45){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane47';
+// MySQL password
+$mysql_password =  'bane47';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane46", "bane46");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=46, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==46){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane48';
+// MySQL password
+$mysql_password =  'bane48';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane47", "bane47");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=47, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==47){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane49';
+// MySQL password
+$mysql_password =  'bane49';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane48", "bane48");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=48, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==48){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane50';
+// MySQL password
+$mysql_password =  'bane50';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane49", "bane49");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=49, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==49){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane51';
+// MySQL password
+$mysql_password =  'bane51';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane50", "bane50");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=50, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==50){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane52';
+// MySQL password
+$mysql_password =  'bane52';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane51", "bane51");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=51, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==51){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane53';
+// MySQL password
+$mysql_password =  'bane53';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane52", "bane52");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=52, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==52){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane54';
+// MySQL password
+$mysql_password =  'bane54';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane53", "bane53");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=53, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==53){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane55';
+// MySQL password
+$mysql_password =  'bane55';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane54", "bane54");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=54, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==54){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane56';
+// MySQL password
+$mysql_password =  'bane56';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane55", "bane55");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=55, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==55){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane57';
+// MySQL password
+$mysql_password =  'bane57';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane56", "bane56");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=56, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==56){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane58';
+// MySQL password
+$mysql_password =  'bane58';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane57", "bane57");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=57, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==57){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane59';
+// MySQL password
+$mysql_password =  'bane59';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane58", "bane58");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=58, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==58){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane60';
+// MySQL password
+$mysql_password =  'bane60';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane59", "bane59");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=59, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+else if($buzzyconnection_value==59){	
+$dbstr=file_get_contents('includes/connection.inc.php');
+$dbstr1 = htmlspecialchars($dbstr, ENT_QUOTES);
+// MySQL username
+$mysql_username =  'bane1';
+// MySQL password
+$mysql_password =  'bane1';	
+//read the entire string
+//replace something in the file string - this is a VERY simple example
+$oldonetxt = array("bane60", "bane60");
+$newonetxt   = array($mysql_username,$mysql_password);
+$newphrase = str_replace($oldonetxt , $newonetxt, $dbstr);
+file_put_contents('includes/connection.inc.php',$newphrase);
+$update_conn_query = "UPDATE buzzyconnection SET buzzyconnection_value=0, 
+		buzzyconnection_timestamp=:buzzyconnection_timestamp WHERE 	buzzyconnection_id=1";
+        $stmt = $connwrite->prepare($update_conn_query);
+        // bind the parameters and execute the statement
+		$stmt->bindParam(':buzzyconnection_timestamp', $now, PDO::PARAM_STR);
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+}
+
+}
+
+ $demo_user_query = "SELECT * FROM buzzyusers WHERE buzzyuser_id=344";
+ foreach ($connread->query($demo_user_query) as $row) {
+ $demo_buzzyuser_onlinestatus=$row['buzzyuser_onlinestatus'];
+ }
+if($buzzywebsite_status==1){ 
+ if ($demo_buzzyuser_onlinestatus == 0){
+ $delete_usermessage_query = "DELETE  FROM chatmessages WHERE user_id=344  AND time>1491896637";
+$stmt = $connwrite->prepare($delete_usermessage_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+        $update_uas_options_query = "UPDATE buzzyusers SET buzzyuser_theme=0 WHERE buzzyuser_id=344";
+        $stmt = $connwrite->prepare($update_uas_options_query);
+        // bind the parameters and execute the statement				
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+		$update_ubs_options_query = "UPDATE buzzyusers SET buzzyuser_animation=6 WHERE buzzyuser_id=344";
+        $stmt = $connwrite->prepare($update_ubs_options_query);
+        // bind the parameters and execute the statement				
+        // execute and get number of affected rows
+        $stmt->execute();
+        $OK = $stmt->rowCount();
+
+ $delete_contact_query = "DELETE  FROM buddies WHERE (user_id=344 OR friend=344) AND friend_timestamp>1491896637";
+$stmt = $connwrite->prepare($delete_contact_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+ $delete_recmessage_query = "DELETE  FROM chatmessages WHERE receiver=344  AND time>1491896637";
+$stmt = $connwrite->prepare($delete_recmessage_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_nots_query = "DELETE  FROM buzzynotifications WHERE buzzyuser_id=344";
+$stmt = $connwrite->prepare($delete_nots_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+
+$delete_userint_query = "DELETE  FROM buzzyuser_interests WHERE buzzyuser_id=344 AND buzzyuser_interest_id>=20";
+$stmt = $connwrite->prepare($delete_userint_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userfilter_query = "DELETE FROM buzzyfilter WHERE buzzyuser_id=344";
+$stmt = $connwrite->prepare($delete_userfilter_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userlikes_query = "DELETE  FROM buzzyuserliked WHERE buzzyuser_id=344";
+$stmt = $connwrite->prepare($delete_userlikes_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+
+$delete_userunlikes_query = "DELETE  FROM buzzyuserunliked WHERE buzzyuser_id=344";
+$stmt = $connwrite->prepare($delete_userunlikes_query);
+$stmt->execute();
+$OK = $stmt->rowCount();
+ }
+ }

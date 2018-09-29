@@ -1,0 +1,22 @@
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+h1,h2,h3,h4,h5,h6{
+    font-family: 'Oswald'!important;	
+	 }
+.category-tag{
+    font-family: 'Oswald'!important;	 
+}
+.user-tag{
+     font-family: 'Oswald'!important;
+}
+.nav-link{
+    font-family: 'Oswald'!important;	
+	font-size:14px!important;
+}
+#nav ul li a{
+    font-family: 'Oswald'!important;	
+	font-size:14px!important;
+	  }
+ #mobile-nav-link ul li a {
+    font-family: 'Oswald'!important;	
+	font-size:14px!important;
+	}

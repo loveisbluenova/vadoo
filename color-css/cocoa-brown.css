@@ -1,0 +1,66 @@
+#header{
+background:#D2691E!important;
+}
+.btn-primary,.btn-follow {
+background:#bc6323!important;
+border-color:#a15c2a!important;
+}
+#mobile-nav-link ul {
+border-bottom:3px solid #D2691E!important;
+}
+.suggested{
+background:#D2691E!important;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+  background: #fff!important;
+  color:#D2691E!important;
+}
+ul#user-header  li a:hover{
+  color:#D2691E!important;
+}
+#side-container span{
+color:#D2691E!important;
+}
+li.small-text a{
+color:#D2691E!important;
+}
+li.small-text a:hover{
+color:#a15c2a!important;
+}
+.vote-container a{
+color:#D2691E!important;
+}
+.vote-container a:hover{
+color:#a15c2a!important;
+}
+#sort-button{
+background:#bc6323!important;
+}
+.dropdown-toggle{
+background:#bc6323!important;
+}
+span.info-text a{
+color:#D2691E!important;
+}
+.btn-primary:hover{
+background:#b0632b!important;
+border-color:#a15c2a!important;
+}
+.btn-follow:hover{
+background:#b0632b!important;
+border-color:#a15c2a!important;
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus{
+background-color:#D2691E!important;
+border-color:#D2691E!important;
+}
+a#tab-chats{
+color:#D2691E!important;
+}
+a#tab-contacts{
+color:#D2691E!important;
+}
+.active-message{
+color:#D2691E!important;	  
+ }
