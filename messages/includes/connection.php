@@ -1,7 +1,7 @@
 <?php
 
 	// DB Connection Configuration
-	define('DB_HOST', '52.56.181.79'); 
+	define('DB_HOST', 'ip-172-26-10-85.eu-west-2.compute.internal'); 
 	define('DB_USERNAME', 'root'); 
 	define('DB_PASSWORD', 'root'); 
 	define('DATABASE', 'vadoo'); 
